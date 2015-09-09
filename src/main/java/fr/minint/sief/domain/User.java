@@ -1,25 +1,24 @@
 package fr.minint.sief.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.validator.constraints.Email;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
-import fr.minint.sief.domain.util.CustomDateTimeSerializer;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 import org.joda.time.DateTime;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
+import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 
 /**
  * A user.
@@ -30,10 +29,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Id
     private String id;
 
+    @Email
     @NotNull
-    @Pattern(regexp = "^[a-z0-9]*$")
-    @Size(min = 1, max = 50)
-    private String login;
+    @Size(min = 5, max = 100)
+    private String email;
 
     @JsonIgnore
     @NotNull
@@ -47,10 +46,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size(max = 50)
     @Field("last_name")
     private String lastName;
-
-    @Email
-    @Size(max = 100)
-    private String email;
 
     private boolean activated = false;
 
@@ -81,14 +76,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getPassword() {
@@ -182,7 +169,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
         User user = (User) o;
 
-        if (!login.equals(user.login)) {
+        if (!email.equals(user.email)) {
             return false;
         }
 
@@ -191,16 +178,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Override
     public int hashCode() {
-        return login.hashCode();
+        return email.hashCode();
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
+                "email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
                 ", activated='" + activated + '\'' +
                 ", langKey='" + langKey + '\'' +
                 ", activationKey='" + activationKey + '\'' +

@@ -105,6 +105,5 @@
     "error" : {
         "serverNotReachable" : "Server not reachable",
         "NotNull" : "Field {{fieldName}} cannot be empty!"
-    },
-    "footer": "This is your footer"
+    }
 }

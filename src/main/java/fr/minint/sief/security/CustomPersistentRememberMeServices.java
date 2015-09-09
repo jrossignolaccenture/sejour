@@ -1,9 +1,12 @@
 package fr.minint.sief.security;
 
-import fr.minint.sief.domain.PersistentToken;
-import fr.minint.sief.domain.User;
-import fr.minint.sief.repository.PersistentTokenRepository;
-import fr.minint.sief.repository.UserRepository;
+import java.security.SecureRandom;
+import java.util.Arrays;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.joda.time.LocalDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,11 +23,9 @@ import org.springframework.security.web.authentication.rememberme.RememberMeAuth
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.security.SecureRandom;
-import java.util.Arrays;
+import fr.minint.sief.domain.PersistentToken;
+import fr.minint.sief.repository.PersistentTokenRepository;
+import fr.minint.sief.repository.UserRepository;
 
 /**
  * Custom implementation of Spring Security's RememberMeServices.
@@ -84,7 +85,7 @@ public class CustomPersistentRememberMeServices extends
     protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request, HttpServletResponse response) {
 
         PersistentToken token = getPersistentToken(cookieTokens);
-        String login = token.getUser().getLogin();
+        String login = token.getUser().getEmail();
 
         // Token also matches, so login is valid. Update the token value, keeping the *same* series number.
         log.debug("Refreshing persistent login token for user '{}', series '{}'", login, token.getSeries());
@@ -107,7 +108,7 @@ public class CustomPersistentRememberMeServices extends
         String login = successfulAuthentication.getName();
 
         log.debug("Creating new persistent login for user {}", login);
-        PersistentToken token = userRepository.findOneByLogin(login).map(u -> {
+        PersistentToken token = userRepository.findOneByEmail(login).map(u -> {
             PersistentToken t = new PersistentToken();
             t.setSeries(generateSeriesData());
             t.setUser(u);

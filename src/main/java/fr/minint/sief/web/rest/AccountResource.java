@@ -1,6 +1,30 @@
 package fr.minint.sief.web.rest;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.codahale.metrics.annotation.Timed;
+
 import fr.minint.sief.domain.Authority;
 import fr.minint.sief.domain.PersistentToken;
 import fr.minint.sief.domain.User;
@@ -11,21 +35,6 @@ import fr.minint.sief.service.MailService;
 import fr.minint.sief.service.UserService;
 import fr.minint.sief.web.rest.dto.KeyAndPasswordDTO;
 import fr.minint.sief.web.rest.dto.UserDTO;
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * REST controller for managing the current user's account.
@@ -56,24 +65,20 @@ public class AccountResource {
             produces = MediaType.TEXT_PLAIN_VALUE)
     @Timed
     public ResponseEntity<?> registerAccount(@Valid @RequestBody UserDTO userDTO, HttpServletRequest request) {
-        return userRepository.findOneByLogin(userDTO.getLogin())
-            .map(user -> new ResponseEntity<>("login already in use", HttpStatus.BAD_REQUEST))
-            .orElseGet(() -> userRepository.findOneByEmail(userDTO.getEmail())
-                .map(user -> new ResponseEntity<>("e-mail address already in use", HttpStatus.BAD_REQUEST))
-                .orElseGet(() -> {
-                    User user = userService.createUserInformation(userDTO.getLogin(), userDTO.getPassword(),
-                    userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail().toLowerCase(),
-                    userDTO.getLangKey());
-                    String baseUrl = request.getScheme() + // "http"
-                    "://" +                                // "://"
-                    request.getServerName() +              // "myhost"
-                    ":" +                                  // ":"
-                    request.getServerPort();               // "80"
+        return userRepository.findOneByEmail(userDTO.getEmail())
+            .map(user -> new ResponseEntity<>("e-mail address already in use", HttpStatus.BAD_REQUEST))
+            .orElseGet(() -> {
+                User user = userService.createUserInformation(userDTO.getEmail().toLowerCase(), userDTO.getPassword(),
+                userDTO.getFirstName(), userDTO.getLastName(), userDTO.getLangKey());
+                String baseUrl = request.getScheme() + // "http"
+                "://" +                                // "://"
+                request.getServerName() +              // "myhost"
+                ":" +                                  // ":"
+                request.getServerPort();               // "80"
 
-                    mailService.sendActivationEmail(user, baseUrl);
-                    return new ResponseEntity<>(HttpStatus.CREATED);
-                })
-        );
+                mailService.sendActivationEmail(user, baseUrl);
+                return new ResponseEntity<>(HttpStatus.CREATED);
+            });
     }
 
     /**
@@ -113,11 +118,10 @@ public class AccountResource {
             .map(user -> {
                 return new ResponseEntity<>(
                     new UserDTO(
-                        user.getLogin(),
+                        user.getEmail(),
                         null,
                         user.getFirstName(),
                         user.getLastName(),
-                        user.getEmail(),
                         user.getLangKey(),
                         user.getAuthorities().stream().map(Authority::getName)
                             .collect(Collectors.toList())),
@@ -135,8 +139,8 @@ public class AccountResource {
     @Timed
     public ResponseEntity<String> saveAccount(@RequestBody UserDTO userDTO) {
         return userRepository
-            .findOneByLogin(userDTO.getLogin())
-            .filter(u -> u.getLogin().equals(SecurityUtils.getCurrentLogin()))
+            .findOneByEmail(userDTO.getEmail())
+            .filter(u -> u.getEmail().equals(SecurityUtils.getCurrentLogin()))
             .map(u -> {
                 userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(),
                     userDTO.getLangKey());
@@ -168,7 +172,7 @@ public class AccountResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<List<PersistentToken>> getCurrentSessions() {
-        return userRepository.findOneByLogin(SecurityUtils.getCurrentLogin())
+        return userRepository.findOneByEmail(SecurityUtils.getCurrentLogin())
             .map(user -> new ResponseEntity<>(
                 persistentTokenRepository.findByUser(user),
                 HttpStatus.OK))
@@ -193,7 +197,7 @@ public class AccountResource {
     @Timed
     public void invalidateSession(@PathVariable String series) throws UnsupportedEncodingException {
         String decodedSeries = URLDecoder.decode(series, "UTF-8");
-        userRepository.findOneByLogin(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
+        userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
             persistentTokenRepository.findByUser(u).stream()
                 .filter(persistentToken -> StringUtils.equals(persistentToken.getSeries(), decodedSeries))
                 .findAny().ifPresent(t -> persistentTokenRepository.delete(decodedSeries));

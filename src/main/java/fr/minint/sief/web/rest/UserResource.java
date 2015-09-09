@@ -48,9 +48,9 @@ public class UserResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    ResponseEntity<User> getUser(@PathVariable String login) {
-        log.debug("REST request to get User : {}", login);
-        return userRepository.findOneByLogin(login)
+    ResponseEntity<User> getUser(@PathVariable String email) {
+        log.debug("REST request to get User : {}", email);
+        return userRepository.findOneByEmail(email)
                 .map(user -> new ResponseEntity<>(user, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }

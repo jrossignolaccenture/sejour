@@ -1,8 +1,11 @@
 package fr.minint.sief.security;
 
-import fr.minint.sief.domain.Authority;
-import fr.minint.sief.domain.User;
-import fr.minint.sief.repository.UserRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,13 +15,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.Collections;
-import java.util.List;
+import fr.minint.sief.domain.User;
+import fr.minint.sief.repository.UserRepository;
 
 /**
  * Authenticate a user from the database.
@@ -36,7 +34,7 @@ public class UserDetailsService implements org.springframework.security.core.use
     public UserDetails loadUserByUsername(final String login) {
         log.debug("Authenticating {}", login);
         String lowercaseLogin = login.toLowerCase();
-        Optional<User> userFromDatabase =  userRepository.findOneByLogin(lowercaseLogin);
+        Optional<User> userFromDatabase =  userRepository.findOneByEmail(lowercaseLogin);
         return userFromDatabase.map(user -> {
             if (!user.getActivated()) {
                 throw new UserNotActivatedException("User " + lowercaseLogin + " was not activated");

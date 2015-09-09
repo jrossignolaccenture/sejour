@@ -1,13 +1,12 @@
 package fr.minint.sief.service;
 
-import fr.minint.sief.domain.Authority;
-import fr.minint.sief.domain.PersistentToken;
-import fr.minint.sief.domain.User;
-import fr.minint.sief.repository.AuthorityRepository;
-import fr.minint.sief.repository.PersistentTokenRepository;
-import fr.minint.sief.repository.UserRepository;
-import fr.minint.sief.security.SecurityUtils;
-import fr.minint.sief.service.util.RandomUtil;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.inject.Inject;
+
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.slf4j.Logger;
@@ -16,11 +15,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import fr.minint.sief.domain.Authority;
+import fr.minint.sief.domain.User;
+import fr.minint.sief.repository.AuthorityRepository;
+import fr.minint.sief.repository.PersistentTokenRepository;
+import fr.minint.sief.repository.UserRepository;
+import fr.minint.sief.security.SecurityUtils;
+import fr.minint.sief.service.util.RandomUtil;
 
 /**
  * Service class for managing users.
@@ -84,19 +85,18 @@ public class UserService {
            });
     }
 
-    public User createUserInformation(String login, String password, String firstName, String lastName, String email,
+    public User createUserInformation(String email, String password, String firstName, String lastName, 
                                       String langKey) {
 
         User newUser = new User();
         Authority authority = authorityRepository.findOne("ROLE_USER");
         Set<Authority> authorities = new HashSet<>();
         String encryptedPassword = passwordEncoder.encode(password);
-        newUser.setLogin(login);
+        newUser.setEmail(email);
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        newUser.setEmail(email);
         newUser.setLangKey(langKey);
         // new user is not active
         newUser.setActivated(false);
@@ -110,7 +110,7 @@ public class UserService {
     }
 
     public void updateUserInformation(String firstName, String lastName, String email, String langKey) {
-        userRepository.findOneByLogin(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
+        userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
             u.setFirstName(firstName);
             u.setLastName(lastName);
             u.setEmail(email);
@@ -121,7 +121,7 @@ public class UserService {
     }
 
     public void changePassword(String password) {
-        userRepository.findOneByLogin(SecurityUtils.getCurrentLogin()).ifPresent(u-> {
+        userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).ifPresent(u-> {
             String encryptedPassword = passwordEncoder.encode(password);
             u.setPassword(encryptedPassword);
             userRepository.save(u);
@@ -130,7 +130,7 @@ public class UserService {
     }
 
     public User getUserWithAuthorities() {
-        User currentUser = userRepository.findOneByLogin(SecurityUtils.getCurrentLogin()).get();
+        User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
         currentUser.getAuthorities().size(); // eagerly load the association
         return currentUser;
     }
@@ -164,7 +164,7 @@ public class UserService {
         DateTime now = new DateTime();
         List<User> users = userRepository.findAllByActivatedIsFalseAndCreatedDateBefore(now.minusDays(3));
         for (User user : users) {
-            log.debug("Deleting not activated user {}", user.getLogin());
+            log.debug("Deleting not activated user {}", user.getEmail());
             userRepository.delete(user);
         }
     }
