@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "sejour",
+    "packageName": "fr.minint.sief",
+    "packageFolder": "fr/minint/sief",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": true,
+    "rememberMeKey": "48b03385818c03cbf8ef625f23533e65c1fab6ca"
+  }
+}
