@@ -1,0 +1,12 @@
+{
+    "etudier": {
+        "title": "Je veux venir étudier en France",
+        "form": {
+        	"campus": "Avez-vous un compte Campus France ?",
+        	"button": {
+        		"yes": "Oui",
+        		"no": "Non"
+        	}
+        }
+    }
+}

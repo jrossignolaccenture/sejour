@@ -1,0 +1,12 @@
+{
+    "etudier": {
+        "title": "I want to study in France",
+        "form": {
+        	"campus": "Do you have a Campus France account ?",
+        	"button": {
+        		"yes": "Yes",
+        		"no": "No"
+        	}
+        }
+    }
+}
