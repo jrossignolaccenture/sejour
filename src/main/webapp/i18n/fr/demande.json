@@ -1,0 +1,22 @@
+{
+    "sejourApp": {
+        "demande" : {
+            "home": {
+                "title": "Demandes",
+                "createLabel": "Créer un nouveau Demande",
+                "createOrEditLabel": "Créer ou éditer un Demande"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Demande {{ id }} ?"
+            },
+            "detail": {
+                "title": "Demande"
+            },
+            "nature": "Nature",
+            "type": "Type",
+            "statut": "Statut",
+            "demandeComplementaire": "DemandeComplementaire"
+        }
+    }
+}
+

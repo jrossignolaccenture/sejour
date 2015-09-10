@@ -1,0 +1,10 @@
+{
+    "sejourApp": {
+        "NatureDemande" : {
+            "SELECT": "{VALUE, select, sejour_etudiant{sejour_etudiant} sejour_salarie{sejour_salarie} sejour_competences_talents{sejour_competences_talents} other{}}",
+            "sejour_etudiant": "sejour_etudiant",
+            "sejour_salarie": "sejour_salarie",
+            "sejour_competences_talents": "sejour_competences_talents"
+        }
+    }
+}

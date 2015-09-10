@@ -67,7 +67,7 @@ class DemandeGatlingTest extends Simulation {
             .exec(http("Create new demande")
             .post("/api/demandes")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "nature":null}""")).asJSON
+            .body(StringBody("""{"id":null, "nature":null, "type":null, "statut":null, "demandeComplementaire":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_demande_url")))
             .pause(10)

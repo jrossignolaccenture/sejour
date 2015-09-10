@@ -1,0 +1,12 @@
+{
+    "sejourApp": {
+        "StatutDemande" : {
+            "SELECT": "{VALUE, select, depose{depose} instruction{instruction} attente{attente} cloture{cloture} annule{annule} other{}}",
+            "depose": "depose",
+            "instruction": "instruction",
+            "attente": "attente",
+            "cloture": "cloture",
+            "annule": "annule"
+        }
+    }
+}

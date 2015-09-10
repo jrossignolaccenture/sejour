@@ -1,0 +1,39 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "nature",
+            "fieldType": "NatureDemande",
+            "fieldValues": "sejour_etudiant,sejour_salarie,sejour_competences_talents",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "type",
+            "fieldType": "TypeDemande",
+            "fieldValues": "premiere,reexamen",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "statut",
+            "fieldType": "StatutDemande",
+            "fieldValues": "depose,instruction,attente,cloture,annule",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "demandeComplementaire",
+            "fieldType": "Boolean"
+        }
+    ],
+    "dto": "mapstruct",
+    "pagination": "no"
+}

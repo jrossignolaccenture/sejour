@@ -1,0 +1,24 @@
+{
+    "sejourApp": {
+        "demande" : {
+            "home": {
+                "title": "Demandes",
+                "createLabel": "Create a new Demande",
+                "createOrEditLabel": "Create or edit a Demande"
+            },
+            "created": "A new Demande is created with identifier {{ param }}",
+            "updated": "A Demande is updated with identifier {{ param }}",
+            "deleted": "A Demande is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Demande {{ id }}?"
+            },
+            "detail": {
+                "title": "Demande"
+            },
+            "nature": "Nature",
+            "type": "Type",
+            "statut": "Statut",
+            "demandeComplementaire": "DemandeComplementaire"
+        }
+    }
+}

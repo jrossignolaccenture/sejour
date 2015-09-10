@@ -6,7 +6,7 @@
 	        "family": "I want to <strong>get my family</strong> in France",
 	        "extend": "I want to <strong>extend my stay</strong> in France",
 	        "user.account": "I want to <strong>manage my personal account</strong>",
-	        "request.inprogress": "I want to <strong>follow</strong> my request"
+	        "follow": "I want to <strong>follow</strong> my request"
         }
     }
 }
