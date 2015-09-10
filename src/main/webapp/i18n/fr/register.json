@@ -2,6 +2,9 @@
     "register": {
         "title": "Création de compte",
         "form": {
+            "type": "Je suis",
+            "type.company" : "une entreprise",
+            "type.person" : "une personne",
             "button": "Enregistrement"
         },
         "messages": {

@@ -20,6 +20,10 @@ public class UserDTO {
 	@NotNull
 	@Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH)
 	private String password;
+	
+	/** ENUM = COMPANY, PERSON */
+	@NotNull
+	private String type;
 
 	@Size(max = 50)
 	private String firstName;
@@ -35,14 +39,23 @@ public class UserDTO {
 	public UserDTO() {
 	}
 
-	public UserDTO(String email, String password, String firstName,
+	public UserDTO(String email, String password, String type, String firstName,
 			String lastName, String langKey, List<String> roles) {
 		this.email = email;
 		this.password = password;
+		this.type = type;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.langKey = langKey;
 		this.roles = roles;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getType() {
+		return type;
 	}
 
 	public String getPassword() {
@@ -57,10 +70,6 @@ public class UserDTO {
 		return lastName;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
 	public String getLangKey() {
 		return langKey;
 	}
@@ -71,9 +80,13 @@ public class UserDTO {
 
 	@Override
 	public String toString() {
-		return "UserDTO{" + "email='" + email + '\'' + ", password='"
-				+ password + '\'' + ", firstName='" + firstName + '\''
-				+ ", lastName='" + lastName + '\'' + ", langKey='" + langKey
-				+ '\'' + ", roles=" + roles + '}';
+		return "UserDTO{" + 
+				"email='" + email + '\'' + 
+				", password='" + password + '\'' + 
+				", type='" + type + '\'' + 
+				", firstName='" + firstName + '\'' + 
+				", lastName='" + lastName + '\'' + 
+				", langKey='" + langKey + '\'' + 
+				", roles=" + roles + '}';
 	}
 }

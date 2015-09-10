@@ -166,3 +166,81 @@ ul#strengthBar {
     background-color: #eee;
     opacity: 1;
 }
+
+
+.customwell {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+}
+
+
+/* MENU ACCUEIL */
+
+.white {
+    color: white;
+}
+
+.btn-lg {
+    font-size: 38px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+
+.box > .icon {
+    text-align: center;
+    position: relative;
+	cursor: pointer;
+}
+
+.box > .icon > .image {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    width: 88px;
+    height: 88px;
+    border: 7px solid white;
+    line-height: 88px;
+    border-radius: 50%;
+    background: rgb(53, 86, 137);
+    vertical-align: middle;
+}
+
+.box > .icon:hover > .image {
+    border: 4px solid black;
+}
+
+.box > .icon > .image > i {
+    font-size: 40px !important;
+    color: #fff !important;
+}
+
+.box > .icon:hover > .image > i {
+    color: white !important;
+}
+
+.box > .icon > .info {
+    margin-top: -24px;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px 0 10px 0;
+}
+
+.box > .icon > .info > p {
+    color: #666;
+    line-height: 1.5em;
+    margin: 20px;
+}
+
+.box > .icon:hover > .info {
+    border: 1px solid #888888;
+}
+
+.box > .icon:hover > .info > p {
+    color: #222;
+}
+
+.box .space {
+    height: 30px;
+}

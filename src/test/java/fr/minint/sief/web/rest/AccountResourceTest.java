@@ -156,6 +156,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "joe@example.com",      // e-mail
             "password",             // password
+            "PERSON",				// type
             "Joe",                  // firstName
             "Shmoe",                // lastName
             "en",                   // langKey
@@ -178,6 +179,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "funkymail",       // e-mail <-- invalid
             "password",         // password
+            "PERSON",			// type
             "Bob",              // firstName
             "Green",            // lastName
             "en",               // langKey
@@ -201,6 +203,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "john@example.com",     // e-mail
             "password",             // password
+            "PERSON",				// type
             "John",                 // firstName
             "Doe",                  // lastName
             "en",                   // langKey
@@ -208,7 +211,7 @@ public class AccountResourceTest {
         );
 
         // Duplicate e-mail, different login
-        UserDTO dup = new UserDTO(u.getEmail(), u.getPassword(), "otherJohn", "otherDoe",
+        UserDTO dup = new UserDTO(u.getEmail(), u.getPassword(), u.getType(), "otherJohn", "otherDoe",
             u.getLangKey(), u.getRoles());
 
         // Good user
@@ -235,6 +238,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "badguy@example.com",   // e-mail
             "password",             // password
+            "PERSON",				// type
             "Bad",                  // firstName
             "Guy",                  // lastName
             "en",                   // langKey

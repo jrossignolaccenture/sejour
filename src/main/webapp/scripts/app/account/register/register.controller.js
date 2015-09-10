@@ -6,7 +6,7 @@ angular.module('sejourApp')
         $scope.error = null;
         $scope.doNotMatch = null;
         $scope.registerAccount = {};
-        $timeout(function (){angular.element('[ng-model="registerAccount.login"]').focus();});
+        $timeout(function (){angular.element('[ng-model="registerAccount.email"]').focus();});
 
         $scope.register = function () {
             if ($scope.registerAccount.password !== $scope.confirmPassword) {

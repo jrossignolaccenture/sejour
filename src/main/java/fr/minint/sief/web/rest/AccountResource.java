@@ -69,7 +69,7 @@ public class AccountResource {
             .map(user -> new ResponseEntity<>("e-mail address already in use", HttpStatus.BAD_REQUEST))
             .orElseGet(() -> {
                 User user = userService.createUserInformation(userDTO.getEmail().toLowerCase(), userDTO.getPassword(),
-                userDTO.getFirstName(), userDTO.getLastName(), userDTO.getLangKey());
+                userDTO.getType(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getLangKey());
                 String baseUrl = request.getScheme() + // "http"
                 "://" +                                // "://"
                 request.getServerName() +              // "myhost"
@@ -120,6 +120,7 @@ public class AccountResource {
                     new UserDTO(
                         user.getEmail(),
                         null,
+                        user.getType(),
                         user.getFirstName(),
                         user.getLastName(),
                         user.getLangKey(),

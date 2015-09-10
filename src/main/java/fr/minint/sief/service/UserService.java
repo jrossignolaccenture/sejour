@@ -85,7 +85,7 @@ public class UserService {
            });
     }
 
-    public User createUserInformation(String email, String password, String firstName, String lastName, 
+    public User createUserInformation(String email, String password, String type, String firstName, String lastName, 
                                       String langKey) {
 
         User newUser = new User();
@@ -95,6 +95,7 @@ public class UserService {
         newUser.setEmail(email);
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);
+        newUser.setType(type);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setLangKey(langKey);

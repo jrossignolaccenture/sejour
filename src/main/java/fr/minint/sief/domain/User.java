@@ -38,6 +38,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @NotNull
     @Size(min = 60, max = 60) 
     private String password;
+	
+	/** ENUM = COMPANY, PERSON, UNIVERSITY */
+	@NotNull
+	private String type;
 
     @Size(max = 50)
     @Field("first_name")
@@ -78,12 +82,28 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.id = id;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getFirstName() {
@@ -100,14 +120,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public boolean getActivated() {
@@ -185,6 +197,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public String toString() {
         return "User{" +
                 "email='" + email + '\'' +
+                ", type='" + type + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", activated='" + activated + '\'' +

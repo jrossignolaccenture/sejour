@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h1 translate="register.title">Registration</h1>
-
+			<br>
+			
             <div class="alert alert-success" ng-show="success" translate="register.messages.success">
                 <strong>Registration saved!</strong> Please check your email for confirmation.
             </div>
@@ -21,6 +22,20 @@
 
             <form ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
 
+                <div class="form-group">
+	                <label translate="register.form.type">I am</label>
+	                <div>
+	                    <label class="radio-inline"><input type="radio" id="type" name="type" ng-model="registerAccount.type" value="company" required>{{'register.form.type.company' | translate}}</label>
+						<label class="radio-inline"><input type="radio" id="type" name="type" ng-model="registerAccount.type" value="person" required>{{'register.form.type.person' | translate}}</label>
+                    </div>
+                    <div ng-show="form.type.$dirty && form.type.$invalid">
+                        <p class="help-block"
+                               ng-show="form.type.$error.required" translate="register.messages.validate.type.required">
+                            Your situation is required.
+                        </p>
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label for="email" translate="global.form.email">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"

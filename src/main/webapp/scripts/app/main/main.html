@@ -1,20 +1,69 @@
 <div ng-cloak>
     <div class="row">
-        <div class="col-md-4">
-            <span class="hipster img-responsive img-rounded"></span>
+        <div class="col-xs-12 col-sm-6 col-lg-4" ng-click="count = count + 1" ng-init="count=0">
+            <div class="box">
+                <div class="icon">
+                    <div class="image"><span class="glyphicon glyphicon-education btn-lg white"></span></div>
+                    <div class="info">
+                        <p translate="main.title.study">I want to <strong>study</strong> in France</p>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
         </div>
-        <div class="col-md-8">
-            <h1 translate="main.title">Welcome, Java Hipster!</h1>
-            <p class="lead" translate="main.subtitle">This is your homepage</p>
-
-            <div ng-switch="isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true" translate="main.logged.message" translate-values="{username: '{{account.login}}'}">
-                    You are logged in as user "{{account.login}}".
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="box">
+                <div class="icon">
+                    <div class="image"><span class="glyphicon glyphicon-briefcase btn-lg white"></span></div>
+                    <div class="info">
+                        <p translate="main.title.work">I want to <strong>work</strong> in France</p>
+                    </div>
                 </div>
-
-                <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.register">
-                    You don't have an account yet? <a href="#/register">Register a new account</a>
+                <div class="space"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="box">
+                <div class="icon">
+                    <div class="image"><span class="glyphicon glyphicon-home btn-lg white"></span></div>
+                    <div class="info">
+                        <p translate="main.title.family">I want to <strong>get my family</strong> in France</p>
+                    </div>
                 </div>
+                <div class="space"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="box">
+                <div class="icon">
+                    <div class="image"><span class="glyphicon glyphicon-repeat btn-lg white"></span></div>
+                    <div class="info">
+                        <p translate="main.title.extend">I want to <strong>extend my stay</strong> in France</p>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="box">
+                <div class="icon">
+                    <div class="image"><span class="glyphicon glyphicon-user btn-lg white"></span></div>
+                    <div class="info">
+                        <p translate="main.title.user.account">I want to <strong>manage my personal account</strong></p>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="box">
+                <div class="icon">
+                    <div class="image"><span class="glyphicon glyphicon-folder-open btn-lg white"></span></div>
+                    <div class="info">
+                        <p translate="main.title.study">I want to <strong>follow</strong> my request</p>
+                    </div>
+                </div>
+                <div class="space"></div>
             </div>
         </div>
     </div>

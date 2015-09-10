@@ -2,6 +2,9 @@
     "register": {
         "title": "Registration",
         "form": {
+            "type": "I am",
+            "type.company" : "a company",
+            "type.person" : "a person",
             "button": "Register"
         },
         "messages": {
