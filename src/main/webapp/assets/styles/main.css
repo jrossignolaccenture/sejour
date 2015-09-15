@@ -181,6 +181,10 @@ ul#strengthBar {
     color: white;
 }
 
+.cursor-pointer {
+	cursor: pointer;
+}
+
 .btn-lg {
     font-size: 38px;
     line-height: 1.33;
@@ -190,7 +194,6 @@ ul#strengthBar {
 .box > .icon {
     text-align: center;
     position: relative;
-	cursor: pointer;
 }
 
 .box > .icon > .image {
@@ -208,15 +211,6 @@ ul#strengthBar {
 
 .box > .icon:hover > .image {
     border: 4px solid black;
-}
-
-.box > .icon > .image > i {
-    font-size: 40px !important;
-    color: #fff !important;
-}
-
-.box > .icon:hover > .image > i {
-    color: white !important;
 }
 
 .box > .icon > .info {

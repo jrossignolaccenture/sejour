@@ -1,12 +1,36 @@
 {
     "etudier": {
-        "title": "Je veux venir étudier en France",
-        "form": {
-        	"campus": "Avez-vous un compte Campus France ?",
-        	"button": {
-        		"yes": "Oui",
-        		"no": "Non"
-        	}
-        }
+        "title": "Demande de séjour étudiant",
+        "button": "Démarrer",
+    	"information" : {
+    		"title": "Information",
+    		"subtitle": "4 étapes pour déposer votre demande"
+    	},
+    	"civil" : {
+    		"title": "Etat-civil",
+    		"subtitle": ""
+    	},
+    	"address" : {
+    		"title": "Coordonnées",
+    		"subtitle": ""
+    	},
+    	"project" : {
+    		"title": "Projet",
+    		"subtitle": ""
+    	},
+    	"payment" : {
+    		"title": "Paiement",
+    		"subtitle": ""
+    	},
+    	"campus": {
+	        "title": "Je veux venir étudier en France",
+	        "form": {
+	        	"campus": "Avez-vous un compte Campus France ?",
+	        	"button": {
+	        		"yes": "Oui",
+	        		"no": "Non"
+	        	}
+	        }
+	    }
     }
 }

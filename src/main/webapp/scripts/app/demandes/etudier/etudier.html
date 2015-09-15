@@ -1,15 +1,64 @@
-<div>
+<div ng-cloak>
+	<div class="row">
+    	<div class="col-md-8">
+    		<p translate="etudier.title">Request for a student stay</p>
+    	</div>
+    </div>
     <div class="row">
-    	<div class="col-md-8 col-md-offset-2">
-            <h3 translate="etudier.title">I want to <strong>study<string> in France</h3>
-			<br>
-			<div class="form-group">
-                <label translate="etudier.form.campus">Do you have a Campus France account ?</label>
-	            <div>
-	                <button class="btn btn-primary" translate="etudier.form.button.yes">Yes</button>
-	                <button class="btn btn-primary" translate="etudier.form.button.no">No</button>
+    	<div class="col-md-8">
+    		<steps-menu></steps-menu>
+	    </div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-8">
+    		<h3 translate="etudier.information.subtitle">4 steps for your request</h3>
+    	</div>
+   	</div>
+   	
+	<div class="row">
+    	<div class="col-md-3 steps-list">
+	        <div class="box">
+	            <div class="icon">
+	                <div class="number">
+	                	<span class="btn-lg white">1</span>
+	                </div>
 	            </div>
 	        </div>
-		</div>
-    </div>
+	    </div>
+	</div>
+	<div class="row">
+    	<div class="col-md-3 steps-list">
+	        <div class="box">
+	            <div class="icon">
+	                <div class="number"><span class="btn-lg white">2</span></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="row">
+    	<div class="col-md-3 steps-list">
+	        <div class="box">
+	            <div class="icon">
+	                <div class="number"><span class="btn-lg white">3</span></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="row">
+    	<div class="col-md-3 steps-list">
+	        <div class="box">
+	            <div class="icon">
+	                <div class="number"><span class="btn-lg white">4</span></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="row">
+    	<div class="col-md-8">
+    		<a ui-sref="home">
+        		<button class="btn btn-primary" translate="etudier.button">Register</button>
+        	</a>
+	    </div>
+	</div>
 </div>

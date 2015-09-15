@@ -1,12 +1,36 @@
 {
     "etudier": {
-        "title": "I want to study in France",
-        "form": {
-        	"campus": "Do you have a Campus France account ?",
-        	"button": {
-        		"yes": "Yes",
-        		"no": "No"
-        	}
-        }
+        "title": "Request for a student stay",
+        "button": "Start",
+    	"information" : {
+    		"title": "Information",
+    		"subtitle": "4 steps for your request"
+    	},
+    	"civil" : {
+    		"title": "Etat-civil",
+    		"subtitle": ""
+    	},
+    	"address" : {
+    		"title": "Coordonnées",
+    		"subtitle": ""
+    	},
+    	"project" : {
+    		"title": "Projet",
+    		"subtitle": ""
+    	},
+    	"payment" : {
+    		"title": "Paiement",
+    		"subtitle": ""
+    	},
+    	"campus": {
+	    	"title": "I want to study in France",
+	        "form": {
+	        	"campus": "Do you have a Campus France account ?",
+	        	"button": {
+	        		"yes": "Yes",
+	        		"no": "No"
+	        	}
+	        }
+	    }
     }
 }

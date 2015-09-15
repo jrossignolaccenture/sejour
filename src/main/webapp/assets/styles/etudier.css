@@ -1,0 +1,41 @@
+/** NUMBER BOX (écrase les box définit dans main.css pour customisation) **/
+
+.steps {
+	min-width: 600px;
+}
+
+.steps > .box {
+	display: inline-block;
+	min-width: 110px;
+}
+
+.steps-list > .box {
+	display: inline-block;
+	margin: 10px
+}
+
+.box.disable {
+    opacity: 0.4;
+}
+
+.box > .icon > .number {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    line-height: 60px;
+    border-radius: 50%;
+    background: rgb(53, 86, 137);
+    vertical-align: middle;
+}
+
+.box > .icon > .number > .btn-lg {
+    font-size: 28px;
+}
+
+.box > .icon > .title > p {
+    color: #222;
+    line-height: 1.5em;
+    margin: 5px;
+}
