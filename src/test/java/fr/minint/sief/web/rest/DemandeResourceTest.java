@@ -1,15 +1,23 @@
 package fr.minint.sief.web.rest;
 
-import fr.minint.sief.Application;
-import fr.minint.sief.domain.Demande;
-import fr.minint.sief.repository.DemandeRepository;
-import fr.minint.sief.web.rest.dto.DemandeDTO;
-import fr.minint.sief.web.rest.mapper.DemandeMapper;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static org.hamcrest.Matchers.hasItem;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -21,17 +29,14 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+import fr.minint.sief.Application;
+import fr.minint.sief.domain.Demande;
 import fr.minint.sief.domain.enumeration.NatureDemande;
-import fr.minint.sief.domain.enumeration.TypeDemande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
+import fr.minint.sief.domain.enumeration.TypeDemande;
+import fr.minint.sief.repository.DemandeRepository;
+import fr.minint.sief.web.rest.dto.DemandeDTO;
+import fr.minint.sief.web.rest.mapper.DemandeMapper;
 
 /**
  * Test class for the DemandeResource REST controller.
@@ -86,7 +91,6 @@ public class DemandeResourceTest {
         demande.setNature(DEFAULT_NATURE);
         demande.setType(DEFAULT_TYPE);
         demande.setStatut(DEFAULT_STATUT);
-        demande.setDemandeComplementaire(DEFAULT_DEMANDE_COMPLEMENTAIRE);
     }
 
     @Test
@@ -108,7 +112,6 @@ public class DemandeResourceTest {
         assertThat(testDemande.getNature()).isEqualTo(DEFAULT_NATURE);
         assertThat(testDemande.getType()).isEqualTo(DEFAULT_TYPE);
         assertThat(testDemande.getStatut()).isEqualTo(DEFAULT_STATUT);
-        assertThat(testDemande.getDemandeComplementaire()).isEqualTo(DEFAULT_DEMANDE_COMPLEMENTAIRE);
     }
 
     @Test
@@ -215,7 +218,6 @@ public class DemandeResourceTest {
         demande.setNature(UPDATED_NATURE);
         demande.setType(UPDATED_TYPE);
         demande.setStatut(UPDATED_STATUT);
-        demande.setDemandeComplementaire(UPDATED_DEMANDE_COMPLEMENTAIRE);
         
         DemandeDTO demandeDTO = demandeMapper.demandeToDemandeDTO(demande);
 
@@ -231,7 +233,6 @@ public class DemandeResourceTest {
         assertThat(testDemande.getNature()).isEqualTo(UPDATED_NATURE);
         assertThat(testDemande.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testDemande.getStatut()).isEqualTo(UPDATED_STATUT);
-        assertThat(testDemande.getDemandeComplementaire()).isEqualTo(UPDATED_DEMANDE_COMPLEMENTAIRE);
     }
 
     @Test

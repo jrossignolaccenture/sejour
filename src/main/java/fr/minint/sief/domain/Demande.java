@@ -1,16 +1,19 @@
 package fr.minint.sief.domain;
 
+import java.io.Serializable;
+import java.util.Objects;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.validation.constraints.*;
-import java.io.Serializable;
-import java.util.Objects;
-
 import fr.minint.sief.domain.enumeration.NatureDemande;
-import fr.minint.sief.domain.enumeration.TypeDemande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
+import fr.minint.sief.domain.enumeration.TypeDemande;
 
 /**
  * A Demande.
@@ -20,22 +23,24 @@ public class Demande implements Serializable {
 
     @Id
     private String id;
-    
 
-    @NotNull        
+    @Email
+    @NotNull
+    @Size(min = 5, max = 100)
+    private String email;
+    
     @Field("nature")
     private NatureDemande nature;
 
-    @NotNull        
     @Field("type")
     private TypeDemande type;
 
     @NotNull        
     @Field("statut")
-    private StatutDemande statut;
+    private StatutDemande statut = StatutDemande.init;
     
-    @Field("demande_complementaire")
-    private Boolean demandeComplementaire;
+    @Field("identity")
+    private Identity identity;
 
     public String getId() {
         return id;
@@ -43,6 +48,14 @@ public class Demande implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public NatureDemande getNature() {
@@ -69,15 +82,15 @@ public class Demande implements Serializable {
         this.statut = statut;
     }
 
-    public Boolean getDemandeComplementaire() {
-        return demandeComplementaire;
-    }
+    public Identity getIdentity() {
+		return identity;
+	}
 
-    public void setDemandeComplementaire(Boolean demandeComplementaire) {
-        this.demandeComplementaire = demandeComplementaire;
-    }
+	public void setIdentity(Identity identity) {
+		this.identity = identity;
+	}
 
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -102,10 +115,10 @@ public class Demande implements Serializable {
     public String toString() {
         return "Demande{" +
                 "id=" + id +
+                ", email='" + email + "'" +
                 ", nature='" + nature + "'" +
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
-                ", demandeComplementaire='" + demandeComplementaire + "'" +
                 '}';
     }
 }

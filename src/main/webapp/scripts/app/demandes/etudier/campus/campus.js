@@ -3,11 +3,11 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('etudier', {
+            .state('campus', {
                 parent: 'demandes',
                 url: '/etudier',
                 data: {
-                    roles: [], 
+                    roles: ['ROLE_USER'],
                     pageTitle: 'etudier.title'
                 },
                 views: {

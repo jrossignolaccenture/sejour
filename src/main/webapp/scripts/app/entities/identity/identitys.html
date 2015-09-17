@@ -1,0 +1,96 @@
+<div>
+
+    <h2 translate="sejourApp.identity.home.title">Identitys</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="identityEntity.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="sejourApp.identity.home.createLabel">Create a new Identity</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteIdentityConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(identity.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="sejourApp.identity.delete.question" translate-values="{id: '{{identity.id}}'}">Are you sure you want to delete this Identity?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="sejourApp.identity.lastName">LastName</th>
+                    <th translate="sejourApp.identity.usedLastName">UsedLastName</th>
+                    <th translate="sejourApp.identity.firstName">FirstName</th>
+                    <th translate="sejourApp.identity.sex">Sex</th>
+                    <th translate="sejourApp.identity.birthDate">BirthDate</th>
+                    <th translate="sejourApp.identity.birthCity">BirthCity</th>
+                    <th translate="sejourApp.identity.birthCountry">BirthCountry</th>
+                    <th translate="sejourApp.identity.nationality">Nationality</th>
+                    <th translate="sejourApp.identity.passportNumber">PassportNumber</th>
+                    <th translate="sejourApp.identity.passport">Passport</th>
+                    <th translate="sejourApp.identity.birthAct">BirthAct</th>
+                    <th translate="sejourApp.identity.test">Test</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="identity in identitys">
+                    <td><a ui-sref="Entity.detail({id:identity.id})">{{identity.id}}</a></td>
+                    <td>{{identity.lastName}}</td>
+                    <td>{{identity.usedLastName}}</td>
+                    <td>{{identity.firstName}}</td>
+                    <td>{{identity.sex}}</td>
+                    <td>{{identity.birthDate}}</td>
+                    <td>{{identity.birthCity}}</td>
+                    <td>{{identity.birthCountry}}</td>
+                    <td>{{identity.nationality}}</td>
+                    <td>{{identity.passportNumber}}</td>
+                    <td>{{identity.passport}}</td>
+                    <td>{{identity.birthAct}}</td>
+                    <td>{{identity.test}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="Entity.detail({id:identity.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="identityEntity.edit({id:identity.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(identity.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

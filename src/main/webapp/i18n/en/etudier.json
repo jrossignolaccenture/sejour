@@ -1,26 +1,52 @@
 {
     "etudier": {
         "title": "Request for a student stay",
-        "button": "Start",
+        "button": {
+        	"start": "Start",
+        	"continue": "Continue"
+        },
     	"information" : {
     		"title": "Information",
     		"subtitle": "4 steps for your request"
     	},
-    	"civil" : {
+    	"identity" : {
     		"title": "Etat-civil",
-    		"subtitle": ""
+    		"form": {
+    			"title": "Confirm your civil status and personal information",
+	            "lastName": "Last Name",
+	            "usedLastName": "Use Last Name",
+	            "firstName": "First Name",
+	            "sex": "Sex",
+	            "birthDate": "Birth Date",
+	            "birthCity": "Birth City",
+	            "birthCountry": "Birth Country",
+	            "nationality": "Nationality",
+	            "passportNumber": "Passport Number",
+	            "document.title": "Attach your identity documents",
+	            "passport": "Passport",
+	            "passport.placeholder": "Click or drag your passport here...",
+	            "passport.placeholder.wait": "Uploading...",
+	            "birthAct": "BirthAct",
+	            "birthAct.placeholder": "Click or drag your birth act here..."
+    		}
     	},
     	"address" : {
     		"title": "Coordonnées",
-    		"subtitle": ""
+    		"form": {
+    			"title": ""
+    		}
     	},
     	"project" : {
     		"title": "Projet",
-    		"subtitle": ""
+    		"form": {
+    			"title": ""
+    		}
     	},
     	"payment" : {
     		"title": "Paiement",
-    		"subtitle": ""
+    		"form": {
+    			"title": ""
+    		}
     	},
     	"campus": {
 	    	"title": "I want to study in France",

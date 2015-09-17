@@ -1,26 +1,52 @@
 {
     "etudier": {
         "title": "Demande de séjour étudiant",
-        "button": "Démarrer",
+        "button": {
+        	"start": "Démarrer",
+        	"continue": "Continuer"
+        },
     	"information" : {
     		"title": "Information",
     		"subtitle": "4 étapes pour déposer votre demande"
     	},
-    	"civil" : {
+    	"identity" : {
     		"title": "Etat-civil",
-    		"subtitle": ""
+    		"form": {
+    			"title": "Validez votre état-civil et vos informations personnelles",
+	            "lastName": "Nom",
+	            "usedLastName": "Nom d'usage",
+	            "firstName": "Prénom(s)",
+	            "sex": "Sexe",
+	            "birthDate": "Date de naissance",
+	            "birthCity": "Ville de naissance",
+	            "birthCountry": "Pays de naissance",
+	            "nationality": "Nationalité",
+	            "passportNumber": "Numéro de passeport",
+	            "document.title": "Joignez vos pièces justificatives d'état-civil",
+	            "passport": "Passeport",
+	            "passport.placeholder": "Cliquer ou déposer votre passeport ici...",
+	            "passport.placeholder.wait": "Transfert en cours...",
+	            "birthAct": "Acte de naissance",
+	            "birthAct.placeholder": "Cliquer ou déposer votre acte de naissance ici..."
+    		}
     	},
     	"address" : {
     		"title": "Coordonnées",
-    		"subtitle": ""
+    		"form": {
+    			"title": ""
+    		}
     	},
     	"project" : {
     		"title": "Projet",
-    		"subtitle": ""
+    		"form": {
+    			"title": ""
+    		}
     	},
     	"payment" : {
     		"title": "Paiement",
-    		"subtitle": ""
+    		"form": {
+    			"title": ""
+    		}
     	},
     	"campus": {
 	        "title": "Je veux venir étudier en France",

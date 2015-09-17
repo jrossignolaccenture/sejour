@@ -1,12 +1,17 @@
 package fr.minint.sief.web.rest.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+
+import fr.minint.sief.domain.Identity;
 import fr.minint.sief.domain.enumeration.NatureDemande;
-import fr.minint.sief.domain.enumeration.TypeDemande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
+import fr.minint.sief.domain.enumeration.TypeDemande;
 
 /**
  * A DTO for the Demande entity.
@@ -15,16 +20,19 @@ public class DemandeDTO implements Serializable {
 
     private String id;
 
-    @NotNull
+	@Email
+	@NotNull
+	@Size(min = 5, max = 100)
+	private String email;
+
     private NatureDemande nature;
 
-    @NotNull
     private TypeDemande type;
 
     @NotNull
-    private StatutDemande statut;
-
-    private Boolean demandeComplementaire;
+    private StatutDemande statut = StatutDemande.init;
+    
+    private Identity identity;
 
     public String getId() {
         return id;
@@ -32,6 +40,14 @@ public class DemandeDTO implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public NatureDemande getNature() {
@@ -58,13 +74,13 @@ public class DemandeDTO implements Serializable {
         this.statut = statut;
     }
 
-    public Boolean getDemandeComplementaire() {
-        return demandeComplementaire;
-    }
+    public Identity getIdentity() {
+		return identity;
+	}
 
-    public void setDemandeComplementaire(Boolean demandeComplementaire) {
-        this.demandeComplementaire = demandeComplementaire;
-    }
+	public void setIdentity(Identity identity) {
+		this.identity = identity;
+	}
 
     @Override
     public boolean equals(Object o) {
@@ -91,10 +107,11 @@ public class DemandeDTO implements Serializable {
     public String toString() {
         return "DemandeDTO{" +
                 "id=" + id +
+                ", email='" + email + "'" +
                 ", nature='" + nature + "'" +
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
-                ", demandeComplementaire='" + demandeComplementaire + "'" +
+                ", identity='" + identity + "'" +
                 '}';
     }
 }

@@ -7,6 +7,7 @@
             "entities": {
                 "main": "Entités",
                 "demande": "Demande",
+                "identity": "Identity",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -39,7 +40,8 @@
             "confirmpassword": "Confirmation du nouveau mot de passe",
             "confirmpassword.placeholder": "Confirmation du nouveau mot de passe",
             "email": "Email",
-            "email.placeholder": "Votre email"
+            "email.placeholder": "Votre email",
+            "date.format": "jj/mm/aaaa"
         },
         "messages": {
             "info": {
@@ -100,7 +102,8 @@
             "maxbytes": "Ce champs doit être supérieur à {{max}} bytes.",
             "pattern": "Ce champs doit suivre l'expression régulière {{pattern}}.",
             "number": "Ce champs doit être un nombre.",
-            "datetimelocal": "Ce champs doit être une date et une heure."
+            "datetimelocal": "Ce champs doit être une date et une heure.",
+            "date": "Ce champs doit être une date."
         }
     }
 }

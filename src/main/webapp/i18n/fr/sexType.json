@@ -1,0 +1,9 @@
+{
+    "sejourApp": {
+        "SexType" : {
+            "SELECT": "{VALUE, select, M{M} F{F} other{}}",
+            "M": "Masculin",
+            "F": "Feminin"
+        }
+    }
+}

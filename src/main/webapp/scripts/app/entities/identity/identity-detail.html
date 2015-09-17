@@ -1,0 +1,119 @@
+
+<div>
+    <h2><span translate="sejourApp.identity.detail.title">Identity</span> {{identity.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.lastName">LastName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.lastName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.usedLastName">UsedLastName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.usedLastName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.firstName">FirstName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.firstName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.sex">Sex</span>
+                </td>
+                <td>
+                    <span class="input-sm form-control readonly" translate="sejourApp.SexType.SELECT"
+                          translate-interpolation="messageformat" translate-values="{ VALUE: identity.sex }"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.birthDate">BirthDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.birthDate}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.birthCity">BirthCity</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.birthCity}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.birthCountry">BirthCountry</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.birthCountry}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.nationality">Nationality</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.nationality}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.passportNumber">PassportNumber</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.passportNumber}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.passport">Passport</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.passport}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.birthAct">BirthAct</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.birthAct}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.identity.test">Test</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{identity.test}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

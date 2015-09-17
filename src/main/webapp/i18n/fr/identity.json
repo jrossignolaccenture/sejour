@@ -1,0 +1,30 @@
+{
+    "sejourApp": {
+        "identity" : {
+            "home": {
+                "title": "Identitys",
+                "createLabel": "Créer un nouveau Identity",
+                "createOrEditLabel": "Créer ou éditer un Identity"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Identity {{ id }} ?"
+            },
+            "detail": {
+                "title": "Identity"
+            },
+            "lastName": "LastName",
+            "usedLastName": "UsedLastName",
+            "firstName": "FirstName",
+            "sex": "Sex",
+            "birthDate": "BirthDate",
+            "birthCity": "BirthCity",
+            "birthCountry": "BirthCountry",
+            "nationality": "Nationality",
+            "passportNumber": "PassportNumber",
+            "passport": "Passport",
+            "birthAct": "BirthAct",
+            "test": "Test"
+        }
+    }
+}
+

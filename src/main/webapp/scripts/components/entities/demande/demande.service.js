@@ -1,16 +1,22 @@
 'use strict';
 
 angular.module('sejourApp')
-    .factory('Demande', function ($resource, DateUtils) {
-        return $resource('api/demandes/:id', {}, {
-            'query': { method: 'GET', isArray: true},
-            'get': {
-                method: 'GET',
-                transformResponse: function (data) {
-                    data = angular.fromJson(data);
-                    return data;
-                }
+    .factory('Demande', function ($http) {
+        return {
+            init: function () {
+            	return $http.put('api/demande/init').then(function (response) {
+                    return response.data;
+                });
             },
-            'update': { method:'PUT' }
-        });
+            getInProgressDemande: function (email) {
+            	return $http.get('api/demande/inprogress', {params: {email: email}}).then(function (response) {
+                    return response.data;
+                });
+            },
+            update: function (demande) {
+            	return $http.put('api/demande', demande).then(function (response) {
+                    return response.data;
+                });
+            }
+        };
     });
