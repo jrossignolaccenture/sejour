@@ -3,17 +3,17 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('recap', {
+            .state('summary', {
                 parent: 'etudier',
-                url: '/recap',
+                url: '/summary',
                 data: {
                     roles: ['ROLE_USER'],
-                    pageTitle: 'etudier.recap.title'
+                    pageTitle: 'etudier.summary.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/demandes/etudier/recap/recap.html',
-                        controller: 'RecapController'
+                        templateUrl: 'scripts/app/demandes/etudier/summary/summary.html',
+                        controller: 'SummaryController'
                     }
                 },
                 resolve: {

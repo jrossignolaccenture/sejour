@@ -7,7 +7,7 @@ angular.module('sejourApp')
         $scope.save = function () {
         	console.log($scope.demande);
             Demande.prepaid().then(function(result){
-//            	$state.go('p');
+            	$state.go('summary');
             });
         };
         
