@@ -8,7 +8,7 @@ import fr.minint.sief.web.rest.dto.DemandeDTO;
 /**
  * Mapper for the entity Demande and its DTO DemandeDTO.
  */
-@Mapper(componentModel = "spring", uses = {IdentityMapper.class})
+@Mapper(componentModel = "spring", uses = {IdentityMapper.class, AddressMapper.class, ProjectMapper.class})
 public interface DemandeMapper {
 
     DemandeDTO demandeToDemandeDTO(Demande demande);

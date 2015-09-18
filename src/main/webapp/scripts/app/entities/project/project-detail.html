@@ -1,0 +1,95 @@
+
+<div>
+    <h2><span translate="sejourApp.project.detail.title">Project</span> {{project.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.comingDate">ComingDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.comingDate}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.university">University</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.university}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.training">Training</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.training}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.trainingStart">TrainingStart</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.trainingStart}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.trainingLength">TrainingLength</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.trainingLength}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.resourceType">ResourceType</span>
+                </td>
+                <td>
+                    <span class="input-sm form-control readonly" translate="sejourApp.ResourceType.SELECT"
+                          translate-interpolation="messageformat" translate-values="{ VALUE: project.resourceType }"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.resourceAmount">ResourceAmount</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.resourceAmount}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.resourceProof">ResourceProof</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.resourceProof}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="sejourApp.project.inscriptionCertificate">InscriptionCertificate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{project.inscriptionCertificate}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

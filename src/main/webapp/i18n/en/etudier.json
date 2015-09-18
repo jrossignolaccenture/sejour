@@ -3,7 +3,8 @@
         "title": "Request for a student stay",
         "button": {
         	"start": "Start",
-        	"continue": "Continue"
+        	"continue": "Continue",
+        	"back": "Back"
         },
     	"information" : {
     		"title": "Information",
@@ -33,13 +34,35 @@
     	"address" : {
     		"title": "Coordonnées",
     		"form": {
-    			"title": ""
+    			"title": "Confirm your address",
+    			"owner": "Owner",
+    			"number": "Street Number",
+    			"street": "Street",
+    			"complement": "Complement",
+    			"postalCode": "Postal Code",
+    			"city": "City",
+    			"country": "Country",
+    			"phone": "Phone",
+    			"email": "Email",
+    			"contactType": "Prefered Contact"
     		}
     	},
     	"project" : {
     		"title": "Projet",
     		"form": {
-    			"title": ""
+    			"title": "Confirm your project details",
+    			"comingDate": "Arrival date in France",
+    			"university": "University",
+    			"training": "Training",
+    			"trainingStart": "Traning start date",
+    			"trainingLength": "Training lenght (month)",
+    			"resourceType": "Resource type",
+    			"resourceAmount": "Resource amount (euros)",
+	            "document.title": "Attach your documents",
+	            "resourceProof": "Resource proof",
+	            "resourceProof.placeholder": "Click or drag your proof here...",
+	            "inscriptionCertificate": "Inscription certificate",
+	            "inscriptionCertificate.placeholder": "Click or drag your certificate here..."
     		}
     	},
     	"payment" : {

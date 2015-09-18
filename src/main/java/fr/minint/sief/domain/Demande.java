@@ -28,19 +28,27 @@ public class Demande implements Serializable {
     @NotNull
     @Size(min = 5, max = 100)
     private String email;
-    
+
+    @NotNull
     @Field("nature")
     private NatureDemande nature;
 
+    @NotNull
     @Field("type")
-    private TypeDemande type;
+    private TypeDemande type = TypeDemande.premiere;
 
-    @NotNull        
+    @NotNull
     @Field("statut")
     private StatutDemande statut = StatutDemande.init;
     
     @Field("identity")
     private Identity identity;
+    
+    @Field("address")
+    private Address address;
+    
+    @Field("project")
+    private Project project;
 
     public String getId() {
         return id;
@@ -90,6 +98,22 @@ public class Demande implements Serializable {
 		this.identity = identity;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -119,6 +143,9 @@ public class Demande implements Serializable {
                 ", nature='" + nature + "'" +
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
+                ", identity='" + identity + "'" +
+                ", address='" + address + "'" +
+                ", project='" + project + "'" +
                 '}';
     }
 }

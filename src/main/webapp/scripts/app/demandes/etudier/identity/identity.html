@@ -7,7 +7,6 @@
 	    
 			<div class="col-md-8">
 			
-			    <jh-alert-error></jh-alert-error>
 			    <div class="form-group">
 			        <label translate="etudier.identity.form.lastName" for="field_lastName">LastName</label>
 			        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName" required>
@@ -152,13 +151,13 @@
 			        </div>
 			    </div>
 		    </div>
-		    <div class="row">
-		    	<div class="col-md-8">
-		        	<button type="submit" ng-disabled="identityForm.$invalid || identityForm.$submitted" class="btn btn-fun"
-		        		translate="etudier.button.continue">Save</button>
-	        	</div>
-	        </div>
 		</div>
+	    <div class="row">
+	    	<div class="col-md-8">
+	        	<button type="submit" ng-disabled="identityForm.$invalid || identityForm.$submitted" class="btn btn-fun"
+	        		translate="etudier.button.continue">Continue</button>
+        	</div>
+        </div>
 	</form>
 </div>
 

@@ -8,6 +8,8 @@
                 "main": "Entités",
                 "demande": "Demande",
                 "identity": "Identity",
+                "address": "Address",
+                "project": "Project",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

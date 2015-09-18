@@ -1,0 +1,74 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "comingDate",
+            "fieldType": "DateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "university",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "training",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "trainingStart",
+            "fieldType": "DateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "trainingLength",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "resourceType",
+            "fieldType": "ResourceType",
+            "fieldValues": "capital,landed",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "resourceAmount",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "resourceProof",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "inscriptionCertificate",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "mapstruct",
+    "pagination": "no"
+}

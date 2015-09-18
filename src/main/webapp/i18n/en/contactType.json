@@ -1,0 +1,10 @@
+{
+    "sejourApp": {
+        "ContactType" : {
+            "SELECT": "{VALUE, select, email{email} sms{sms} postal{postal} other{}}",
+            "email": "email",
+            "sms": "sms",
+            "postal": "postal"
+        }
+    }
+}

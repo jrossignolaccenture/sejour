@@ -3,7 +3,8 @@
         "title": "Demande de séjour étudiant",
         "button": {
         	"start": "Démarrer",
-        	"continue": "Continuer"
+        	"continue": "Continuer",
+        	"back": "Retour"
         },
     	"information" : {
     		"title": "Information",
@@ -25,7 +26,6 @@
 	            "document.title": "Joignez vos pièces justificatives d'état-civil",
 	            "passport": "Passeport",
 	            "passport.placeholder": "Cliquer ou déposer votre passeport ici...",
-	            "passport.placeholder.wait": "Transfert en cours...",
 	            "birthAct": "Acte de naissance",
 	            "birthAct.placeholder": "Cliquer ou déposer votre acte de naissance ici..."
     		}
@@ -33,13 +33,35 @@
     	"address" : {
     		"title": "Coordonnées",
     		"form": {
-    			"title": ""
+    			"title": "Validez vos coordonnées",
+    			"owner": "Chez",
+    			"number": "Numéro de voie",
+    			"street": "Voie",
+    			"complement": "Complément",
+    			"postalCode": "Code postal",
+    			"city": "Ville de résidence",
+    			"country": "Pays de résidence",
+    			"phone": "Téléphone",
+    			"email": "Email",
+    			"contactType": "Moyen de contact préféré"
     		}
     	},
     	"project" : {
     		"title": "Projet",
     		"form": {
-    			"title": ""
+    			"title": "Validez les détails de votre projet",
+    			"comingDate": "Date prévue d'arrivée en France",
+    			"university": "Etablissement",
+    			"training": "Formation",
+    			"trainingStart": "Date de début de la formation",
+    			"trainingLength": "Durée de la formation (mois)",
+    			"resourceType": "Type de resource",
+    			"resourceAmount": "Montant des resources (euros)",
+	            "document.title": "Joignez vos pièces justificatives",
+	            "resourceProof": "Preuve(s) de ressources",
+	            "resourceProof.placeholder": "Cliquer ou déposer votre preuve ici...",
+	            "inscriptionCertificate": "Certificat d'inscription",
+	            "inscriptionCertificate.placeholder": "Cliquer ou déposer votre certificat ici..."
     		}
     	},
     	"payment" : {

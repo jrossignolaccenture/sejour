@@ -8,7 +8,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-import fr.minint.sief.domain.Identity;
 import fr.minint.sief.domain.enumeration.NatureDemande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
 import fr.minint.sief.domain.enumeration.TypeDemande;
@@ -25,14 +24,20 @@ public class DemandeDTO implements Serializable {
 	@Size(min = 5, max = 100)
 	private String email;
 
+	@NotNull
     private NatureDemande nature;
 
-    private TypeDemande type;
+    @NotNull
+    private TypeDemande type = TypeDemande.premiere;
 
     @NotNull
     private StatutDemande statut = StatutDemande.init;
     
-    private Identity identity;
+    private IdentityDTO identity;
+    
+    private AddressDTO address;
+    
+    private ProjectDTO project;
 
     public String getId() {
         return id;
@@ -74,15 +79,31 @@ public class DemandeDTO implements Serializable {
         this.statut = statut;
     }
 
-    public Identity getIdentity() {
+    public IdentityDTO getIdentity() {
 		return identity;
 	}
 
-	public void setIdentity(Identity identity) {
+	public void setIdentity(IdentityDTO identity) {
 		this.identity = identity;
 	}
 
-    @Override
+    public AddressDTO getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressDTO address) {
+		this.address = address;
+	}
+
+	public ProjectDTO getProject() {
+		return project;
+	}
+
+	public void setProject(ProjectDTO project) {
+		this.project = project;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -112,6 +133,8 @@ public class DemandeDTO implements Serializable {
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
                 ", identity='" + identity + "'" +
+                ", address='" + address + "'" +
+                ", project='" + project + "'" +
                 '}';
     }
 }

@@ -1,0 +1,11 @@
+{
+    "sejourApp": {
+        "ResourceType" : {
+            "SELECT": "{VALUE, select, bourse{bourse} capital{capital} garant{garant} month{month} other{}}",
+            "bourse": "Bourse",
+            "capital": "Capital",
+            "garant": "Garant",
+            "month": "Month ressources"
+        }
+    }
+}

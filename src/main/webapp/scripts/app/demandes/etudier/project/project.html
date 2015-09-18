@@ -1,0 +1,192 @@
+<div ng-cloak>
+
+	<form name="projectForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
+	
+		<div class="row">
+			<h2><span translate="etudier.project.form.title">Identity</span></h2>
+	    
+			<div class="col-md-8">
+			    
+			    <div class="form-group">
+		            <label translate="etudier.project.form.comingDate" for="field_comingDate">ComingDate</label>
+			        <div class="input-group date">
+				        <span class="input-group-addon">
+	                        <span class="fa fa-calendar"></span>
+	                    </span>
+	                    <input type="text" class="form-control"
+					           datetimepicker
+					           datetimepicker-options="{{datePickerOptions}}"
+					           name="comingDateTxt" id="field_comingDateTxt"
+					           ng-model="project.comingDateTxt"
+					           placeholder="{{'global.form.date.format' | translate}}">
+					</div>
+		
+		            <div ng-show="projectForm.comingDateTxt.$dirty && projectForm.comingDateTxt.$invalid">
+		                <p class="help-block" ng-show="projectForm.comingDate.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.comingDate.$error.date" translate="entity.validation.datetimelocal">
+		                    This field should be a date.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="etudier.project.form.university" for="field_university">University</label>
+		            <input type="text" class="form-control" name="university" id="field_university"
+		                    ng-model="project.university" required>
+		
+		            <div ng-show="projectForm.university.$dirty && projectForm.university.$invalid">
+		                <p class="help-block" ng-show="projectForm.university.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="etudier.project.form.training" for="field_training">Training</label>
+		            <input type="text" class="form-control" name="training" id="field_training"
+		                    ng-model="project.training" required>
+		
+		            <div ng-show="projectForm.training.$dirty && projectForm.training.$invalid">
+		                <p class="help-block" ng-show="projectForm.training.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="etudier.project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
+			        <div class="input-group date">
+				        <span class="input-group-addon">
+	                        <span class="fa fa-calendar"></span>
+	                    </span>
+	                    <input type="text" class="form-control"
+					           datetimepicker
+					           datetimepicker-options="{{datePickerOptions}}"
+					           name="trainingStartTxt" id="field_trainingStartTxt"
+					           ng-model="project.trainingStartTxt"
+					           placeholder="{{'global.form.date.format' | translate}}">
+					</div>
+		
+		            <div ng-show="projectForm.trainingStartTxt.$dirty && projectForm.trainingStartTxt.$invalid">
+		                <p class="help-block" ng-show="projectForm.trainingStart.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.trainingStart.$error.datetimelocal" translate="entity.validation.datetimelocal">
+		                    This field should be a date and time.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="etudier.project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
+		            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
+		                    ng-model="project.trainingLength" required>
+		
+		            <div ng-show="projectForm.trainingLength.$dirty && projectForm.trainingLength.$invalid">
+		                <p class="help-block" ng-show="projectForm.trainingLength.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.trainingLength.$error.number" translate="entity.validation.number">
+		                    This field should be a number.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="etudier.project.form.resourceType" for="field_resourceType">ResourceType</label>
+		            <select class="form-control" name="resourceType" ng-model="project.resourceType" id="field_resourceType" required>
+		                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
+		                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
+		                <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
+		                <option value="month" translate="sejourApp.ResourceType.month">month</option>
+		            </select>
+		
+		            <div ng-show="projectForm.resourceType.$dirty && projectForm.resourceType.$invalid">
+		                <p class="help-block" ng-show="projectForm.resourceType.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="etudier.project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
+		            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount"
+		                    ng-model="project.resourceAmount" required>
+		
+		            <div ng-show="projectForm.resourceAmount.$dirty && projectForm.resourceAmount.$invalid">
+		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.number" translate="entity.validation.number">
+		                    This field should be a number.
+		                </p>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	    <div class="row">
+			<h3><span translate="etudier.project.form.document.title">Project documents</span></h3>
+	    
+			<div class="col-md-8">
+			    
+		        <div class="form-group">
+		            <label translate="etudier.project.form.resourceProof" for="field_resourceProof">ResourceProof</label>
+			        <div class="input-group">
+				        <span class="input-group-addon" id="logo_resourceProof">
+	                        <span class="fa fa-file"></span>
+	                    </span>
+				        <input id="file_resourceProof" type="file" ng-model="resourceProofFile" onchange="angular.element(this).scope().uploadResourceProofFile(this)" style="display: none;">
+				        <input type="text" class="form-control" name="resourceProof" id="field_resourceProof" readonly="readonly"
+				                ng-model="project.resourceProof" placeholder="{{'etudier.project.form.resourceProof.placeholder' | translate}}" 
+				                required >
+					</div>
+							
+			        <div ng-show="projectForm.resourceProof.$dirty && projectForm.resourceProof.$invalid">
+			            <p class="help-block" ng-show="projectForm.resourceProof.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+		
+		        </div>
+		        <div class="form-group">
+		            <label translate="etudier.project.form.inscriptionCertificate" for="field_inscriptionCertificate">InscriptionCertificate</label>
+			        <div class="input-group">
+				        <span class="input-group-addon" id="logo_inscriptionCertificate">
+	                        <span class="fa fa-file"></span>
+	                    </span>
+				        <input id="file_inscriptionCertificate" type="file" ng-model="inscriptionCertificateFile" onchange="angular.element(this).scope().uploadInscriptionCertificateFile(this)" style="display: none;">
+				        <input type="text" class="form-control" name="inscriptionCertificate" id="field_inscriptionCertificate" readonly="readonly"
+				                ng-model="project.inscriptionCertificate" placeholder="{{'etudier.project.form.inscriptionCertificate.placeholder' | translate}}" 
+				                required >
+					</div>
+							
+			        <div ng-show="projectForm.inscriptionCertificate.$dirty && projectForm.inscriptionCertificate.$invalid">
+			            <p class="help-block" ng-show="identityForm.inscriptionCertificate.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+		
+		        </div>
+        
+		    </div>
+		</div>
+	    <div class="row">
+	    	<div class="col-md-8">
+	        	<button class="btn btn-fun" translate="etudier.button.back" ui-sref="address">Back</button>
+	        	<button type="submit" ng-disabled="projectForm.$invalid || projectForm.$submitted" class="btn btn-fun"
+	        		translate="etudier.button.continue">Continue</button>
+        	</div>
+        </div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	$('#logo_resourceProof').click(function(){
+	    $('#file_resourceProof').click();
+	});
+	$('#field_resourceProof').click(function(){
+	    $('#file_resourceProof').click();
+	});
+	$('#logo_inscriptionCertificate').click(function(){
+	    $('#file_inscriptionCertificate').click();
+	});
+	$('#field_inscriptionCertificate').click(function(){
+	    $('#file_inscriptionCertificate').click();
+	});
+</script>

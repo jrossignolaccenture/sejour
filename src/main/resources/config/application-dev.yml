@@ -18,6 +18,10 @@ spring:
         mode: XHTML
         cache: false
 
+multipart:
+    maxFileSize: 5MB
+    maxRequestSize: 5MB
+    
 metrics:
     jmx.enabled: true
     spark:

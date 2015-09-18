@@ -39,8 +39,10 @@ public class IdentityDTO implements Serializable {
     @NotNull
     private String passportNumber;
 
+    @NotNull
     private String passport;
 
+    @NotNull
     private String birthAct;
 
     public String getLastName() {

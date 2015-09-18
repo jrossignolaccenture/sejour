@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('IdentityController', function ($scope, Principal, Demande, Country, File) {
+    .controller('IdentityController', function ($scope, $state, Principal, Demande, Country, File) {
         $scope.identity = {};
         $scope.countries = [];
         $scope.passportFile = {};
         $scope.birthActFile = {};
-        $scope.pickerBirthDateLoaded = false;
         
         $scope.birthDatePickerOptions = {
 			format: 'DD/MM/YYYY',
@@ -71,7 +70,9 @@ angular.module('sejourApp')
         $scope.save = function () {
         	$scope.identity.birthDate = moment($scope.identity.birthDateTxt, "DD/MM/YYYY").toDate();
         	console.log($scope.demande);
-            Demande.update($scope.demande);
+            Demande.update($scope.demande).then(function(result){
+            	$state.go('address');
+            });
         };
         
     });
