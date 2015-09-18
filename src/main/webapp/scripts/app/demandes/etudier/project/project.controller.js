@@ -70,7 +70,9 @@ angular.module('sejourApp')
             $scope.project.comingDate = moment($scope.project.comingDateTxt, "DD/MM/YYYY").toDate();
             $scope.project.trainingStart = moment($scope.project.trainingStartTxt, "DD/MM/YYYY").toDate();
         	console.log($scope.demande);
-            Demande.update($scope.demande);
+            Demande.update($scope.demande, true).then(function(result){
+            	$state.go('payment');
+            });
         };
         
     });

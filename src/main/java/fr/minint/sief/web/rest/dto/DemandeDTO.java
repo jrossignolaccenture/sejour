@@ -31,7 +31,7 @@ public class DemandeDTO implements Serializable {
     private TypeDemande type = TypeDemande.premiere;
 
     @NotNull
-    private StatutDemande statut = StatutDemande.init;
+    private StatutDemande statut = StatutDemande.draft;
     
     private IdentityDTO identity;
     

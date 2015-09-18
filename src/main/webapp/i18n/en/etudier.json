@@ -4,7 +4,8 @@
         "button": {
         	"start": "Start",
         	"continue": "Continue",
-        	"back": "Back"
+        	"back": "Back",
+        	"payment": "Confirm payment"
         },
     	"information" : {
     		"title": "Information",
@@ -66,10 +67,17 @@
     		}
     	},
     	"payment" : {
-    		"title": "Paiement",
+    		"title": "Payment",
     		"form": {
-    			"title": ""
+    			"title": "Pay your application fee and pre-pay your stamp duty and your local taxes",
+    			"cardOwner": "Card owner",
+    			"cardNumber": "Card number",
+    			"cardExpiringDate": "Expiring date",
+    			"cardCV": "CV code"
     		}
+    	},
+    	"recap": {
+    		"title": "Summary"
     	},
     	"campus": {
 	    	"title": "I want to study in France",

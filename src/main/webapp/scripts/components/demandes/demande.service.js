@@ -13,8 +13,19 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
-            update: function (demande) {
-            	return $http.put('api/demande', demande).then(function (response) {
+            update: function (demande, finalStep) {
+            	if(finalStep){
+            		return $http.put('api/demande/validate', demande).then(function (response) {
+                        return response.data;
+                    });
+            	} else {
+	            	return $http.put('api/demande/update', demande).then(function (response) {
+	                    return response.data;
+	                });
+            	}
+            },
+            prepaid: function () {
+            	return $http.put('api/demande/prepaid').then(function (response) {
                     return response.data;
                 });
             }

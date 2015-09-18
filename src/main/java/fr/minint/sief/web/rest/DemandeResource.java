@@ -57,9 +57,10 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public void init() throws URISyntaxException {
+    public ResponseEntity<Void> init() throws URISyntaxException {
         log.debug("REST request to init Demande : {}");
         demandeService.initWithCampus();
+        return ResponseEntity.ok().body(null);
     }
 
     /**
@@ -69,26 +70,68 @@ public class DemandeResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public Demande getInProgressDemande(@RequestParam(value = "email") String email) {
+    public ResponseEntity<DemandeDTO> getInProgressDemande(@RequestParam(value = "email") String email) {
         log.debug("REST request to get initiated demande with mail {}", email);
-        return demandeRepository.findOneByEmailAndStatut(email, StatutDemande.init);
+        return Optional.ofNullable(demandeRepository.findOneByEmailAndStatut(email, StatutDemande.draft))
+        .map(demandeMapper::demandeToDemandeDTO)
+        .map(demandeDTO -> new ResponseEntity<>(
+            demandeDTO,
+            HttpStatus.OK))
+        .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     /**
-     * PUT  /demandes -> Updates an existing demande.
+     * PUT  /demande/update -> Update an existing demande.
      */
-    @RequestMapping(value = "/demande",
+    @RequestMapping(value = "/demande/update",
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<DemandeDTO> update(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
         log.debug("REST request to update Demande : {}", demandeDTO);
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
+        demande.setStatut(StatutDemande.draft);
         Demande result = demandeRepository.save(demande);
         return ResponseEntity.ok()
                 .headers(HeaderUtil.createEntityUpdateAlert("demande", demandeDTO.getId().toString()))
                 .body(demandeMapper.demandeToDemandeDTO(result));
     }
+
+    /**
+     * PUT  /demande/validate -> Validate an existing demande.
+     */
+    @RequestMapping(value = "/demande/validate",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<DemandeDTO> validate(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+        log.debug("REST request to update Demande : {}", demandeDTO);
+        Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
+        demande.setStatut(StatutDemande.payment);
+        Demande result = demandeRepository.save(demande);
+        return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("demande", demandeDTO.getId().toString()))
+                .body(demandeMapper.demandeToDemandeDTO(result));
+    }
+
+    /**
+     * PUT  /demande/prepaid -> Updates an existing demande.
+     */
+    @RequestMapping(value = "/demande/prepaid",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<DemandeDTO> prepaid() throws URISyntaxException {
+        log.debug("REST request to prepaid current demande");
+        Demande demande = demandeService.getCurrentDemande(StatutDemande.payment);
+        demande.setStatut(StatutDemande.validation);
+        Demande result = demandeRepository.save(demande);
+        return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("demande", demande.getId().toString()))
+                .body(demandeMapper.demandeToDemandeDTO(result));
+    }
+    
+    // OBSOLETE A PARTIR D'ICI NORMALEMENT
 
     /**
      * GET  /demandes -> get all the demandes.

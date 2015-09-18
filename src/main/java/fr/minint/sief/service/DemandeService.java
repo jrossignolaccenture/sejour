@@ -34,26 +34,30 @@ public class DemandeService {
 
     @Inject
     private DemandeRepository demandeRepository;
+    
+    public Demande getCurrentDemande(StatutDemande statut) {
+    	// Récupération info utilisateur connecté
+        User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
+        // Récupération demande en cours
+    	return demandeRepository.findOneByEmailAndStatut(currentUser.getEmail(), statut);
+    	
+    }
 
     public void initWithCampus() {
     	// Récupération info utilisateur connecté
-    	log.debug("Recupération infos utilisateur");
         User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
         
         // call campus (badass style)
-    	log.debug("Recupération infos campus");
     	Demande demande = getDemandeWithCampusInfos(currentUser.getEmail());
     	demande.setNature(NatureDemande.sejour_etudiant);
         
-        // suppression précédent demande en cours
-    	log.debug("Sauvegarde de la demande");
-    	Demande existingDemande = demandeRepository.findOneByEmailAndStatut(demande.getEmail(), StatutDemande.init);
+        // suppression précédente demande en cours
+    	Demande existingDemande = getCurrentDemande(StatutDemande.draft);
     	if(existingDemande != null){
     		demandeRepository.delete(existingDemande);
     	}
 
         // init nouvelle demande
-    	log.debug("Sauvegarde de la demande");
         demandeRepository.save(demande);
         
     }

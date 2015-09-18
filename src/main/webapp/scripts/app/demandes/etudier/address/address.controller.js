@@ -31,7 +31,7 @@ angular.module('sejourApp')
         
         $scope.save = function () {
         	console.log($scope.demande);
-            Demande.update($scope.demande).then(function(result){
+            Demande.update($scope.demande, false).then(function(result){
             	$state.go('project');
             });
         };

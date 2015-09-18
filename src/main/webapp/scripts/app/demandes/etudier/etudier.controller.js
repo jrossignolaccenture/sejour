@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('EtudierController', function ($rootScope, $scope, $state, Principal, Demande) {
+    .controller('EtudierController', function ($rootScope, $scope, $state, Demande) {
     	
         $scope.initRequest = function(){
             Demande.init().then(function(){

@@ -39,7 +39,7 @@ public class Demande implements Serializable {
 
     @NotNull
     @Field("statut")
-    private StatutDemande statut = StatutDemande.init;
+    private StatutDemande statut = StatutDemande.draft;
     
     @Field("identity")
     private Identity identity;
