@@ -1,11 +1,9 @@
-<div class="col-xs-12 col-sm-6 col-lg-4">
-    <div class="box">
-        <div class="icon cursor-pointer">
-            <div class="image"><span class="glyphicon glyphicon-{{boxlogo}} btn-lg white"></span></div>
-            <div class="info">
-                <p translate="{{boxtitle}}">title</p>
-            </div>
+<div class="box" ng-class="disabled ? 'box-disabled' : ''">
+    <div class="icon">
+        <div class="image"><span class="glyphicon glyphicon-{{boxlogo}} btn-lg white"></span></div>
+        <div class="info">
+            <p translate="{{boxtitle}}">title</p>
         </div>
-        <div class="space"></div>
     </div>
+    <div class="space"></div>
 </div>

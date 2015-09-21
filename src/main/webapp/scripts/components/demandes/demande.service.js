@@ -9,7 +9,12 @@ angular.module('sejourApp')
                 });
             },
             getInProgressDemande: function (email) {
-            	return $http.get('api/demande/inprogress', {params: {email: email}}).then(function (response) {
+            	return $http.get('api/demande', {params: {email: email, statut: "draft"}}).then(function (response) {
+                    return response.data;
+                });
+            },
+            getDemandeToValidate: function (email) {
+            	return $http.get('api/demande', {params: {email: email, statut: "validation"}}).then(function (response) {
                     return response.data;
                 });
             },

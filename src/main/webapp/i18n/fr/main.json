@@ -1,12 +1,15 @@
 {
     "main": {
         "title": {
-	        "study": "Je veux venir <strong>étudier</strong> en France",
-	        "work": "Je veux venir <strong>travailler</strong> en France",
+	        "study": "Je veux <strong>étudier</strong> en France",
+	        "work": "Je veux <strong>travailler</strong> en France",
 	        "family": "Je veux <strong>faire venir ma famille</strong> en France",
-	        "extend": "Je veux <strong>prolonger mon séjour</strong> en France",
+	        "asile": "Je veux <strong>demander l'asile</strong> en France",
+	        "nationality": "Je veux <strong>acquérir la nationalité</strong> française",
+	        "visit": "Je veux <strong>visiter</strong> la France",
 	        "user.account": "Je veux <strong>gérer mon compte personnel</strong>",
-	        "follow": "Je veux <strong>suivre ma demande</strong>"
+	        "follow": "Je veux <strong>suivre mes demandes</strong>",
+	        "employ": "Je veux <strong>employer un étranger</strong> en France"
         }
     }
 }

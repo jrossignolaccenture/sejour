@@ -185,7 +185,7 @@ ul#strengthBar {
     color: white;
 }
 
-.cursor-pointer {
+.hand {
 	cursor: pointer;
 }
 
@@ -195,9 +195,18 @@ ul#strengthBar {
     border-radius: 6px;
 }
 
+.box-disabled {
+	opacity: 0.4;
+}
+
 .box > .icon {
     text-align: center;
     position: relative;
+    cursor: pointer;
+}
+
+.box-disabled > .icon {
+	cursor: default;
 }
 
 .box > .icon > .image {
@@ -215,6 +224,10 @@ ul#strengthBar {
 
 .box > .icon:hover > .image {
     border: 4px solid black;
+}
+
+.box-disabled > .icon:hover > .image {
+    border: 7px solid white;
 }
 
 .box > .icon > .info {
@@ -235,10 +248,34 @@ ul#strengthBar {
     border: 1px solid #888888;
 }
 
+.box-disabled > .icon:hover > .info {
+    border: 1px solid #e0e0e0;
+}
+
 .box > .icon:hover > .info > p {
     color: #222;
 }
 
+.box-disabled > .icon:hover > .info > p {
+    color: #666;
+}
+
 .box .space {
     height: 30px;
+}
+
+
+/** FORM **/
+.btn-fun {
+	/* Button Background: */
+	background-image: linear-gradient(-180deg, #D8D8D8 0%, #B3B3B3 100%);
+	border: 1px solid #979797;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.20), inset 0px 2px 0px 0px #FFFFFF;
+	border-radius: 6px;
+	/* OK: */
+	font-family: AvenirNext-Bold;
+	font-size: 14px;
+	color: #4A4A4A;
+	line-height: 19px;
+	text-shadow: 0px 1px 0px #FFFFFF;
 }

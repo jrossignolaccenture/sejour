@@ -6,7 +6,8 @@ angular.module('sejourApp')
 	        restrict: 'E',
 	        scope: {
 	        	boxtitle: "@",
-				boxlogo: "@"
+				boxlogo: "@",
+				disabled: "@"
 	        },
 	        templateUrl: 'scripts/components/menu/boxMenu.html'
 	    };

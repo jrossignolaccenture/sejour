@@ -1,10 +1,7 @@
 package fr.minint.sief.web.rest;
 
 import java.net.URISyntaxException;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -14,8 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,18 +61,18 @@ public class DemandeResource {
     /**
      * GET  /service -> get all the services of a team.
      */
-    @RequestMapping(value = "/demande/inprogress",
+    @RequestMapping(value = "/demande",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<DemandeDTO> getInProgressDemande(@RequestParam(value = "email") String email) {
-        log.debug("REST request to get initiated demande with mail {}", email);
-        return Optional.ofNullable(demandeRepository.findOneByEmailAndStatut(email, StatutDemande.draft))
-        .map(demandeMapper::demandeToDemandeDTO)
-        .map(demandeDTO -> new ResponseEntity<>(
-            demandeDTO,
-            HttpStatus.OK))
-        .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<DemandeDTO> getDemande(@RequestParam(value = "email") String email, @RequestParam(value = "statut") StatutDemande statut) {
+        log.debug("REST request to get initiated demande with mail {} and statut {}", email, statut);
+        return Optional.ofNullable(demandeRepository.findOneByEmailAndStatut(email, statut))
+	        .map(demandeMapper::demandeToDemandeDTO)
+	        .map(demandeDTO -> new ResponseEntity<>(
+	            demandeDTO,
+	            HttpStatus.OK))
+	        .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     /**
@@ -133,48 +128,48 @@ public class DemandeResource {
     
     // OBSOLETE A PARTIR D'ICI NORMALEMENT
 
-    /**
-     * GET  /demandes -> get all the demandes.
-     */
-    @RequestMapping(value = "/demandes",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    @Transactional(readOnly = true)
-    public List<DemandeDTO> getAll() {
-        log.debug("REST request to get all Demandes");
-        return demandeRepository.findAll().stream()
-            .map(demande -> demandeMapper.demandeToDemandeDTO(demande))
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-    /**
-     * GET  /demandes/:id -> get the "id" demande.
-     */
-    @RequestMapping(value = "/demandes/{id}",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<DemandeDTO> get(@PathVariable String id) {
-        log.debug("REST request to get Demande : {}", id);
-        return Optional.ofNullable(demandeRepository.findOne(id))
-            .map(demandeMapper::demandeToDemandeDTO)
-            .map(demandeDTO -> new ResponseEntity<>(
-                demandeDTO,
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
-    /**
-     * DELETE  /demandes/:id -> delete the "id" demande.
-     */
-    @RequestMapping(value = "/demandes/{id}",
-            method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        log.debug("REST request to delete Demande : {}", id);
-        demandeRepository.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("demande", id.toString())).build();
-    }
+//    /**
+//     * GET  /demandes -> get all the demandes.
+//     */
+//    @RequestMapping(value = "/demandes",
+//            method = RequestMethod.GET,
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    @Transactional(readOnly = true)
+//    public List<DemandeDTO> getAll() {
+//        log.debug("REST request to get all Demandes");
+//        return demandeRepository.findAll().stream()
+//            .map(demande -> demandeMapper.demandeToDemandeDTO(demande))
+//            .collect(Collectors.toCollection(LinkedList::new));
+//    }
+//
+//    /**
+//     * GET  /demandes/:id -> get the "id" demande.
+//     */
+//    @RequestMapping(value = "/demandes/{id}",
+//            method = RequestMethod.GET,
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public ResponseEntity<DemandeDTO> get(@PathVariable String id) {
+//        log.debug("REST request to get Demande : {}", id);
+//        return Optional.ofNullable(demandeRepository.findOne(id))
+//            .map(demandeMapper::demandeToDemandeDTO)
+//            .map(demandeDTO -> new ResponseEntity<>(
+//                demandeDTO,
+//                HttpStatus.OK))
+//            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//    }
+//
+//    /**
+//     * DELETE  /demandes/:id -> delete the "id" demande.
+//     */
+//    @RequestMapping(value = "/demandes/{id}",
+//            method = RequestMethod.DELETE,
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public ResponseEntity<Void> delete(@PathVariable String id) {
+//        log.debug("REST request to delete Demande : {}", id);
+//        demandeRepository.delete(id);
+//        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("demande", id.toString())).build();
+//    }
 }

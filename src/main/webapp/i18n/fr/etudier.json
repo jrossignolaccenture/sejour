@@ -96,6 +96,20 @@
 	        		"no": "Non"
 	        	}
 	        }
+	    },
+	    "validation": {
+	    	"title": "{{studentName}} - Demande de séjour étudiant",
+	    	"identity": "Identité",
+	    	"preinscription": "(Pré) inscription",
+	    	"project": "Projet d'études",
+	    	"documents": "Documents originaux",
+	    	"biometrics": "Biométrie",
+	    	"policeControl": "Contrôle policier",
+	    	"history": "Historique SIEF",
+	    	"button": {
+	    		"accept": "Accorder le droit au séjour",
+	    		"decline": "Refuser le droit au séjour"
+	    	}
 	    }
     }
 }

@@ -1,10 +1,31 @@
 <div ng-cloak>
     <div class="row">
-        <box-menu boxtitle="main.title.study" boxlogo="education" ng-click="goTo('etudier')"></box-menu>
-        <box-menu boxtitle="main.title.work" boxlogo="briefcase"></box-menu>
-        <box-menu boxtitle="main.title.family" boxlogo="home"></box-menu>
-        <box-menu boxtitle="main.title.extend" boxlogo="repeat"></box-menu>
-        <box-menu boxtitle="main.title.user.account" boxlogo="cog"></box-menu>
-        <box-menu boxtitle="main.title.follow" boxlogo="folder-open"></box-menu>
+    	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        	<box-menu boxtitle="main.title.study" boxlogo="education" ng-click="goTo('etudier')"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.title.work" boxlogo="briefcase"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	     	<box-menu boxtitle="main.title.family" boxlogo="home" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.title.asile" boxlogo="eye-open" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.title.nationality" boxlogo="flag" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.title.visit" boxlogo="camera" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.title.user.account" boxlogo="cog" ng-click="goTo('settings')"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.title.follow" boxlogo="folder-open"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.title.employ" boxlogo="edit" disabled="true"></box-menu>
+        </div>
     </div>
 </div>
