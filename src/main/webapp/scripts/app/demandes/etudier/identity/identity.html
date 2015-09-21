@@ -1,12 +1,28 @@
 <div ng-cloak>
+    <div class="row">
+    	<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
+    		<p translate="etudier.title">Request for a student stay</p>
+   		</div>
+    </div>
+    <br>
+    <steps-menu stepnumber="1"></steps-menu>
+    <br><br>
 
 	<form name="identityForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
 	
 		<div class="row">
-			<h2><span translate="etudier.identity.form.title">Identity</span></h2>
-	    
-			<div class="col-md-8">
-			
+			<div class="col-xs-1 col-xs-offset-1 col-sm-1 col-sm-offset-1 col-md-1 col-md-offset-1 col-lg-1 col-lg-offset-1">
+		    	<span class="step-number-align">
+		    		<div class="step-number step-number-green">1</div>
+		    	</span>
+		    </div>
+		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
+		    	<p translate="etudier.identity.form.title">Identity</p>
+		    </div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 			    <div class="form-group">
 			        <label translate="etudier.identity.form.lastName" for="field_lastName">LastName</label>
 			        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName" required>
@@ -39,7 +55,6 @@
 			            </p>
 			        </div>
 			    </div>
-			    
 			    <div class="form-group">
 			        <label translate="etudier.identity.form.birthDate" for="field_birthDate">BirthDate</label>
 			        <div class="input-group date">
@@ -108,12 +123,20 @@
 			            </p>
 			        </div>
 			    </div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-1 col-xs-offset-1 col-sm-1 col-sm-offset-1 col-md-1 col-md-offset-1 col-lg-1 col-lg-offset-1">
+		    	
+		    </div>
+		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
+				<p translate="etudier.identity.form.document.title">Identity documents</p>
 		    </div>
 		</div>
+	    <br>
 	    <div class="row">
-			<h3><span translate="etudier.identity.form.document.title">Identity documents</span></h3>
-	    
-			<div class="col-md-8">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 			    <div class="form-group">
 			        <label translate="etudier.identity.form.passport" for="field_passport">Passport</label>
 			        <div class="input-group">
@@ -150,18 +173,21 @@
 			            </p>
 			        </div>
 			    </div>
-		    </div>
+		   	</div>
 		</div>
-	    <div class="row">
-	    	<div class="col-md-8">
-	        	<button type="submit" ng-disabled="identityForm.$invalid || identityForm.$submitted" class="btn btn-fun"
-	        		translate="etudier.button.continue">Continue</button>
-        	</div>
+		<br>
+	    <div class="row row-center">
+	    	<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+	       		<button type="submit" ng-disabled="identityForm.$invalid || identityForm.$submitted" class="btn btn-fun"
+	       			translate="etudier.button.continue">Continue</button>
+      		</div>
         </div>
 	</form>
 </div>
 
 <script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
 	$('#logo_passport').click(function(){
 	    $('#file_passport').click();
 	});

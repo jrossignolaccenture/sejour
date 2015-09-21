@@ -1,56 +1,86 @@
-/** NUMBER BOX (écrase les box définit dans main.css pour customisation) **/
-
-.steps {
-	min-width: 600px;
+/** STEP NUMBER **/
+.step-number-disabled {
+	opacity: 0.4;
 }
 
-.steps > .box {
+.step-number-horizontal {
 	display: inline-block;
-	min-width: 110px;
+	text-align: center;
+	margin-left: 25px;
 }
 
-.steps-list > .box {
-	display: inline-block;
-	margin: 10px
+.step-number-align {
+	float: right;
+	margin-bottom: 14px;
 }
 
-.box.disable {
-    opacity: 0.4;
+.step-number {
+	width: 30px;
+	height: 30px;
+	background-color: rgb(53, 86, 137);
+	border: 2px solid rgb(53, 86, 137);
+	text-align: center;
+	border-radius: 50%;
+	color: #fff;
+		
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 25px;
 }
 
-.box > .icon > .number {
-    position: relative;
-    z-index: 2;
-    margin: auto;
-    width: 50px;
-    height: 50px;
-    line-height: 60px;
-    border-radius: 50%;
-    background: rgb(53, 86, 137);
-    vertical-align: middle;
+.step-text {
+	line-height: 23px;
+	padding-left: 15px;
+	font-size: 14px;
+	font-weight: bold;
 }
 
-.box > .icon > .number > .btn-lg {
-    font-size: 28px;
+.form-title-text {
+	line-height: 26px;
+	padding-left: 10px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
-.box > .icon > .title > p {
-    color: #222;
-    line-height: 1.5em;
-    margin: 5px;
+@media (min-width: 768px) {
+	
+	.step-number-horizontal {
+		margin-left: 60px;
+	}
+	
+	.step-number {
+		width: 42px;
+		height: 42px;
+		
+		font-size: 28px;
+		line-height: 37px;
+		font-weight: bold;
+	}
+
+	.step-text {
+		line-height: 37px;
+		font-size: 17px;
+		font-weight: bold;
+	}
+
+	.form-title-text {
+		line-height: 40px;
+		font-size: 23px;
+		font-weight: bold;
+	}
 }
 
 /** FORM **/
 .btn-fun{
 	/* Button Background: */
-background-image: linear-gradient(-180deg, #D8D8D8 0%, #B3B3B3 100%);
-border: 1px solid #979797;
-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.20), inset 0px 2px 0px 0px #FFFFFF;
-border-radius: 6px;
-/* OK: */
-font-family: AvenirNext-Bold;
-font-size: 14px;
-color: #4A4A4A;
-line-height: 19px;
-text-shadow: 0px 1px 0px #FFFFFF;
+	background-image: linear-gradient(-180deg, #D8D8D8 0%, #B3B3B3 100%);
+	border: 1px solid #979797;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.20), inset 0px 2px 0px 0px #FFFFFF;
+	border-radius: 6px;
+	/* OK: */
+	font-family: AvenirNext-Bold;
+	font-size: 14px;
+	color: #4A4A4A;
+	line-height: 19px;
+	text-shadow: 0px 1px 0px #FFFFFF;
 }

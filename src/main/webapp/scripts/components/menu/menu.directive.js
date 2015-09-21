@@ -15,7 +15,7 @@ angular.module('sejourApp')
         return {
             restrict: 'E',
             scope: {
-            	
+            	stepnumber: "@"
             },
             templateUrl: 'scripts/components/menu/stepsMenu.html'
         };
