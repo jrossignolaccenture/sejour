@@ -2,9 +2,12 @@
 
 angular.module('sejourApp')
     .controller('LanguageController', function ($scope, $translate, Language, tmhDynamicLocale) {
+    	$scope.currentLanguage = tmhDynamicLocale.get();
+    	
         $scope.changeLanguage = function (languageKey) {
             $translate.use(languageKey);
             tmhDynamicLocale.set(languageKey);
+            $scope.currentLanguage = tmhDynamicLocale.get();
         };
 
         Language.getAll().then(function (languages) {

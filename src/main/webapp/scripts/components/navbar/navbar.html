@@ -39,7 +39,7 @@
                         <!-- JHipster will add entities to the menu here -->
                     </ul>
                 </li>
-                <li ng-class="{active: $state.includes('account')}" has-role="ROLE_ADMIN" class="dropdown pointer">
+                <li ng-class="{active: $state.includes('account')}" ng-switch-when="true" has-role="ROLE_ADMIN" class="dropdown pointer">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="">
                                 <span>
                                     <span class="glyphicon glyphicon-user"></span>
@@ -92,7 +92,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="">
                                 <span>
                                     <span class="glyphicon glyphicon-flag"></span>
-                                    <span class="hidden-tablet" translate="global.menu.language">Language</span>
+                                    <span class="hidden-tablet">{{currentLanguage | findLanguageFromKey}}</span>
                                     <b class="caret"></b>
                                 </span>
                     </a>
@@ -102,8 +102,25 @@
                         </li>
                     </ul>
                 </li>
-                <li ui-sref-active="active" ng-switch-when="true"><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
+                <li ui-sref-active="active" ng-switch-when="true" ng-class="{active: $state.includes('account')}" class="dropdown pointer">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span>
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <span class="hidden-tablet">
+                                        {{account.firstName}}&nbsp;{{account.lastName}}
+                                    </span>
+                                    <b class="caret"></b>
+                                </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-wrench"></span>
+                            &#xA0;<span translate="global.menu.account.settings">Settings</span></a></li>
+                        <li ui-sref-active="active"><a ui-sref="password"><span class="glyphicon glyphicon-lock"></span>
+                            &#xA0;<span translate="global.menu.account.password">Password</span></a></li>
+                        <li ui-sref-active="active"><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>
                             &#xA0;<span translate="global.menu.account.logout">Log out</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

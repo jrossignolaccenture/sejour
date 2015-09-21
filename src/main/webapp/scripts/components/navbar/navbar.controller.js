@@ -5,6 +5,13 @@ angular.module('sejourApp')
         $scope.isAuthenticated = Principal.isAuthenticated;
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
+        
+        if(Principal.isAuthenticated) {
+        	Principal.identity().then(function(account) {
+        		$scope.account = account;
+        	});
+        	
+        }
 
         $scope.logout = function () {
             Auth.logout();
