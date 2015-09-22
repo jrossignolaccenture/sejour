@@ -3,23 +3,21 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('project', {
-                parent: 'etudier',
-                url: '/project',
+            .state('etudier/payment', {
+                parent: 'usager/etudier',
+                url: '/payment',
                 data: {
                     roles: ['ROLE_USER'],
-                    pageTitle: 'etudier.project.title'
+                    pageTitle: 'etudier.payment.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/demandes/etudier/project/project.html',
-                        controller: 'ProjectController'
+                        templateUrl: 'scripts/app/usager/etudier/payment/payment.html',
+                        controller: 'PaymentController'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('etudier');
-                        $translatePartialLoader.addPart('resourceType');
                         return $translate.refresh();
                     }]
                 }

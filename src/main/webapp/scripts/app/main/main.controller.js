@@ -7,6 +7,7 @@ angular.module('sejourApp')
             $scope.isAuthenticated = Principal.isAuthenticated;
         });
         
+        
         $scope.goTo = function (stateName) {
             $state.go(stateName);
         };

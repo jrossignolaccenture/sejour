@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('ProjectController', function ($scope, $state, Principal, Demande, File) {
         $scope.project = {};
         $scope.resourceProofFile = {};
+        $scope.project.resourceProof = '';
         $scope.inscriptionCertificateFile = {};
         
         $scope.datePickerOptions = {
@@ -71,7 +72,7 @@ angular.module('sejourApp')
             $scope.project.trainingStart = moment($scope.project.trainingStartTxt, "DD/MM/YYYY").toDate();
         	console.log($scope.demande);
             Demande.update($scope.demande, true).then(function(result){
-            	$state.go('payment');
+            	$state.go('etudier/payment');
             });
         };
         

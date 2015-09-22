@@ -12,6 +12,18 @@ angular.module('sejourApp')
         	});
         	
         }
+        
+        $scope.accountRetrieved = false;
+        $scope.getAccountName = function () {
+        	if(Principal.isAuthenticated && !$scope.accountRetrieved) {
+            	Principal.identity().then(function(account) {
+            		$scope.account = account;
+            		$scope.accountRetrieved = true;
+            	});
+            } else {
+            	$scope.accountRetrieved = false;
+            }
+        }
 
         $scope.logout = function () {
             Auth.logout();

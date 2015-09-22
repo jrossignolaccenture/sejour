@@ -3,7 +3,7 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('demandes', {
+            .state('agent', {
                 abstract: true,
                 parent: 'site'
             });

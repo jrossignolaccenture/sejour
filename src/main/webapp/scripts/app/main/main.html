@@ -1,31 +1,54 @@
 <div ng-cloak>
-    <div class="row">
+    <div class="row" has-role="ROLE_USER">
     	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-        	<box-menu boxtitle="main.title.study" boxlogo="education" ng-click="goTo('etudier')"></box-menu>
+        	<box-menu boxtitle="main.usager.title.study" boxlogo="education" ng-click="goTo('usager/etudier')"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.title.work" boxlogo="briefcase"></box-menu>
+	        <box-menu boxtitle="main.usager.title.work" boxlogo="briefcase"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	     	<box-menu boxtitle="main.title.family" boxlogo="home" disabled="true"></box-menu>
+	     	<box-menu boxtitle="main.usager.title.family" boxlogo="home" disabled="true"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.title.asile" boxlogo="eye-open" disabled="true"></box-menu>
+	        <box-menu boxtitle="main.usager.title.extend" boxlogo="repeat" disabled="true"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.title.nationality" boxlogo="flag" disabled="true"></box-menu>
+	        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" disabled="true"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.title.visit" boxlogo="camera" disabled="true"></box-menu>
+	        <box-menu boxtitle="main.usager.title.visit" boxlogo="camera" disabled="true"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.title.user.account" boxlogo="cog" ng-click="goTo('settings')"></box-menu>
+	        <box-menu boxtitle="main.usager.title.user.account" boxlogo="cog" ng-click="goTo('settings')"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.title.follow" boxlogo="folder-open"></box-menu>
+	        <box-menu boxtitle="main.usager.title.follow" boxlogo="folder-open"></box-menu>
+        </div>
+    </div>
+    <div class="row" has-role="ROLE_AGENT">
+    	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        	<box-menu boxtitle="main.agent.title.verify" boxlogo="education"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.title.employ" boxlogo="edit" disabled="true"></box-menu>
+	        <box-menu boxtitle="main.agent.title.rdv.setting" boxlogo="briefcase" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	     	<box-menu boxtitle="main.agent.title.rdv.preview" boxlogo="home" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.agent.title.rdv.drive" boxlogo="eye-open"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.agent.title.decision" boxlogo="flag"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.agent.title.question" boxlogo="camera" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.agent.title.consult" boxlogo="cog" disabled="true"></box-menu>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+	        <box-menu boxtitle="main.agent.title.analyse" boxlogo="folder-open"></box-menu>
         </div>
     </div>
 </div>

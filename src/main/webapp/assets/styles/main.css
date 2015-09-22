@@ -279,3 +279,11 @@ ul#strengthBar {
 	line-height: 19px;
 	text-shadow: 0px 1px 0px #FFFFFF;
 }
+
+.input-file-plus {
+	cursor: pointer;
+}
+
+.input-file-plus.img-disabled {
+	cursor: default;
+}

@@ -3,22 +3,22 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('payment', {
-                parent: 'etudier',
-                url: '/payment',
+            .state('etudier/identity', {
+                parent: 'usager/etudier',
+                url: '/identity',
                 data: {
                     roles: ['ROLE_USER'],
-                    pageTitle: 'etudier.payment.title'
+                    pageTitle: 'etudier.identity.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/demandes/etudier/payment/payment.html',
-                        controller: 'PaymentController'
+                        templateUrl: 'scripts/app/usager/etudier/identity/identity.html',
+                        controller: 'IdentityController'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('etudier');
+                        $translatePartialLoader.addPart('sexType');
                         return $translate.refresh();
                     }]
                 }

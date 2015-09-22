@@ -158,7 +158,9 @@
 				        <input type="text" class="form-control" name="resourceProof" id="field_resourceProof" readonly="readonly"
 				                ng-model="project.resourceProof" placeholder="{{'etudier.project.form.resourceProof.placeholder' | translate}}" 
 				                required >
-				         
+				        <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="project.resourceProof == '' ? 'img-disabled' : ''"></span>
+	                    </span>
 					</div>
 							
 			        <div ng-show="projectForm.resourceProof.$dirty && projectForm.resourceProof.$invalid">
@@ -193,7 +195,7 @@
 		<br>
 	    <div class="row row-center">
 	    	<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-	        	<button class="btn btn-fun" translate="etudier.button.back" ui-sref="address">Back</button>
+	        	<button class="btn btn-fun" translate="etudier.button.back" ui-sref="etudier/address">Back</button>
 	        	<button type="submit" ng-disabled="projectForm.$invalid || projectForm.$submitted" class="btn btn-fun"
 	        		translate="etudier.button.continue">Continue</button>
        		</div>

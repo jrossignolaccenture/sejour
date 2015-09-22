@@ -71,7 +71,7 @@ angular.module('sejourApp')
         	$scope.identity.birthDate = moment($scope.identity.birthDateTxt, "DD/MM/YYYY").toDate();
         	console.log($scope.demande);
             Demande.update($scope.demande, false).then(function(result){
-            	$state.go('address');
+            	$state.go('etudier/address');
             });
         };
         

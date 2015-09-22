@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth) {
+    .controller('LoginController', function ($rootScope, $scope, $state, $location, $timeout, Auth) {
         $scope.user = {};
         $scope.errors = {};
 

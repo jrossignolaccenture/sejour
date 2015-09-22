@@ -1,15 +1,28 @@
 {
     "main": {
-        "title": {
-	        "study": "Je veux <strong>étudier</strong> en France",
-	        "work": "Je veux <strong>travailler</strong> en France",
-	        "family": "Je veux <strong>faire venir ma famille</strong> en France",
-	        "asile": "Je veux <strong>demander l'asile</strong> en France",
-	        "nationality": "Je veux <strong>acquérir la nationalité</strong> française",
-	        "visit": "Je veux <strong>visiter</strong> la France",
-	        "user.account": "Je veux <strong>gérer mon compte personnel</strong>",
-	        "follow": "Je veux <strong>suivre mes demandes</strong>",
-	        "employ": "Je veux <strong>employer un étranger</strong> en France"
-        }
+    	"usager": {
+	        "title": {
+		        "study": "Je veux <strong>étudier</strong> en France",
+		        "work": "Je veux <strong>travailler</strong> en France",
+		        "family": "Je veux <strong>faire venir ma famille</strong> en France",
+		        "extend": "Je veux <strong>prolonger mon séjour</strong> en France",
+		        "nationality": "Je veux <strong>acquérir la nationalité</strong> française",
+		        "visit": "Je veux <strong>visiter</strong> la France",
+		        "user.account": "Je veux <strong>gérer mon compte personnel</strong>",
+		        "follow": "Je veux <strong>suivre mes demandes</strong>"
+	        }
+	    },
+    	"agent": {
+	        "title": {
+		        "verify": "Vérification de la complétude",
+		        "rdv.setting": "Paramétrage des rendez-vous",
+		        "rdv.preview": "Prévisualisation des rendez-vous",
+		        "rdv.drive": "Conduite des rendez-vous",
+		        "decision": "Instruction et prise de décision",
+		        "question": "Répondre aux questions",
+		        "consult": "Consultation d'une demande",
+		        "analyse": "Analyse des données et pilotage"
+	        }
+       	}
     }
 }
