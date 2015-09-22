@@ -4,7 +4,7 @@ angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('etudier/validation', {
-                parent: 'etudier/etudier',
+                parent: 'agent/etudier',
                 url: '/validation',
                 data: {
                     roles: ['ROLE_AGENT'],

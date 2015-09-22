@@ -7,7 +7,7 @@ angular.module('sejourApp')
                 parent: 'usager/etudier',
                 url: '/identity',
                 data: {
-                    roles: ['ROLE_USER'],
+                    roles: ['ROLE_USAGER'],
                     pageTitle: 'etudier.identity.title'
                 },
                 views: {

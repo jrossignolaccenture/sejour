@@ -16,7 +16,7 @@ angular.module('sejourApp')
                 if (!_authenticated) {
                    return false;
                }
-
+               
                return this.identity().then(function(_id) {
                    return _id.roles && _id.roles.indexOf(role) !== -1;
                }, function(err){
@@ -27,8 +27,9 @@ angular.module('sejourApp')
                 if (!_authenticated || !_identity || !_identity.roles) {
                     return false;
                 }
-
+                
                 for (var i = 0; i < roles.length; i++) {
+                	console.log("---> " + this.isInRole(roles[i]));
                     if (this.isInRole(roles[i])) {
                         return true;
                     }

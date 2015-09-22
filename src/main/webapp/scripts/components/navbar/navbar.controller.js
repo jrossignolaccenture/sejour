@@ -6,13 +6,6 @@ angular.module('sejourApp')
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
         
-        if(Principal.isAuthenticated) {
-        	Principal.identity().then(function(account) {
-        		$scope.account = account;
-        	});
-        	
-        }
-        
         $scope.accountRetrieved = false;
         $scope.getAccountName = function () {
         	if(Principal.isAuthenticated && !$scope.accountRetrieved) {

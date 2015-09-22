@@ -94,8 +94,8 @@ public class DemandeService {
 			demande.setAddress(address);
 			// PROJECT
 			Project project = new Project();
-			calendar.set(2016, 1, 5);
-			project.setComingDate(new DateTime(calendar.getTimeInMillis()));
+//			calendar.set(2016, 1, 5);
+//			project.setComingDate(new DateTime(calendar.getTimeInMillis()));
 			project.setUniversity("Télécom Paris Tech");
 			project.setTraining("Master of Science in Multimedia Information Technologies");
 			calendar.set(2016, 2, 8);
