@@ -1,0 +1,14 @@
+{
+	"summary" : {
+		"form": {
+    		"success": "Your payment was held successfully",
+    		"text1": "The completeness of your application will be verified by the French Immigration Authorities.",
+    		"text2": "If the request is complete, you receive a notification asking you to make an appointment online.",
+    		"text3": "If applicable, you receive a request for the item ( s) missing (s) with instructions to complete your request.",
+    		"text4": "During the meeting at the Embassy of France in Seoul , the authenticity of your passport and your civil status documents will be checked , and your biometric data recorded.",
+    		"text5": "After the appointment, your case will be heard and you will be notified of the decision.",
+    		"text6": "If the decision is favorable and after flow of tourist tax , guests are invited to come and collect your residence permit when it is ready.",
+    		"text7": "If the decision is unfavorable, you will have the opportunity to request an appeal."
+		}
+	}
+}

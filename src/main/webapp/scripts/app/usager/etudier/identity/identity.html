@@ -17,14 +17,14 @@
 		    	</span>
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
-		    	<p translate="etudier.identity.form.title">Identity</p>
+		    	<p translate="identity.form.title">Identity</p>
 		    </div>
 		</div>
 		<br>
 		<div class="row">
 			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.lastName" for="field_lastName">LastName</label>
+			        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
 			        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName" required>
 			
 			        <div ng-show="identityForm.lastName.$dirty && identityForm.lastName.$invalid">
@@ -34,17 +34,17 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
+			        <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
 			        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="identity.usedLastName" >
 			
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.firstName" for="field_firstName">FirstName</label>
+			        <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
 			        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="identity.firstName" >
 			
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.sex" for="field_sex">Sex</label>
+			        <label translate="identity.form.sex" for="field_sex">Sex</label>
 			        <div>
 				        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="F" required>{{'sejourApp.SexType.F' | translate}}</label>
 						<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="M" required>{{'sejourApp.SexType.M' | translate}}</label>
@@ -56,7 +56,7 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.birthDate" for="field_birthDate">BirthDate</label>
+			        <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
 			        <div class="input-group date">
 				        <span class="input-group-addon">
 	                        <span class="fa fa-calendar"></span>
@@ -79,7 +79,7 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.birthCity" for="field_birthCity">BirthCity</label>
+			        <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
 			        <input type="text" class="form-control" name="birthCity" id="field_birthCity"
 			                ng-model="identity.birthCity" required>
 			
@@ -90,7 +90,7 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
+			        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
 			        <select class="form-control" name="birthCountry" id="field_birthCountry"
 					      ng-options="country.key as country.name for country in countries | orderBy:'name'"
 					      ng-model="identity.birthCountry" required></select>
@@ -102,7 +102,7 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.nationality" for="field_nationality">Nationality</label>
+			        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
 			        <select class="form-control" name="nationality" id="field_nationality"
 					      ng-options="country.key as country.name for country in countries | orderBy:'name'"
 					      ng-model="identity.nationality" required></select>
@@ -114,7 +114,7 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
+			        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
 			        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="identity.passportNumber" required>
 			
 			        <div ng-show="identityForm.passportNumber.$dirty && identityForm.passportNumber.$invalid">
@@ -131,21 +131,21 @@
 		    	
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
-				<p translate="etudier.identity.form.document.title">Identity documents</p>
+				<p translate="identity.form.document.title">Identity documents</p>
 		    </div>
 		</div>
 	    <br>
 	    <div class="row">
 			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.passport" for="field_passport">Passport</label>
+			        <label translate="identity.form.passport" for="field_passport">Passport</label>
 			        <div class="input-group">
 				        <span class="input-group-addon" id="logo_passport">
 	                        <span class="fa fa-file"></span>
 	                    </span>
 				        <input id="file_passport" type="file" ng-model="passportFile" onchange="angular.element(this).scope().uploadPassportFile(this)" style="display: none;">
 				        <input type="text" class="form-control" name="passport" id="field_passport" readonly="readonly"
-				                ng-model="identity.passport" placeholder="{{'etudier.identity.form.passport.placeholder' | translate}}" 
+				                ng-model="identity.passport" placeholder="{{'identity.form.passport.placeholder' | translate}}" 
 				                required >
 					</div>
 							
@@ -156,14 +156,14 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			        <label translate="etudier.identity.form.birthAct" for="field_birthAct">BirthAct</label>
+			        <label translate="identity.form.birthAct" for="field_birthAct">BirthAct</label>
 			        <div class="input-group">
 				        <span class="input-group-addon" id="logo_birthAct">
 	                        <span class="fa fa-file"></span>
 	                    </span>
 				        <input id="file_birthAct" type="file" ng-model="birthActFile" onchange="angular.element(this).scope().uploadBirthActFile(this)" style="display: none;">
 				        <input type="text" class="form-control" name="birthAct" id="field_birthAct" readonly="readonly"
-				                ng-model="identity.birthAct" placeholder="{{'etudier.identity.form.birthAct.placeholder' | translate}}"
+				                ng-model="identity.birthAct" placeholder="{{'identity.form.birthAct.placeholder' | translate}}"
 				                required >
 					</div>
 							

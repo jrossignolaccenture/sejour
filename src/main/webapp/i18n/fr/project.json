@@ -1,27 +1,19 @@
 {
-    "sejourApp": {
-        "project" : {
-            "home": {
-                "title": "Projects",
-                "createLabel": "Créer un nouveau Project",
-                "createOrEditLabel": "Créer ou éditer un Project"
-            },
-            "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Project {{ id }} ?"
-            },
-            "detail": {
-                "title": "Project"
-            },
-            "comingDate": "ComingDate",
-            "university": "University",
-            "training": "Training",
-            "trainingStart": "TrainingStart",
-            "trainingLength": "TrainingLength",
-            "resourceType": "ResourceType",
-            "resourceAmount": "ResourceAmount",
-            "resourceProof": "ResourceProof",
-            "inscriptionCertificate": "InscriptionCertificate"
-        }
-    }
+	"project" : {
+		"form": {
+			"title": "Validez les détails de votre projet",
+			"comingDate": "Date prévue d'arrivée en France",
+			"university": "Etablissement",
+			"training": "Formation",
+			"trainingStart": "Date de début de la formation",
+			"trainingLength": "Durée de la formation (mois)",
+			"resourceType": "Type de resource",
+			"resourceAmount": "Montant des resources (euros)",
+            "document.title": "Joignez vos pièces justificatives",
+            "resourceProof": "Preuve(s) de ressources",
+            "resourceProof.placeholder": "Cliquer ou déposer votre preuve ici...",
+            "inscriptionCertificate": "Certificat d'inscription",
+            "inscriptionCertificate.placeholder": "Cliquer ou déposer votre certificat ici..."
+		}
+	}
 }
-

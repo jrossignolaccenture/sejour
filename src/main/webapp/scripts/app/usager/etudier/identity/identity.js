@@ -7,8 +7,7 @@ angular.module('sejourApp')
                 parent: 'usager/etudier',
                 url: '/identity',
                 data: {
-                    roles: ['ROLE_USAGER'],
-                    pageTitle: 'etudier.identity.title'
+                    roles: ['ROLE_USAGER']
                 },
                 views: {
                     'content@': {
@@ -18,7 +17,8 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('sexType');
+                    	$translatePartialLoader.addPart('identity');
+                    	$translatePartialLoader.addPart('sexType');
                         return $translate.refresh();
                     }]
                 }

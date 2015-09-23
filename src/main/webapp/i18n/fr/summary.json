@@ -1,0 +1,14 @@
+{
+	"summary" : {
+		"form": {
+    		"success": "Votre paiement s'est déroulé avec succès",
+    		"text1": "La complétude de votre dossier va être vérifiée par les authorités d'immigration françaises.",
+    		"text2": "Si le dossier est complet, vous recevez une notification vous invitant à prendre rendez-vous en ligne.",
+    		"text3": "Le cas échéant, vous recevez une requête pour le ou les élément(s) manquant(s) avec des instructions pour compléter votre demande.",
+    		"text4": "Lors du rendez-vous à l'Ambassade de France à Séoul, l'authenticité de votre passeport et de vos documents d'état civil sera vérifiée, et vos données biométriques enregistrées.",
+    		"text5": "A l'issue du rendez-vous, votre dossier sera instruit et vous recevrez une notification de la décision.",
+    		"text6": "Si la décision est favorable et après débit des taxes de séjour, vous serez invité à venir récupérer votre titre de séjour lorsqu'il est prêt.",
+    		"text7": "Si la décision est défavorable, vous aurez la possibilité de demander un recours."
+		}
+	}
+}

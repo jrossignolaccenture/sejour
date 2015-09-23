@@ -17,14 +17,14 @@
 		    	</span>
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
-		    	<p translate="etudier.project.form.title">Project</p>
+		    	<p translate="project.form.title">Project</p>
 		    </div>
 		</div>
 		<br>
 	    <div class="row">
 			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 			    <div class="form-group">
-		            <label translate="etudier.project.form.comingDate" for="field_comingDate">ComingDate</label>
+		            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
 			        <div class="input-group date">
 				        <span class="input-group-addon">
 	                        <span class="fa fa-calendar"></span>
@@ -47,7 +47,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.project.form.university" for="field_university">University</label>
+		            <label translate="project.form.university" for="field_university">University</label>
 		            <input type="text" class="form-control" name="university" id="field_university"
 		                    ng-model="project.university" required>
 		
@@ -58,7 +58,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.project.form.training" for="field_training">Training</label>
+		            <label translate="project.form.training" for="field_training">Training</label>
 		            <input type="text" class="form-control" name="training" id="field_training"
 		                    ng-model="project.training" required>
 		
@@ -69,7 +69,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
+		            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
 			        <div class="input-group date">
 				        <span class="input-group-addon">
 	                        <span class="fa fa-calendar"></span>
@@ -92,7 +92,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
+		            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
 		            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
 		                    ng-model="project.trainingLength" required>
 		
@@ -106,7 +106,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.project.form.resourceType" for="field_resourceType">ResourceType</label>
+		            <label translate="project.form.resourceType" for="field_resourceType">ResourceType</label>
 		            <select class="form-control" name="resourceType" ng-model="project.resourceType" id="field_resourceType" required>
 		                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
 		                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
@@ -121,7 +121,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
+		            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
 		            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount"
 		                    ng-model="project.resourceAmount" required>
 		
@@ -142,21 +142,21 @@
 		    	
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
-				<p translate="etudier.project.form.document.title">Project documents</p>
+				<p translate="project.form.document.title">Project documents</p>
 		    </div>
 		</div>
 	    <br>
 	    <div class="row">
 			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 		        <div class="form-group">
-		            <label translate="etudier.project.form.resourceProof" for="field_resourceProof">ResourceProof</label>
+		            <label translate="project.form.resourceProof" for="field_resourceProof">ResourceProof</label>
 			        <div class="input-group">
 				        <span class="input-group-addon" id="logo_resourceProof">
 	                        <span class="fa fa-file"></span>
 	                    </span>
 				        <input id="file_resourceProof" type="file" ng-model="resourceProofFile" onchange="angular.element(this).scope().uploadResourceProofFile(this)" style="display: none;">
 				        <input type="text" class="form-control" name="resourceProof" id="field_resourceProof" readonly="readonly"
-				                ng-model="project.resourceProof" placeholder="{{'etudier.project.form.resourceProof.placeholder' | translate}}" 
+				                ng-model="project.resourceProof" placeholder="{{'project.form.resourceProof.placeholder' | translate}}" 
 				                required >
 				        <span class="input-group-addon">
 	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="project.resourceProof == '' ? 'img-disabled' : ''"></span>
@@ -171,14 +171,14 @@
 		
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.project.form.inscriptionCertificate" for="field_inscriptionCertificate">InscriptionCertificate</label>
+		            <label translate="project.form.inscriptionCertificate" for="field_inscriptionCertificate">InscriptionCertificate</label>
 			        <div class="input-group">
 				        <span class="input-group-addon" id="logo_inscriptionCertificate">
 	                        <span class="fa fa-file"></span>
 	                    </span>
 				        <input id="file_inscriptionCertificate" type="file" ng-model="inscriptionCertificateFile" onchange="angular.element(this).scope().uploadInscriptionCertificateFile(this)" style="display: none;">
 				        <input type="text" class="form-control" name="inscriptionCertificate" id="field_inscriptionCertificate" readonly="readonly"
-				                ng-model="project.inscriptionCertificate" placeholder="{{'etudier.project.form.inscriptionCertificate.placeholder' | translate}}" 
+				                ng-model="project.inscriptionCertificate" placeholder="{{'project.form.inscriptionCertificate.placeholder' | translate}}" 
 				                required >
 					</div>
 							

@@ -1,0 +1,11 @@
+{
+	"payment" : {
+		"form": {
+			"title": "Pay your application fee and pre-pay your stamp duty and your local taxes",
+			"cardOwner": "Card owner",
+			"cardNumber": "Card number",
+			"cardExpiringDate": "Expiring date",
+			"cardCV": "CV code"
+		}
+	}
+}

@@ -1,32 +1,23 @@
 {
-    "sejourApp": {
-        "identity" : {
-            "home": {
-                "title": "Identitys",
-                "createLabel": "Create a new Identity",
-                "createOrEditLabel": "Create or edit a Identity"
-            },
-            "created": "A new Identity is created with identifier {{ param }}",
-            "updated": "A Identity is updated with identifier {{ param }}",
-            "deleted": "A Identity is deleted with identifier {{ param }}",
-            "delete": {
-                "question": "Are you sure you want to delete Identity {{ id }}?"
-            },
-            "detail": {
-                "title": "Identity"
-            },
-            "lastName": "LastName",
-            "usedLastName": "UsedLastName",
-            "firstName": "FirstName",
+	"identity" : {
+		"form": {
+			"title": "Confirm your civil status and personal information",
+            "lastName": "Last Name",
+            "usedLastName": "Use Last Name",
+            "firstName": "First Name",
             "sex": "Sex",
-            "birthDate": "BirthDate",
-            "birthCity": "BirthCity",
-            "birthCountry": "BirthCountry",
+            "birthDate": "Birth Date",
+            "birthCity": "Birth City",
+            "birthCountry": "Birth Country",
             "nationality": "Nationality",
-            "passportNumber": "PassportNumber",
+            "passportNumber": "Passport Number",
+            "document.title": "Attach your identity documents",
             "passport": "Passport",
+            "passport.placeholder": "Click or drag your passport here...",
+            "passport.placeholder.wait": "Uploading...",
             "birthAct": "BirthAct",
-            "test": "Test"
-        }
-    }
+            "birthAct.placeholder": "Click or drag your birth act here..."
+		}
+	}
 }
+

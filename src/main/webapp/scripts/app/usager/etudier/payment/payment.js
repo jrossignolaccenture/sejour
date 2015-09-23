@@ -7,8 +7,7 @@ angular.module('sejourApp')
                 parent: 'usager/etudier',
                 url: '/payment',
                 data: {
-                    roles: ['ROLE_USAGER'],
-                    pageTitle: 'etudier.payment.title'
+                    roles: ['ROLE_USAGER']
                 },
                 views: {
                     'content@': {
@@ -18,6 +17,7 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    	$translatePartialLoader.addPart('payment');
                         return $translate.refresh();
                     }]
                 }

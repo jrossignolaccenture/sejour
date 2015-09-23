@@ -1,0 +1,11 @@
+{
+	"payment" : {
+		"form": {
+			"title": "Payez vos frais de dossier et pré-payez votre droit de timbre et vos taxes de séjour",
+			"cardOwner": "Propriétaire de la carte",
+			"cardNumber": "Numéro de carte",
+			"cardExpiringDate": "Date d'expiration",
+			"cardCV": "Code de vérification"
+		}
+	}
+}

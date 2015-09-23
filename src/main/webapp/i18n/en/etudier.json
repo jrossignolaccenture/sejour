@@ -1,6 +1,23 @@
 {
     "etudier": {
-        "title": "Request for a student stay",
+        "title": "Application for a student stay",
+        "step.title": "4 steps for your application",
+        "identity": {
+        	"step.short": "Identity",
+        	"step.long": "Confirm your civil status and personal information"
+        },
+        "address": {
+        	"step.short": "Address",
+        	"step.long": "Confirm your address"
+        },
+        "project": {
+        	"step.short": "Project",
+        	"step.long": "Confirm your project details"
+        },
+        "payment": {
+        	"step.short": "Payment",
+        	"step.long": "Pay your application fee and pre-pay your stamp duty and your local taxes"
+        },
         "button": {
         	"start": "Start",
         	"continue": "Continue",
@@ -8,96 +25,6 @@
         	"payment": "Confirm payment",
         	"end": "End"
         },
-    	"information" : {
-    		"title": "Information",
-    		"subtitle": "4 steps for your request"
-    	},
-    	"identity" : {
-    		"title": "Etat-civil",
-    		"form": {
-    			"title": "Confirm your civil status and personal information",
-	            "lastName": "Last Name",
-	            "usedLastName": "Use Last Name",
-	            "firstName": "First Name",
-	            "sex": "Sex",
-	            "birthDate": "Birth Date",
-	            "birthCity": "Birth City",
-	            "birthCountry": "Birth Country",
-	            "nationality": "Nationality",
-	            "passportNumber": "Passport Number",
-	            "document.title": "Attach your identity documents",
-	            "passport": "Passport",
-	            "passport.placeholder": "Click or drag your passport here...",
-	            "passport.placeholder.wait": "Uploading...",
-	            "birthAct": "BirthAct",
-	            "birthAct.placeholder": "Click or drag your birth act here..."
-    		}
-    	},
-    	"address" : {
-    		"title": "Coordonnées",
-    		"form": {
-    			"title": "Confirm your address",
-    			"owner": "Owner",
-    			"number": "Street Number",
-    			"street": "Street",
-    			"complement": "Complement",
-    			"postalCode": "Postal Code",
-    			"city": "City",
-    			"country": "Country",
-    			"phone": "Phone",
-    			"email": "Email",
-    			"contactType": "Prefered Contact"
-    		}
-    	},
-    	"project" : {
-    		"title": "Projet",
-    		"form": {
-    			"title": "Confirm your project details",
-    			"comingDate": "Arrival date in France",
-    			"university": "University",
-    			"training": "Training",
-    			"trainingStart": "Traning start date",
-    			"trainingLength": "Training lenght (month)",
-    			"resourceType": "Resource type",
-    			"resourceAmount": "Resource amount (euros)",
-	            "document.title": "Attach your documents",
-	            "resourceProof": "Resource proof",
-	            "resourceProof.placeholder": "Click or drag your proof here...",
-	            "inscriptionCertificate": "Inscription certificate",
-	            "inscriptionCertificate.placeholder": "Click or drag your certificate here..."
-    		}
-    	},
-    	"payment" : {
-    		"title": "Payment",
-    		"form": {
-    			"title": "Pay your application fee and pre-pay your stamp duty and your local taxes",
-    			"cardOwner": "Card owner",
-    			"cardNumber": "Card number",
-    			"cardExpiringDate": "Expiring date",
-    			"cardCV": "CV code"
-    		}
-    	},
-    	"summary": {
-    		"title": "Summary",
-    		"success": "Your payment was held successfully",
-    		"text1": "The completeness of your application will be verified by the French Immigration Authorities.",
-    		"text2": "If the request is complete, you receive a notification asking you to make an appointment online.",
-    		"text3": "If applicable, you receive a request for the item ( s) missing (s) with instructions to complete your request.",
-    		"text4": "During the meeting at the Embassy of France in Seoul , the authenticity of your passport and your civil status documents will be checked , and your biometric data recorded.",
-    		"text5": "After the appointment, your case will be heard and you will be notified of the decision.",
-    		"text6": "If the decision is favorable and after flow of tourist tax , guests are invited to come and collect your residence permit when it is ready.",
-    		"text7": "If the decision is unfavorable, you will have the opportunity to request an appeal."
-    	},
-    	"campus": {
-	    	"title": "I want to study in France",
-	        "form": {
-	        	"campus": "Do you have a Campus France account ?",
-	        	"button": {
-	        		"yes": "Yes",
-	        		"no": "No"
-	        	}
-	        }
-	    },
 	    "validation": {
 	    	"title": "{{studentName}} - Request for study",
 	    	"identity": "Identity",

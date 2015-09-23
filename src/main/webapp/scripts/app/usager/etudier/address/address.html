@@ -17,14 +17,14 @@
 		    	</span>
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
-		    	<p translate="etudier.address.form.title">Address</p>
+		    	<p translate="address.form.title">Address</p>
 		    </div>
 		</div>
 		<br>
 	    <div class="row">
 			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 		        <div class="form-group">
-		            <label translate="etudier.address.form.owner" for="field_owner">Owner</label>
+		            <label translate="address.form.owner" for="field_owner">Owner</label>
 		            <input type="text" class="form-control" name="owner" id="field_owner"
 		                    ng-model="address.owner">
 		
@@ -35,7 +35,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.number" for="field_number">Number</label>
+		            <label translate="address.form.number" for="field_number">Number</label>
 		            <input type="text" class="form-control" name="number" id="field_number" ng-model="address.number" required>
 		
 		            <div ng-show="addressForm.number.$dirty && addressForm.number.$invalid">
@@ -45,7 +45,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.street" for="field_street">Street</label>
+		            <label translate="address.form.street" for="field_street">Street</label>
 		            <input type="text" class="form-control" name="street" id="field_street"
 		                    ng-model="address.street" required>
 		
@@ -56,13 +56,13 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.complement" for="field_complement">Complement</label>
+		            <label translate="address.form.complement" for="field_complement">Complement</label>
 		            <input type="text" class="form-control" name="complement" id="field_complement"
 		                    ng-model="address.complement" >
 		
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.postalCode" for="field_postalCode">PostalCode</label>
+		            <label translate="address.form.postalCode" for="field_postalCode">PostalCode</label>
 		            <input type="text" class="form-control" name="postalCode" id="field_postalCode"
 		                    ng-model="address.postalCode" required>
 		
@@ -73,7 +73,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.city" for="field_city">City</label>
+		            <label translate="address.form.city" for="field_city">City</label>
 		            <input type="text" class="form-control" name="city" id="field_city"
 		                    ng-model="address.city" required>
 		
@@ -84,7 +84,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.country" for="field_country">Country</label>
+		            <label translate="address.form.country" for="field_country">Country</label>
 		            <select class="form-control" name="country" id="field_country"
 					      ng-options="country.key as country.name for country in countries | orderBy:'name'"
 					      ng-model="address.country" required></select>
@@ -96,7 +96,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.phone" for="field_phone">Phone</label>
+		            <label translate="address.form.phone" for="field_phone">Phone</label>
 		            <input type="text" class="form-control" name="phone" id="field_phone"
 		                    ng-model="address.phone" required>
 		
@@ -107,7 +107,7 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.email" for="field_email">Email</label>
+		            <label translate="address.form.email" for="field_email">Email</label>
 		            <input type="text" class="form-control" name="email" id="field_email"
 		                    ng-model="address.email" required>
 		
@@ -118,8 +118,10 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
-		            <label translate="etudier.address.form.contactType" for="field_contactType">ContactType</label>
-		            <select class="form-control" name="contactType" ng-model="address.contactType" id="field_contactType" required>
+		            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
+		            <select class="form-control" name="contactType" ng-model="address.contactType" id="field_contactType" 
+		            		tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'address.form.contactType.tooltip' | translate}}"
+		            		required>
 		                <option value="email" translate="sejourApp.ContactType.email">email</option>
 		                <option value="sms" translate="sejourApp.ContactType.sms">sms</option>
 		                <option value="postal" translate="sejourApp.ContactType.postal">postal</option>
@@ -146,4 +148,7 @@
     
 <script type="text/javascript">
 	$("html, body").animate({ scrollTop: 0 }, "slow");
+	$(function () {
+		$('#field_contactType').popover();
+	})
 </script>

@@ -8,7 +8,6 @@ angular.module('sejourApp')
                 url: '/project',
                 data: {
                     roles: ['ROLE_USAGER'],
-                    pageTitle: 'etudier.project.title'
                 },
                 views: {
                     'content@': {
@@ -18,6 +17,7 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('project');
                         $translatePartialLoader.addPart('resourceType');
                         return $translate.refresh();
                     }]

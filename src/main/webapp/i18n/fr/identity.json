@@ -1,30 +1,22 @@
 {
-    "sejourApp": {
-        "identity" : {
-            "home": {
-                "title": "Identitys",
-                "createLabel": "Créer un nouveau Identity",
-                "createOrEditLabel": "Créer ou éditer un Identity"
-            },
-            "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Identity {{ id }} ?"
-            },
-            "detail": {
-                "title": "Identity"
-            },
-            "lastName": "LastName",
-            "usedLastName": "UsedLastName",
-            "firstName": "FirstName",
-            "sex": "Sex",
-            "birthDate": "BirthDate",
-            "birthCity": "BirthCity",
-            "birthCountry": "BirthCountry",
-            "nationality": "Nationality",
-            "passportNumber": "PassportNumber",
-            "passport": "Passport",
-            "birthAct": "BirthAct",
-            "test": "Test"
-        }
-    }
+	"identity" : {
+		"form": {
+			"title": "Validez votre état-civil et vos informations personnelles",
+            "lastName": "Nom",
+            "usedLastName": "Nom d'usage",
+            "firstName": "Prénom(s)",
+            "sex": "Sexe",
+            "birthDate": "Date de naissance",
+            "birthCity": "Ville de naissance",
+            "birthCountry": "Pays de naissance",
+            "nationality": "Nationalité",
+            "passportNumber": "Numéro de passeport",
+            "document.title": "Joignez vos pièces justificatives d'état-civil",
+            "passport": "Passeport",
+            "passport.placeholder": "Cliquer ou déposer votre passeport ici...",
+            "birthAct": "Acte de naissance",
+            "birthAct.placeholder": "Cliquer ou déposer votre acte de naissance ici..."
+		}
+	}
 }
 

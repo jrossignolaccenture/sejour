@@ -69,7 +69,9 @@
 /** VALIDATION **/
 .title-underscore > h4 {
 	padding-bottom: 7px;
-	border-bottom: 1px solid black;
+	font-weight: bolder;
+	color: rgb(53, 86, 137);
+	border-bottom: 2px solid rgb(53, 86, 137);;
 }
 
 .img-checkbox {
