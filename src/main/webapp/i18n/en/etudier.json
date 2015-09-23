@@ -1,6 +1,6 @@
 {
     "etudier": {
-        "title": "Application for a student stay",
+        "page.title": "Application for a student stay",
         "step.title": "4 steps for your application",
         "identity": {
         	"step.short": "Identity",

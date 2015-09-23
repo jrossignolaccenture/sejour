@@ -16,6 +16,7 @@
 			"contactType.tooltip": "Votre moyen de contact préféré sera utilisé pour vous informer sur le déroulement de votre demande."
 		},
 		"french" : {
+			"page.title": "Mon arrivée en France",
 			"form" : {
 				"title": "Mon arrivée en France",
 				"button": "Confirmer mon arrivée en France"

@@ -16,6 +16,7 @@
 			"contactType.tooltip": "Your preferred contact method will be used to inform you about the progress of your request."
 		},
 		"french" : {
+			"page.title": "My arrival in France",
 			"form" : {
 				"title": "My arrival in France",
 				"button": "Confirm my arrival in France"

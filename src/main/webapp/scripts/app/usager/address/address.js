@@ -8,7 +8,7 @@ angular.module('sejourApp')
                 url: '/address',
                 data: {
                     roles: ['ROLE_USAGER'],
-                    pageTitle: 'etudier.address.title'
+                    pageTitle: 'address.french.page.title'
                 },
                 views: {
                     'content@': {
