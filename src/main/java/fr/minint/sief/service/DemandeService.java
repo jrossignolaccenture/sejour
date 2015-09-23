@@ -67,7 +67,7 @@ public class DemandeService {
 		Demande demande = new Demande();
         demande.setEmail(email);
 	
-		if("kimsoonjeen@gmail.com".equals(email)){
+		if("kim.soon.jeen@gmail.com".equals(email)){
 			// IDENTITY
 			Identity identity = new Identity();
 			identity.setLastName("Kim");

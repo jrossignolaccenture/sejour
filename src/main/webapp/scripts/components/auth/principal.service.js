@@ -29,7 +29,6 @@ angular.module('sejourApp')
                 }
                 
                 for (var i = 0; i < roles.length; i++) {
-                	console.log("---> " + this.isInRole(roles[i]));
                     if (this.isInRole(roles[i])) {
                         return true;
                     }

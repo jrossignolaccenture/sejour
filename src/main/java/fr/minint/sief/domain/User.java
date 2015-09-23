@@ -51,6 +51,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Field("last_name")
     private String lastName;
 
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("coming_date")
+    private DateTime comingDate;
+    
+    @Field("french_address")
+    private Address frenchAddress;
+
     private boolean activated = false;
 
     @Size(min = 2, max = 5)
@@ -122,7 +130,23 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.lastName = lastName;
     }
 
-    public boolean getActivated() {
+    public DateTime getComingDate() {
+		return comingDate;
+	}
+
+	public void setComingDate(DateTime comingDate) {
+		this.comingDate = comingDate;
+	}
+
+	public Address getFrenchAddress() {
+		return frenchAddress;
+	}
+
+	public void setFrenchAddress(Address frenchAddress) {
+		this.frenchAddress = frenchAddress;
+	}
+
+	public boolean getActivated() {
         return activated;
     }
 
@@ -200,6 +224,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
                 ", type='" + type + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", comingDate='" + comingDate + '\'' +
+                ", frenchAddress='" + frenchAddress + '\'' +
                 ", activated='" + activated + '\'' +
                 ", langKey='" + langKey + '\'' +
                 ", activationKey='" + activationKey + '\'' +

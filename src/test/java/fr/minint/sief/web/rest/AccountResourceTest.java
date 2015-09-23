@@ -159,6 +159,8 @@ public class AccountResourceTest {
             "PERSON",				// type
             "Joe",                  // firstName
             "Shmoe",                // lastName
+            null,					// comingDate
+            null,					// frenchAddress
             "en",                   // langKey
             Arrays.asList(AuthoritiesConstants.USER)
         );
@@ -182,6 +184,8 @@ public class AccountResourceTest {
             "PERSON",			// type
             "Bob",              // firstName
             "Green",            // lastName
+            null,					// comingDate
+            null,					// frenchAddress
             "en",               // langKey
             Arrays.asList(AuthoritiesConstants.USER)
         );
@@ -206,12 +210,14 @@ public class AccountResourceTest {
             "PERSON",				// type
             "John",                 // firstName
             "Doe",                  // lastName
+            null,					// comingDate
+            null,					// frenchAddress
             "en",                   // langKey
             Arrays.asList(AuthoritiesConstants.USER)
         );
 
         // Duplicate e-mail, different login
-        UserDTO dup = new UserDTO(u.getEmail(), u.getPassword(), u.getType(), "otherJohn", "otherDoe",
+        UserDTO dup = new UserDTO(u.getEmail(), u.getPassword(), u.getType(), "otherJohn", "otherDoe", null, null,
             u.getLangKey(), u.getRoles());
 
         // Good user
@@ -241,6 +247,8 @@ public class AccountResourceTest {
             "PERSON",				// type
             "Bad",                  // firstName
             "Guy",                  // lastName
+            null,					// comingDate
+            null,					// frenchAddress
             "en",                   // langKey
             Arrays.asList(AuthoritiesConstants.ADMIN) // <-- only admin should be able to do that
         );

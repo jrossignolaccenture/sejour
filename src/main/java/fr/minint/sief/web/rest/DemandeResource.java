@@ -19,9 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
 
+import fr.minint.sief.domain.Address;
 import fr.minint.sief.domain.Demande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
 import fr.minint.sief.repository.DemandeRepository;
+import fr.minint.sief.repository.UserRepository;
+import fr.minint.sief.security.SecurityUtils;
 import fr.minint.sief.service.DemandeService;
 import fr.minint.sief.web.rest.dto.DemandeDTO;
 import fr.minint.sief.web.rest.mapper.DemandeMapper;
@@ -38,6 +41,9 @@ public class DemandeResource {
 
     @Inject
     private DemandeRepository demandeRepository;
+
+    @Inject
+    private UserRepository userRepository;
     
     @Inject
     private DemandeService demandeService;
@@ -99,14 +105,29 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<DemandeDTO> validate(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+    public ResponseEntity<String> validate(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
         log.debug("REST request to update Demande : {}", demandeDTO);
-        Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
-        demande.setStatut(StatutDemande.payment);
-        Demande result = demandeRepository.save(demande);
-        return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert("demande", demandeDTO.getId().toString()))
-                .body(demandeMapper.demandeToDemandeDTO(result));
+        return userRepository.findOneByEmail(demandeDTO.getEmail())
+        	.filter(u -> u.getEmail().equals(SecurityUtils.getCurrentLogin()))
+        	.map(u -> {
+        		// Sauvegarde de la demande
+        		Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
+                demande.setStatut(StatutDemande.payment);
+                demandeRepository.save(demande);
+                
+                //Mise à jour des données utilisateurs
+        		u.setFirstName(demande.getIdentity().getFirstName());
+        		u.setLastName(demande.getIdentity().getLastName());
+        		u.setComingDate(demande.getProject().getComingDate());
+        		Address address = new Address();
+        		address.setContactType(demande.getAddress().getContactType());
+        		u.setFrenchAddress(address);
+        		userRepository.save(u);
+        		
+        		return new ResponseEntity<String>(HttpStatus.OK);
+        	})
+        .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+        
     }
 
     /**

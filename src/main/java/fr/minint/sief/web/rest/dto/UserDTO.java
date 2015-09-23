@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.joda.time.DateTime;
 
 public class UserDTO {
 
@@ -30,6 +31,10 @@ public class UserDTO {
 
 	@Size(max = 50)
 	private String lastName;
+	
+    private DateTime comingDate;
+    
+    private AddressDTO frenchAddress;
 
 	@Size(min = 2, max = 5)
 	private String langKey;
@@ -40,12 +45,14 @@ public class UserDTO {
 	}
 
 	public UserDTO(String email, String password, String type, String firstName,
-			String lastName, String langKey, List<String> roles) {
+			String lastName, DateTime comingDate, AddressDTO frenchAddress, String langKey, List<String> roles) {
 		this.email = email;
 		this.password = password;
 		this.type = type;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.comingDate = comingDate;
+		this.frenchAddress = frenchAddress;
 		this.langKey = langKey;
 		this.roles = roles;
 	}
@@ -70,6 +77,22 @@ public class UserDTO {
 		return lastName;
 	}
 
+    public DateTime getComingDate() {
+		return comingDate;
+	}
+
+	public void setComingDate(DateTime comingDate) {
+		this.comingDate = comingDate;
+	}
+
+	public AddressDTO getFrenchAddress() {
+		return frenchAddress;
+	}
+
+	public void setFrenchAddress(AddressDTO frenchAddress) {
+		this.frenchAddress = frenchAddress;
+	}
+
 	public String getLangKey() {
 		return langKey;
 	}
@@ -86,6 +109,8 @@ public class UserDTO {
 				", type='" + type + '\'' + 
 				", firstName='" + firstName + '\'' + 
 				", lastName='" + lastName + '\'' + 
+                ", comingDate='" + comingDate + '\'' +
+                ", frenchAddress='" + frenchAddress + '\'' +
 				", langKey='" + langKey + '\'' + 
 				", roles=" + roles + '}';
 	}

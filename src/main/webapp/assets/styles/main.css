@@ -266,18 +266,16 @@ ul#strengthBar {
 
 
 /** FORM **/
-.btn-fun {
-	/* Button Background: */
-	background-image: linear-gradient(-180deg, #D8D8D8 0%, #B3B3B3 100%);
-	border: 1px solid #979797;
-	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.20), inset 0px 2px 0px 0px #FFFFFF;
-	border-radius: 6px;
-	/* OK: */
-	font-family: AvenirNext-Bold;
-	font-size: 14px;
-	color: #4A4A4A;
-	line-height: 19px;
-	text-shadow: 0px 1px 0px #FFFFFF;
+.popover-content {
+    margin: 0;
+    padding: 8px;
+    width: 100px;
+}
+
+@media (min-width: 768px) {
+	.popover-content {
+	    width: 200px;
+	}
 }
 
 .input-file-plus {

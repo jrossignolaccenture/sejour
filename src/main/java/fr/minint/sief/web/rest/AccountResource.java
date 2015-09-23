@@ -35,6 +35,8 @@ import fr.minint.sief.service.MailService;
 import fr.minint.sief.service.UserService;
 import fr.minint.sief.web.rest.dto.KeyAndPasswordDTO;
 import fr.minint.sief.web.rest.dto.UserDTO;
+import fr.minint.sief.web.rest.mapper.AddressMapper;
+
 
 /**
  * REST controller for managing the current user's account.
@@ -56,6 +58,9 @@ public class AccountResource {
 
     @Inject
     private MailService mailService;
+
+    @Inject
+    private AddressMapper addressMapper;
 
     /**
      * POST  /register -> register the user.
@@ -123,6 +128,8 @@ public class AccountResource {
                         user.getType(),
                         user.getFirstName(),
                         user.getLastName(),
+                        user.getComingDate(),
+                        addressMapper.addressToAddressDTO(user.getFrenchAddress()),
                         user.getLangKey(),
                         user.getAuthorities().stream().map(Authority::getName)
                             .collect(Collectors.toList())),
@@ -143,7 +150,9 @@ public class AccountResource {
             .findOneByEmail(userDTO.getEmail())
             .filter(u -> u.getEmail().equals(SecurityUtils.getCurrentLogin()))
             .map(u -> {
-                userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(),
+                userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), 
+                		userDTO.getComingDate(), addressMapper.addressDTOToAddress(userDTO.getFrenchAddress()), 
+                		userDTO.getEmail(),
                     userDTO.getLangKey());
                 return new ResponseEntity<String>(HttpStatus.OK);
             })

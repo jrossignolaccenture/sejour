@@ -1,28 +1,26 @@
 {
-    "sejourApp": {
-        "address" : {
-            "home": {
-                "title": "Addresss",
-                "createLabel": "Créer un nouveau Address",
-                "createOrEditLabel": "Créer ou éditer un Address"
-            },
-            "delete": {
-                "question": "Etes-vous certain de vouloir supprimer le Address {{ id }} ?"
-            },
-            "detail": {
-                "title": "Address"
-            },
-            "owner": "Owner",
-            "number": "Number",
-            "street": "Street",
-            "complement": "Complement",
-            "postalCode": "PostalCode",
-            "city": "City",
-            "country": "Country",
-            "phone": "Phone",
-            "email": "Email",
-            "contactType": "ContactType"
-        }
-    }
+	"address" : {
+		"form": {
+			"comingDate": "Date d'arrivée en France",
+			"title": "Validez vos coordonnées",
+			"owner": "Chez",
+			"number": "Numéro de voie",
+			"street": "Voie",
+			"complement": "Complément",
+			"postalCode": "Code postal",
+			"city": "Ville de résidence",
+			"country": "Pays de résidence",
+			"phone": "Téléphone",
+			"email": "Email",
+			"contactType": "Moyen de contact préféré",
+			"contactType.tooltip": "Votre moyen de contact préféré sera utilisé pour vous informer sur le déroulement de votre demande."
+		},
+		"french" : {
+			"form" : {
+				"title": "Mon arrivée en France",
+				"button": "Confirmer mon arrivée en France"
+			}
+		}
+	}
 }
 
