@@ -13,7 +13,7 @@
 			"phone": "Phone",
 			"email": "Email",
 			"contactType": "Prefered Contact",
-			"contactType.tooltip": "Your preferred contact method will be used to inform you about the progress of your request."
+			"contactType.tooltip": "Your preferred contact method will be used to inform you about the progress of your application."
 		},
 		"french" : {
 			"page.title": "My arrival in France",

@@ -17,7 +17,7 @@
         },
         "payment": {
         	"step.short": "Payment",
-        	"step.long": "Pay your application fee and pre-pay your stamp duty and your local taxes"
+        	"step.long": "Pay your application fee and pre-pay your residency taxes"
         },
         "button": {
         	"start": "Start",
@@ -27,7 +27,7 @@
         	"end": "End"
         },
 	    "validation": {
-	    	"title": "{{studentName}} - Request for study",
+	    	"title": "{{studentName}} - Application for study",
 	    	"identity": "Identity",
 	    	"preinscription": "(Pre)Inscription",
 	    	"project": "Project",

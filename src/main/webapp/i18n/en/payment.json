@@ -1,7 +1,9 @@
 {
 	"payment" : {
 		"form": {
-			"title": "Pay your application fee and pre-pay your stamp duty and your local taxes",
+			"title": "Pay your application fee and pre-pay your residency taxes",
+			"text1": "Your application fee amounts to 50.00 euros. They will be charged regardless of the outcome of your application.",
+			"text2": "Your residency taxes amount to 77.00 euros. They will not be debited in case of a favorable decision",
 			"cardOwner": "Card owner",
 			"cardNumber": "Card number",
 			"cardExpiringDate": "Expiring date",

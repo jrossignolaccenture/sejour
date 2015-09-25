@@ -17,7 +17,7 @@
         },
         "payment": {
         	"step.short": "Paiement",
-        	"step.long": "Payez vos frais de dossier et pré-payez votre droit de timbre et vos taxes de séjour"
+        	"step.long": "Payez vos frais de dossier et pré-payez vos taxes de séjour"
         },
         "button": {
         	"start": "Démarrer",

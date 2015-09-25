@@ -148,6 +148,27 @@
 	    <br>
 	    <div class="row">
 			<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+		        
+		        <div class="form-group">
+		            <label translate="project.form.inscriptionCertificate" for="field_inscriptionCertificate">InscriptionCertificate</label>
+			        <div class="input-group">
+				        <span class="input-group-addon" id="logo_inscriptionCertificate">
+	                        <span class="fa fa-file"></span>
+	                    </span>
+				        <input id="file_inscriptionCertificate" type="file" ng-model="inscriptionCertificateFile" onchange="angular.element(this).scope().uploadInscriptionCertificateFile(this)" style="display: none;">
+				        <input type="text" class="form-control" name="inscriptionCertificate" id="field_inscriptionCertificate" readonly="readonly"
+				                ng-model="project.inscriptionCertificate" placeholder="{{'project.form.inscriptionCertificate.placeholder' | translate}}" 
+				                required >
+					</div>
+							
+			        <div ng-show="projectForm.inscriptionCertificate.$dirty && projectForm.inscriptionCertificate.$invalid">
+			            <p class="help-block" ng-show="identityForm.inscriptionCertificate.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+		
+		        </div>
+		        
 		        <div class="form-group">
 		            <label translate="project.form.resourceProof" for="field_resourceProof">ResourceProof</label>
 			        <div class="input-group">
@@ -165,25 +186,6 @@
 							
 			        <div ng-show="projectForm.resourceProof.$dirty && projectForm.resourceProof.$invalid">
 			            <p class="help-block" ng-show="projectForm.resourceProof.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-		
-		        </div>
-		        <div class="form-group">
-		            <label translate="project.form.inscriptionCertificate" for="field_inscriptionCertificate">InscriptionCertificate</label>
-			        <div class="input-group">
-				        <span class="input-group-addon" id="logo_inscriptionCertificate">
-	                        <span class="fa fa-file"></span>
-	                    </span>
-				        <input id="file_inscriptionCertificate" type="file" ng-model="inscriptionCertificateFile" onchange="angular.element(this).scope().uploadInscriptionCertificateFile(this)" style="display: none;">
-				        <input type="text" class="form-control" name="inscriptionCertificate" id="field_inscriptionCertificate" readonly="readonly"
-				                ng-model="project.inscriptionCertificate" placeholder="{{'project.form.inscriptionCertificate.placeholder' | translate}}" 
-				                required >
-					</div>
-							
-			        <div ng-show="projectForm.inscriptionCertificate.$dirty && projectForm.inscriptionCertificate.$invalid">
-			            <p class="help-block" ng-show="identityForm.inscriptionCertificate.$error.required" translate="entity.validation.required">
 			                This field is required.
 			            </p>
 			        </div>

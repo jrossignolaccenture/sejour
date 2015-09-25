@@ -74,7 +74,7 @@ public class DemandeService {
 			identity.setFirstName("Soon-jeen");
 			identity.setSex(SexType.F);
 			Calendar calendar = Calendar.getInstance();
-			calendar.set(1992, 12, 10);
+			calendar.set(1992, 11, 10);
 			identity.setBirthDate(new DateTime(calendar.getTimeInMillis()));
 			identity.setBirthCity("Séoul");
 			identity.setBirthCountry("KR");
@@ -98,9 +98,9 @@ public class DemandeService {
 //			project.setComingDate(new DateTime(calendar.getTimeInMillis()));
 			project.setUniversity("Télécom Paris Tech");
 			project.setTraining("Master of Science in Multimedia Information Technologies");
-			calendar.set(2016, 2, 8);
+			calendar.set(2016, 0, 5);
 			project.setTrainingStart(new DateTime(calendar.getTimeInMillis()));
-			project.setTrainingLength(6);
+			project.setTrainingLength(12);
 			demande.setProject(project);
 		}
 		return demande;
