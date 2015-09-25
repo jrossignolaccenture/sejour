@@ -63,13 +63,13 @@
 				        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
 				        <select class="form-control" name="birthCountry" id="field_birthCountry"
 						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
-						      ng-model="demande.identity.birthCountry" readonly="readonly"></select>
+						      ng-model="demande.identity.birthCountry" disabled></select>
 				    </div>
 				    <div class="form-group">
 				        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
 				        <select class="form-control" name="nationality" id="field_nationality"
 						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
-						      ng-model="demande.identity.nationality" readonly="readonly"></select>
+						      ng-model="demande.identity.nationality" disabled></select>
 				    </div>
 				    <div class="form-group">
 				        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
@@ -223,8 +223,8 @@
 	<br>
 	<div class="row row-center">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-	    	<button class="btn btn-default" translate="validation.form.button.decline">Decline</button>
-	    	<button class="btn btn-primary" ng-disabled="!projectValidated" translate="validation.form.button.accept" style="margin-left: 20px">Accept</button>
+	    	<button class="btn btn-danger" translate="validation.form.button.decline">Decline</button>
+	    	<button class="btn btn-success" ng-disabled="!projectValidated" translate="validation.form.button.accept" style="margin-left: 20px">Accept</button>
 		</div>
 	</div>
 </div>
