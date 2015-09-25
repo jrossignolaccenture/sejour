@@ -162,6 +162,13 @@ ul#strengthBar {
 }
 /* end Password strength bar style */
 
+/* start angular-animate */
+.ng-hide-add, .ng-hide-remove {
+    /* ensure visibility during the transition */
+    display: block !important; yes, important
+}
+/* end angular-animate */
+
 .readonly {
     background-color: #eee;
     opacity: 1;
@@ -266,6 +273,52 @@ ul#strengthBar {
 
 
 /** FORM **/
+.title-underscore > h4 {
+	padding-bottom: 7px;
+	font-weight: bolder;
+	color: rgb(53, 86, 137);
+	border-bottom: 2px solid rgb(53, 86, 137);;
+}
+
+.collapsable-panel {
+	margin-bottom: 20px;
+	box-shadow: 0 4px 2px -2px gray;
+	cursor: pointer;
+}
+
+.collapsable-panel span {
+	float: right;
+}
+
+.validation-form {
+	padding-top: 5px;
+}
+
+.validation-form img {
+	width: 40px;
+	padding-right: 6px;
+}
+
+.validation-visualization-row {
+	margin: 0px 15px 0px 4px;
+	padding: 15px 5px 0px 5px;
+	background: white;
+	border-radius: 5px;
+	box-shadow: -1px -1px 2px -1px gray;
+}
+
+.validation-visualization-row.opened {
+	margin-bottom: 20px;
+}
+
+.validation-visualization-row img {
+	border-radius: 5px;
+}
+
+.img-disabled {
+	opacity:0.2;
+}
+
 .popover-content {
     margin: 0;
     padding: 8px;

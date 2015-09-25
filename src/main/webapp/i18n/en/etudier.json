@@ -25,20 +25,6 @@
         	"back": "Back",
         	"payment": "Confirm payment",
         	"end": "End"
-        },
-	    "validation": {
-	    	"title": "{{studentName}} - Application for study",
-	    	"identity": "Identity",
-	    	"preinscription": "(Pre)Inscription",
-	    	"project": "Project",
-	    	"documents": "Originals documents",
-	    	"biometrics": "Biometrics",
-	    	"policeControl": "Police control",
-	    	"history": "SIEF History",
-	    	"button": {
-	    		"accept": "Accept residence permit",
-	    		"decline": "Decline residence permit"
-	    	}
-	    }
+        }
     }
 }

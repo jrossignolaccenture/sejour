@@ -33,10 +33,11 @@ public class FileService {
         String destFileName = destFilePrefix + "_"
         							+ currentUser.getEmail() + "."
         							+ FilenameUtils.getExtension(sourceFile.getOriginalFilename());
+        
         try {
             byte[] bytes = sourceFile.getBytes();
             BufferedOutputStream stream =
-                    new BufferedOutputStream(new FileOutputStream(new File("fileUpload", destFileName)));
+                    new BufferedOutputStream(new FileOutputStream(new File("src/main/webapp/assets/fileUpload", destFileName)));
             stream.write(bytes);
             stream.close();
             log.debug( "You successfully uploaded " + destFileName + "!");

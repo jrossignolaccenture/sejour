@@ -54,7 +54,7 @@
 			    		<div ng-if="hours.length == 0">
 			    			<p translate="rdv.form.hour.empty">Select a day</p>
 			    		</div>
-			    		<div class="rdv-hour-cell" ng-if="hours.length > 0 " ng-repeat="hour in currentHours" ng-click="selectHour(hour)" ng-class='{"selected":hour==currentHour}'>
+			    		<div class="rdv-hour-cell" ng-if="hours.length > 0 " ng-repeat="hour in currentHours" ng-click="selectHour(hour)" ng-class="{'selected': hour==currentHour}">
 			    			{{hour}}
 			    		</div>
 			    	</div>

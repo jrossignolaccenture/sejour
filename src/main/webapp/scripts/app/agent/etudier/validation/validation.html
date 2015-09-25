@@ -1,114 +1,230 @@
 <div ng-cloak>
     <div class="row">
     	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
-    		<h4 translate="etudier.validation.title" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    		<h4 translate="validation.form.title" translate-values="{ studentName: '{{studentName}}'}"></h4>
    		</div>
     </div>
 	<br>
 	<div class="row">
 		<div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-			<div class="panel hand">
+			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
 				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom" style="float:right;"></span>
-					<h5 class="panel-title" translate="etudier.validation.identity">Identity</h5>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
+					<h5 class="panel-title" translate="validation.form.identity">Identity</h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<img src="assets/images/checkbox_checked.png" class="img-checkbox">
-			<span>Validée le 15/09/2015 - Ambassade de France à Séoul</span>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
+			<img src="assets/images/checkbox_checked.png">
+			<span translate="validation.form.validate.f" translate-values="{validationDate: '15/09/2015', validationAuthor: 'Ambassade de France'}">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="identityOpened">
+		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': identityOpened}">
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+					<div class="form-group">
+				        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
+				        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="demande.identity.lastName" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
+				        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="demande.identity.usedLastName" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
+				        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="demande.identity.firstName" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.sex" for="field_sex">Sex</label>
+				        <div>
+					        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="demande.identity.sex" value="F" disabled>{{'sejourApp.SexType.F' | translate}}</label>
+							<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="demande.identity.sex" value="M" disabled>{{'sejourApp.SexType.M' | translate}}</label>
+		                </div>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
+				        <div class="input-group date">
+					        <span class="input-group-addon">
+		                        <span class="fa fa-calendar"></span>
+		                    </span>
+		                    <input type="text" class="form-control"
+						           name="birthDateTxt" id="field_birthDateTxt"
+						           ng-model="demande.identity.birthDateTxt"
+						           placeholder="{{'global.form.date.format' | translate}}" readonly="readonly">
+						</div>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
+				        <input type="text" class="form-control" name="birthCity" id="field_birthCity"
+				                ng-model="demande.identity.birthCity" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
+				        <select class="form-control" name="birthCountry" id="field_birthCountry"
+						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+						      ng-model="demande.identity.birthCountry" readonly="readonly"></select>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
+				        <select class="form-control" name="nationality" id="field_nationality"
+						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+						      ng-model="demande.identity.nationality" readonly="readonly"></select>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
+				        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="demande.identity.passportNumber" readonly="readonly">
+				    </div>
+				</div>
+				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="text-align: center">
+							<span class="glyphicon glyphicon-arrow-right hand" ng-show="identity.images.length > 1" ng-click="nextImg(identity)" style="float: right;"></span>
+							<span class="glyphicon glyphicon-arrow-left hand" ng-show="identity.images.length > 1" ng-click="previousImg(identity)" style="float: left;"></span>
+							<span translate="{{identity.currentImg.title}}"></span>
+						</div>
+						<div class="panel-body">
+							<img src="{{identity.currentImg.src}}" class="img-responsive">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-			<div class="panel hand">
-				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom" style="float:right;"></span>
-					<h5 class="panel-title" translate="etudier.validation.preinscription">(Pre)inscription</h5>
+			<div class="collapsable-panel">
+				<div class="panel-heading">
+					<h5 class="panel-title" translate="validation.form.policeControl">Police Control</h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<img src="assets/images/checkbox_checked.png" class="img-checkbox">
-			<span>Confirmée le 09/09/2015 - Campus France</span>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
+			<img src="assets/images/checkbox_checked.png">
+			<span translate="validation.form.validate.h" translate-values="{validationDate: '15/09/2015', validationAuthor: 'Gendarmerie'}">validate</span>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-			<div class="panel hand">
-				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom" style="float:right;"></span>
-					<h5 class="panel-title" translate="etudier.validation.project">Project</h5>
+			<div class="collapsable-panel">
+				<div class="panel-heading">
+					<h5 class="panel-title" translate="validation.form.preinscription">(Pre)inscription</h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<img src="assets/images/checkbox_checked.png" class="img-checkbox">
-			<span>Validée le 12/09/2015 - Administration nationale</span>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
+			<img src="assets/images/checkbox_checked.png">
+			<span translate="validation.form.confirm.f" translate-values="{confirmationDate: '09/09/2015', confirmationAuthor: 'Campus France'}">validate</span>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-			<div class="panel hand">
-				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom" style="float:right;"></span>
-					<h5 class="panel-title" translate="etudier.validation.documents">Documents</h5>
+			<div class="collapsable-panel">
+				<div class="panel-heading">
+					<h5 class="panel-title" translate="validation.form.documents">Documents</h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<img src="assets/images/checkbox_checked.png" class="img-checkbox">
-			<span>Validée le 15/09/2015 - Ambassade de France à Séoul</span>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
+			<img src="assets/images/checkbox_checked.png">
+			<span translate="validation.form.certify.h.p" translate-values="{certificationDate: '15/09/2015', certificationAuthor: 'Ambassade de France'}">validate</span>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-			<div class="panel hand">
-				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom" style="float:right;"></span>
-					<h5 class="panel-title" translate="etudier.validation.biometrics">Biometrics</h5>
+			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
+				<div class="panel-heading">
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
+					<h5 class="panel-title" translate="validation.form.project">Project</h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<img src="assets/images/checkbox_checked.png" class="img-checkbox">
-			<span>Validée le 15/09/2015 - Ambassade de France à Séoul</span>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!projectValidated" ng-click="projectValidated = !projectValidated; projectOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="projectValidated" ng-click="projectValidated = !projectValidated">
+			<span translate="validation.form.toValidate" ng-show="!projectValidated">To validate</span>
+			<span translate="validation.form.validate.h" translate-values="{validationDate: todayDate, validationAuthor: 'Administration centrale'}" ng-show="projectValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="projectOpened">
+		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+					<div class="form-group">
+			            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
+				        <div class="input-group date">
+					        <span class="input-group-addon">
+		                        <span class="fa fa-calendar"></span>
+		                    </span>
+		                    <input type="text" class="form-control"
+						           name="comingDateTxt" id="field_comingDateTxt"
+						           ng-model="demande.project.comingDateTxt"
+						           placeholder="{{'global.form.date.format' | translate}}"
+						           readonly="readonly">
+						</div>
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.university" for="field_university">University</label>
+			            <input type="text" class="form-control" name="university" id="field_university"
+			                    ng-model="demande.project.university" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.training" for="field_training">Training</label>
+			            <input type="text" class="form-control" name="training" id="field_training"
+			                    ng-model="demande.project.training" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
+				        <div class="input-group date">
+					        <span class="input-group-addon">
+		                        <span class="fa fa-calendar"></span>
+		                    </span>
+		                    <input type="text" class="form-control"
+						           name="trainingStartTxt" id="field_trainingStartTxt"
+						           ng-model="demande.project.trainingStartTxt"
+						           placeholder="{{'global.form.date.format' | translate}}"
+						           readonly="readonly">
+						</div>
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
+			            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
+			                    ng-model="demande.project.trainingLength" readonly="readonly">
+			        </div>
+				</div>
+				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="text-align: center">
+							<span class="glyphicon glyphicon-arrow-right hand" ng-show="project.images.length > 1" ng-click="nextImg(project)" style="float: right;"></span>
+							<span class="glyphicon glyphicon-arrow-left hand" ng-show="project.images.length > 1" ng-click="previousImg(project)" style="float: left;"></span>
+							<span translate="{{project.currentImg.title}}"></span>
+						</div>
+						<div class="panel-body">
+							<img src="{{project.currentImg.src}}" class="img-responsive">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-			<div class="panel hand">
-				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom" style="float:right;"></span>
-					<h5 class="panel-title" translate="etudier.validation.policeControl">Police Control</h5>
+			<div class="collapsable-panel">
+				<div class="panel-heading">
+					<h5 class="panel-title" translate="validation.form.history">History</h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<img src="assets/images/checkbox_checked.png" class="img-checkbox">
-			<span>Validée le 15/09/2015 - Police / Gendarmerie</span>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
-			<div class="panel hand">
-				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom" style="float:right;"></span>
-					<h5 class="panel-title" translate="etudier.validation.history">History</h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<img src="assets/images/checkbox_unchecked.png" class="img-checkbox img-disabled">
-			<span>Pas d'historique</span>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
+			<span translate="validation.form.noHistory">No history</span>
 		</div>
 	</div>
 	<br>
 	<br>
 	<div class="row row-center">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-	    	<button class="btn btn-default" translate="etudier.validation.button.decline">Decline</button>
-	    	<button class="btn btn-primary" translate="etudier.validation.button.accept">Accept</button>
+	    	<button class="btn btn-default" translate="validation.form.button.decline">Decline</button>
+	    	<button class="btn btn-primary" ng-disabled="!projectValidated" translate="validation.form.button.accept" style="margin-left: 20px">Accept</button>
 		</div>
 	</div>
 </div>

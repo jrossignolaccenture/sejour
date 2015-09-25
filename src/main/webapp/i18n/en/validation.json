@@ -1,0 +1,25 @@
+{
+	"validation" : {
+		"form": {
+	    	"title": "{{studentName}} - Application for study",
+	    	"identity": "Identity",
+	    	"preinscription": "(Pre)Inscription",
+	    	"project": "Project",
+	    	"documents": "Originals documents",
+	    	"policeControl": "Police control",
+	    	"history": "SIEF History",
+	    	"noHistory": "No history",
+	    	
+	    	"validate.h": "Validate on {{validationDate}} - {{validationAuthor}}",
+	    	"validate.f": "Validate on {{validationDate}} - {{validationAuthor}}",
+	    	"confirm.f": "Confirm on {{confirmationDate}} - {{confirmationAuthor}}",
+	    	"certify.h.p": "Certified on {{certificationDate}} - {{certificationAuthor}}",
+	    	"toValidate": "To validate",
+	    	
+	    	"button": {
+	    		"accept": "Accept residence permit",
+	    		"decline": "Decline residence permit"
+	    	}
+		}
+	}
+}

@@ -111,21 +111,3 @@
 	background-color: #3c763d;
 	color: white;
 }
-
-
-/** VALIDATION **/
-.title-underscore > h4 {
-	padding-bottom: 7px;
-	font-weight: bolder;
-	color: rgb(53, 86, 137);
-	border-bottom: 2px solid rgb(53, 86, 137);;
-}
-
-.img-checkbox {
-	width: 42px;
-	padding-right: 6px;
-}
-
-.img-disabled {
-	opacity:0.2;
-}

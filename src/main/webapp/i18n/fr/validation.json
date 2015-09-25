@@ -1,0 +1,25 @@
+{
+	"validation" : {
+		"form": {
+	    	"title": "{{studentName}} - Demande de séjour étudiant",
+	    	"identity": "Identité",
+	    	"preinscription": "(Pré) inscription",
+	    	"project": "Projet d'études",
+	    	"documents": "Documents originaux",
+	    	"policeControl": "Contrôle policier",
+	    	"history": "Historique SIEF",
+	    	"noHistory": "Pas d'historique",
+	    	
+	    	"validate.h": "Validé le {{validationDate}} - {{validationAuthor}}",
+	    	"validate.f": "Validée le {{validationDate}} - {{validationAuthor}}",
+	    	"confirm.f": "Confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
+	    	"certify.h.p": "Certifiés le {{certificationDate}} - {{certificationAuthor}}",
+	    	"toValidate": "A valider",
+	    	
+	    	"button": {
+	    		"accept": "Accorder le droit au séjour",
+	    		"decline": "Refuser le droit au séjour"
+	    	}
+		}
+	}
+}

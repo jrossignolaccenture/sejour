@@ -7,8 +7,7 @@ angular.module('sejourApp')
                 parent: 'agent/etudier',
                 url: '/validation',
                 data: {
-                    roles: ['ROLE_AGENT'],
-                    pageTitle: 'etudier.validation.title'
+                    roles: ['ROLE_AGENT']
                 },
                 views: {
                     'content@': {
@@ -18,6 +17,10 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    	$translatePartialLoader.addPart('validation');
+                    	$translatePartialLoader.addPart('project');
+                    	$translatePartialLoader.addPart('identity');
+                    	$translatePartialLoader.addPart('sexType');
                         return $translate.refresh();
                     }]
                 }
