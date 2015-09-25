@@ -1,0 +1,14 @@
+{
+	"rdv" : {
+		"form": {
+			"title": "Sélectionnez un créneau de rendez-vous",
+			"hour": {
+				"title": "Créneaux disponibles le {{currentDate}}",
+				"empty": "Sélectionner un jour"
+			},
+			"text": "Lors du rendez-vous, vous devrez apportez les originaux des documents joints à votre demande (dont votre passeport).",
+			"button": "Confirmer mon rendez-vous"
+		}
+	}
+}
+

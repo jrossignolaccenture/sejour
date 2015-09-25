@@ -66,6 +66,53 @@
 	}
 }
 
+/** RDV **/
+.rdv {
+	float: left;
+	width: 40%
+}
+.rdv table {
+	border-spacing: 1px;
+	border-collapse: separate;
+}
+.rdv .bootstrap-datetimepicker-widget table td.day {
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+.rdv .bootstrap-datetimepicker-widget table td {
+	border-color: black;
+}
+.rdv .bootstrap-datetimepicker-widget table td.disabled {
+	opacity: 0.3;
+	background-color: transparent;
+	border-color: transparent;
+}
+.rdv .bootstrap-datetimepicker-widget table td.active {
+	background-color: #3c763d;
+}
+
+.rdv-hour {
+	float: left;
+	width: 55%;
+	margin-left: 10px;
+	text-align: center;
+}
+.rdv-hour .panel-body {
+	padding: 5px;
+}
+.rdv-hour-cell {
+	float:left;
+	width:20%;
+	padding: 5px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.rdv-hour-cell.selected, .rdv-hour-cell:hover {
+	background-color: #3c763d;
+	color: white;
+}
+
+
 /** VALIDATION **/
 .title-underscore > h4 {
 	padding-bottom: 7px;

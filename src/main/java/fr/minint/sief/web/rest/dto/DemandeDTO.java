@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.joda.time.DateTime;
 
 import fr.minint.sief.domain.enumeration.NatureDemande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
@@ -38,6 +39,8 @@ public class DemandeDTO implements Serializable {
     private AddressDTO address;
     
     private ProjectDTO project;
+    
+    private DateTime rdv;
 
     public String getId() {
         return id;
@@ -103,6 +106,14 @@ public class DemandeDTO implements Serializable {
 		this.project = project;
 	}
 
+	public DateTime getRdv() {
+		return rdv;
+	}
+
+	public void setRdv(DateTime rdv) {
+		this.rdv = rdv;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -135,6 +146,7 @@ public class DemandeDTO implements Serializable {
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
+                ", rdv='" + rdv + "'" +
                 '}';
     }
 }

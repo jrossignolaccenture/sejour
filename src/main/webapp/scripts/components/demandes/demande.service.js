@@ -18,6 +18,11 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            getDemandeForRdv: function (email) {
+            	return $http.get('api/demande', {params: {email: email, statut: "rdv"}}).then(function (response) {
+                    return response.data;
+                });
+            },
             update: function (demande, finalStep) {
             	if(finalStep){
             		return $http.put('api/demande/validate', demande).then(function (response) {
@@ -31,6 +36,11 @@ angular.module('sejourApp')
             },
             prepaid: function () {
             	return $http.put('api/demande/prepaid').then(function (response) {
+                    return response.data;
+                });
+            },
+            rdv: function (demande) {
+            	return $http.put('api/demande/rdv', demande).then(function (response) {
                     return response.data;
                 });
             }

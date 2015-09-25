@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -49,6 +50,9 @@ public class Demande implements Serializable {
     
     @Field("project")
     private Project project;
+    
+    @Field("rdv")
+    private DateTime rdv;
 
     public String getId() {
         return id;
@@ -114,6 +118,14 @@ public class Demande implements Serializable {
 		this.project = project;
 	}
 
+	public DateTime getRdv() {
+		return rdv;
+	}
+
+	public void setRdv(DateTime rdv) {
+		this.rdv = rdv;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -146,6 +158,7 @@ public class Demande implements Serializable {
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
+                ", rdv='" + rdv + "'" +
                 '}';
     }
 }

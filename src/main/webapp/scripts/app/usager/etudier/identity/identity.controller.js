@@ -11,6 +11,7 @@ angular.module('sejourApp')
 			format: 'DD/MM/YYYY',
 			maxDate: 'moment', 
 			viewMode: 'years', 
+			locale: 'fr',
 			allowInputToggle: true
         }
         

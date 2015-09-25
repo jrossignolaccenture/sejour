@@ -7,6 +7,7 @@ angular.module('sejourApp')
         $scope.datePickerOptions = {
 			format: 'DD/MM/YYYY',
 			viewMode: 'years', 
+			locale: 'fr',
 			allowInputToggle: true
         }
         

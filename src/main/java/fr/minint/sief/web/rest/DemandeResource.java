@@ -140,6 +140,23 @@ public class DemandeResource {
     public ResponseEntity<DemandeDTO> prepaid() throws URISyntaxException {
         log.debug("REST request to prepaid current demande");
         Demande demande = demandeService.getCurrentDemande(StatutDemande.payment);
+        demande.setStatut(StatutDemande.rdv);
+        Demande result = demandeRepository.save(demande);
+        return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("demande", demande.getId().toString()))
+                .body(demandeMapper.demandeToDemandeDTO(result));
+    }
+
+    /**
+     * PUT  /demande/rdv -> Updates an existing demande.
+     */
+    @RequestMapping(value = "/demande/rdv",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<DemandeDTO> rdv(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+        log.debug("REST request to prepaid current demande");
+        Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.validation);
         Demande result = demandeRepository.save(demande);
         return ResponseEntity.ok()

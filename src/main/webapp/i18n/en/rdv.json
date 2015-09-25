@@ -1,0 +1,14 @@
+{
+	"rdv" : {
+		"form": {
+			"title": "Select an appointment slot",
+			"hour": {
+				"title": "Available time on {{currentDate}}",
+				"empty": "Select a day"
+			},
+			"text": "At the appointment, you should bring the original documents attached to your application (including your passport).",
+			"button": "Confirm my appointment"
+		}
+	}
+}
+
