@@ -3,8 +3,8 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('address', {
-                parent: 'usager',
+            .state('account/address', {
+                parent: 'usager/account',
                 url: '/address',
                 data: {
                     roles: ['ROLE_USAGER'],
@@ -12,8 +12,8 @@ angular.module('sejourApp')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/usager/address/address.html',
-                        controller: 'UsagerAddressController'
+                        templateUrl: 'scripts/app/usager/account/address/address.html',
+                        controller: 'AccountAddressController'
                     }
                 },
                 resolve: {

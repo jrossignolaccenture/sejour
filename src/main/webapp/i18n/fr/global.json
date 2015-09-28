@@ -15,6 +15,7 @@
             "account": {
                 "main": "Compte",
                 "settings": "Profil",
+                "personalAccount": "Mon compte personnel",
                 "rdv": "Rendez-vous",
                 "password": "Mot de passe",
                 "sessions": "Sessions",

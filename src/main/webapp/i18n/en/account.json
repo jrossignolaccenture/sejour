@@ -1,0 +1,11 @@
+{
+    "account": {
+        "title": {
+	        "info": "My personal informations",
+	        "application": "My applications",
+	        "message": "My messages",
+	        "arrival": "My arrival in France",
+	        "opinion": "My opinion"
+        }
+    }
+}

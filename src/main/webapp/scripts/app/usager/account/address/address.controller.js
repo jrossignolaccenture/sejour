@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('UsagerAddressController', function ($scope, $state, Principal, Auth) {
+    .controller('AccountAddressController', function ($scope, $state, Principal, Auth) {
     	$scope.error = null;
         
         $scope.datePickerOptions = {
