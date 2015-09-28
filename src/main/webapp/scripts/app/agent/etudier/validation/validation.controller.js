@@ -14,6 +14,7 @@ angular.module('sejourApp')
 			currentImgIndex: 0
     	};
     	$scope.todayDate = moment().format('DD/MM/YYYY');
+    	$scope.pastDate = moment().subtract(4, 'd').format('DD/MM/YYYY');
     	
         Country.get().then(function(result) {
         	$scope.countries = result;
@@ -44,6 +45,12 @@ angular.module('sejourApp')
                 element.currentImgIndex = element.images.length - 1;
             }
             element.currentImg = element.images[element.currentImgIndex];
+        }
+        
+        $scope.finalDecision = function (){
+    		Demande.finalDecision(currentDemande).then(function(result){
+            	$state.go('etudier/validation/list')
+            });
         }
     	
     });

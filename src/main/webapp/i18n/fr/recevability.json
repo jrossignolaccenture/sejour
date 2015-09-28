@@ -2,6 +2,7 @@
 	"recevability" : {
 		"list": {
 			"title": "Liste des demandes pour vérification de la recevabilité",
+			"noApplication": "Aucune recevabilité à vérifier actuellement.",
 			"firstName": "Nom",
 			"lastName": "Prénom",
 			"nationality": "Nationalité",

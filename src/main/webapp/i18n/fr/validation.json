@@ -2,6 +2,7 @@
 	"validation" : {
 		"list": {
 			"title": "Liste des demandes pour décision finale",
+			"noApplication": "Aucune demande à valider actuellement.",
 			"firstName": "Nom",
 			"lastName": "Prénom",
 			"nationality": "Nationalité",

@@ -1,25 +1,25 @@
 <div ng-cloak>
     <div class="row">
     	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
-    		<h4 translate="validation.list.title"></h4>
+    		<h4 translate="identification.list.title"></h4>
    		</div>
     </div>
 	<br>
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
-	    	<h5 translate="validation.list.noApplication" ng-show="demandes.length == 0">No application</h5>
+	    	<h5 translate="identification.list.noApplication" ng-show="demandes.length == 0">No application</h5>
 	    	<table class="table" ng-show="demandes.length > 0">
 				<thead>
 					<tr>
-						<th style="width:20%;" translate="validation.list.lastName"></th>
-						<th style="width:20%;" translate="validation.list.firstName"></th>
-						<th style="width:17%;" translate="validation.list.nationality"></th>
-						<th style="width:25%;" translate="validation.list.applicationType"></th>
-						<th style="width:18%;" translate="validation.list.creationDate"></th>
+						<th style="width:20%;" translate="identification.list.lastName"></th>
+						<th style="width:20%;" translate="identification.list.firstName"></th>
+						<th style="width:17%;" translate="identification.list.nationality"></th>
+						<th style="width:25%;" translate="identification.list.applicationType"></th>
+						<th style="width:18%;" translate="identification.list.creationDate"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="applicationListLine" ng-repeat="demande in demandes" ui-sref="etudier/validation({id:demande.id})">
+					<tr class="applicationListLine" ng-repeat="demande in demandes" ui-sref="etudier/documents({id:demande.id})">
 						<td>{{demande.identity.lastName}}</td>
 						<td>{{demande.identity.firstName}}</td>
 						<td>{{getNationality(demande.identity.nationality)}}</td>

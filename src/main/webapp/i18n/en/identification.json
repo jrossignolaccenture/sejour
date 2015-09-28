@@ -1,0 +1,39 @@
+{
+	"identification" : {
+		"list": {
+			"title": "Application list for identiy verification",
+			"noApplication": "There is no identification to do at this time.",
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"nationality": "Nationality",
+			"applicationType": "Application type",
+			"creationDate": "Creation date"
+		},
+		"documents": {
+	    	"title": "{{studentName}} - Application for study",
+	    	"passport": "Certification of passport authenticity",
+	    	"birthAct": "Certification of birth act authenticity",
+	    	"inscriptionCertificate": "Certification of inscription certificated authenticity",
+	    	"resourceProof": "Certification of resource proof authenticity",
+	    	
+	    	"toCertify": "To certify",
+	    	"certified": "Certified",
+	    	
+	    	"button": {
+	    		"accept": "Certify documents authenticity"
+	    	}
+		},
+		"biometrics": {
+	    	"title": "{{studentName}} - Application for study",
+	    	"photo": "Collection of photography",
+	    	"fingerprints": "Collection of fingerprints",
+	    	"signature": "Collection of signature",
+	    	
+	    	"validated": "Validated",
+	    	
+	    	"button": {
+	    		"accept": "Certify informations"
+	    	}
+		}
+	}
+}

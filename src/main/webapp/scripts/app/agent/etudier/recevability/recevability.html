@@ -8,8 +8,8 @@
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
-				<div class="panel-heading" ng-click="loadIdentity();">
-					<span class="glyphicon glyphicon-triangle-bottom"></span>
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': identityOpened, 'glyphicon-triangle-bottom': !identityOpened}"></span>
 					<h5 class="panel-title" translate="recevability.form.identity">Identity</h5>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
 				<div class="panel-heading">
-					<span class="glyphicon glyphicon-triangle-bottom"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': projectOpened, 'glyphicon-triangle-bottom': !projectOpened}"></span>
 					<h5 class="panel-title" translate="recevability.form.project">Project</h5>
 				</div>
 			</div>

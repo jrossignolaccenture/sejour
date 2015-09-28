@@ -2,6 +2,7 @@
 	"validation" : {
 		"list": {
 			"title": "Application list for final decision",
+			"noApplication": "There is no validation to do at this time.",
 			"firstName": "First Name",
 			"lastName": "Last Name",
 			"nationality": "Nationality",

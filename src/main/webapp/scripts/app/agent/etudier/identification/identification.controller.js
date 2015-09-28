@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('RecevabilityListController', function ($scope, $state, Demande, Country) {
-    	
+    .controller('IdentificationController', function ($scope, $state, Demande, Country) {
+
     	$scope.demandes = [];
     	$scope.countries = [];
     	
@@ -12,7 +12,7 @@ angular.module('sejourApp')
         	}
         });
     	
-    	Demande.getRecevableDemande().then(function(result) {
+    	Demande.getIdentificableDemande().then(function(result) {
         	$scope.demandes = result;
         });
     	

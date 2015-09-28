@@ -2,6 +2,7 @@
 	"recevability" : {
 		"list": {
 			"title": "Application list for recevability verification",
+			"noApplication": "There is no verification to do at this time.",
 			"firstName": "First Name",
 			"lastName": "Last Name",
 			"nationality": "Nationality",

@@ -1,0 +1,84 @@
+<div ng-cloak>
+    <div class="row">
+    	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
+    		<h4 translate="identification.biometrics.title" translate-values="{ studentName: '{{studentName}}'}"></h4>
+   		</div>
+    </div>
+	<br>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': photoOpened}" ng-click="photoOpened = !photoOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': photoOpened, 'glyphicon-triangle-bottom': !photoOpened}"></span>
+					<h5 class="panel-title" translate="identification.biometrics.photo">photo</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
+			<img src="assets/images/checkbox_checked.png">
+			<span translate="identification.biometrics.validated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="photoOpened">
+		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': photoOpened}">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<img src="{{photo}}" class="img-responsive" style="max-width: 200px;">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
+			<div class="collapsable-panel">
+				<div class="panel-heading">
+					<h5 class="panel-title" translate="identification.biometrics.fingerprints">fingerprints</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
+			<img src="assets/images/checkbox_checked.png">
+			<span translate="identification.biometrics.validated">validate</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': signatureOpened}" ng-click="signatureOpened = !signatureOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': signatureOpened, 'glyphicon-triangle-bottom': !signatureOpened}"></span>
+					<h5 class="panel-title" translate="identification.biometrics.signature">signature</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
+			<img src="assets/images/checkbox_checked.png" >
+			<span translate="identification.biometrics.validated" >validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="signatureOpened">
+		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': signatureOpened}">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<img src="{{signature}}" class="img-responsive" style="max-width: 200px;">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row row-center">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+	    	<button class="btn btn-success" 
+	    			translate="identification.biometrics.button.accept"
+	    			ng-click="certify()" >Accept</button>
+		</div>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

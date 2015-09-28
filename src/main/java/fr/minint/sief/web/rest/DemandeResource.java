@@ -186,7 +186,7 @@ public class DemandeResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<String> verify(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
-        log.debug("REST request to prepaid current demande");
+        log.debug("REST request to verify current demande");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.rdv);
         demandeRepository.save(demande);
@@ -201,9 +201,39 @@ public class DemandeResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<String> rdv(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
-        log.debug("REST request to prepaid current demande");
+        log.debug("REST request to rdv");
+        Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
+        demande.setStatut(StatutDemande.identification);
+        demandeRepository.save(demande);
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
+    /**
+     * PUT  /demande/identification -> Updates an existing demande.
+     */
+    @RequestMapping(value = "/demande/identification",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<String> documents(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+        log.debug("REST request to identification");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.decision);
+        demandeRepository.save(demande);
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
+    /**
+     * PUT  /demande/finalDecision -> Updates an existing demande.
+     */
+    @RequestMapping(value = "/demande/finalDecision",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<String> finalDecision(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+        log.debug("REST request to final decision");
+        Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
+        demande.setStatut(StatutDemande.archive);
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
