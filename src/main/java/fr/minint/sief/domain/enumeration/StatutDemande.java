@@ -4,5 +4,5 @@ package fr.minint.sief.domain.enumeration;
  * The StatutDemande enumeration.
  */
 public enum StatutDemande {
-    draft,payment,validation,rdv,identification,decision
+    draft,payment,recevability,rdv,identification,decision
 }

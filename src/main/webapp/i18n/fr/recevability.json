@@ -1,0 +1,25 @@
+{
+	"recevability" : {
+		"list": {
+			"title": "Liste des demandes pour vérification de la recevabilité",
+			"firstName": "Nom",
+			"lastName": "Prénom",
+			"nationality": "Nationalité",
+			"applicationType": "Type de demande",
+			"creationDate": "Date de création"
+		},
+		"form": {
+	    	"title": "{{studentName}} - Demande de séjour étudiant",
+	    	"identity": "Vérification de l'état-civil et des informations personnelles",
+	    	"project": "Vérification des détails du projet",
+	    	
+	    	"toVerify": "A vérifier",
+	    	"verified": "Vérifiés",
+	    	
+	    	"button": {
+	    		"accept": "Valider la recevabilité de la demande",
+	    		"decline": "Demander un complément"
+	    	}
+		}
+	}
+}

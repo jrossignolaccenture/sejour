@@ -57,7 +57,7 @@ public class DemandeResourceTest {
     private static final TypeDemande UPDATED_TYPE = TypeDemande.reexamen;
 
     private static final StatutDemande DEFAULT_STATUT = StatutDemande.payment;
-    private static final StatutDemande UPDATED_STATUT = StatutDemande.validation;
+    private static final StatutDemande UPDATED_STATUT = StatutDemande.recevability;
 
     private static final Boolean DEFAULT_DEMANDE_COMPLEMENTAIRE = false;
     private static final Boolean UPDATED_DEMANDE_COMPLEMENTAIRE = true;

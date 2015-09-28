@@ -1,10 +1,15 @@
 'use strict';
 
 angular.module('sejourApp')
-    .factory('Demande', function ($http) {
+    .factory('Demande', function ($http, $resource) {
         return {
             init: function () {
             	return $http.put('api/demande/init').then(function (response) {
+                    return response.data;
+                });
+            },
+            get: function (objectId) {
+            	return $http.get('api/demande/' + objectId.id).then(function (response) {
                     return response.data;
                 });
             },
@@ -13,13 +18,28 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
-            getDemandeToValidate: function (email) {
-            	return $http.get('api/demande', {params: {email: email, statut: "validation"}}).then(function (response) {
+            prepaid: function () {
+            	return $http.put('api/demande/prepaid').then(function (response) {
+                    return response.data;
+                });
+            },
+            getRecevableDemande: function (id) {
+            	return $http.get('api/demande/statut', {params: {statut: "recevability"}}).then(function (response) {
+                    return response.data;
+                });
+            },
+            verify: function (demande) {
+            	return $http.put('api/demande/verify', demande).then(function (response) {
                     return response.data;
                 });
             },
             getDemandeForRdv: function (email) {
             	return $http.get('api/demande', {params: {email: email, statut: "rdv"}}).then(function (response) {
+                    return response.data;
+                });
+            },
+            rdv: function (demande) {
+            	return $http.put('api/demande/rdv', demande).then(function (response) {
                     return response.data;
                 });
             },
@@ -34,13 +54,13 @@ angular.module('sejourApp')
 	                });
             	}
             },
-            prepaid: function () {
-            	return $http.put('api/demande/prepaid').then(function (response) {
+            getValidableDemande: function (id) {
+            	return $http.get('api/demande/statut', {params: {statut: "decision"}}).then(function (response) {
                     return response.data;
                 });
             },
-            rdv: function (demande) {
-            	return $http.put('api/demande/rdv', demande).then(function (response) {
+            getDemandeToValidate: function (email) {
+            	return $http.get('api/demande', {params: {email: email, statut: "decision"}}).then(function (response) {
                     return response.data;
                 });
             }

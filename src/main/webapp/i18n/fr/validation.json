@@ -1,5 +1,13 @@
 {
 	"validation" : {
+		"list": {
+			"title": "Liste des demandes pour décision finale",
+			"firstName": "Nom",
+			"lastName": "Prénom",
+			"nationality": "Nationalité",
+			"applicationType": "Type de demande",
+			"creationDate": "Date de création"
+		},
 		"form": {
 	    	"title": "{{studentName}} - Demande de séjour étudiant",
 	    	"identity": "Identité",

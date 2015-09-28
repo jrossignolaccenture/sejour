@@ -1,8 +1,13 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('ValidationController', function ($scope, $state, Demande, Country, currentDemande) {
-    	$scope.studentName = "";
+    .controller('RecevabilityController', function ($scope, $state, Demande, Country, currentDemande) {
+
+    	//  !!!!! BEAUCOUP DE CODE A MUTUALISER AVEC VALIDATION.CONTROLLER.JS !!!!!
+    	
+    	$scope.identityOpened = true;
+    	$scope.projectOpened = true;
+    	
     	$scope.identity = {
 			images: [], 
 			currentImg: {},
@@ -13,13 +18,12 @@ angular.module('sejourApp')
 			currentImg: {},
 			currentImgIndex: 0
     	};
-    	$scope.todayDate = moment().format('DD/MM/YYYY');
     	
         Country.get().then(function(result) {
         	$scope.countries = result;
         });
     	
-        $scope.demande = currentDemande;
+    	$scope.demande = currentDemande;
     	$scope.demande.project.comingDateTxt = moment(currentDemande.project.comingDate).format("DD/MM/YYYY");
     	$scope.demande.project.trainingStartTxt = moment(currentDemande.project.trainingStart).format("DD/MM/YYYY");
     	$scope.demande.identity.birthDateTxt = moment(currentDemande.identity.birthDate).format("DD/MM/YYYY");
@@ -45,5 +49,10 @@ angular.module('sejourApp')
             }
             element.currentImg = element.images[element.currentImgIndex];
         }
-    	
+        
+        $scope.verify = function () {
+            Demande.verify($scope.demande).then(function(result){
+            	$state.go('etudier/recevability/list');
+            });
+        }
     });

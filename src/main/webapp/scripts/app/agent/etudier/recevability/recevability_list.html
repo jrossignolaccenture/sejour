@@ -1,0 +1,39 @@
+<div ng-cloak>
+    <div class="row">
+    	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
+    		<h4 translate="recevability.list.title"></h4>
+   		</div>
+    </div>
+	<br>
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+	    	<table class="table">
+				<thead>
+					<tr>
+						<th style="width:20%;" translate="recevability.list.lastName"></th>
+						<th style="width:20%;" translate="recevability.list.firstName"></th>
+						<th style="width:17%;" translate="recevability.list.nationality"></th>
+						<th style="width:25%;" translate="recevability.list.applicationType"></th>
+						<th style="width:18%;" translate="recevability.list.creationDate"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="applicationListLine" ng-repeat="demande in demandes" ui-sref="etudier/recevability({id:demande.id})">
+						<td>{{demande.identity.lastName}}</td>
+						<td>{{demande.identity.firstName}}</td>
+						<td>{{getNationality(demande.identity.nationality)}}</td>
+						<td>
+							<span translate="sejourApp.TypeDemande.{{demande.type}}"></span>
+							<span translate="sejourApp.NatureDemande.{{demande.nature}}"></span>
+						</td>
+						<td>{{getFormattedDate(demande.creationDate)}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

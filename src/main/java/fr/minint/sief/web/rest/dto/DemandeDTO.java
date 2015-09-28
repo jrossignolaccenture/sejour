@@ -34,6 +34,9 @@ public class DemandeDTO implements Serializable {
     @NotNull
     private StatutDemande statut = StatutDemande.draft;
     
+    @NotNull
+    private DateTime creationDate = DateTime.now();
+    
     private IdentityDTO identity;
     
     private AddressDTO address;
@@ -81,6 +84,14 @@ public class DemandeDTO implements Serializable {
     public void setStatut(StatutDemande statut) {
         this.statut = statut;
     }
+
+    public DateTime getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(DateTime creationDate) {
+		this.creationDate = creationDate;
+	}
 
     public IdentityDTO getIdentity() {
 		return identity;
@@ -143,6 +154,7 @@ public class DemandeDTO implements Serializable {
                 ", nature='" + nature + "'" +
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
+                ", creationDate='" + creationDate + "'" +
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +

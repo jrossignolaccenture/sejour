@@ -1,0 +1,25 @@
+{
+	"recevability" : {
+		"list": {
+			"title": "Application list for recevability verification",
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"nationality": "Nationality",
+			"applicationType": "Application type",
+			"creationDate": "Creation date"
+		},
+		"form": {
+	    	"title": "{{studentName}} - Application for study",
+	    	"identity": "Verification of civil status and personal information",
+	    	"project": "Verification of project details",
+	    	
+	    	"toVerify": "To verify",
+	    	"verified": "Verified",
+	    	
+	    	"button": {
+	    		"accept": "Validate application recevability",
+	    		"decline": "Ask for complement"
+	    	}
+		}
+	}
+}

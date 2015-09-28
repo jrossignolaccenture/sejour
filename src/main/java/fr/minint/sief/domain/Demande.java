@@ -12,9 +12,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import fr.minint.sief.domain.enumeration.NatureDemande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
 import fr.minint.sief.domain.enumeration.TypeDemande;
+import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
+import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 
 /**
  * A Demande.
@@ -41,6 +46,12 @@ public class Demande implements Serializable {
     @NotNull
     @Field("statut")
     private StatutDemande statut = StatutDemande.draft;
+    
+    @NotNull        
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("creation_date")
+    private DateTime creationDate = DateTime.now();
     
     @Field("identity")
     private Identity identity;
@@ -94,7 +105,15 @@ public class Demande implements Serializable {
         this.statut = statut;
     }
 
-    public Identity getIdentity() {
+    public DateTime getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(DateTime creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Identity getIdentity() {
 		return identity;
 	}
 
@@ -155,6 +174,7 @@ public class Demande implements Serializable {
                 ", nature='" + nature + "'" +
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
+                ", creationDate='" + creationDate + "'" +
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +

@@ -1,7 +1,7 @@
 <div ng-cloak>
     <div class="row" has-role="ROLE_USAGER">
     	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-        	<box-menu boxtitle="main.usager.title.study" boxlogo="education" ng-click="goTo('usager/etudier')"></box-menu>
+        	<box-menu boxtitle="main.usager.title.study" boxlogo="education" ui-sref="usager/etudier"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
 	        <box-menu boxtitle="main.usager.title.work" boxlogo="briefcase"></box-menu>
@@ -19,7 +19,7 @@
 	        <box-menu boxtitle="main.usager.title.visit" boxlogo="camera" disabled="true"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.usager.title.user.account" boxlogo="cog" ng-click="goTo('address')"></box-menu>
+	        <box-menu boxtitle="main.usager.title.user.account" boxlogo="cog" ui-sref="address"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
 	        <box-menu boxtitle="main.usager.title.follow" boxlogo="folder-open"></box-menu>
@@ -27,7 +27,7 @@
     </div>
     <div class="row" has-role="ROLE_AGENT">
     	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-        	<box-menu boxtitle="main.agent.title.verify" boxlogo="ok"></box-menu>
+        	<box-menu boxtitle="main.agent.title.verify" boxlogo="ok" ui-sref="etudier/recevability/list"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
 	        <box-menu boxtitle="main.agent.title.rdv.setting" boxlogo="calendar" disabled="true"></box-menu>
@@ -39,7 +39,7 @@
 	        <box-menu boxtitle="main.agent.title.rdv.drive" boxlogo="camera"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.agent.title.decision" boxlogo="pencil" ng-click="goTo('etudier/validation')"></box-menu>
+	        <box-menu boxtitle="main.agent.title.decision" boxlogo="pencil" ui-sref="etudier/validation/list"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
 	        <box-menu boxtitle="main.agent.title.question" boxlogo="comment" disabled="true"></box-menu>

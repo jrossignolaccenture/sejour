@@ -1,7 +1,10 @@
 package fr.minint.sief.web.rest;
 
 import java.net.URISyntaxException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -11,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,9 +67,24 @@ public class DemandeResource {
         demandeService.initWithCampus();
         return ResponseEntity.ok().body(null);
     }
+    
+	/**
+	 * GET /demande/recevability/id -> get the "id" demande.
+	 */
+	@RequestMapping(value = "/demande/{id}", 
+			method = RequestMethod.GET, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<DemandeDTO> get(@PathVariable String id) {
+		log.debug("REST request to get Demande : {}", id);
+		return Optional.ofNullable(demandeRepository.findOne(id))
+				.map(demandeMapper::demandeToDemandeDTO)
+				.map(demandeDTO -> new ResponseEntity<>(demandeDTO, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 
     /**
-     * GET  /service -> get all the services of a team.
+     * GET  /demande -> get demande.
      */
     @RequestMapping(value = "/demande",
             method = RequestMethod.GET,
@@ -79,6 +98,20 @@ public class DemandeResource {
 	            demandeDTO,
 	            HttpStatus.OK))
 	        .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
+     * PUT  /demande/statut -> Get demande by statut.
+     */
+    @RequestMapping(value = "/demande/statut",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<DemandeDTO> getDemande(@RequestParam(value = "statut") StatutDemande statut) throws URISyntaxException {
+        log.debug("REST request to get application by statut {}", statut);
+        return demandeRepository.findByStatut(statut).stream()
+            .map(demande -> demandeMapper.demandeToDemandeDTO(demande))
+            .collect(Collectors.toCollection(LinkedList::new));
     }
 
     /**
@@ -137,14 +170,27 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<DemandeDTO> prepaid() throws URISyntaxException {
+    public ResponseEntity<String> prepaid() throws URISyntaxException {
         log.debug("REST request to prepaid current demande");
         Demande demande = demandeService.getCurrentDemande(StatutDemande.payment);
+        demande.setStatut(StatutDemande.recevability);
+        demandeRepository.save(demande);
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
+    /**
+     * PUT  /demande/verify -> Updates an existing demande.
+     */
+    @RequestMapping(value = "/demande/verify",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<String> verify(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+        log.debug("REST request to prepaid current demande");
+        Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.rdv);
-        Demande result = demandeRepository.save(demande);
-        return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert("demande", demande.getId().toString()))
-                .body(demandeMapper.demandeToDemandeDTO(result));
+        demandeRepository.save(demande);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
     /**
@@ -154,14 +200,12 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<DemandeDTO> rdv(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+    public ResponseEntity<String> rdv(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
         log.debug("REST request to prepaid current demande");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
-        demande.setStatut(StatutDemande.validation);
-        Demande result = demandeRepository.save(demande);
-        return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert("demande", demande.getId().toString()))
-                .body(demandeMapper.demandeToDemandeDTO(result));
+        demande.setStatut(StatutDemande.decision);
+        demandeRepository.save(demande);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
     
     // OBSOLETE A PARTIR D'ICI NORMALEMENT

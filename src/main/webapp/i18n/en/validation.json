@@ -1,5 +1,13 @@
 {
 	"validation" : {
+		"list": {
+			"title": "Application list for final decision",
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"nationality": "Nationality",
+			"applicationType": "Application type",
+			"creationDate": "Creation date"
+		},
 		"form": {
 	    	"title": "{{studentName}} - Application for study",
 	    	"identity": "Identity",

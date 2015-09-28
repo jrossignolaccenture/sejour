@@ -2,8 +2,8 @@
     "sejourApp": {
         "TypeDemande" : {
             "SELECT": "{VALUE, select, premiere{premiere} reexamen{reexamen} other{}}",
-            "premiere": "premiere",
-            "reexamen": "reexamen"
+            "premiere": "Primo",
+            "reexamen": "Réexamen"
         }
     }
 }
