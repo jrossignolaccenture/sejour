@@ -134,6 +134,10 @@ public class UserService {
         });
     }
 
+    public User getUser() {
+        return userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
+    }
+
     public User getUserWithAuthorities() {
         User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
         currentUser.getAuthorities().size(); // eagerly load the association

@@ -1,0 +1,19 @@
+{
+	"application" : {
+		"title": "My applications",
+		"list": {
+			"title": {
+				"sejour_etudiant": "Application of student stay - created on {{creationDate}}"
+			},
+			"noApplication": "You don't have application",
+			"modified": "Application modified on {{modificationDate}} - {{userName}}",
+			"recevability": "Application recevability verified on {{recevabilityDate}} - Administration des Etrangers en France"
+		},
+	    	
+	    "button": {
+    		"continue": "Continue",
+    		"delete": "Delete",
+    		"rdv": "Take an appointment"
+		}
+	}
+}

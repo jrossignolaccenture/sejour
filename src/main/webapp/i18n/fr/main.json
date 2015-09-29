@@ -14,7 +14,7 @@
 	    },
     	"agent": {
 	        "title": {
-		        "verify": "Vérification de la complétude",
+		        "verify": "Vérification de la recevabilité",
 		        "rdv.setting": "Paramétrage des rendez-vous",
 		        "rdv.preview": "Prévisualisation des rendez-vous",
 		        "rdv.drive": "Conduite des rendez-vous",

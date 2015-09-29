@@ -7,12 +7,8 @@ angular.module('sejourApp')
     	$scope.demande = currentDemande;
     	$scope.passportOpened = true;
     	$scope.birthActOpened = true;
-    	$scope.inscriptionCertificateOpened = true;
-    	$scope.resourceProofOpened = true;
     	
     	$scope.passport = "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg";
     	$scope.birthAct = "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png";
-    	$scope.inscriptionCertificate = "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com.png";
-    	$scope.resourceProof = "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com.png";
     	
     });

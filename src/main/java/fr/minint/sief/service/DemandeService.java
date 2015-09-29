@@ -1,6 +1,7 @@
 package fr.minint.sief.service;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -18,8 +19,6 @@ import fr.minint.sief.domain.enumeration.NatureDemande;
 import fr.minint.sief.domain.enumeration.SexType;
 import fr.minint.sief.domain.enumeration.StatutDemande;
 import fr.minint.sief.repository.DemandeRepository;
-import fr.minint.sief.repository.UserRepository;
-import fr.minint.sief.security.SecurityUtils;
 
 /**
  * Service class for managing demande.
@@ -30,14 +29,21 @@ public class DemandeService {
     private final Logger log = LoggerFactory.getLogger(DemandeService.class);
 
     @Inject
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Inject
     private DemandeRepository demandeRepository;
     
+    public List<Demande> getUserDemandes() {
+    	// Récupération info utilisateur connecté
+        User currentUser = userService.getUser();
+        // Récupération des demandes
+    	return demandeRepository.findByEmailOrderByCreationDateDesc(currentUser.getEmail());
+    }
+    
     public Demande getCurrentDemande(StatutDemande statut) {
     	// Récupération info utilisateur connecté
-        User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
+        User currentUser = userService.getUser();
         // Récupération demande en cours
     	return demandeRepository.findOneByEmailAndStatut(currentUser.getEmail(), statut);
     	
@@ -45,7 +51,7 @@ public class DemandeService {
 
     public void initWithCampus() {
     	// Récupération info utilisateur connecté
-        User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
+        User currentUser = userService.getUser();
         
         // call campus (badass style)
     	Demande demande = getDemandeWithCampusInfos(currentUser.getEmail());

@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
 			<img src="assets/images/checkbox_checked.png">
-			<span translate="validation.form.validate.f" translate-values="{validationDate: todayDate, validationAuthor: 'Ambassade de France'}">validate</span>
+			<span translate="validation.form.validate.f" translate-values="{validationDate: '{{getFormattedDate(demande.identificationDate)}}', validationAuthor: 'Ambassade de France'}">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="identityOpened">
@@ -101,7 +101,7 @@
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
 			<img src="assets/images/checkbox_checked.png">
-			<span translate="validation.form.validate.h" translate-values="{validationDate: todayDate, validationAuthor: 'Gendarmerie'}">validate</span>
+			<span translate="validation.form.validate.h" translate-values="{validationDate: '{{getFormattedDate(moment())}}', validationAuthor: 'Gendarmerie'}">validate</span>
 		</div>
 	</div>
 	<div class="row">
@@ -114,7 +114,7 @@
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
 			<img src="assets/images/checkbox_checked.png">
-			<span translate="validation.form.confirm.f" translate-values="{confirmationDate: pastDate, confirmationAuthor: 'Campus France'}">validate</span>
+			<span translate="validation.form.confirm.f" translate-values="{confirmationDate: '{{getFormattedDate(moment().subtract(4, 'd'))}}', confirmationAuthor: 'Campus France'}">validate</span>
 		</div>
 	</div>
 	<div class="row">
@@ -127,7 +127,7 @@
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
 			<img src="assets/images/checkbox_checked.png">
-			<span translate="validation.form.certify.h.p" translate-values="{certificationDate: todayDate, certificationAuthor: 'Ambassade de France'}">validate</span>
+			<span translate="validation.form.certify.h.p" translate-values="{certificationDate: '{{getFormattedDate(identificationDate)}}', certificationAuthor: 'Ambassade de France'}">validate</span>
 		</div>
 	</div>
 	<div class="row">
@@ -143,7 +143,7 @@
 			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!projectValidated" ng-click="projectValidated = !projectValidated; projectOpened = false;">
 			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="projectValidated" ng-click="projectValidated = !projectValidated">
 			<span translate="validation.form.toValidate" ng-show="!projectValidated">To validate</span>
-			<span translate="validation.form.validate.h" translate-values="{validationDate: todayDate, validationAuthor: 'Administration centrale'}" ng-show="projectValidated">validate</span>
+			<span translate="validation.form.validate.h" translate-values="{validationDate: '{{getFormattedDate(moment())}}', validationAuthor: 'Administration nationale'}" ng-show="projectValidated">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="projectOpened">

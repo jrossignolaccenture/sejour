@@ -37,13 +37,19 @@ public class DemandeDTO implements Serializable {
     @NotNull
     private DateTime creationDate = DateTime.now();
     
+    private DateTime modificationDate = DateTime.now();
+    
     private IdentityDTO identity;
     
     private AddressDTO address;
     
     private ProjectDTO project;
     
+    private DateTime recevabilityDate;
+    
     private DateTime rdv;
+    
+    private DateTime identificationDate;
 
     public String getId() {
         return id;
@@ -93,7 +99,15 @@ public class DemandeDTO implements Serializable {
 		this.creationDate = creationDate;
 	}
 
-    public IdentityDTO getIdentity() {
+    public DateTime getModificationDate() {
+		return modificationDate;
+	}
+
+	public void setModificationDate(DateTime modificationDate) {
+		this.modificationDate = modificationDate;
+	}
+
+	public IdentityDTO getIdentity() {
 		return identity;
 	}
 
@@ -117,12 +131,28 @@ public class DemandeDTO implements Serializable {
 		this.project = project;
 	}
 
+	public DateTime getRecevabilityDate() {
+		return recevabilityDate;
+	}
+
+	public void setRecevabilityDate(DateTime recevabilityDate) {
+		this.recevabilityDate = recevabilityDate;
+	}
+
 	public DateTime getRdv() {
 		return rdv;
 	}
 
 	public void setRdv(DateTime rdv) {
 		this.rdv = rdv;
+	}
+
+	public DateTime getIdentificationDate() {
+		return identificationDate;
+	}
+
+	public void setIdentificationDate(DateTime identificationDate) {
+		this.identificationDate = identificationDate;
 	}
 
 	@Override
@@ -155,10 +185,13 @@ public class DemandeDTO implements Serializable {
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
                 ", creationDate='" + creationDate + "'" +
+                ", modificationDate='" + modificationDate + "'" +
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
+                ", recevabilityDate='" + recevabilityDate + "'" +
                 ", rdv='" + rdv + "'" +
+                ", identificationDate='" + identificationDate + "'" +
                 '}';
     }
 }

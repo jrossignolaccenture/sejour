@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -69,7 +70,21 @@ public class DemandeResource {
     }
     
 	/**
-	 * GET /demande/recevability/id -> get the "id" demande.
+	 * GET /demandes -> get the all demande.
+	 */
+	@RequestMapping(value = "/demandes", 
+			method = RequestMethod.GET, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<DemandeDTO> get() {
+		log.debug("REST request to get all Demande");
+		return demandeService.getUserDemandes().stream()
+				.map(demandeMapper::demandeToDemandeDTO)
+	            .collect(Collectors.toCollection(LinkedList::new));
+	}
+    
+	/**
+	 * GET /demande/demande/id -> get the "id" demande.
 	 */
 	@RequestMapping(value = "/demande/{id}", 
 			method = RequestMethod.GET, 
@@ -109,7 +124,7 @@ public class DemandeResource {
     @Timed
     public List<DemandeDTO> getDemande(@RequestParam(value = "statut") StatutDemande statut) throws URISyntaxException {
         log.debug("REST request to get application by statut {}", statut);
-        return demandeRepository.findByStatut(statut).stream()
+        return demandeRepository.findByStatutOrderByCreationDateDesc(statut).stream()
             .map(demande -> demandeMapper.demandeToDemandeDTO(demande))
             .collect(Collectors.toCollection(LinkedList::new));
     }
@@ -125,6 +140,7 @@ public class DemandeResource {
         log.debug("REST request to update Demande : {}", demandeDTO);
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.draft);
+        demande.setModificationDate(DateTime.now());
         Demande result = demandeRepository.save(demande);
         return ResponseEntity.ok()
                 .headers(HeaderUtil.createEntityUpdateAlert("demande", demandeDTO.getId().toString()))
@@ -146,6 +162,7 @@ public class DemandeResource {
         		// Sauvegarde de la demande
         		Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
                 demande.setStatut(StatutDemande.payment);
+                demande.setModificationDate(DateTime.now());
                 demandeRepository.save(demande);
                 
                 //Mise à jour des données utilisateurs
@@ -174,6 +191,7 @@ public class DemandeResource {
         log.debug("REST request to prepaid current demande");
         Demande demande = demandeService.getCurrentDemande(StatutDemande.payment);
         demande.setStatut(StatutDemande.recevability);
+        demande.setModificationDate(DateTime.now());
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
@@ -189,6 +207,7 @@ public class DemandeResource {
         log.debug("REST request to verify current demande");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.rdv);
+        demande.setRecevabilityDate(DateTime.now());
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
@@ -219,6 +238,7 @@ public class DemandeResource {
         log.debug("REST request to identification");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.decision);
+        demande.setIdentificationDate(DateTime.now());
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);
     }

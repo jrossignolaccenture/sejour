@@ -1,0 +1,53 @@
+<div ng-cloak>
+    <div class="row">
+    	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
+    		<h4 translate="application.title"></h4>
+   		</div>
+    </div>
+	<br>
+	<div class="row" ng-show="demandes.length == 0">
+		<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+	    	<h5 translate="application.list.noApplication">No application</h5>
+	    </div>
+	</div>	
+	
+	<div ng-repeat="demande in demandes">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+				<div class="collapsable-panel" ng-class="{'opened': demande.opened}" ng-click="demande.opened = !demande.opened">
+					<div class="panel-heading">
+						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': demande.opened, 'glyphicon-triangle-bottom': !demande.opened}"></span>
+						<h5 class="panel-title" 
+							translate="application.list.title.{{demande.nature}}"
+							translate-values="{ creationDate: '{{getFormattedDate(demande.creationDate)}}'}">Application</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" ng-show="demande.opened">
+			<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+				<ul>
+					<li translate="application.list.modified" 
+						translate-values="{ modificationDate: '{{getFormattedDate(moment())}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
+					
+					<li ng-show="demande.recevabilityDate"
+						translate="application.list.recevability" 
+						translate-values="{ recevabilityDate: '{{getFormattedDate(demande.recevabilityDate)}}'}"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row row-center" style="margin-top: 10px;" ng-show="demande.opened">
+			<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+		    	<button class="btn btn-danger" translate="application.button.delete" ng-show="demande.statut == 'draft'">Delete</button>
+		    	<button class="btn btn-success" style="margin-left: 20px" translate="application.button.continue" ng-show="demande.statut == 'draft'">Continue</button>
+		    	<button class="btn btn-success" translate="application.button.rdv" ng-show="demande.statut == 'rdv'" ui-sref="etudier/rdv">RDV</button>
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

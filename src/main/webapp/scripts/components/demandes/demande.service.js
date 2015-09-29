@@ -8,6 +8,11 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            getAll: function () {
+            	return $http.get('api/demandes').then(function (response) {
+                    return response.data;
+                });
+            },
             get: function (objectId) {
             	return $http.get('api/demande/' + objectId.id).then(function (response) {
                     return response.data;

@@ -1,0 +1,19 @@
+{
+	"application" : {
+		"title": "Mes demandes",
+		"list": {
+			"title": {
+				"sejour_etudiant": "Demande de séjour étudiant - créée le {{creationDate}}"
+			},
+			"noApplication": "Vous n'avez pas de demande.",
+			"modified": "Demande modifiée le {{modificationDate}} - {{userName}}",
+			"recevability": "Recevabilité de la demande vérifiée le {{recevabilityDate}} - Administration des Etrangers en France"
+		},
+	    	
+	    "button": {
+    		"continue": "Continuer",
+    		"delete": "Supprimer",
+    		"rdv": "Prendre rendez-vous"
+		}
+	}
+}

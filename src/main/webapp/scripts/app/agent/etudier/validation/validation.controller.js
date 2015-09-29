@@ -13,17 +13,19 @@ angular.module('sejourApp')
 			currentImg: {},
 			currentImgIndex: 0
     	};
-    	$scope.todayDate = moment().format('DD/MM/YYYY');
-    	$scope.pastDate = moment().subtract(4, 'd').format('DD/MM/YYYY');
+
+    	$scope.getFormattedDate = function(date){
+    		return moment(date).format("DD/MM/YYYY");
+    	}
     	
         Country.get().then(function(result) {
         	$scope.countries = result;
         });
     	
         $scope.demande = currentDemande;
-    	$scope.demande.project.comingDateTxt = moment(currentDemande.project.comingDate).format("DD/MM/YYYY");
-    	$scope.demande.project.trainingStartTxt = moment(currentDemande.project.trainingStart).format("DD/MM/YYYY");
-    	$scope.demande.identity.birthDateTxt = moment(currentDemande.identity.birthDate).format("DD/MM/YYYY");
+    	$scope.demande.project.comingDateTxt = $scope.getFormattedDate(currentDemande.project.comingDate);
+    	$scope.demande.project.trainingStartTxt = $scope.getFormattedDate(currentDemande.project.trainingStart);
+    	$scope.demande.identity.birthDateTxt = $scope.getFormattedDate(currentDemande.identity.birthDate);
     	$scope.studentName = currentDemande.identity.firstName + " " + currentDemande.identity.lastName;
     	$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com.png", title: "project.form.inscriptionCertificate"});
     	$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com.png", title: "project.form.resourceProof"});
@@ -52,5 +54,4 @@ angular.module('sejourApp')
             	$state.go('etudier/validation/list')
             });
         }
-    	
     });

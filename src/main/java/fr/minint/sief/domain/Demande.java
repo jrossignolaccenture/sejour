@@ -52,6 +52,11 @@ public class Demande implements Serializable {
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
     @Field("creation_date")
     private DateTime creationDate = DateTime.now();
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("modification_date")
+    private DateTime modificationDate = DateTime.now();
     
     @Field("identity")
     private Identity identity;
@@ -61,9 +66,21 @@ public class Demande implements Serializable {
     
     @Field("project")
     private Project project;
-    
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("recevability_date")
+    private DateTime recevabilityDate;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
     @Field("rdv")
     private DateTime rdv;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("identification_date")
+    private DateTime identificationDate;
 
     public String getId() {
         return id;
@@ -113,6 +130,14 @@ public class Demande implements Serializable {
 		this.creationDate = creationDate;
 	}
 
+	public DateTime getModificationDate() {
+		return modificationDate;
+	}
+
+	public void setModificationDate(DateTime modificationDate) {
+		this.modificationDate = modificationDate;
+	}
+
 	public Identity getIdentity() {
 		return identity;
 	}
@@ -137,12 +162,28 @@ public class Demande implements Serializable {
 		this.project = project;
 	}
 
+	public DateTime getRecevabilityDate() {
+		return recevabilityDate;
+	}
+
+	public void setRecevabilityDate(DateTime recevabilityDate) {
+		this.recevabilityDate = recevabilityDate;
+	}
+
 	public DateTime getRdv() {
 		return rdv;
 	}
 
 	public void setRdv(DateTime rdv) {
 		this.rdv = rdv;
+	}
+
+	public DateTime getIdentificationDate() {
+		return identificationDate;
+	}
+
+	public void setIdentificationDate(DateTime identificationDate) {
+		this.identificationDate = identificationDate;
 	}
 
 	@Override
@@ -175,10 +216,13 @@ public class Demande implements Serializable {
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
                 ", creationDate='" + creationDate + "'" +
+                ", modificationDate='" + modificationDate + "'" +
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
+                ", recevabilityDate='" + recevabilityDate + "'" +
                 ", rdv='" + rdv + "'" +
+                ", identificationDate='" + identificationDate + "'" +
                 '}';
     }
 }

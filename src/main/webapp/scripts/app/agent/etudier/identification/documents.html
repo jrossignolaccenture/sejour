@@ -59,66 +59,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': inscriptionCertificateOpened}" ng-click="inscriptionCertificateOpened = !inscriptionCertificateOpened">
-				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': inscriptionCertificateOpened, 'glyphicon-triangle-bottom': !inscriptionCertificateOpened}"></span>
-					<h5 class="panel-title" translate="identification.documents.inscriptionCertificate">inscriptionCertificate</h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!inscriptionCertificateValidated" ng-click="inscriptionCertificateValidated = !inscriptionCertificateValidated; inscriptionCertificateOpened = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="inscriptionCertificateValidated" ng-click="inscriptionCertificateValidated = !inscriptionCertificateValidated">
-			<span translate="identification.documents.toCertify" ng-show="!inscriptionCertificateValidated">To validate</span>
-			<span translate="identification.documents.certified" ng-show="inscriptionCertificateValidated">validate</span>
-		</div>
-	</div>
-	<div class="row" ng-show="inscriptionCertificateOpened">
-		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': inscriptionCertificateOpened}">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<img src="{{inscriptionCertificate}}" class="img-responsive">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': resourceProofOpened}" ng-click="resourceProofOpened = !resourceProofOpened">
-				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': resourceProofOpened, 'glyphicon-triangle-bottom': !resourceProofOpened}"></span>
-					<h5 class="panel-title" translate="identification.documents.resourceProof">resourceProof</h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!resourceProofValidated" ng-click="resourceProofValidated = !resourceProofValidated; resourceProofOpened = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="resourceProofValidated" ng-click="resourceProofValidated = !resourceProofValidated">
-			<span translate="identification.documents.toCertify" ng-show="!resourceProofValidated">To validate</span>
-			<span translate="identification.documents.certified" ng-show="resourceProofValidated">validate</span>
-		</div>
-	</div>
-	<div class="row" ng-show="resourceProofOpened">
-		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': resourceProofOpened}">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<img src="{{resourceProof}}" class="img-responsive">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	<br>
 	<br>
 	<div class="row row-center">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
 	    	<button class="btn btn-success" 
-	    			ng-disabled="!passportValidated || !birthActValidated || !inscriptionCertificateValidated || !resourceProofValidated" 
+	    			ng-disabled="!passportValidated || !birthActValidated" 
 	    			translate="identification.documents.button.accept"
 	    			 ui-sref="etudier/biometrics({id:demande.id})" >Accept</button>
 		</div>
