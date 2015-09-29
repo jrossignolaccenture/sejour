@@ -8,6 +8,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.joda.time.DateTime;
 
+import fr.minint.sief.domain.enumeration.UserType;
+
 public class UserDTO {
 
 	public static final int PASSWORD_MIN_LENGTH = 5;
@@ -24,7 +26,7 @@ public class UserDTO {
 	
 	/** ENUM = COMPANY, PERSON */
 	@NotNull
-	private String type;
+	private UserType type;
 
 	@Size(max = 50)
 	private String firstName;
@@ -44,7 +46,7 @@ public class UserDTO {
 	public UserDTO() {
 	}
 
-	public UserDTO(String email, String password, String type, String firstName,
+	public UserDTO(String email, String password, UserType type, String firstName,
 			String lastName, DateTime comingDate, AddressDTO frenchAddress, String langKey, List<String> roles) {
 		this.email = email;
 		this.password = password;
@@ -61,7 +63,7 @@ public class UserDTO {
 		return email;
 	}
 
-	public String getType() {
+	public UserType getType() {
 		return type;
 	}
 

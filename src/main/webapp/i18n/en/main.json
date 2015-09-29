@@ -1,5 +1,13 @@
 {
     "main": {
+    	"page.title": "Home SIEF",
+    	"unknown": {
+    		"title": "Welcome on SIEF portal",
+    		"button": {
+    			"individual": "I am an individual",
+    			"company": "I am a company"
+    		}
+    	},
     	"usager": {
 	        "title": {
 		        "study": "I want to <strong>study</strong> in France",

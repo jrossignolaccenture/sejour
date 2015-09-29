@@ -1,5 +1,23 @@
-<div ng-cloak>
-    <div class="row" has-role="ROLE_USAGER">
+<div ng-cloak ng-switch="userType">
+    <div ng-switch-when="undefined">
+	    <div class="row row-center">
+	    	<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+	    		<h1 translate="main.unknown.title"></h1>
+	   		</div>
+	    </div>
+	    <br>
+	   	<br>
+	   	<br>
+	    <div class="row row-center">
+    		<button class="btn btn-primary btn-home"
+    				translate="main.unknown.button.individual"
+    				ng-click="choose('individual')">Individual</button>
+    		<button class="btn btn-primary btn-home btn-home-right box-disabled"
+    				translate="main.unknown.button.company"
+    				ng-click="">Company</button>
+	    </div>
+    </div>
+    <div class="row" ng-switch-when="individual">
     	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
         	<box-menu boxtitle="main.usager.title.study" boxlogo="education" ui-sref="usager/etudier"></box-menu>
         </div>
@@ -19,7 +37,7 @@
 	        <box-menu boxtitle="main.usager.title.visit" boxlogo="camera" disabled="true"></box-menu>
         </div>
     </div>
-    <div class="row" has-role="ROLE_AGENT">
+    <div class="row" ng-switch-when="agent">
     	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
         	<box-menu boxtitle="main.agent.title.verify" boxlogo="ok" ui-sref="etudier/recevability/list"></box-menu>
         </div>

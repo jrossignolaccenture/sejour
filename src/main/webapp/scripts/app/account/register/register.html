@@ -26,7 +26,7 @@
 	                <label translate="register.form.type">I am</label>
 	                <div>
 	                    <label class="radio-inline"><input type="radio" id="type" name="type" ng-model="registerAccount.type" value="company" required>{{'register.form.type.company' | translate}}</label>
-						<label class="radio-inline"><input type="radio" id="type" name="type" ng-model="registerAccount.type" value="person" required>{{'register.form.type.person' | translate}}</label>
+						<label class="radio-inline"><input type="radio" id="type" name="type" ng-model="registerAccount.type" value="individual" required>{{'register.form.type.person' | translate}}</label>
                     </div>
                     <div ng-show="form.type.$dirty && form.type.$invalid">
                         <p class="help-block"

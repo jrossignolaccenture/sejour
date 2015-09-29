@@ -1,5 +1,13 @@
 {
     "main": {
+    	"page.title": "Accueil SIEF",
+    	"unknown": {
+    		"title": "Bienvenue sur le portail SIEF",
+    		"button": {
+    			"individual": "Je suis un particulier",
+    			"company": "Je suis une entreprise"
+    		}
+    	},
     	"usager": {
 	        "title": {
 		        "study": "Je veux <strong>étudier</strong> en France",

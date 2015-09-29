@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import fr.minint.sief.domain.enumeration.UserType;
 import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
 import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 
@@ -41,7 +42,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
 	
 	/** ENUM = COMPANY, PERSON, UNIVERSITY */
 	@NotNull
-	private String type;
+	private UserType type;
 
     @Size(max = 50)
     @Field("first_name")
@@ -106,11 +107,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.password = password;
     }
 
-    public String getType() {
+    public UserType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(UserType type) {
         this.type = type;
     }
 

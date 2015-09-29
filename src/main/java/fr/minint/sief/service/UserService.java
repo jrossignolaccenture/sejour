@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import fr.minint.sief.domain.Address;
 import fr.minint.sief.domain.Authority;
 import fr.minint.sief.domain.User;
+import fr.minint.sief.domain.enumeration.UserType;
 import fr.minint.sief.repository.AuthorityRepository;
 import fr.minint.sief.repository.PersistentTokenRepository;
 import fr.minint.sief.repository.UserRepository;
@@ -86,7 +87,7 @@ public class UserService {
            });
     }
 
-    public User createUserInformation(String email, String password, String type, String firstName, String lastName, 
+    public User createUserInformation(String email, String password, UserType type, String firstName, String lastName, 
                                       String langKey) {
 
         User newUser = new User();

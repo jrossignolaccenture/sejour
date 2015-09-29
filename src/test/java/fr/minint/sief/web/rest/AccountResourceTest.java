@@ -39,6 +39,7 @@ import fr.minint.sief.Application;
 import fr.minint.sief.config.MongoConfiguration;
 import fr.minint.sief.domain.Authority;
 import fr.minint.sief.domain.User;
+import fr.minint.sief.domain.enumeration.UserType;
 import fr.minint.sief.repository.AuthorityRepository;
 import fr.minint.sief.repository.UserRepository;
 import fr.minint.sief.security.AuthoritiesConstants;
@@ -156,7 +157,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "joe@example.com",      // e-mail
             "password",             // password
-            "PERSON",				// type
+            UserType.individual,	// type
             "Joe",                  // firstName
             "Shmoe",                // lastName
             null,					// comingDate
@@ -181,7 +182,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "funkymail",       // e-mail <-- invalid
             "password",         // password
-            "PERSON",			// type
+            UserType.individual,// type
             "Bob",              // firstName
             "Green",            // lastName
             null,					// comingDate
@@ -207,7 +208,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "john@example.com",     // e-mail
             "password",             // password
-            "PERSON",				// type
+            UserType.individual,	// type
             "John",                 // firstName
             "Doe",                  // lastName
             null,					// comingDate
@@ -244,7 +245,7 @@ public class AccountResourceTest {
         UserDTO u = new UserDTO(
             "badguy@example.com",   // e-mail
             "password",             // password
-            "PERSON",				// type
+            UserType.individual,	// type
             "Bad",                  // firstName
             "Guy",                  // lastName
             null,					// comingDate
