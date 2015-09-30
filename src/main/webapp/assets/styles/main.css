@@ -402,3 +402,13 @@ ul#strengthBar {
 .input-file-plus.img-disabled {
 	cursor: default;
 }
+
+/* PILOTAGE */
+.tableauPlaceholder{
+	width: 982px;
+	height: 742px;
+}
+.tableauViz {
+	width: 982px;
+	height: 742px;
+}
