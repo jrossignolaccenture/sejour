@@ -20,15 +20,22 @@
 		        "follow": "I want to <strong>follow my applications</strong>"
 	        }
        	},
+       	"company": {
+       		"title": {
+       			"hire": "I want to <strong>hire</strong> a foreign employee",
+       			"declare": "I want to <strong>declare</strong> a foreign employee hiring",
+       			"verify": "I want to <strong>verify the right of residence</strong> of a foreign employee"
+       		}
+       	},
     	"agent": {
 	        "title": {
-		        "verify": "Verification of completeness",
-		        "rdv.setting": "Setting appointments",
-		        "rdv.preview": "Preview appointments",
-		        "rdv.drive": "Driving appointments",
+		        "consult": "Application review",
+		        "verify": "Application recevability",
+		        "rdv.preview": "Appointments",
 		        "decision": "Instruction and decision making",
-		        "question": "Answer the questions",
-		        "consult": "Reviewing an application",
+		        "usager": "Users management",
+		        "rdv.setting": "Appointments calendar",
+		        "question": "Messages",
 		        "analyse": "Data analysis and control"
 	        }
        	}

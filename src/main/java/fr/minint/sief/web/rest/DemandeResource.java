@@ -31,6 +31,7 @@ import fr.minint.sief.repository.DemandeRepository;
 import fr.minint.sief.repository.UserRepository;
 import fr.minint.sief.security.SecurityUtils;
 import fr.minint.sief.service.DemandeService;
+import fr.minint.sief.web.rest.dto.DemandeCountDTO;
 import fr.minint.sief.web.rest.dto.DemandeDTO;
 import fr.minint.sief.web.rest.mapper.DemandeMapper;
 import fr.minint.sief.web.rest.util.HeaderUtil;
@@ -68,6 +69,23 @@ public class DemandeResource {
         demandeService.initWithCampus();
         return ResponseEntity.ok().body(null);
     }
+    
+	/**
+	 * GET /demandes/count -> get the all demande.
+	 */
+	@RequestMapping(value = "/demandes/count", 
+			method = RequestMethod.GET, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<DemandeCountDTO> getCount() {
+		log.debug("REST request to get all Demande");
+		// TODO Tout mettre en une seule requete
+		DemandeCountDTO count = new DemandeCountDTO();
+		count.setNbRecevability(demandeRepository.countByStatut(StatutDemande.recevability));
+		count.setNbIdentification(demandeRepository.countByStatut(StatutDemande.identification));
+		count.setNbDecision(demandeRepository.countByStatut(StatutDemande.decision));
+		return new ResponseEntity<>(count, HttpStatus.OK);
+	}
     
 	/**
 	 * GET /demandes -> get the all demande.

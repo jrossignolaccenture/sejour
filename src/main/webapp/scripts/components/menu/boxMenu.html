@@ -1,7 +1,11 @@
 <div class="box" ng-class="{'box-disabled': disabled}">
     <div class="icon">
-        <div class="image"><span class="glyphicon glyphicon-{{boxlogo}} btn-lg white"></span></div>
+        <div class="image">
+        	<span class="glyphicon glyphicon-{{boxlogo}} btn-lg white"></span>
+        </div>
         <div class="info">
+        	<div class="badge" ng-show="boxbadge && boxbadge != '0'">{{boxbadge}}</div>
+        	<div class="emptybadge" ng-show="boxbadge && boxbadge == '0'">&nbsp;</div>
             <p translate="{{boxtitle}}">title</p>
         </div>
     </div>

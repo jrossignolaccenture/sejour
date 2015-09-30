@@ -235,6 +235,8 @@ ul#strengthBar {
     border-radius: 6px;
 }
 
+/* BOX MENU */
+
 .box-disabled {
 	opacity: 0.4;
 }
@@ -302,6 +304,35 @@ ul#strengthBar {
 
 .box .space {
     height: 30px;
+}
+
+.box-light > .box > .icon > .info > .badge {
+	float: right;
+    margin: 15px;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    background: rgb(53, 86, 137);
+}
+
+.box-light > .box > .icon > .info > .emptybadge {
+	display: inline-block;
+	float: right;
+    margin: 15px;
+    padding: 3px 7px;
+    font-size: 15px;
+}
+
+@media (min-width: 768px) {
+	.box-light > .box > .icon > .image {
+		margin: inherit;
+	}
+	.box-light > .box > .icon > .info {
+		margin-left: -30px;
+	}
+	.box-light > .box > .icon > .info > p {
+/* 	    margin: 15px; */
+	}
 }
 
 

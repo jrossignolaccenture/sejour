@@ -17,4 +17,6 @@ public interface DemandeRepository extends MongoRepository<Demande,String> {
 	List<Demande> findByStatutOrderByCreationDateDesc(StatutDemande statut);
 	
 	List<Demande> findByEmailOrderByCreationDateDesc(String email);
+	
+	Long countByStatut(StatutDemande statut);
 }

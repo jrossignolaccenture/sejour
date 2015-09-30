@@ -20,15 +20,22 @@
 		        "follow": "Je veux <strong>suivre mes demandes</strong>"
 	        }
 	    },
+       	"company": {
+       		"title": {
+       			"hire": "Je veux <strong>employer</strong> un salarié étranger",
+       			"declare": "Je veux <strong>déclarer l'embaûche</strong> d'un salarié étranger",
+       			"verify": "Je veux <strong>vérifier le droit au séjour</strong> d'un salarié étranger"
+       		}
+       	},
     	"agent": {
 	        "title": {
-		        "verify": "Vérification de la recevabilité",
-		        "rdv.setting": "Paramétrage des rendez-vous",
-		        "rdv.preview": "Prévisualisation des rendez-vous",
-		        "rdv.drive": "Conduite des rendez-vous",
+		        "consult": "Consultation des demandes",
+		        "verify": "Récevabilité des demandes",
+		        "rdv.drive": "Rendez-vous",
 		        "decision": "Instruction et prise de décision",
-		        "question": "Répondre aux questions",
-		        "consult": "Consultation d'une demande",
+		        "usager": "Gestion des usagers",
+		        "rdv.setting": "Calendrier des rendez-vous",
+		        "question": "Messages",
 		        "analyse": "Analyse des données et pilotage"
 	        }
        	}
