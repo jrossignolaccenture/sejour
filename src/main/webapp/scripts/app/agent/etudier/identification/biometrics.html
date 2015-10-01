@@ -30,14 +30,14 @@
 					    viewer-width="700"
 					    crop-height="400"
 					    crop-width="311"
-					    image-format="jpeg"
+					    image-format="png"
 					    jpeg-quality="100"
 					    action-message="{{photoButtonText}}"
 					    snapshot="webcamphoto"
 					    overlay-url="assets/images/photo_overlay.png"></ng-camera>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-show="webcamphoto">
-				    <img src="{{webcamphoto}}" class="img-responsive" style="max-width: 311px;">
+				    <img src="{{webcamphoto}}" class="img-responsive thumbnail" style="max-width: 311px;">
 				</div>
 			</div>
 		</div>
@@ -65,17 +65,23 @@
 			</div>
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
-			<img src="assets/images/checkbox_checked.png" >
-			<span translate="identification.biometrics.validated" >validate</span>
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!signatureValidated" onclick="angular.element(this).scope().validateSignature(signaturepad);">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="signatureValidated" onclick="angular.element(this).scope().validateSignature(signaturepad);">
+			<span translate="identification.biometrics.toValidate" ng-show="!signatureValidated">To validate</span>
+			<span translate="identification.biometrics.validated" ng-show="signatureValidated">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="signatureOpened">
 		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': signatureOpened}">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<img src="{{signature}}" class="img-responsive" style="max-width: 200px;">
-					</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-show="!signatureValidated">
+					<canvas class="thumbnail" id="signature-pad" width="400" height="200"></canvas>
+					<button class="btn btn-primary btn-signature" 
+							onclick="angular.element(this).scope().clearSignature(signaturepad)" 
+							translate="identification.biometrics.button.signature.clear">Clear</button>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-show="padsignature">
+				    <img src="{{padsignature}}" class="img-responsive thumbnail" style="max-width: 311px;">
 				</div>
 			</div>
 		</div>
@@ -93,4 +99,7 @@
     
 <script type="text/javascript">
 	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	var canvas = document.getElementById("signature-pad");
+	var signaturepad = new SignaturePad(canvas);
 </script>

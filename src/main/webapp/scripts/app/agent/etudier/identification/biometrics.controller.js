@@ -7,6 +7,7 @@ angular.module('sejourApp')
     	
     	$scope.photoValidated = false;
     	$scope.photoOpened = true;
+    	$scope.signatureValidated = false;
     	$scope.signatureOpened = true;
     	
     	$scope.photoButtonText = $translate.instant('identification.biometrics.button.photo');
@@ -17,12 +18,33 @@ angular.module('sejourApp')
 	    		$scope.photoValidated = !$scope.photoValidated;
 	    		if($scope.photoValidated){
 	    			var raw_image_data = $scope.webcamphoto.replace(/^data\:image\/\w+\;base64\,/, '');
-		    		File.uploadPhoto(raw_image_data, currentDemande.id)
+		    		File.uploadBiometrics(raw_image_data, "photo", currentDemande.id)
 				        .success(function(){
 				        })
 				        .error(function(){
 				        });
 	    		}
+    		}
+    	}
+    	
+    	$scope.clearSignature = function(signaturepad) {
+    		signaturepad.clear();
+    	}
+    	
+    	$scope.validateSignature = function(signaturepad) {
+    		if (!signaturepad.isEmpty()) {
+    			$scope.signatureValidated = !$scope.signatureValidated;
+    			console.log($scope.signatureValidated);
+    			if($scope.signatureValidated){
+    				$scope.padsignature = signaturepad.toDataURL();
+    				var raw_image_data = $scope.padsignature.replace(/^data\:image\/\w+\;base64\,/, '');
+		    		File.uploadBiometrics(raw_image_data, "signature", currentDemande.id)
+				        .success(function(){
+				        })
+				        .error(function(){
+				        });
+    			}
+    			$scope.$apply();
     		}
     	}
     

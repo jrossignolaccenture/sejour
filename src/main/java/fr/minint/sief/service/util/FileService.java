@@ -52,10 +52,10 @@ public class FileService {
         }
 	}
 
-    public void loadPhoto(String sourceUri, String idDemande) {
+    public void loadPhoto(String sourceUri, String destFilePrefix, String idDemande) {
     	
         Demande demande = demandeRepository.findOne(idDemande);
-        String destFileName = "photo_" + demande.getEmail() + ".jpeg";
+        String destFileName = destFilePrefix + "_" + demande.getEmail() + ".jpeg";
         
         try {
             byte[] bytes = Base64.getDecoder().decode(sourceUri);

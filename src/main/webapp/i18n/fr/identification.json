@@ -34,6 +34,7 @@
 	    	
 	    	"button": {
 	    		"photo": "Prendre la photo",
+	    		"signature.clear": "Effacer",
 	    		"accept": "Certifier les données du demandeur"
 	    	}
 		}

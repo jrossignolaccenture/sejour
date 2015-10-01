@@ -121,7 +121,7 @@
 	background-color: #ededed;
 }
 
-/** BIOMETRICS **/
+/** BIOMETRICS PHOTO **/
 ng-camera > .ng-camera-stack {
     position: relative;
 }
@@ -150,3 +150,8 @@ ng-camera > .ng-camera-stack {
 	background-color: #337ab7;
 }
 
+/** BIOMETRICS SIGNATURE **/
+.btn-signature {
+	width: 100px;
+	margin-left: 150px;
+}

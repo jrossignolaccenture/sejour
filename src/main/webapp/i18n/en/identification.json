@@ -34,6 +34,7 @@
 	    	
 	    	"button": {
 	    		"photo": "Take a picture",
+	    		"signature.clear": "Clear",
 	    		"accept": "Certify informations"
 	    	}
 		}
