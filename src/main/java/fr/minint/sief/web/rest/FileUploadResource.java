@@ -30,7 +30,7 @@ public class FileUploadResource {
     private FileService fileService;
 
     /**
-     * POST  /identitys -> Create a new identity.
+     * POST  /document -> save file
      * @throws IOException 
      * @throws IllegalStateException 
      */
@@ -44,5 +44,22 @@ public class FileUploadResource {
     	}
     	
     	fileService.loadFile(file, type);
+    }
+
+    /**
+     * POST  /photo -> save uri file
+     * @throws IOException 
+     * @throws IllegalStateException 
+     */
+    @RequestMapping(value = "/photo", method = RequestMethod.POST)
+    @ResponseBody
+    @Timed
+    public void uploadPhoto(@RequestParam String uri, @RequestParam String idDemande)  {
+    	if (uri.isEmpty()) {
+    		log.debug( "You failed to upload " + uri + " because the file was empty.");
+    		return;
+    	}
+    	
+    	fileService.loadPhoto(uri, idDemande);
     }
 }

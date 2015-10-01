@@ -29,9 +29,11 @@
 	    	"fingerprints": "Recueil des empreintes digitales",
 	    	"signature": "Recueil de la signature",
 	    	
+	    	"toValidate": "A valider",
 	    	"validated": "Validé",
 	    	
 	    	"button": {
+	    		"photo": "Prendre la photo",
 	    		"accept": "Certifier les données du demandeur"
 	    	}
 		}

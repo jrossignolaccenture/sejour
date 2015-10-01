@@ -15,17 +15,29 @@
 			</div>
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
-			<img src="assets/images/checkbox_checked.png">
-			<span translate="identification.biometrics.validated">validate</span>
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!photoValidated" ng-click="validatePhoto()">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="photoValidated" ng-click="validatePhoto()">
+			<span translate="identification.biometrics.toValidate" ng-show="!photoValidated">To validate</span>
+			<span translate="identification.biometrics.validated" ng-show="photoValidated">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="photoOpened">
 		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': photoOpened}">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<img src="{{photo}}" class="img-responsive" style="max-width: 200px;">
-					</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-show="!photoValidated">
+					<ng-camera
+					    viewer-height="400"
+					    viewer-width="700"
+					    crop-height="400"
+					    crop-width="311"
+					    image-format="jpeg"
+					    jpeg-quality="100"
+					    action-message="{{photoButtonText}}"
+					    snapshot="webcamphoto"
+					    overlay-url="assets/images/photo_overlay.png"></ng-camera>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-show="webcamphoto">
+				    <img src="{{webcamphoto}}" class="img-responsive" style="max-width: 311px;">
 				</div>
 			</div>
 		</div>

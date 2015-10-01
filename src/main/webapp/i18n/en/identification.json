@@ -29,9 +29,11 @@
 	    	"fingerprints": "Collection of fingerprints",
 	    	"signature": "Collection of signature",
 	    	
+	    	"toValidate": "To validate",
 	    	"validated": "Validated",
 	    	
 	    	"button": {
+	    		"photo": "Take a picture",
 	    		"accept": "Certify informations"
 	    	}
 		}

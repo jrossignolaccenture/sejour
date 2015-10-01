@@ -11,6 +11,15 @@ angular.module('sejourApp')
 		            transformRequest: angular.identity,
 		            headers: {'Content-Type': undefined}
 		        });
-	        }
+	        },
+	    	uploadPhoto: function (uri, idDemande) {
+	        	var fd = new FormData();
+		        fd.append('uri', uri);
+		        fd.append('idDemande', idDemande);
+		        return $http.post("/fileUpload/photo", fd, {
+		            transformRequest: angular.identity,
+		            headers: {'Content-Type': undefined}
+		        });
+	    	}
 	    };
 	});
