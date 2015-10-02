@@ -1,7 +1,7 @@
 {
 	"address" : {
 		"form": {
-			"title": "Confirm your address",
+			"title": "Complete your address",
 			"comingDate": "Arrival date in France",
 			"owner": "Owner",
 			"number": "Street Number",

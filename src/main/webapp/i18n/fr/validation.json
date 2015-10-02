@@ -3,26 +3,23 @@
 		"list": {
 			"title": "Liste des demandes pour décision finale",
 			"noApplication": "Aucune demande à valider actuellement.",
-			"firstName": "Nom",
-			"lastName": "Prénom",
+			"firstName": "Prénom",
+			"lastName": "Nom",
+			"id": "Numéro étranger",
 			"nationality": "Nationalité",
-			"applicationType": "Type de demande",
-			"creationDate": "Date de création"
+			"applicationType": "Type de demande"
 		},
 		"form": {
-	    	"title": "{{studentName}} - Demande de séjour étudiant",
-	    	"identity": "Identité",
-	    	"preinscription": "(Pré) inscription",
-	    	"project": "Projet d'études",
-	    	"documents": "Documents originaux",
+	    	"title": "{{studentName}} - Première demande de séjour étudiant",
+	    	"identity": "Identité de l'usager",
+	    	"preinscription": "(Pré) inscription confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
+	    	"project": "Projet de séjour",
 	    	"policeControl": "Contrôle policier",
 	    	"history": "Historique SIEF",
 	    	"noHistory": "Pas d'historique",
 	    	
 	    	"validate.h": "Validé le {{validationDate}} - {{validationAuthor}}",
 	    	"validate.f": "Validée le {{validationDate}} - {{validationAuthor}}",
-	    	"confirm.f": "Confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
-	    	"certify.h.p": "Certifiés le {{certificationDate}} - {{certificationAuthor}}",
 	    	"toValidate": "A valider",
 	    	
 	    	"button": {

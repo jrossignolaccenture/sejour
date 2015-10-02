@@ -1,19 +1,23 @@
 {
     "etudier": {
-        "title": "Application for a student stay",
-        "page.title": "Application for a student stay",
-        "step.title": "4 steps for your application",
+        "title": "First application for a student stay",
+        "page.title": "First application for a student stay",
+        "step.title": "5 steps for your application",
         "identity": {
         	"step.short": "Identity",
-        	"step.long": "Confirm your civil status and personal information"
+        	"step.long": "Complete your civil status and personal information"
         },
         "address": {
         	"step.short": "Address",
-        	"step.long": "Confirm your address"
+        	"step.long": "Complete your address"
         },
         "project": {
         	"step.short": "Project",
-        	"step.long": "Confirm your project details"
+        	"step.long": "Complete your project details"
+        },
+        "summary": {
+        	"step.short": "Summary",
+        	"step.long": "Verify your application informations"
         },
         "payment": {
         	"step.short": "Payment",

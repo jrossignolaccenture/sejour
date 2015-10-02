@@ -49,7 +49,7 @@ angular.module('sejourApp')
     	}
     
     	$scope.certify = function() {
-    		Demande.identify(currentDemande).then(function(result){
+    		Demande.identifyBiometrics(currentDemande).then(function(result){
             	$state.go('etudier/identification')
             });
     	}

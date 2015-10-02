@@ -1,33 +1,45 @@
 <div ng-cloak>
     <div class="row">
-    	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
+    	<div class="col-xs-11 col-xs-offset-1 title-underscore">
     		<h4 translate="identification.list.title"></h4>
    		</div>
     </div>
 	<br>
 	<div class="row">
-		<div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
-	    	<h5 translate="identification.list.noApplication" ng-show="demandes.length == 0">No application</h5>
-	    	<table class="table" ng-show="demandes.length > 0">
+		<div class="col-xs-10 col-xs-offset-2" ng-if="demandes.length == 0">
+	    	<h5 translate="identification.list.noApplication">No application</h5>
+	    </div>
+		<div class="col-xs-11 col-xs-offset-1" ng-if="demandes.length > 0">
+	    	<table class="table">
 				<thead>
 					<tr>
-						<th style="width:20%;" translate="identification.list.lastName"></th>
-						<th style="width:20%;" translate="identification.list.firstName"></th>
-						<th style="width:17%;" translate="identification.list.nationality"></th>
-						<th style="width:25%;" translate="identification.list.applicationType"></th>
-						<th style="width:18%;" translate="identification.list.creationDate"></th>
+						<th style="width:14%;" translate="identification.list.lastName"></th>
+						<th style="width:14%;" translate="identification.list.firstName"></th>
+						<th style="width:24%;" translate="identification.list.id"></th>
+						<th style="width:24%;" translate="identification.list.applicationType"></th>
+						<th style="width:24%;" translate="identification.list.step"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="applicationListLine" ng-repeat="demande in demandes" ui-sref="etudier/documents({id:demande.id})">
+					<tr class="applicationListLine" ng-repeat-start="demande in demandes" ui-sref="etudier/documents({id:demande.id})" ng-if="!demande.documentsDate">
 						<td>{{demande.identity.lastName}}</td>
 						<td>{{demande.identity.firstName}}</td>
-						<td>{{getNationality(demande.identity.nationality)}}</td>
+						<td>{{demande.userId}}</td>
 						<td>
 							<span translate="sejourApp.TypeDemande.{{demande.type}}"></span>
 							<span translate="sejourApp.NatureDemande.{{demande.nature}}"></span>
 						</td>
-						<td>{{getFormattedDate(demande.creationDate)}}</td>
+						<td translate="identification.list.documents"></td>
+					</tr>
+					<tr class="applicationListLine" ng-repeat-end ui-sref="etudier/biometrics({id:demande.id})" ng-if="!demande.biometricsDate">
+						<td>{{demande.identity.lastName}}</td>
+						<td>{{demande.identity.firstName}}</td>
+						<td>{{demande.userId}}</td>
+						<td>
+							<span translate="sejourApp.TypeDemande.{{demande.type}}"></span>
+							<span translate="sejourApp.NatureDemande.{{demande.nature}}"></span>
+						</td>
+						<td translate="identification.list.biometrics"></td>
 					</tr>
 				</tbody>
 			</table>

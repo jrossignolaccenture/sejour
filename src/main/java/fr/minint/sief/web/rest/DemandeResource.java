@@ -71,7 +71,7 @@ public class DemandeResource {
     }
     
 	/**
-	 * GET /demandes/count -> get the all demande.
+	 * GET /demandes/count -> get count of all demande.
 	 */
 	@RequestMapping(value = "/demandes/count", 
 			method = RequestMethod.GET, 
@@ -84,6 +84,20 @@ public class DemandeResource {
 		count.setNbRecevability(demandeRepository.countByStatut(StatutDemande.recevability));
 		count.setNbIdentification(demandeRepository.countByStatut(StatutDemande.identification));
 		count.setNbDecision(demandeRepository.countByStatut(StatutDemande.decision));
+		return new ResponseEntity<>(count, HttpStatus.OK);
+	}
+    
+	/**
+	 * GET /demandes/currentCount -> get count of all demande of current user.
+	 */
+	@RequestMapping(value = "/demandes/currentCount", 
+			method = RequestMethod.GET, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Long> getCurrentCount() {
+		log.debug("REST request to get all Demande");
+		// TODO Tout mettre en une seule requete
+		Long count = demandeRepository.countByEmailAndStatutNot(SecurityUtils.getCurrentLogin(), StatutDemande.archive);
 		return new ResponseEntity<>(count, HttpStatus.OK);
 	}
     
@@ -142,7 +156,7 @@ public class DemandeResource {
     @Timed
     public List<DemandeDTO> getDemande(@RequestParam(value = "statut") StatutDemande statut) throws URISyntaxException {
         log.debug("REST request to get application by statut {}", statut);
-        return demandeRepository.findByStatutOrderByCreationDateDesc(statut).stream()
+        return demandeRepository.findByStatutOrderByCreationDateAsc(statut).stream()
             .map(demande -> demandeMapper.demandeToDemandeDTO(demande))
             .collect(Collectors.toCollection(LinkedList::new));
     }
@@ -209,7 +223,7 @@ public class DemandeResource {
         log.debug("REST request to prepaid current demande");
         Demande demande = demandeService.getCurrentDemande(StatutDemande.payment);
         demande.setStatut(StatutDemande.recevability);
-        demande.setModificationDate(DateTime.now());
+        demande.setPaymentDate(DateTime.now());
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
@@ -248,15 +262,35 @@ public class DemandeResource {
     /**
      * PUT  /demande/identification -> Updates an existing demande.
      */
-    @RequestMapping(value = "/demande/identification",
+    @RequestMapping(value = "/demande/identification/documents",
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<String> documents(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
         log.debug("REST request to identification");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
-        demande.setStatut(StatutDemande.decision);
-        demande.setIdentificationDate(DateTime.now());
+        demande.setDocumentsDate(DateTime.now());
+        if(demande.getBiometricsDate() != null) {
+        	demande.setStatut(StatutDemande.decision);
+        }
+        demandeRepository.save(demande);
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
+    /**
+     * PUT  /demande/identification -> Updates an existing demande.
+     */
+    @RequestMapping(value = "/demande/identification/biometrics",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<String> biometrics(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+        log.debug("REST request to identification");
+        Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
+        demande.setBiometricsDate(DateTime.now());
+        if(demande.getDocumentsDate() != null) {
+        	demande.setStatut(StatutDemande.decision);
+        }
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
@@ -272,9 +306,23 @@ public class DemandeResource {
         log.debug("REST request to final decision");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.archive);
+        demande.setDecisionDate(DateTime.now());
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
+    
+	/**
+	 * DELETE /demandes/:id -> delete the "id" demande.
+	 */
+	@RequestMapping(value = "/demande/{id}", 
+			method = RequestMethod.DELETE, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Void> delete(@PathVariable String id) {
+		log.debug("REST request to delete Demande : {}", id);
+		demandeRepository.delete(id);
+		return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("demande", id.toString())).build();
+	}
     
     // OBSOLETE A PARTIR D'ICI NORMALEMENT
 
@@ -309,17 +357,5 @@ public class DemandeResource {
 //                HttpStatus.OK))
 //            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 //    }
-//
-//    /**
-//     * DELETE  /demandes/:id -> delete the "id" demande.
-//     */
-//    @RequestMapping(value = "/demandes/{id}",
-//            method = RequestMethod.DELETE,
-//            produces = MediaType.APPLICATION_JSON_VALUE)
-//    @Timed
-//    public ResponseEntity<Void> delete(@PathVariable String id) {
-//        log.debug("REST request to delete Demande : {}", id);
-//        demandeRepository.delete(id);
-//        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("demande", id.toString())).build();
-//    }
+
 }

@@ -2,7 +2,8 @@
     "main": {
     	"page.title": "Accueil SIEF",
     	"unknown": {
-    		"title": "Bienvenue sur le portail SIEF",
+    		"title": "Bienvenue sur le portail de l'administration des étrangers en France",
+    		"choice": "Choisissez votre profil :",
     		"button": {
     			"individual": "Je suis un particulier",
     			"company": "Je suis une entreprise"
@@ -26,11 +27,11 @@
        	},
     	"agent": {
 	        "title": {
-		        "consult": "Consultation des demandes",
 		        "verify": "Récevabilité des demandes",
 		        "rdv.drive": "Rendez-vous",
-		        "decision": "Instruction et prise de décision",
+		        "decision": "Instruction et décision",
 		        "usager": "Gestion des usagers",
+		        "application": "Gestion des demandes",
 		        "rdv.setting": "Calendrier des rendez-vous",
 		        "question": "Messages",
 		        "analyse": "Analyse des données et pilotage"

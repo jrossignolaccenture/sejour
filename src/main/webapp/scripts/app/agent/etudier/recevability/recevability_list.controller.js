@@ -3,7 +3,6 @@
 angular.module('sejourApp')
     .controller('RecevabilityListController', function ($scope, $state, Demande, Country) {
     	
-    	$scope.demandes = [];
     	$scope.countries = [];
     	
         Country.get().then(function(result) {

@@ -5,24 +5,21 @@
 			"noApplication": "There is no validation to do at this time.",
 			"firstName": "First Name",
 			"lastName": "Last Name",
+			"id": "Foreign number",
 			"nationality": "Nationality",
-			"applicationType": "Application type",
-			"creationDate": "Creation date"
+			"applicationType": "Application type"
 		},
 		"form": {
-	    	"title": "{{studentName}} - Application for study",
-	    	"identity": "Identity",
-	    	"preinscription": "(Pre)Inscription",
+	    	"title": "{{studentName}} - First application for study",
+	    	"identity": "User identity",
+	    	"preinscription": "(Pre)Inscription confirm on {{confirmationDate}} - {{confirmationAuthor}}",
 	    	"project": "Project",
-	    	"documents": "Originals documents",
 	    	"policeControl": "Police control",
 	    	"history": "SIEF History",
 	    	"noHistory": "No history",
 	    	
 	    	"validate.h": "Validate on {{validationDate}} - {{validationAuthor}}",
 	    	"validate.f": "Validate on {{validationDate}} - {{validationAuthor}}",
-	    	"confirm.f": "Confirm on {{confirmationDate}} - {{confirmationAuthor}}",
-	    	"certify.h.p": "Certified on {{certificationDate}} - {{certificationAuthor}}",
 	    	"toValidate": "To validate",
 	    	
 	    	"button": {

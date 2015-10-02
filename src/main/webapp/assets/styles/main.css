@@ -307,7 +307,7 @@ ul#strengthBar {
     height: 30px;
 }
 
-.box-light > .box > .icon > .info > .badge {
+.box-badge > .box > .icon > .info > .badge {
 	float: right;
     margin: 15px;
     font-size: 15px;
@@ -316,7 +316,7 @@ ul#strengthBar {
     background: rgb(53, 86, 137);
 }
 
-.box-light > .box > .icon > .info > .emptybadge {
+.box-badge > .box > .icon > .info > .emptybadge {
 	display: inline-block;
 	float: right;
     margin: 15px;

@@ -5,7 +5,6 @@ angular.module('sejourApp')
     	
         $scope.isAuthenticated = Principal.isAuthenticated;
         
-        $scope.nbConsult = 0;
         $scope.nbRecevability = 0;
         $scope.nbIdentification = 0;
         $scope.nbDecision = 0;

@@ -34,6 +34,8 @@ public class Demande implements Serializable {
     @NotNull
     @Size(min = 5, max = 100)
     private String email;
+    
+    private String userId;
 
     @NotNull
     @Field("nature")
@@ -69,18 +71,33 @@ public class Demande implements Serializable {
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("payment_date")
+    private DateTime paymentDate;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
     @Field("recevability_date")
     private DateTime recevabilityDate;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
-    @Field("rdv")
-    private DateTime rdv;
+    @Field("rdv_date")
+    private DateTime rdvDate;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
-    @Field("identification_date")
-    private DateTime identificationDate;
+    @Field("documents_date")
+    private DateTime documentsDate;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("biometrics_date")
+    private DateTime biometricsDate;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("decision_date")
+    private DateTime decisionDate;
 
     public String getId() {
         return id;
@@ -98,7 +115,15 @@ public class Demande implements Serializable {
         this.email = email;
     }
 
-    public NatureDemande getNature() {
+    public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public NatureDemande getNature() {
         return nature;
     }
 
@@ -162,6 +187,14 @@ public class Demande implements Serializable {
 		this.project = project;
 	}
 
+	public DateTime getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(DateTime paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+
 	public DateTime getRecevabilityDate() {
 		return recevabilityDate;
 	}
@@ -170,20 +203,36 @@ public class Demande implements Serializable {
 		this.recevabilityDate = recevabilityDate;
 	}
 
-	public DateTime getRdv() {
-		return rdv;
+	public DateTime getRdvDate() {
+		return rdvDate;
 	}
 
-	public void setRdv(DateTime rdv) {
-		this.rdv = rdv;
+	public void setRdvDate(DateTime rdvDate) {
+		this.rdvDate = rdvDate;
 	}
 
-	public DateTime getIdentificationDate() {
-		return identificationDate;
+	public DateTime getDocumentsDate() {
+		return documentsDate;
 	}
 
-	public void setIdentificationDate(DateTime identificationDate) {
-		this.identificationDate = identificationDate;
+	public void setDocumentsDate(DateTime documentsDate) {
+		this.documentsDate = documentsDate;
+	}
+
+	public DateTime getBiometricsDate() {
+		return biometricsDate;
+	}
+
+	public void setBiometricsDate(DateTime biometricsDate) {
+		this.biometricsDate = biometricsDate;
+	}
+
+	public DateTime getDecisionDate() {
+		return decisionDate;
+	}
+
+	public void setDecisionDate(DateTime decisionDate) {
+		this.decisionDate = decisionDate;
 	}
 
 	@Override
@@ -212,6 +261,7 @@ public class Demande implements Serializable {
         return "Demande{" +
                 "id=" + id +
                 ", email='" + email + "'" +
+                ", userId='" + userId + "'" +
                 ", nature='" + nature + "'" +
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
@@ -220,9 +270,12 @@ public class Demande implements Serializable {
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
+                ", paymentDate='" + getPaymentDate() + "'" +
                 ", recevabilityDate='" + recevabilityDate + "'" +
-                ", rdv='" + rdv + "'" +
-                ", identificationDate='" + identificationDate + "'" +
+                ", rdv='" + rdvDate + "'" +
+                ", documentsDate='" + documentsDate + "'" +
+                ", biometricsDate='" + biometricsDate + "'" +
+                ", decisionDate='" + getDecisionDate() + "'" +
                 '}';
     }
 }

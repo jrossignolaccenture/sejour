@@ -1,7 +1,8 @@
 {
 	"identity" : {
 		"form": {
-			"title": "Confirm your civil status and personal information",
+			"title": "Complete your civil status and personal information",
+			"tooltip": "The civil status must match the information on your passport",
             "lastName": "Last Name",
             "usedLastName": "Use Last Name",
             "firstName": "First Name",
@@ -11,12 +12,12 @@
             "birthCountry": "Birth Country",
             "nationality": "Nationality",
             "passportNumber": "Passport Number",
-            "document.title": "Attach your identity documents",
+            "document.title": "Attach your documents",
             "passport": "Passport",
             "passport.placeholder": "Click or drag your passport here...",
             "passport.placeholder.wait": "Uploading...",
-            "birthAct": "BirthAct",
-            "birthAct.placeholder": "Click or drag your birth act here..."
+            "birthAct": "Id document(s)",
+            "birthAct.placeholder": "Click or drag your id documents here..."
 		}
 	}
 }

@@ -3,16 +3,16 @@
 		"list": {
 			"title": "Liste des demandes pour vérification de la recevabilité",
 			"noApplication": "Aucune recevabilité à vérifier actuellement.",
-			"firstName": "Nom",
-			"lastName": "Prénom",
+			"firstName": "Prénom",
+			"lastName": "Nom",
 			"nationality": "Nationalité",
 			"applicationType": "Type de demande",
 			"creationDate": "Date de création"
 		},
 		"form": {
-	    	"title": "{{studentName}} - Demande de séjour étudiant",
+	    	"title": "{{studentName}} - Première demande de séjour étudiant",
 	    	"identity": "Vérification de l'état-civil et des informations personnelles",
-	    	"project": "Vérification des détails du projet",
+	    	"project": "Vérification du projet",
 	    	
 	    	"toVerify": "A vérifier",
 	    	"verified": "Vérifiés",

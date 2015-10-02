@@ -1,19 +1,23 @@
 {
     "etudier": {
-        "title": "Demande de séjour étudiant",
-        "page.title": "Demande de séjour étudiant",
-        "step.title": "4 étapes pour déposer votre demande",
+        "title": "Première demande de séjour étudiant",
+        "page.title": "Première demande de séjour étudiant",
+        "step.title": "5 étapes pour déposer votre demande",
         "identity": {
         	"step.short": "Etat-civil",
-        	"step.long": "Validez votre état-civil et vos informations personnelles"
+        	"step.long": "Complétez votre état-civil et vos informations personnelles"
         },
         "address": {
         	"step.short": "Coordonnées",
-        	"step.long": "Validez vos coordonnées"
+        	"step.long": "Complétez vos coordonnées"
         },
         "project": {
         	"step.short": "Projet",
-        	"step.long": "Validez les détails de votre projet"
+        	"step.long": "Complétez les détails de votre projet"
+        },
+        "summary": {
+        	"step.short": "Récapitulatif",
+        	"step.long": "Vérifiez les informations de votre demande"
         },
         "payment": {
         	"step.short": "Paiement",

@@ -13,7 +13,7 @@
 		<div class="row">
 			<div class="col-xs-1 col-xs-offset-1 col-sm-1 col-sm-offset-1 col-md-1 col-md-offset-1 col-lg-1 col-lg-offset-1">
 		    	<span class="step-number-align">
-		    		<div class="step-number step-number-green">3</div>
+		    		<div class="step-number">3</div>
 		    	</span>
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
@@ -34,7 +34,8 @@
 					           datetimepicker-options="{{datePickerOptions}}"
 					           name="comingDateTxt" id="field_comingDateTxt"
 					           ng-model="project.comingDateTxt"
-					           placeholder="{{'global.form.date.format' | translate}}">
+					           placeholder="{{'global.form.date.format' | translate}}"
+					           autofocus>
 					</div>
 		
 		            <div ng-show="projectForm.comingDateTxt.$dirty && projectForm.comingDateTxt.$invalid">
@@ -157,8 +158,11 @@
 	                    </span>
 				        <input id="file_inscriptionCertificate" type="file" ng-model="inscriptionCertificateFile" onchange="angular.element(this).scope().uploadInscriptionCertificateFile(this)" style="display: none;">
 				        <input type="text" class="form-control" name="inscriptionCertificate" id="field_inscriptionCertificate" readonly="readonly"
-				                ng-model="project.inscriptionCertificate" placeholder="{{'project.form.inscriptionCertificate.placeholder' | translate}}" 
+				                ng-model="project.inscriptionCertificate" placeholder="{{'project.form.inscriptionCertificate.placeholder' | translate}}"
 				                required >
+				        <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !project.inscriptionCertificate}"></span>
+	                    </span>
 					</div>
 							
 			        <div ng-show="projectForm.inscriptionCertificate.$dirty && projectForm.inscriptionCertificate.$invalid">
@@ -178,9 +182,10 @@
 				        <input id="file_resourceProof" type="file" ng-model="resourceProofFile" onchange="angular.element(this).scope().uploadResourceProofFile(this)" style="display: none;">
 				        <input type="text" class="form-control" name="resourceProof" id="field_resourceProof" readonly="readonly"
 				                ng-model="project.resourceProof" placeholder="{{'project.form.resourceProof.placeholder' | translate}}" 
+				                tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'project.form.tooltip' | translate}}"
 				                required >
 				        <span class="input-group-addon">
-	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="project.resourceProof == '' ? 'img-disabled' : ''"></span>
+	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !project.resourceProof}"></span>
 	                    </span>
 					</div>
 							
@@ -198,7 +203,7 @@
 	    <div class="row row-center">
 	    	<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
 	        	<button class="btn btn-default" translate="etudier.button.back" ui-sref="etudier/address">Back</button>
-	        	<button type="submit" ng-disabled="projectForm.$invalid || projectForm.$submitted" class="btn btn-primary"
+	        	<button type="submit" style="margin-left: 20px" ng-disabled="projectForm.$invalid || projectForm.$submitted" class="btn btn-primary"
 	        		translate="etudier.button.continue">Continue</button>
        		</div>
         </div>
@@ -207,6 +212,10 @@
 
 <script type="text/javascript">
 	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	$(function () {
+		$('#field_resourceProof').popover();
+	})
 
 	$('#logo_resourceProof').click(function(){
 	    $('#file_resourceProof').click();

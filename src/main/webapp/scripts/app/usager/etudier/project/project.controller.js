@@ -9,6 +9,7 @@ angular.module('sejourApp')
         
         $scope.datePickerOptions = {
 			format: 'DD/MM/YYYY',
+			minDate: 'moment', 
 			viewMode: 'years', 
 			locale: 'fr',
 			allowInputToggle: true
@@ -18,7 +19,6 @@ angular.module('sejourApp')
             Demande.getInProgressDemande($scope.account.email).then(function(result) {
             	$scope.demande = result;
                 $scope.project = result.project;
-                console.log($scope.demande);
                 if($scope.project.comingDate != null){
                 	$scope.project.comingDateTxt = moment($scope.project.comingDate).format("DD/MM/YYYY");
                 }
@@ -72,8 +72,8 @@ angular.module('sejourApp')
             $scope.project.comingDate = moment($scope.project.comingDateTxt, "DD/MM/YYYY").toDate();
             $scope.project.trainingStart = moment($scope.project.trainingStartTxt, "DD/MM/YYYY").toDate();
         	console.log($scope.demande);
-            Demande.update($scope.demande, true).then(function(result){
-            	$state.go('etudier/payment');
+            Demande.update($scope.demande, false).then(function(result){
+            	$state.go('etudier/summary');
             });
         };
         

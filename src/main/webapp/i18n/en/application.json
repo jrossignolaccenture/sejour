@@ -3,16 +3,25 @@
 		"title": "My applications",
 		"list": {
 			"title": {
-				"sejour_etudiant": "Application of student stay - created on {{creationDate}}"
+				"created.sejour_etudiant": "First application of student stay - created on {{creationDate}}",
+				"validated.sejour_etudiant": "First application of student stay - validated on {{decisionDate}}"
 			},
 			"noApplication": "You don't have application",
 			"modified": "Application modified on {{modificationDate}} - {{userName}}",
-			"recevability": "Application recevability verified on {{recevabilityDate}} - Administration des Etrangers en France"
+			"submit": "Application submitted on {{submitDate}} - {{userName}}",
+			"payment": "Application paid on {{paymentDate}} - {{userName}}",
+			"recevability.wait": "Waiting for recevability verification by the french administration of foreigners",
+			"recevability": "Application recevability verified on {{recevabilityDate}} - French administration of foreigners",
+			"rdv.future": "Appointment confirmed for {{rdvDate}} - {{userName}}",
+			"rdv.passed": "Appointment taken on {{rdvDate}} - {{userName}}",
+			"decision.wait": "Waiting for instruction and decision by the french administration of foreigners",
+			"decision": "Instruction and decision validated on {{decisionDate}} - French administration of foreigners"
 		},
 	    	
 	    "button": {
     		"continue": "Continue",
     		"delete": "Delete",
+    		"payment": "Payment validation",
     		"rdv": "Take an appointment"
 		}
 	}

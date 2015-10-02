@@ -1,16 +1,18 @@
 {
 	"identification" : {
 		"list": {
-			"title": "Liste des demandes pour vérification d'identité",
-			"noApplication": "Aucune identification à vérifier actuellement.",
-			"firstName": "Nom",
-			"lastName": "Prénom",
-			"nationality": "Nationalité",
+			"title": "Liste des demandes pour rendez-vous",
+			"noApplication": "Aucun rendez-vous actuellement.",
+			"firstName": "Prénom",
+			"lastName": "Nom",
+			"id": "Numéro étranger",
 			"applicationType": "Type de demande",
-			"creationDate": "Date de création"
+			"step": "Etape",
+			"documents": "Certification des documents",
+			"biometrics": "Reccueil de la biométrie"
 		},
 		"documents": {
-	    	"title": "{{studentName}} - Demande de séjour étudiant",
+	    	"title": "{{studentName}} - Première demande de séjour étudiant",
 	    	"passport": "Certification de l'authenticité du passeport",
 	    	"birthAct": "Certification de l'authenticité de l'acte de naissance",
 	    	"inscriptionCertificate": "Certification de l'authenticité du certificat de (pré)inscription",
@@ -24,7 +26,7 @@
 	    	}
 		},
 		"biometrics": {
-	    	"title": "{{studentName}} - Demande de séjour étudiant",
+	    	"title": "{{studentName}} - Première demande de séjour étudiant",
 	    	"photo": "Recueil de la photographie",
 	    	"fingerprints": "Recueil des empreintes digitales",
 	    	"signature": "Recueil de la signature",

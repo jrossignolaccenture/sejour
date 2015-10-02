@@ -9,6 +9,9 @@
 	    <br>
 	   	<br>
 	   	<br>
+	   	<div class="row row-center">
+	   		<h3 translate="main.unknown.choice">profil</h3>
+	   	</div>
 	    <div class="row row-center">
     		<button class="btn btn-primary btn-home"
     				translate="main.unknown.button.individual"
@@ -48,22 +51,22 @@
     </div>
     <div class="row" ng-switch-when="agent">
     	<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1">
-    		<div class="row">
-		        <box-menu class="box-light" boxtitle="main.agent.title.consult" boxlogo="search" boxbadge="{{nbConsult}}" disabled="true"></box-menu>
+		    <div class="row">
+	        	<box-menu class="box-badge" boxtitle="main.agent.title.verify" boxlogo="ok" boxbadge="{{nbRecevability}}" ui-sref="etudier/recevability/list"></box-menu>
 	        </div>
 		    <div class="row">
-	        	<box-menu class="box-light" boxtitle="main.agent.title.verify" boxlogo="ok" boxbadge="{{nbRecevability}}" ui-sref="etudier/recevability/list"></box-menu>
+		        <box-menu class="box-badge" boxtitle="main.agent.title.rdv.drive" boxlogo="camera" boxbadge="{{nbRdv}}" ui-sref="etudier/identification"></box-menu>
 	        </div>
 		    <div class="row">
-		        <box-menu class="box-light" boxtitle="main.agent.title.rdv.drive" boxlogo="camera" boxbadge="{{nbRdv}}" ui-sref="etudier/identification"></box-menu>
-	        </div>
-		    <div class="row">
-		        <box-menu class="box-light" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbDecision}}" ui-sref="etudier/validation/list"></box-menu>
+		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbDecision}}" ui-sref="etudier/validation/list"></box-menu>
 	        </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
 		    <div class="row">
 		        <box-menu boxtitle="main.agent.title.usager" boxlogo="user" disabled="true"></box-menu>
+	        </div>
+    		<div class="row">
+		        <box-menu boxtitle="main.agent.title.application" boxlogo="search" disabled="true"></box-menu>
 	        </div>
         	<div class="row">
 		        <box-menu boxtitle="main.agent.title.rdv.setting" boxlogo="calendar" disabled="true"></box-menu>

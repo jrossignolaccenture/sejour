@@ -1,14 +1,15 @@
 {
 	"summary" : {
 		"form": {
-    		"success": "Your payment was held successfully",
-    		"text1": "The completeness of your application will be verified by the French Immigration Authorities.",
-    		"text2": "If the application is complete, you receive a notification asking you to make an appointment online.",
-    		"text3": "If applicable, you receive a application for the item ( s) missing (s) with instructions to complete your application.",
-    		"text4": "During the meeting at the Embassy of France in Seoul , the authenticity of your passport and your civil status documents will be checked , and your biometric data recorded.",
-    		"text5": "After the appointment, your case will be heard and you will be notified of the decision.",
-    		"text6": "If the decision is favorable and after flow of tourist tax , guests are invited to come and collect your residence permit when it is ready.",
-    		"text7": "If the decision is unfavorable, you will have the opportunity to application an appeal."
+			"title": "Verify your application informations",
+			"subtitle": "You are about to make a student residency application. Before paying, make sure that the information below are correct.",
+	    	"identity": "My personal information",
+	    	"address": "My address",
+	    	"project": "My project",
+	    	
+	    	"button": {
+	    		"validate": "Validate my application"
+	    	}
 		}
 	}
 }

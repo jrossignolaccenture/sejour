@@ -66,7 +66,7 @@
 	    	<button class="btn btn-success" 
 	    			ng-disabled="!passportValidated || !birthActValidated" 
 	    			translate="identification.documents.button.accept"
-	    			 ui-sref="etudier/biometrics({id:demande.id})" >Accept</button>
+	    			ng-click="certify()" >Accept</button>
 		</div>
 	</div>
 </div>

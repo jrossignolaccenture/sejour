@@ -10,5 +10,11 @@ angular.module('sejourApp')
     	
     	$scope.passport = "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg";
     	$scope.birthAct = "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png";
-    	
+
+        
+    	$scope.certify = function() {
+    		Demande.identifyDocuments(currentDemande).then(function(result){
+            	$state.go('etudier/identification')
+            });
+    	}
     });

@@ -6,7 +6,7 @@
 				"title": "Créneaux disponibles le {{currentDate}}",
 				"empty": "Sélectionner un jour"
 			},
-			"text": "Lors du rendez-vous, vous devrez apportez les originaux des documents joints à votre demande (dont votre passeport).",
+			"text": "Merci de vous munir de votre passeport et de vos documents d'état-civil originaux lors de votre rendez-vous.",
 			"button": "Confirmer mon rendez-vous"
 		}
 	}

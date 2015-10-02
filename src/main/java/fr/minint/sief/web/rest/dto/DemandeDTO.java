@@ -24,6 +24,8 @@ public class DemandeDTO implements Serializable {
 	@NotNull
 	@Size(min = 5, max = 100)
 	private String email;
+	
+	private String userId;
 
 	@NotNull
     private NatureDemande nature;
@@ -45,11 +47,17 @@ public class DemandeDTO implements Serializable {
     
     private ProjectDTO project;
     
+    private DateTime paymentDate;
+    
     private DateTime recevabilityDate;
     
-    private DateTime rdv;
+    private DateTime rdvDate;
     
-    private DateTime identificationDate;
+    private DateTime documentsDate;
+    
+    private DateTime biometricsDate;
+    
+    private DateTime decisionDate;
 
     public String getId() {
         return id;
@@ -67,7 +75,15 @@ public class DemandeDTO implements Serializable {
         this.email = email;
     }
 
-    public NatureDemande getNature() {
+    public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public NatureDemande getNature() {
         return nature;
     }
 
@@ -131,6 +147,14 @@ public class DemandeDTO implements Serializable {
 		this.project = project;
 	}
 
+	public DateTime getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(DateTime paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+
 	public DateTime getRecevabilityDate() {
 		return recevabilityDate;
 	}
@@ -139,20 +163,36 @@ public class DemandeDTO implements Serializable {
 		this.recevabilityDate = recevabilityDate;
 	}
 
-	public DateTime getRdv() {
-		return rdv;
+	public DateTime getRdvDate() {
+		return rdvDate;
 	}
 
-	public void setRdv(DateTime rdv) {
-		this.rdv = rdv;
+	public void setRdvDate(DateTime rdvDate) {
+		this.rdvDate = rdvDate;
 	}
 
-	public DateTime getIdentificationDate() {
-		return identificationDate;
+	public DateTime getDocumentsDate() {
+		return documentsDate;
 	}
 
-	public void setIdentificationDate(DateTime identificationDate) {
-		this.identificationDate = identificationDate;
+	public void setDocumentsDate(DateTime documentsDate) {
+		this.documentsDate = documentsDate;
+	}
+
+	public DateTime getBiometricsDate() {
+		return biometricsDate;
+	}
+
+	public void setBiometricsDate(DateTime biometricsDate) {
+		this.biometricsDate = biometricsDate;
+	}
+
+	public DateTime getDecisionDate() {
+		return decisionDate;
+	}
+
+	public void setDecisionDate(DateTime decisionDate) {
+		this.decisionDate = decisionDate;
 	}
 
 	@Override
@@ -181,6 +221,7 @@ public class DemandeDTO implements Serializable {
         return "DemandeDTO{" +
                 "id=" + id +
                 ", email='" + email + "'" +
+                ", userId='" + userId + "'" +
                 ", nature='" + nature + "'" +
                 ", type='" + type + "'" +
                 ", statut='" + statut + "'" +
@@ -189,9 +230,12 @@ public class DemandeDTO implements Serializable {
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
+                ", paymentDate='" + paymentDate + "'" +
                 ", recevabilityDate='" + recevabilityDate + "'" +
-                ", rdv='" + rdv + "'" +
-                ", identificationDate='" + identificationDate + "'" +
+                ", rdv='" + rdvDate + "'" +
+                ", documentsDate='" + documentsDate + "'" +
+                ", biometricsDate='" + biometricsDate + "'" +
+                ", decisionDate='" + decisionDate + "'" +
                 '}';
     }
 }

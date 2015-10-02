@@ -13,6 +13,11 @@ angular.module('sejourApp')
                     return response.data;
                 });
         	},
+        	getCurrentCount: function() {
+            	return $http.get('api/demandes/currentCount').then(function (response) {
+                    return response.data;
+                });
+        	},
             getAll: function () {
             	return $http.get('api/demandes').then(function (response) {
                     return response.data;
@@ -69,8 +74,13 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
-            identify: function (demande) {
-            	return $http.put('api/demande/identification', demande).then(function (response) {
+            identifyDocuments: function (demande) {
+            	return $http.put('api/demande/identification/documents', demande).then(function (response) {
+                    return response.data;
+                });
+            },
+            identifyBiometrics: function (demande) {
+            	return $http.put('api/demande/identification/biometrics', demande).then(function (response) {
                     return response.data;
                 });
             },
@@ -84,5 +94,10 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            remove: function (objectId) {
+            	return $http.delete('api/demande/' + objectId).then(function (response) {
+                    return response.data;
+                });
+            }
         };
     });

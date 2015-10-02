@@ -1,7 +1,8 @@
 {
 	"project" : {
 		"form": {
-			"title": "Confirm your project details",
+			"title": "Complete your project details",
+			"tooltip": "You must provide proof of sufficient financial resources (greater than or equal to 615 € monthly)",
 			"comingDate": "Arrival date in France",
 			"university": "University",
 			"training": "Training",

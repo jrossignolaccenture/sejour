@@ -1,7 +1,8 @@
 {
 	"project" : {
 		"form": {
-			"title": "Validez les détails de votre projet",
+			"title": "Complétez les détails de votre projet",
+			"tooltip": "Vous devez justifier de ressources financières suffisantes (supérieures ou égales à 615 € mensuels)",
 			"comingDate": "Date prévue d'arrivée en France",
 			"university": "Etablissement",
 			"training": "Formation",
@@ -11,7 +12,7 @@
 			"resourceAmount": "Montant des resources (euros)",
             "document.title": "Joignez vos pièces justificatives",
             "resourceProof": "Preuve(s) de ressources",
-            "resourceProof.placeholder": "Cliquer ou déposer votre preuve ici...",
+            "resourceProof.placeholder": "Cliquer ou déposer vos preuves ici...",
             "inscriptionCertificate": "Certificat d'inscription",
             "inscriptionCertificate.placeholder": "Cliquer ou déposer votre certificat ici..."
 		}

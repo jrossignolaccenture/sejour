@@ -24,6 +24,11 @@
 	line-height: 25px;
 }
 
+.step-number-green {
+	background-color: #5cb85c;
+	border-color: #5cb85c;
+}
+
 .step-text {
 	line-height: 23px;
 	padding-left: 15px;
@@ -69,7 +74,9 @@
 /** RDV **/
 .rdv {
 	float: left;
-	width: 40%
+	width: 40%;
+	min-width: 220px;
+	height: 260px;
 }
 .rdv table {
 	border-spacing: 1px;
@@ -91,10 +98,16 @@
 	background-color: #3c763d;
 }
 
+.rdv-space {
+	float: left;
+	width: 5%;
+}
+
 .rdv-hour {
 	float: left;
 	width: 55%;
-	margin-left: 10px;
+	min-width: 220px;
+	height: 260px;
 	text-align: center;
 }
 .rdv-hour .panel-body {

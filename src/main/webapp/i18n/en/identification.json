@@ -1,16 +1,18 @@
 {
 	"identification" : {
 		"list": {
-			"title": "Application list for identiy verification",
-			"noApplication": "There is no identification to do at this time.",
+			"title": "Application list for appointment",
+			"noApplication": "There is no appointment at this time.",
 			"firstName": "First Name",
 			"lastName": "Last Name",
-			"nationality": "Nationality",
+			"id": "Foreign number",
 			"applicationType": "Application type",
-			"creationDate": "Creation date"
+			"step": "Step",
+			"documents": "Documents certification",
+			"biometrics": "Biometrics capture"
 		},
 		"documents": {
-	    	"title": "{{studentName}} - Application for study",
+	    	"title": "{{studentName}} - First application for study",
 	    	"passport": "Certification of passport authenticity",
 	    	"birthAct": "Certification of birth act authenticity",
 	    	"inscriptionCertificate": "Certification of inscription certificated authenticity",
@@ -24,7 +26,7 @@
 	    	}
 		},
 		"biometrics": {
-	    	"title": "{{studentName}} - Application for study",
+	    	"title": "{{studentName}} - First application for study",
 	    	"photo": "Collection of photography",
 	    	"fingerprints": "Collection of fingerprints",
 	    	"signature": "Collection of signature",

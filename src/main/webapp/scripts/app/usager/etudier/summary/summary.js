@@ -7,7 +7,7 @@ angular.module('sejourApp')
                 parent: 'usager/etudier',
                 url: '/summary',
                 data: {
-                    roles: ['ROLE_USAGER']
+                    roles: ['ROLE_USAGER'],
                 },
                 views: {
                     'content@': {
@@ -17,7 +17,13 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    	$translatePartialLoader.addPart('summary');
+                        $translatePartialLoader.addPart('summary');
+                    	$translatePartialLoader.addPart('identity');
+                    	$translatePartialLoader.addPart('sexType');
+                    	$translatePartialLoader.addPart('address');
+                    	$translatePartialLoader.addPart('contactType');
+                    	$translatePartialLoader.addPart('project');
+                    	$translatePartialLoader.addPart('resourceType');
                         return $translate.refresh();
                     }]
                 }

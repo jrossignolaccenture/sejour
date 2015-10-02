@@ -1,6 +1,5 @@
 package fr.minint.sief.service;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -56,6 +55,8 @@ public class DemandeService {
         // call campus (badass style)
     	Demande demande = getDemandeWithCampusInfos(currentUser.getEmail());
     	demande.setNature(NatureDemande.sejour_etudiant);
+        demande.setModificationDate(DateTime.now());
+        demande.setUserId(currentUser.getId());
         
         // suppression précédente demande en cours
     	Demande existingDemande = getCurrentDemande(StatutDemande.draft);
@@ -79,9 +80,7 @@ public class DemandeService {
 			identity.setLastName("Kim");
 			identity.setFirstName("Soon-jeen");
 			identity.setSex(SexType.F);
-			Calendar calendar = Calendar.getInstance();
-			calendar.set(1992, 11, 10);
-			identity.setBirthDate(new DateTime(calendar.getTimeInMillis()));
+			identity.setBirthDate(DateTime.parse("1992-12-10T00:00"));
 			identity.setBirthCity("Séoul");
 			identity.setBirthCountry("KR");
 			identity.setNationality("KR");
@@ -100,12 +99,9 @@ public class DemandeService {
 			demande.setAddress(address);
 			// PROJECT
 			Project project = new Project();
-//			calendar.set(2016, 1, 5);
-//			project.setComingDate(new DateTime(calendar.getTimeInMillis()));
 			project.setUniversity("Télécom Paris Tech");
 			project.setTraining("Master of Science in Multimedia Information Technologies");
-			calendar.set(2016, 0, 5);
-			project.setTrainingStart(new DateTime(calendar.getTimeInMillis()));
+			project.setTrainingStart(DateTime.parse("2016-01-05T00:00"));
 			project.setTrainingLength(12);
 			demande.setProject(project);
 		}

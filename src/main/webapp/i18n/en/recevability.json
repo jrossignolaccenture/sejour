@@ -10,9 +10,9 @@
 			"creationDate": "Creation date"
 		},
 		"form": {
-	    	"title": "{{studentName}} - Application for study",
+	    	"title": "{{studentName}} - First application for study",
 	    	"identity": "Verification of civil status and personal information",
-	    	"project": "Verification of project details",
+	    	"project": "Verification of project",
 	    	
 	    	"toVerify": "To verify",
 	    	"verified": "Verified",

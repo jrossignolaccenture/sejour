@@ -2,7 +2,8 @@
     "main": {
     	"page.title": "Home SIEF",
     	"unknown": {
-    		"title": "Welcome on SIEF portal",
+    		"title": "Welcome on the portal of the foreigners' administration in France",
+    		"choice": "Choose your profile :",
     		"button": {
     			"individual": "I am an individual",
     			"company": "I am a company"
@@ -20,17 +21,17 @@
        	"company": {
        		"title": {
        			"hire": "I want to <strong>hire</strong> a foreign employee",
-       			"declare": "I want to <strong>declare</strong> a foreign employee hiring",
-       			"verify": "I want to <strong>verify the right of residence</strong> of a foreign employee"
+       			"declare": "I want to <strong>declare</strong> a hiring of a foreign employee",
+       			"verify": "I want to <strong>verify the residency rights</strong> of a foreign employee"
        		}
        	},
     	"agent": {
 	        "title": {
-		        "consult": "Application review",
 		        "verify": "Application recevability",
 		        "rdv.preview": "Appointments",
-		        "decision": "Instruction and decision making",
+		        "decision": "Instruction and decision",
 		        "usager": "Users management",
+		        "application": "Application management",
 		        "rdv.setting": "Appointments calendar",
 		        "question": "Messages",
 		        "analyse": "Data analysis and control"

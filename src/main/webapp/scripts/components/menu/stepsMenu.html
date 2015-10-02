@@ -1,24 +1,30 @@
 <div class="row row-center">
-    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber != 1}">
-    	<div class="step-number step-number-green row-center">1</div>
+    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber < 1}">
+    	<div class="step-number row-center" ng-class="{'step-number-green': stepnumber > 1}">1</div>
 	    <div class="row">
 	    	<p translate="etudier.identity.step.short">Civil state</p>
 		</div>
 	</div>
-    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber != 2}">
-    	<div class="step-number step-number-green row-center">2</div>
+    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber < 2}">
+    	<div class="step-number row-center" ng-class="{'step-number-green': stepnumber > 2}">2</div>
 	    <div class="row">
 	    	<p translate="etudier.address.step.short">Address</p>
 		</div>
 	</div>
-    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber != 3}">
-   		<div class="step-number step-number-green row-center">3</div>
+    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber < 3}">
+   		<div class="step-number row-center" ng-class="{'step-number-green': stepnumber > 3}">3</div>
 	    <div class="row">
 	    	<p translate="etudier.project.step.short">Project</p>
 		</div>
 	</div>
-    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber != 4}">
-   		<div class="step-number step-number-green row-center">4</div>
+    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber < 4}">
+   		<div class="step-number row-center" ng-class="{'step-number-green': stepnumber > 4}">4</div>
+	    <div class="row">
+	    	<p translate="etudier.summary.step.short">Summary</p>
+		</div>
+	</div>
+    <div class="step-number-horizontal" ng-class="{'box-disabled': stepnumber < 5}">
+   		<div class="step-number row-center" ng-class="{'step-number-green': stepnumber > 5}">5</div>
 	    <div class="row">
 	    	<p translate="etudier.payment.step.short">Payment</p>
 		</div>

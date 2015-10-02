@@ -1,7 +1,8 @@
 {
 	"identity" : {
 		"form": {
-			"title": "Validez votre état-civil et vos informations personnelles",
+			"title": "Complétez votre état-civil et vos informations personnelles",
+			"tooltip": "L'état-civil doit correspondre aux informations figurant sur votre passeport",
             "lastName": "Nom",
             "usedLastName": "Nom d'usage",
             "firstName": "Prénom(s)",
@@ -11,11 +12,11 @@
             "birthCountry": "Pays de naissance",
             "nationality": "Nationalité",
             "passportNumber": "Numéro de passeport",
-            "document.title": "Joignez vos pièces justificatives d'état-civil",
+            "document.title": "Joignez vos pièces justificatives",
             "passport": "Passeport",
             "passport.placeholder": "Cliquer ou déposer votre passeport ici...",
-            "birthAct": "Acte de naissance",
-            "birthAct.placeholder": "Cliquer ou déposer votre acte de naissance ici..."
+            "birthAct": "Document(s) d'état-civil",
+            "birthAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici..."
 		}
 	}
 }

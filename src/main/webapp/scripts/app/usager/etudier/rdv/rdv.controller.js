@@ -94,7 +94,7 @@ angular.module('sejourApp')
         });
         
         $scope.save = function () {
-        	$scope.demande.rdv = moment($scope.currentDay + " " + $scope.currentHour, "DD/MM/YYYY hh:mm").toDate();
+        	$scope.demande.rdvDate = moment($scope.currentDay + " " + $scope.currentHour, "DD/MM/YYYY hh:mm").toDate();
         	console.log($scope.demande);
             Demande.rdv($scope.demande).then(function(result){
             	$state.go('account/application');

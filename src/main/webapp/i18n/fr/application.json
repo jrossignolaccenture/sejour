@@ -3,16 +3,25 @@
 		"title": "Mes demandes",
 		"list": {
 			"title": {
-				"sejour_etudiant": "Demande de séjour étudiant - créée le {{creationDate}}"
+				"created.sejour_etudiant": "Première demande de séjour étudiant - créée le {{creationDate}}",
+				"validated.sejour_etudiant": "Première demande de séjour étudiant - validée le {{decisionDate}}"
 			},
 			"noApplication": "Vous n'avez pas de demande.",
 			"modified": "Demande modifiée le {{modificationDate}} - {{userName}}",
-			"recevability": "Recevabilité de la demande vérifiée le {{recevabilityDate}} - Administration des Etrangers en France"
+			"submit": "Demande déposée le {{submitDate}} - {{userName}}",
+			"payment": "Demande payée le {{paymentDate}} - {{userName}}",
+			"recevability.wait": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
+			"recevability": "Recevabilité de la demande vérifiée le {{recevabilityDate}} - Administration des étrangers en France",
+			"rdv.future": "Rendez-vous confirmé le {{rdvDate}} - {{userName}}",
+			"rdv.passed": "Rendez-vous passé le {{rdvDate}} - {{userName}}",
+			"decision.wait": "En attente d'instruction et décision par l'administration des étrangers en France",
+			"decision": "Instruction et décision validée le {{decisionDate}} - Administration des étrangers en France"
 		},
 	    	
 	    "button": {
-    		"continue": "Continuer",
+    		"continue": "Reprendre",
     		"delete": "Supprimer",
+    		"payment": "Valider le paiement",
     		"rdv": "Prendre rendez-vous"
 		}
 	}
