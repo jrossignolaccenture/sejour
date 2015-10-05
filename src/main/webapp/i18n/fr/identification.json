@@ -36,6 +36,7 @@
 	    	
 	    	"button": {
 	    		"photo": "Prendre la photo",
+	    		"fingerprints": "Démarrer la capture d'empreintes",
 	    		"signature.clear": "Effacer",
 	    		"accept": "Certifier les données du demandeur"
 	    	}

@@ -1,7 +1,7 @@
 {
     "account": {
         "title": {
-	        "info": "Mes informations personnelles",
+	        "info": "Mes données",
 	        "application": "Mes demandes",
 	        "message": "Mes messages",
 	        "opinion": "Mon avis"

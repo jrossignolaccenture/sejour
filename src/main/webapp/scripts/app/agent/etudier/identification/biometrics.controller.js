@@ -7,6 +7,8 @@ angular.module('sejourApp')
     	
     	$scope.photoValidated = false;
     	$scope.photoOpened = true;
+    	$scope.fingerprintsValidated = false;
+    	$scope.fingerprintsOpened = true;
     	$scope.signatureValidated = false;
     	$scope.signatureOpened = true;
     	
@@ -24,6 +26,16 @@ angular.module('sejourApp')
 				        .error(function(){
 				        });
 	    		}
+    		}
+    	}
+    	
+    	$scope.activateFingerprints = function() {
+    		$scope.fingerprints = true;
+    	}
+    	
+    	$scope.validateFingerprints = function() {
+    		if($scope.fingerprints) {
+    			$scope.fingerprintsValidated = !$scope.fingerprintsValidated;
     		}
     	}
     	

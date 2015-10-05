@@ -44,15 +44,30 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-1">
-			<div class="collapsable-panel">
+			<div class="collapsable-panel" ng-class="{'opened': fingerprintsOpened}" ng-click="fingerprintsOpened = !fingerprintsOpened">
 				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': fingerprintsOpened, 'glyphicon-triangle-bottom': !fingerprintsOpened}"></span>
 					<h5 class="panel-title" translate="identification.biometrics.fingerprints">fingerprints</h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<img src="assets/images/checkbox_checked.png">
-			<span translate="identification.biometrics.validated">validate</span>
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!fingerprintsValidated" ng-click="validateFingerprints()">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="fingerprintsValidated" ng-click="validateFingerprints()">
+			<span translate="identification.biometrics.toValidate" ng-show="!fingerprintsValidated">To validate</span>
+			<span translate="identification.biometrics.validated" ng-show="fingerprintsValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="fingerprintsOpened">
+		<div class="col-xs-11 col-xs-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': fingerprintsOpened}">
+				<div class="col-xs-12">
+					<div ng-show="!fingerprints">
+						<button class="btn btn-primary" translate="identification.biometrics.button.fingerprints" style="width:311px;" ng-click="activateFingerprints()">Fingerprints</button>
+					</div>
+					<img class="img-responsive thumbnail" src="assets/images/Handprints.gif" ng-if="fingerprints" width="400px" />
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -91,7 +106,7 @@
 	<div class="row row-center">
 		<div class="col-xs-10 col-xs-offset-1">
 	    	<button class="btn btn-success" 
-	    			ng-disabled="!signatureValidated || !photoValidated"
+	    			ng-disabled="!photoValidated || !fingerprintsValidated || !signatureValidated"
 	    			translate="identification.biometrics.button.accept"
 	    			ng-click="certify()" >Accept</button>
 		</div>

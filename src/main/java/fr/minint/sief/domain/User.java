@@ -51,6 +51,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size(max = 50)
     @Field("last_name")
     private String lastName;
+    
+    @Field("identity")
+    private Identity identity;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -131,7 +134,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.lastName = lastName;
     }
 
-    public DateTime getComingDate() {
+    public Identity getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(Identity identity) {
+		this.identity = identity;
+	}
+
+	public DateTime getComingDate() {
 		return comingDate;
 	}
 
@@ -225,6 +236,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
                 ", type='" + type + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", identity='" + identity + '\'' +
                 ", comingDate='" + comingDate + '\'' +
                 ", frenchAddress='" + frenchAddress + '\'' +
                 ", activated='" + activated + '\'' +

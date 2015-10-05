@@ -36,6 +36,7 @@ import fr.minint.sief.service.UserService;
 import fr.minint.sief.web.rest.dto.KeyAndPasswordDTO;
 import fr.minint.sief.web.rest.dto.UserDTO;
 import fr.minint.sief.web.rest.mapper.AddressMapper;
+import fr.minint.sief.web.rest.mapper.IdentityMapper;
 
 
 /**
@@ -58,6 +59,9 @@ public class AccountResource {
 
     @Inject
     private MailService mailService;
+
+    @Inject
+    private IdentityMapper identityMapper;
 
     @Inject
     private AddressMapper addressMapper;
@@ -123,11 +127,13 @@ public class AccountResource {
             .map(user -> {
                 return new ResponseEntity<>(
                     new UserDTO(
+                    	user.getId(),
                         user.getEmail(),
                         null,
                         user.getType(),
                         user.getFirstName(),
                         user.getLastName(),
+                        identityMapper.identityToIdentityDTO(user.getIdentity()),
                         user.getComingDate(),
                         addressMapper.addressToAddressDTO(user.getFrenchAddress()),
                         user.getLangKey(),

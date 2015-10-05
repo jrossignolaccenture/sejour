@@ -2,7 +2,6 @@
 
 angular.module('sejourApp')
     .controller('SummaryController', function ($scope, $state, Principal, Demande, Country) {
-
     	
     	$scope.identity = {
 			images: [], 

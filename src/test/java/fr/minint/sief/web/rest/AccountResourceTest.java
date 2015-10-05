@@ -155,11 +155,13 @@ public class AccountResourceTest {
     @Transactional
     public void testRegisterValid() throws Exception {
         UserDTO u = new UserDTO(
+        	"222",
             "joe@example.com",      // e-mail
             "password",             // password
             UserType.individual,	// type
             "Joe",                  // firstName
             "Shmoe",                // lastName
+            null,					// identity
             null,					// comingDate
             null,					// frenchAddress
             "en",                   // langKey
@@ -180,11 +182,13 @@ public class AccountResourceTest {
     @Transactional
     public void testRegisterInvalidEmail() throws Exception {
         UserDTO u = new UserDTO(
+            	"222",
             "funkymail",       // e-mail <-- invalid
             "password",         // password
             UserType.individual,// type
             "Bob",              // firstName
             "Green",            // lastName
+            null,					// identity
             null,					// comingDate
             null,					// frenchAddress
             "en",               // langKey
@@ -206,11 +210,13 @@ public class AccountResourceTest {
     public void testRegisterDuplicateEmail() throws Exception {
         // Good
         UserDTO u = new UserDTO(
+            	"222",
             "john@example.com",     // e-mail
             "password",             // password
             UserType.individual,	// type
             "John",                 // firstName
             "Doe",                  // lastName
+            null,					// identity
             null,					// comingDate
             null,					// frenchAddress
             "en",                   // langKey
@@ -218,7 +224,7 @@ public class AccountResourceTest {
         );
 
         // Duplicate e-mail, different login
-        UserDTO dup = new UserDTO(u.getEmail(), u.getPassword(), u.getType(), "otherJohn", "otherDoe", null, null,
+        UserDTO dup = new UserDTO("222", u.getEmail(), u.getPassword(), u.getType(), "otherJohn", "otherDoe", null, null, null,
             u.getLangKey(), u.getRoles());
 
         // Good user
@@ -243,11 +249,13 @@ public class AccountResourceTest {
     @Transactional
     public void testRegisterAdminIsIgnored() throws Exception {
         UserDTO u = new UserDTO(
+            	"222",
             "badguy@example.com",   // e-mail
             "password",             // password
             UserType.individual,	// type
             "Bad",                  // firstName
             "Guy",                  // lastName
+            null,					// identity
             null,					// comingDate
             null,					// frenchAddress
             "en",                   // langKey

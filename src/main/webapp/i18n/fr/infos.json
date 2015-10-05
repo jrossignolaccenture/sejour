@@ -1,0 +1,16 @@
+{
+	"infos" : {
+		"page.title": "Mes données",
+		"title": "Mes données",
+		"form": {
+			"identity": "Mes informations personnelles",
+			"address": "Mes coordonnées",
+			"id": "N° étranger",
+			"button": {
+				"back": "Retour",
+				"validate": "Valider mes données"
+			}
+		}
+	}
+}
+

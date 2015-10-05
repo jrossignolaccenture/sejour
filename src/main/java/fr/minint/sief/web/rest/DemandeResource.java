@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
 
-import fr.minint.sief.domain.Address;
 import fr.minint.sief.domain.Demande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
 import fr.minint.sief.repository.DemandeRepository;
@@ -201,9 +200,9 @@ public class DemandeResource {
         		u.setFirstName(demande.getIdentity().getFirstName());
         		u.setLastName(demande.getIdentity().getLastName());
         		u.setComingDate(demande.getProject().getComingDate());
-        		Address address = new Address();
-        		address.setContactType(demande.getAddress().getContactType());
-        		u.setFrenchAddress(address);
+        		//TODO A CLONER
+        		u.setFrenchAddress(demande.getAddress());
+        		u.setIdentity(demande.getIdentity());
         		userRepository.save(u);
         		
         		return new ResponseEntity<String>(HttpStatus.OK);

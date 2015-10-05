@@ -36,6 +36,7 @@
 	    	
 	    	"button": {
 	    		"photo": "Take a picture",
+	    		"fingerprints": "Start fingerprints",
 	    		"signature.clear": "Clear",
 	    		"accept": "Certify informations"
 	    	}

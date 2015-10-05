@@ -23,7 +23,9 @@ angular.module('sejourApp')
     		Demande.remove(id).then(function() {
             	var length = $scope.demandes.length;
     			for(var i=0; i<length; i++){
-            		$scope.demandes.splice(i, 1);
+    				if($scope.demandes[i].id == id){
+    					$scope.demandes.splice(i, 1);
+    				}
             	}
     		});
     	}

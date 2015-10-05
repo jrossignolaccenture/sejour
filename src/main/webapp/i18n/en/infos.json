@@ -1,0 +1,16 @@
+{
+	"infos" : {
+		"page.title": "My data",
+		"title": "My data",
+		"form": {
+			"identity": "My personal information",
+			"address": "My address",
+			"id": "Foreing number",
+			"button": {
+				"back": "Back",
+				"validate": "Validate my data"
+			}
+		}
+	}
+}
+

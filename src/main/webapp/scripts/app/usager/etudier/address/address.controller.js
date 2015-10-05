@@ -4,15 +4,6 @@ angular.module('sejourApp')
     .controller('AddressController', function ($scope, $state, Principal, Demande, Country) {
         $scope.address = {};
         $scope.countries = [];
-        
-        $scope.birthDatePickerOptions = {
-			format: 'DD/MM/YYYY',
-			maxDate: 'moment', 
-			viewMode: 'years', 
-			locale: 'fr',
-			allowInputToggle: true
-        }
-        
 
         $scope.loadAll = function () {
             Demande.getInProgressDemande($scope.account.email).then(function(result) {
