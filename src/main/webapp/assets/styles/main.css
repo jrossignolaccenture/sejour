@@ -384,6 +384,11 @@ ul#strengthBar {
 	opacity:0.2;
 }
 
+.form-info {
+	margin-left: 5px;
+	color: rgb(53, 86, 137);
+}
+
 .popover-content {
     margin: 0;
     padding: 8px;
@@ -392,7 +397,7 @@ ul#strengthBar {
 
 @media (min-width: 768px) {
 	.popover-content {
-	    width: 200px;
+	    width: 250px;
 	}
 }
 

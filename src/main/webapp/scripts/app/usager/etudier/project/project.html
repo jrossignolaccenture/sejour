@@ -34,8 +34,7 @@
 					           datetimepicker-options="{{datePickerOptions}}"
 					           name="comingDateTxt" id="field_comingDateTxt"
 					           ng-model="project.comingDateTxt"
-					           placeholder="{{'global.form.date.format' | translate}}"
-					           autofocus>
+					           placeholder="{{'global.form.date.format' | translate}}" >
 					</div>
 		
 		            <div ng-show="projectForm.comingDateTxt.$dirty && projectForm.comingDateTxt.$invalid">
@@ -152,6 +151,8 @@
 		        
 		        <div class="form-group">
 		            <label translate="project.form.inscriptionCertificate" for="field_inscriptionCertificate">InscriptionCertificate</label>
+			        <span class="glyphicon glyphicon-info-sign form-info" id="inscriptionCertificate-info"
+			    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'project.form.inscriptionCertificate.tooltip' | translate}}"></span>
 			        <div class="input-group">
 				        <span class="input-group-addon" id="logo_inscriptionCertificate">
 	                        <span class="fa fa-file"></span>
@@ -175,6 +176,8 @@
 		        
 		        <div class="form-group">
 		            <label translate="project.form.resourceProof" for="field_resourceProof">ResourceProof</label>
+			        <span class="glyphicon glyphicon-info-sign form-info" id="resourceProof-info"
+			    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'project.form.resourceProof.tooltip' | translate}}"></span>
 			        <div class="input-group">
 				        <span class="input-group-addon" id="logo_resourceProof">
 	                        <span class="fa fa-file"></span>
@@ -182,7 +185,6 @@
 				        <input id="file_resourceProof" type="file" ng-model="resourceProofFile" onchange="angular.element(this).scope().uploadResourceProofFile(this)" style="display: none;">
 				        <input type="text" class="form-control" name="resourceProof" id="field_resourceProof" readonly="readonly"
 				                ng-model="project.resourceProof" placeholder="{{'project.form.resourceProof.placeholder' | translate}}" 
-				                tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'project.form.tooltip' | translate}}"
 				                required >
 				        <span class="input-group-addon">
 	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !project.resourceProof}"></span>
@@ -212,10 +214,13 @@
 
 <script type="text/javascript">
 	$("html, body").animate({ scrollTop: 0 }, "slow");
-	
+
 	$(function () {
-		$('#field_resourceProof').popover();
-	})
+		$('#inscriptionCertificate-info').popover();
+	});
+	$(function () {
+		$('#resourceProof-info').popover();
+	});
 
 	$('#logo_resourceProof').click(function(){
 	    $('#file_resourceProof').click();

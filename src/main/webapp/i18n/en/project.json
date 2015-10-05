@@ -13,8 +13,10 @@
             "document.title": "Attach your documents",
             "resourceProof": "Resource proof",
             "resourceProof.placeholder": "Click or drag your proof here...",
+            "resourceProof.tooltip": "Thank you to attach proof of greater than or equal to 615 € monthly financial resources (bank statement, pay stubs, proof of scholarship)",
             "inscriptionCertificate": "Inscription certificate",
-            "inscriptionCertificate.placeholder": "Click or drag your certificate here..."
+            "inscriptionCertificate.placeholder": "Click or drag your certificate here...",
+            "inscriptionCertificate.tooltip": "Thank you to attach proof of registration or pre- registration with an educational institution"
 		}
 	}
 }

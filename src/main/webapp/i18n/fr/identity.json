@@ -15,8 +15,10 @@
             "document.title": "Joignez vos pièces justificatives",
             "passport": "Passeport",
             "passport.placeholder": "Cliquer ou déposer votre passeport ici...",
+            "passport.tooltip": "Merci de joindre les pages relatives à l'état-civil, aux dates de validité, aux cachets d'entrée et aux visas",
             "birthAct": "Document(s) d'état-civil",
-            "birthAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici..."
+            "birthAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici...",
+            "birthAct.tooltip": "Merci de joindre un extrait de votre acte de naissance avec filiation ou une copie intégrale de votre acte de naissance"
 		}
 	}
 }
