@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="#{email.activation.title}">activation</title>
+        <title th:text="#{email.decision.title}">decision</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <p th:text="#{email.activation.greeting}">
+        <p th:text="#{email.decision.greeting(${user.firstName}, ${user.lastName})}">
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.activation.text}">
-            Your account has been created, please click on the URL below to activate it:
-        </p>
-        <p>
-            <a th:href="@{|${baseUrl}/#/activate?key=${user.activationKey}|}"
-               th:text="#{email.activation.link}">Activate your account</a>
+        <p th:text="#{email.decision.text}">
+            Decision success
         </p>
         <br/>
         <p>

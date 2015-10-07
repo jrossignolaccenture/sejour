@@ -50,7 +50,7 @@ angular.module('sejourApp')
                                 $rootScope.returnToStateParams = $rootScope.toStateParams;
 
                                 // now, send them to the signin state so they can log in
-                                $state.go('home');
+                                $state.go('login');
                             }
                         }
                     });

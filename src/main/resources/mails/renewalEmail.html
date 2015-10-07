@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="#{email.activation.title}">activation</title>
+        <title th:text="#{email.renewal.title}">renewal</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <p th:text="#{email.activation.greeting}">
+        <p th:text="#{email.renewal.greeting(${user.firstName}, ${user.lastName})}">
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.activation.text}">
-            Your account has been created, please click on the URL below to activate it:
+        <p th:text="#{email.renewal.text}">
+            renewal
         </p>
         <p>
-            <a th:href="@{|${baseUrl}/#/activate?key=${user.activationKey}|}"
-               th:text="#{email.activation.link}">Activate your account</a>
+            <a th:href="@{|${baseUrl}/#/renouveler|}"
+               th:text="#{email.renewal.link}">link</a>
         </p>
         <br/>
         <p>

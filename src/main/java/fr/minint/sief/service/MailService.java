@@ -1,7 +1,14 @@
 package fr.minint.sief.service;
 
-import fr.minint.sief.domain.User;
+import java.util.Locale;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.mail.internet.MimeMessage;
+
 import org.apache.commons.lang.CharEncoding;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
@@ -13,10 +20,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.mail.internet.MimeMessage;
-import java.util.Locale;
+import fr.minint.sief.domain.User;
 
 /**
  * Service for sending e-mails.
@@ -93,6 +97,80 @@ public class MailService {
         context.setVariable("baseUrl", baseUrl);
         String content = templateEngine.process("passwordResetEmail", context);
         String subject = messageSource.getMessage("email.reset.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendRecevabilityEmail(User user, String baseUrl) {
+        log.debug("Sending activation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("baseUrl", baseUrl);
+        String content = templateEngine.process("recevabilityEmail", context);
+        String subject = messageSource.getMessage("email.recevability.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendRdvEmail(User user, DateTime rdvDate, String baseUrl) {
+        log.debug("Sending activation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("baseUrl", baseUrl);
+        context.setVariable("rdvDate", DateTimeFormat.forPattern("dd/MM/yyyy").print(rdvDate));
+        context.setVariable("rdvHour", DateTimeFormat.forPattern("HH:mm").print(rdvDate));
+        String content = templateEngine.process("rdvEmail", context);
+        String subject = messageSource.getMessage("email.rdv.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendDecisionEmail(User user, String baseUrl) {
+        log.debug("Sending activation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("baseUrl", baseUrl);
+        String content = templateEngine.process("decisionEmail", context);
+        String subject = messageSource.getMessage("email.decision.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendPermitEmail(User user, String baseUrl) {
+        log.debug("Sending activation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("baseUrl", baseUrl);
+        String content = templateEngine.process("permitEmail", context);
+        String subject = messageSource.getMessage("email.permit.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendArrivalEmail(User user, String baseUrl) {
+        log.debug("Sending activation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("baseUrl", baseUrl);
+        String content = templateEngine.process("arrivalEmail", context);
+        String subject = messageSource.getMessage("email.arrival.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendRenewalEmail(User user, String baseUrl) {
+        log.debug("Sending activation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("baseUrl", baseUrl);
+        String content = templateEngine.process("renewalEmail", context);
+        String subject = messageSource.getMessage("email.renewal.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
     }
 }

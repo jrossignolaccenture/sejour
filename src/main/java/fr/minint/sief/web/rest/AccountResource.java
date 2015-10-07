@@ -151,7 +151,7 @@ public class AccountResource {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<String> saveAccount(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<String> saveAccount(@RequestBody UserDTO userDTO, HttpServletRequest request) {
         return userRepository
             .findOneByEmail(userDTO.getEmail())
             .filter(u -> u.getEmail().equals(SecurityUtils.getCurrentLogin()))
@@ -161,6 +161,12 @@ public class AccountResource {
                 		userDTO.getComingDate(), addressMapper.addressDTOToAddress(userDTO.getFrenchAddress()), 
                 		userDTO.getEmail(),
                     userDTO.getLangKey());
+                String baseUrl = request.getScheme() +
+                        "://" +
+                        request.getServerName() +
+                        ":" +
+                        request.getServerPort();
+                mailService.sendRenewalEmail(u, baseUrl);
                 return new ResponseEntity<String>(HttpStatus.OK);
             })
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));

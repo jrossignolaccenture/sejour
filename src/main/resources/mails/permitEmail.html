@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="#{email.activation.title}">activation</title>
+        <title th:text="#{email.permit.title}">permit</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <p th:text="#{email.activation.greeting}">
+        <p th:text="#{email.permit.greeting(${user.firstName}, ${user.lastName})}">
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.activation.text}">
-            Your account has been created, please click on the URL below to activate it:
+        <p th:text="#{email.permit.text1}">
+            permit success
+        </p>
+        <p th:text="#{email.permit.text2}">
+            address
+        </p>
+        <p th:text="#{email.permit.text3}">
+            french address
         </p>
         <p>
-            <a th:href="@{|${baseUrl}/#/activate?key=${user.activationKey}|}"
-               th:text="#{email.activation.link}">Activate your account</a>
+            <a th:href="@{|${baseUrl}/#/account/infos|}"
+               th:text="#{email.permit.link}">address</a>
         </p>
         <br/>
         <p>

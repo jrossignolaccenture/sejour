@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.joda.time.DateTime;
@@ -31,6 +32,7 @@ import fr.minint.sief.repository.DemandeRepository;
 import fr.minint.sief.repository.UserRepository;
 import fr.minint.sief.security.SecurityUtils;
 import fr.minint.sief.service.DemandeService;
+import fr.minint.sief.service.MailService;
 import fr.minint.sief.web.rest.dto.DemandeCountDTO;
 import fr.minint.sief.web.rest.dto.DemandeDTO;
 import fr.minint.sief.web.rest.mapper.DemandeMapper;
@@ -50,6 +52,9 @@ public class DemandeResource {
 
     @Inject
     private UserRepository userRepository;
+
+    @Inject
+    private MailService mailService;
     
     @Inject
     private DemandeService demandeService;
@@ -248,7 +253,7 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<String> verify(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+    public ResponseEntity<String> verify(@Valid @RequestBody DemandeDTO demandeDTO, HttpServletRequest request) throws URISyntaxException {
         log.debug("REST request to verify current demande");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         if(demande.getType() == TypeDemande.premiere) {
@@ -258,7 +263,21 @@ public class DemandeResource {
         }
         demande.setRecevabilityDate(DateTime.now());
         demandeRepository.save(demande);
-        return new ResponseEntity<String>(HttpStatus.OK);
+        
+        if(demande.getType() == TypeDemande.premiere) {
+	        return Optional.ofNullable(userRepository.findOne(demande.getUserId()))
+	                .map(user -> {
+	                    String baseUrl = request.getScheme() +
+	                        "://" +
+	                        request.getServerName() +
+	                        ":" +
+	                        request.getServerPort();
+	                    mailService.sendRecevabilityEmail(user, baseUrl);
+	                    return new ResponseEntity<String>(HttpStatus.OK);
+	                }).orElse(new ResponseEntity<String>(HttpStatus.BAD_REQUEST));
+        } else {
+        	return new ResponseEntity<String>(HttpStatus.OK);
+        }
     }
 
     /**
@@ -268,12 +287,21 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<String> rdv(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+    public ResponseEntity<String> rdv(@Valid @RequestBody DemandeDTO demandeDTO, HttpServletRequest request) throws URISyntaxException {
         log.debug("REST request to rdv");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.identification);
         demandeRepository.save(demande);
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return Optional.ofNullable(userRepository.findOne(demande.getUserId()))
+                .map(user -> {
+                    String baseUrl = request.getScheme() +
+                        "://" +
+                        request.getServerName() +
+                        ":" +
+                        request.getServerPort();
+                    mailService.sendRdvEmail(user, demande.getRdvDate(), baseUrl);
+                    return new ResponseEntity<String>(HttpStatus.OK);
+                }).orElse(new ResponseEntity<String>(HttpStatus.BAD_REQUEST));
     }
 
     /**
@@ -319,13 +347,25 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<String> finalDecision(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
+    public ResponseEntity<String> finalDecision(@Valid @RequestBody DemandeDTO demandeDTO, HttpServletRequest request) throws URISyntaxException {
         log.debug("REST request to final decision");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
         demande.setStatut(StatutDemande.archive);
         demande.setDecisionDate(DateTime.now());
         demandeRepository.save(demande);
-        return new ResponseEntity<String>(HttpStatus.OK);
+        
+        return Optional.ofNullable(userRepository.findOne(demande.getUserId()))
+            .map(user -> {
+                String baseUrl = request.getScheme() +
+                    "://" +
+                    request.getServerName() +
+                    ":" +
+                    request.getServerPort();
+                mailService.sendDecisionEmail(user, baseUrl);
+                mailService.sendPermitEmail(user, baseUrl);
+                mailService.sendArrivalEmail(user, baseUrl);
+                return new ResponseEntity<String>(HttpStatus.OK);
+            }).orElse(new ResponseEntity<String>(HttpStatus.BAD_REQUEST));
     }
     
 	/**

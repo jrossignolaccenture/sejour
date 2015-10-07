@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.rdv.title}">rdv</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{email.rdv.greeting(${user.firstName}, ${user.lastName})}">
+            Hello,
+        </p>
+        <br/>
+        <p th:text="#{email.rdv.text(${rdvDate}, ${rdvHour})}">
+            rdv
+        </p>
+        <p>
+            <span th:text="#{email.rdv.ambassy}">ambassy</span>
+            <br/>
+            <span th:text="#{email.rdv.street}">street</span>
+            <br/>
+            <span th:text="#{email.rdv.complement}">complement</span>
+            <br/>
+            <span th:text="#{email.rdv.city}">city</span>
+            <br/>
+            <span th:text="#{email.rdv.phone}">phone</span>
+            <br/>
+            <span th:text="#{email.rdv.access}">access</span>
+            <br/>
+        </p>
+        <br/>
+        <p>
+            <span th:text="#{email.regards}">Regards,</span>
+            <br/><br/>
+            <em th:text="#{email.signature}">sejour</em>
+            <br/><br/>
+            <em th:text="#{email.signature.administration}">administration</em>
+        </p>
+    </body>
+</html>

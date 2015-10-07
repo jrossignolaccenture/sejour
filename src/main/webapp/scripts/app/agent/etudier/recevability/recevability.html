@@ -109,7 +109,7 @@
 			<span translate="recevability.form.verified" ng-show="addressValidated">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="addressOpened">
+	<div class="row" ng-show="addressOpened && demande.type == 'renouvellement'">
 		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': addressOpened}">
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
