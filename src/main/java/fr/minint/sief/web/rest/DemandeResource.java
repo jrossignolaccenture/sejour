@@ -237,13 +237,22 @@ public class DemandeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<String> prepaid() throws URISyntaxException {
+    public ResponseEntity<String> prepaid(HttpServletRequest request) throws URISyntaxException {
         log.debug("REST request to prepaid current demande");
         Demande demande = demandeService.getCurrentDemande(StatutDemande.payment);
         demande.setStatut(StatutDemande.recevability);
         demande.setPaymentDate(DateTime.now());
         demandeRepository.save(demande);
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return Optional.ofNullable(userRepository.findOne(demande.getUserId()))
+                .map(user -> {
+                    String baseUrl = request.getScheme() +
+                        "://" +
+                        request.getServerName() +
+                        ":" +
+                        request.getServerPort();
+                    mailService.sendPaymentEmail(user, demande.getPaymentDate(), baseUrl);
+                    return new ResponseEntity<String>(HttpStatus.OK);
+                }).orElse(new ResponseEntity<String>(HttpStatus.BAD_REQUEST));
     }
 
     /**

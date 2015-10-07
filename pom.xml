@@ -411,6 +411,7 @@
                     <argLine>-Xmx256m ${surefireArgLine}</argLine>
                     <!-- Force alphabetical order to have a reproducible build -->
                     <runOrder>alphabetical</runOrder>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
             <plugin>
@@ -561,6 +562,7 @@
                                 <configuration>
                                     <buildTool>grunt</buildTool>
                                     <buildArgs>build --force --no-color</buildArgs>
+                                    <skipTests>true</skipTests>
                                 </configuration>
                             </execution>
                         </executions>

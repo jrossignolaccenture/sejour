@@ -101,6 +101,20 @@ public class MailService {
     }
 
     @Async
+    public void sendPaymentEmail(User user, DateTime paymentDate, String baseUrl) {
+        log.debug("Sending activation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("baseUrl", baseUrl);
+        context.setVariable("rdvDate", DateTimeFormat.forPattern("dd/MM/yyyy").print(paymentDate));
+        context.setVariable("rdvHour", DateTimeFormat.forPattern("HH:mm").print(paymentDate));
+        String content = templateEngine.process("rdvEmail", context);
+        String subject = messageSource.getMessage("email.rdv.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
     public void sendRecevabilityEmail(User user, String baseUrl) {
         log.debug("Sending activation e-mail to '{}'", user.getEmail());
         Locale locale = Locale.forLanguageTag(user.getLangKey());
