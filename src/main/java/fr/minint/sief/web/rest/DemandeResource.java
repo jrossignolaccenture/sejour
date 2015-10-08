@@ -281,7 +281,7 @@ public class DemandeResource {
 	                        request.getServerName() +
 	                        ":" +
 	                        request.getServerPort();
-	                    mailService.sendRecevabilityEmail(user, baseUrl);
+	                    mailService.sendRecevabilityEmail(user, baseUrl, demande.getType() == TypeDemande.renouvellement);
 	                    return new ResponseEntity<String>(HttpStatus.OK);
 	                }).orElse(new ResponseEntity<String>(HttpStatus.BAD_REQUEST));
         } else {
@@ -370,9 +370,11 @@ public class DemandeResource {
                     request.getServerName() +
                     ":" +
                     request.getServerPort();
-                mailService.sendDecisionEmail(user, baseUrl);
-                mailService.sendPermitEmail(user, baseUrl);
-                mailService.sendArrivalEmail(user, baseUrl);
+                mailService.sendDecisionEmail(user, baseUrl, demande.getType() == TypeDemande.renouvellement);
+                mailService.sendPermitEmail(user, baseUrl, demande.getType() == TypeDemande.renouvellement);
+                if(demande.getType() == TypeDemande.premiere) {
+                	mailService.sendArrivalEmail(user, baseUrl);
+                }
                 return new ResponseEntity<String>(HttpStatus.OK);
             }).orElse(new ResponseEntity<String>(HttpStatus.BAD_REQUEST));
     }
@@ -389,39 +391,5 @@ public class DemandeResource {
 		demandeRepository.delete(id);
 		return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("demande", id.toString())).build();
 	}
-    
-    // OBSOLETE A PARTIR D'ICI NORMALEMENT
-
-//    /**
-//     * GET  /demandes -> get all the demandes.
-//     */
-//    @RequestMapping(value = "/demandes",
-//            method = RequestMethod.GET,
-//            produces = MediaType.APPLICATION_JSON_VALUE)
-//    @Timed
-//    @Transactional(readOnly = true)
-//    public List<DemandeDTO> getAll() {
-//        log.debug("REST request to get all Demandes");
-//        return demandeRepository.findAll().stream()
-//            .map(demande -> demandeMapper.demandeToDemandeDTO(demande))
-//            .collect(Collectors.toCollection(LinkedList::new));
-//    }
-//
-//    /**
-//     * GET  /demandes/:id -> get the "id" demande.
-//     */
-//    @RequestMapping(value = "/demandes/{id}",
-//            method = RequestMethod.GET,
-//            produces = MediaType.APPLICATION_JSON_VALUE)
-//    @Timed
-//    public ResponseEntity<DemandeDTO> get(@PathVariable String id) {
-//        log.debug("REST request to get Demande : {}", id);
-//        return Optional.ofNullable(demandeRepository.findOne(id))
-//            .map(demandeMapper::demandeToDemandeDTO)
-//            .map(demandeDTO -> new ResponseEntity<>(
-//                demandeDTO,
-//                HttpStatus.OK))
-//            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-//    }
 
 }

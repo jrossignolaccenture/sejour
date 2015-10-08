@@ -1,7 +1,6 @@
 {
 	"summary" : {
 		"form": {
-			"title": "Vérifiez les informations de votre demande",
 			"subtitle": "Vous êtes sur le point de déposer une demande de séjour étudiant. Avant de procéder au paiement, assurez-vous que les informations ci-dessous soient correctes.",
 	    	"identity": "Mes informations personnelles",
 	    	"address": "Mes coordonnées",

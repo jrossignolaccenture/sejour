@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
 			<img src="assets/images/checkbox_checked.png">
-			<span translate="validation.form.validate.f" translate-values="{validationDate: '{{getFormattedDate(identityValidationDate)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identityValidationDate)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="identityOpened">
@@ -81,7 +81,7 @@
 						<div class="panel-heading" style="text-align: center">
 							<span class="glyphicon glyphicon-arrow-right hand" ng-show="identity.images.length > 1" ng-click="nextImg(identity)" style="float: right;"></span>
 							<span class="glyphicon glyphicon-arrow-left hand" ng-show="identity.images.length > 1" ng-click="previousImg(identity)" style="float: left;"></span>
-							<span translate="{{identity.currentImg.title}}"></span>
+							<span translate="{{identity.currentImg.title}}"></span><span> ({{identity.currentImgIndex + 1}}/{{identity.images.length}})</span>
 						</div>
 						<div class="panel-body">
 							<img src="{{identity.currentImg.src}}" class="img-responsive">
@@ -101,7 +101,7 @@
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 validation-form">
 			<img src="assets/images/checkbox_checked.png">
-			<span translate="validation.form.validate.h" translate-values="{validationDate: '{{getFormattedDate(demande.recevabilityDate)}}', validationAuthor: 'Police / Gendarmerie'}">validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(demande.recevabilityDate)}}', validationAuthor: 'Police / Gendarmerie'}">validate</span>
 		</div>
 	</div>
 	<div class="row">
@@ -117,7 +117,7 @@
 			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!projectValidated" ng-click="projectValidated = !projectValidated; projectOpened = false;">
 			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="projectValidated" ng-click="projectValidated = !projectValidated">
 			<span translate="validation.form.toValidate" ng-show="!projectValidated">To validate</span>
-			<span translate="validation.form.validate.h" translate-values="{validationDate: '{{getFormattedDate(moment())}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="projectValidated">validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(moment())}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="projectValidated">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="projectOpened">
@@ -190,7 +190,7 @@
 						<div class="panel-heading" style="text-align: center">
 							<span class="glyphicon glyphicon-arrow-right hand" ng-show="project.images.length > 1" ng-click="nextImg(project)" style="float: right;"></span>
 							<span class="glyphicon glyphicon-arrow-left hand" ng-show="project.images.length > 1" ng-click="previousImg(project)" style="float: left;"></span>
-							<span translate="{{project.currentImg.title}}"></span>
+							<span translate="{{project.currentImg.title}}"></span><span> ({{project.currentImgIndex + 1}}/{{project.images.length}})</span>
 						</div>
 						<div class="panel-body">
 							<img src="{{project.currentImg.src}}" class="img-responsive">

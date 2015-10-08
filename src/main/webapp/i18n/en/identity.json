@@ -1,7 +1,6 @@
 {
 	"identity" : {
 		"form": {
-			"title": "Complete your civil status and personal information",
 			"tooltip": "The civil status must match the information on your passport",
             "lastName": "Last Name",
             "usedLastName": "Use Last Name",

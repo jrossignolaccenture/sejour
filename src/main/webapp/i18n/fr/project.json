@@ -1,7 +1,6 @@
 {
 	"project" : {
 		"form": {
-			"title": "Complétez les détails de votre projet",
 			"comingDate": "Date prévue d'arrivée en France",
 			"university": "Etablissement",
 			"training": "Formation",

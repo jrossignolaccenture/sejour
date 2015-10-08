@@ -18,8 +18,7 @@
 	    	"history.list": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "No history",
 	    	
-	    	"validate.h": "Validate on {{validationDate}} - {{validationAuthor}}",
-	    	"validate.f": "Validate on {{validationDate}} - {{validationAuthor}}",
+	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}",
 	    	"toValidate": "To validate",
 	    	
 	    	"button": {

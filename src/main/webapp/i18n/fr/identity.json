@@ -1,7 +1,6 @@
 {
 	"identity" : {
 		"form": {
-			"title": "Complétez votre état-civil et vos informations personnelles",
 			"tooltip": "L'état-civil doit correspondre aux informations figurant sur votre passeport",
             "lastName": "Nom",
             "usedLastName": "Nom d'usage",

@@ -17,7 +17,7 @@
 		    	</span>
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
-		    	<p translate="project.form.title">Project</p>
+		    	<p translate="etudier.project.step.long">Project</p>
 		    </div>
 		</div>
 		<br>
@@ -93,7 +93,7 @@
 		        </div>
 		        <div class="form-group">
 		            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
-		            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
+		            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength" min="0"
 		                    ng-model="project.trainingLength" required>
 		
 		            <div ng-show="projectForm.trainingLength.$dirty && projectForm.trainingLength.$invalid">
@@ -102,6 +102,9 @@
 		                </p>
 		                <p class="help-block" ng-show="projectForm.trainingLength.$error.number" translate="entity.validation.number">
 		                    This field should be a number.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.trainingLength.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
 		                </p>
 		            </div>
 		        </div>
@@ -122,7 +125,7 @@
 		        </div>
 		        <div class="form-group">
 		            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
-		            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount"
+		            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount" min="0"
 		                    ng-model="project.resourceAmount" required>
 		
 		            <div ng-show="projectForm.resourceAmount.$dirty && projectForm.resourceAmount.$invalid">
@@ -131,6 +134,9 @@
 		                </p>
 		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.number" translate="entity.validation.number">
 		                    This field should be a number.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
 		                </p>
 		            </div>
 		        </div>

@@ -17,7 +17,7 @@
 		    	</span>
 		    </div>
 		    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 form-title-text">
-		    	<p translate="project.form.title">Project</p>
+		    	<p translate="etudier.project.step.long">Project</p>
 		    </div>
 		</div>
 		<br>
@@ -80,6 +80,9 @@
 		                <p class="help-block" ng-show="projectForm.trainingLength.$error.number" translate="entity.validation.number">
 		                    This field should be a number.
 		                </p>
+		                <p class="help-block" ng-show="projectForm.trainingLength.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
+		                </p>
 		            </div>
 		        </div>
 		        <div class="form-group">
@@ -108,6 +111,9 @@
 		                </p>
 		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.number" translate="entity.validation.number">
 		                    This field should be a number.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
 		                </p>
 		            </div>
 		        </div>

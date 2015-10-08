@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.recevability.title}">recevability</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{email.recevability.greeting(${user.firstName}, ${user.lastName})}">
+            Hello,
+        </p>
+        <br/>
+        <p th:text="#{email.recevability.text1(${user.id})}">
+            Recevability success
+        </p>
+        <p th:text="#{email.recevability.text2}">
+            Get appointment here :
+        </p>
+        <p>
+            <a th:href="@{|${baseUrl}/#/etudier/rdv|}"
+               th:text="#{email.recevability.link}">rdv</a>
+        </p>
+        <br/>
+        <p>
+            <span th:text="#{email.regards}">Regards,</span>
+            <br/><br/>
+            <em th:text="#{email.signature}">sejour</em>
+            <br/><br/>
+            <em th:text="#{email.signature.administration}">administration</em>
+        </p>
+    </body>
+</html>

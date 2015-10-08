@@ -15,7 +15,7 @@
 	    	</span>
 	    </div>
 	    <div class="col-xs-10 form-title-text">
-	    	<p translate="summary.form.title">Summary</p>
+	    	<p translate="etudier.summary.step.long">Summary</p>
 	    </div>
 	</div>
 	<br>
@@ -101,7 +101,7 @@
 						<div class="panel-heading" style="text-align: center">
 							<span class="glyphicon glyphicon-arrow-right hand" ng-show="identity.images.length > 1" ng-click="nextImg(identity)" style="float: right;"></span>
 							<span class="glyphicon glyphicon-arrow-left hand" ng-show="identity.images.length > 1" ng-click="previousImg(identity)" style="float: left;"></span>
-							<span translate="{{identity.currentImg.title}}"></span>
+							<span translate="{{identity.currentImg.title}}"></span><span> ({{identity.currentImgIndex + 1}}/{{identity.images.length}})</span>
 						</div>
 						<div class="panel-body">
 							<img src="{{identity.currentImg.src}}" class="img-responsive">
@@ -261,7 +261,7 @@
 						<div class="panel-heading" style="text-align: center">
 							<span class="glyphicon glyphicon-arrow-right hand" ng-show="project.images.length > 1" ng-click="nextImg(project)" style="float: right;"></span>
 							<span class="glyphicon glyphicon-arrow-left hand" ng-show="project.images.length > 1" ng-click="previousImg(project)" style="float: left;"></span>
-							<span translate="{{project.currentImg.title}}"></span>
+							<span translate="{{project.currentImg.title}}"></span><span> ({{project.currentImgIndex + 1}}/{{project.images.length}})</span>
 						</div>
 						<div class="panel-body">
 							<img src="{{project.currentImg.src}}" class="img-responsive">

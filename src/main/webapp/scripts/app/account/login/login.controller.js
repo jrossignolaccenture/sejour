@@ -17,7 +17,7 @@ angular.module('sejourApp')
                 $scope.authenticationError = false;
                 if ($rootScope.previousStateName === 'register') {
                     $state.go('home');
-                } else if($rootScope.returnToState) {
+                } else if($rootScope.returnToState && $rootScope.returnToState.name !== 'login') {
                 	$state.go($rootScope.returnToState.name);
                 } else {
                     $rootScope.back();
