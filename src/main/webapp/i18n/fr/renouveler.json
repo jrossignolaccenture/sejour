@@ -1,4 +1,10 @@
 {
+	"renouveler": {
+		"title": "Demande de renouvellement de séjour",
+		"choice": "Choisissez votre démarche",
+		"stateUnchange": "Je veux prolonger mon séjour sans changement de statut",
+		"stateChange": "Je veux prolonger mon séjour et changer de statut"
+	},
     "etudier": {
         "title": "Demande de renouvellement de séjour étudiant",
         "page.title": "Demande de renouvellement de séjour étudiant",

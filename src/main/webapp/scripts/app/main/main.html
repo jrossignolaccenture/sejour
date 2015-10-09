@@ -2,7 +2,7 @@
 	<br>
     <div ng-switch-when="undefined">
 	    <div class="row row-center">
-	    	<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+	    	<div class="col-xs-10 col-xs-offset-1">
 	    		<h1 translate="main.unknown.title"></h1>
 	   		</div>
 	    </div>
@@ -12,27 +12,28 @@
 	   	<div class="row row-center">
 	   		<h3 translate="main.unknown.choice">profil</h3>
 	   	</div>
-	    <div class="row row-center">
-    		<button class="btn btn-primary btn-home"
-    				translate="main.unknown.button.individual"
-    				ng-click="choose('individual')">Individual</button>
-    		<button class="btn btn-primary btn-home btn-home-right"
-    				translate="main.unknown.button.company"
-    				ng-click="choose('company')">Company</button>
+	   	<br>
+	    <div class="row">
+	    	<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+	        	<box-menu class="box-home" boxtitle="main.unknown.button.individual" boxlogo="user" ng-click="choose('individual')"></box-menu>
+	        </div>
+	        <div class="col-xs-12 col-sm-6 col-md-5">
+		        <box-menu class="box-home" boxtitle="main.unknown.button.company" boxlogo="industry" ng-click="choose('company')"></box-menu>
+	        </div>
 	    </div>
     </div>
     <div class="row" ng-switch-when="individual">
     	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-        	<box-menu boxtitle="main.usager.title.study" boxlogo="education" ui-sref="usager/etudier"></box-menu>
+        	<box-menu boxtitle="main.usager.title.study" boxlogo="graduation-cap" ui-sref="usager/etudier"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
 	        <box-menu boxtitle="main.usager.title.work" boxlogo="briefcase"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	     	<box-menu boxtitle="main.usager.title.family" boxlogo="home" disabled="true"></box-menu>
+	     	<box-menu boxtitle="main.usager.title.family" boxlogo="users" disabled="true"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-	        <box-menu boxtitle="main.usager.title.extend" boxlogo="repeat" ui-sref="usager/renouveler"></box-menu>
+	        <box-menu boxtitle="main.usager.title.extend" boxlogo="repeat" ui-sref="usager/renouveler/choice"></box-menu>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
 	        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" disabled="true"></box-menu>
@@ -50,20 +51,20 @@
         </div>
     </div>
     <div class="row" ng-switch-when="agent">
-    	<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1">
+    	<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
 		    <div class="row">
-	        	<box-menu class="box-badge" boxtitle="main.agent.title.verify" boxlogo="ok" boxbadge="{{nbRecevability}}" ui-sref="etudier/recevability/list"></box-menu>
+	        	<box-menu class="box-badge" boxtitle="main.agent.title.verify" boxlogo="check" boxbadge="{{nbRecevability}}" ui-sref="etudier/recevability/list"></box-menu>
 	        </div>
 		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.rdv.drive" boxlogo="camera" boxbadge="{{nbRdv}}" ui-sref="etudier/identification"></box-menu>
+		        <box-menu class="box-badge" boxtitle="main.agent.title.rdv.drive" boxlogo="calendar-check-o" boxbadge="{{nbRdv}}" ui-sref="etudier/identification"></box-menu>
 	        </div>
 		    <div class="row">
 		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbDecision}}" ui-sref="etudier/validation/list"></box-menu>
 	        </div>
         </div>
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1">
 		    <div class="row">
-		        <box-menu boxtitle="main.agent.title.usager" boxlogo="user" disabled="true"></box-menu>
+		        <box-menu boxtitle="main.agent.title.usager" boxlogo="users" disabled="true"></box-menu>
 	        </div>
     		<div class="row">
 		        <box-menu boxtitle="main.agent.title.application" boxlogo="search" disabled="true"></box-menu>
@@ -72,10 +73,10 @@
 		        <box-menu boxtitle="main.agent.title.rdv.setting" boxlogo="calendar" disabled="true"></box-menu>
 	        </div>
 		    <div class="row">
-		        <box-menu boxtitle="main.agent.title.question" boxlogo="comment" disabled="true"></box-menu>
+		        <box-menu boxtitle="main.agent.title.question" boxlogo="comments" disabled="true"></box-menu>
 	        </div>
 		    <div class="row">
-		        <box-menu boxtitle="main.agent.title.analyse" boxlogo="stats" ui-sref="agent/control"></box-menu>
+		        <box-menu boxtitle="main.agent.title.analyse" boxlogo="bar-chart" ui-sref="agent/control"></box-menu>
 	        </div>
         </div>
     </div>

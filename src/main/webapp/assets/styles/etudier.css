@@ -13,8 +13,8 @@
 .step-number {
 	width: 30px;
 	height: 30px;
-	background-color: rgb(53, 86, 137);
-	border: 2px solid rgb(53, 86, 137);
+	background-color: #337ab7;
+	border: 2px solid #337ab7;
 	text-align: center;
 	border-radius: 50%;
 	color: #fff;

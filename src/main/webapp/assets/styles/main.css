@@ -186,39 +186,6 @@ ul#strengthBar {
 	text-align: center;
 }
 
-/* BOUTON ACCUEIL */
-.btn-home {
-    width: 250px;
-    height: 60px;
-    font-size: 16px;
-    border-radius: 15px;
-    margin-top: 40px;
-}
-
-@media (min-width: 768px) {
-	.btn-home {
-	    width: 300px;
-	    height: 100px;
-	    font-size: 22px;
-	    border-radius: 25px;
-	}
-	.btn-home-right {
-		margin-left: 20px
-	}
-}
-
-@media (min-width: 992px) {
-	.btn-home {
-	    width: 350px;
-	    height: 150px;
-	    font-size: 30px;
-	    border-radius: 25px;
-	}
-	.btn-home-right {
-		margin-left: 40px
-	}
-}
-
 /* MENU ACCUEIL */
 
 .white {
@@ -261,7 +228,7 @@ ul#strengthBar {
     border: 7px solid white;
     line-height: 88px;
     border-radius: 50%;
-    background: rgb(53, 86, 137);
+    background: #337ab7;
     vertical-align: middle;
 }
 
@@ -324,15 +291,16 @@ ul#strengthBar {
     font-size: 15px;
 }
 
+.box-home > .box > .icon > .info > p {
+	font-size: 22px;
+}
+
 @media (min-width: 768px) {
 	.box-light > .box > .icon > .image {
 		margin: inherit;
 	}
 	.box-light > .box > .icon > .info {
 		margin-left: -30px;
-	}
-	.box-light > .box > .icon > .info > p {
-/* 	    margin: 15px; */
 	}
 }
 

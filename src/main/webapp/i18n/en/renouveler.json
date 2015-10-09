@@ -1,15 +1,21 @@
 {
+	"renouveler": {
+		"title": "Residency renewal application",
+		"choice": "Choose your approach",
+		"stateUnchange": "I want to extend my residency without status change",
+		"stateChange": "I want to extend my residency and change my status"
+	},
     "etudier": {
-        "title": "First application for a student stay",
-        "page.title": "First application for a student stay",
+        "title": "Student residency renewal application",
+        "page.title": "Student residency renewal application",
         "step.title": "5 steps for your application",
         "identity": {
         	"step.short": "Identity",
-        	"step.long": "Complete your civil status and personal information"
+        	"step.long": "Verify your civil status and personal information"
         },
         "address": {
         	"step.short": "Address",
-        	"step.long": "Complete your address"
+        	"step.long": "Verify your address"
         },
         "project": {
         	"step.short": "Project",

@@ -5,7 +5,7 @@ angular.module('sejourApp')
         $stateProvider
             .state('usager/renouveler', {
                 parent: 'usager',
-                url: '/renouveler',
+                url: '/renouveler/etudes',
                 data: {
                     pageTitle: 'renouveler.page.title'
                 },
@@ -13,6 +13,24 @@ angular.module('sejourApp')
                     'content@': {
                         templateUrl: 'scripts/app/usager/renouveler/renouveler.html',
                         controller: 'RenouvelerUsagerController'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('renouveler');
+                        return $translate.refresh();
+                    }]
+                }
+            })
+            .state('usager/renouveler/choice', {
+                parent: 'usager',
+                url: '/renouveler',
+                data: {
+                    pageTitle: 'renouveler.page.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'scripts/app/usager/renouveler/renouvelerChoice.html'
                     }
                 },
                 resolve: {
