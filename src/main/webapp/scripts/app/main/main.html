@@ -2,9 +2,7 @@
 	<br>
     <div ng-switch-when="undefined">
 	    <div class="row row-center">
-	    	<div class="col-xs-10 col-xs-offset-1">
-	    		<h1 translate="main.unknown.title"></h1>
-	   		</div>
+	    	<h1 translate="main.unknown.title"></h1>
 	    </div>
 	    <br>
 	   	<br>
@@ -13,45 +11,46 @@
 	   		<h3 translate="main.unknown.choice">profil</h3>
 	   	</div>
 	   	<br>
+	   	<br>
 	    <div class="row">
-	    	<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+	    	<div class="col-sm-6 col-lg-5 col-lg-offset-1">
 	        	<box-menu class="box-home" boxtitle="main.unknown.button.individual" boxlogo="user" ng-click="choose('individual')"></box-menu>
 	        </div>
-	        <div class="col-xs-12 col-sm-6 col-md-5">
+	        <div class="col-sm-6 col-lg-5">
 		        <box-menu class="box-home" boxtitle="main.unknown.button.company" boxlogo="industry" ng-click="choose('company')"></box-menu>
 	        </div>
 	    </div>
     </div>
     <div class="row" ng-switch-when="individual">
-    	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+    	<div class="col-sm-6 col-md-4">
         	<box-menu boxtitle="main.usager.title.study" boxlogo="graduation-cap" ui-sref="usager/etudier"></box-menu>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        <div class="col-sm-6 col-md-4">
 	        <box-menu boxtitle="main.usager.title.work" boxlogo="briefcase"></box-menu>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        <div class="col-sm-6 col-md-4">
 	     	<box-menu boxtitle="main.usager.title.family" boxlogo="users" disabled="true"></box-menu>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        <div class="col-sm-6 col-md-4">
 	        <box-menu boxtitle="main.usager.title.extend" boxlogo="repeat" ui-sref="usager/renouveler/choice"></box-menu>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        <div class="col-sm-6 col-md-4">
 	        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" disabled="true"></box-menu>
         </div>
     </div>
     <div class="row" ng-switch-when="company">
-    	<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+    	<div class="col-sm-6 col-md-4">
         	<box-menu boxtitle="main.company.title.hire" boxlogo="briefcase" disabled="true"></box-menu>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        <div class="col-sm-6 col-md-4">
 	        <box-menu boxtitle="main.company.title.declare" boxlogo="pencil" disabled="true"></box-menu>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+        <div class="col-sm-6 col-md-4">
 	     	<box-menu boxtitle="main.company.title.verify" boxlogo="search" disabled="true"></box-menu>
         </div>
     </div>
     <div class="row" ng-switch-when="agent">
-    	<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
+    	<div class="col-sm-7 col-md-8">
 		    <div class="row">
 	        	<box-menu class="box-badge" boxtitle="main.agent.title.verify" boxlogo="check" boxbadge="{{nbRecevability}}" ui-sref="etudier/recevability/list"></box-menu>
 	        </div>
@@ -62,7 +61,7 @@
 		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbDecision}}" ui-sref="etudier/validation/list"></box-menu>
 	        </div>
         </div>
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1">
+        <div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1">
 		    <div class="row">
 		        <box-menu boxtitle="main.agent.title.usager" boxlogo="users" disabled="true"></box-menu>
 	        </div>

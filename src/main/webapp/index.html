@@ -27,7 +27,11 @@
         <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
         <div ui-view="navbar" ng-cloak=""></div>
         <div class="container">
-            <div class="customwell" ui-view="content"></div>
+            <div class="customwell">
+            	<div class="row">
+            		<div class="col-md-10 col-md-offset-1" ui-view="content"></div>
+            	</div>
+            </div>
             <div class="footer"></div>
         </div>
 

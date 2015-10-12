@@ -1,12 +1,11 @@
 <div ng-cloak>
-    <div class="row">
-    	<div class="col-xs-11 col-xs-offset-1 title-underscore">
-    		<h4 translate="identification.biometrics.title" translate-values="{ studentName: '{{studentName}}'}"></h4>
-   		</div>
+    <div class="row title-underscore">
+    	<h4 translate="identification.biometrics.title" translate-values="{ studentName: '{{studentName}}'}"></h4>
     </div>
-	<br>
+	<br><br>
+	
 	<div class="row">
-		<div class="col-xs-8 col-xs-offset-1">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': photoOpened}" ng-click="photoOpened = !photoOpened">
 				<div class="panel-heading">
 					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': photoOpened, 'glyphicon-triangle-bottom': !photoOpened}"></span>
@@ -22,7 +21,7 @@
 		</div>
 	</div>
 	<div class="row" ng-show="photoOpened">
-		<div class="col-xs-11 col-xs-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': photoOpened}">
 				<div class="col-xs-12 col-sm-6" ng-show="!photoValidated">
 					<ng-camera
@@ -43,7 +42,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-8 col-xs-offset-1">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': fingerprintsOpened}" ng-click="fingerprintsOpened = !fingerprintsOpened">
 				<div class="panel-heading">
 					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': fingerprintsOpened, 'glyphicon-triangle-bottom': !fingerprintsOpened}"></span>
@@ -59,7 +58,7 @@
 		</div>
 	</div>
 	<div class="row" ng-show="fingerprintsOpened">
-		<div class="col-xs-11 col-xs-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': fingerprintsOpened}">
 				<div class="col-xs-12">
 					<div ng-show="!fingerprints">
@@ -71,7 +70,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-8 col-xs-offset-1">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': signatureOpened}" ng-click="signatureOpened = !signatureOpened">
 				<div class="panel-heading">
 					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': signatureOpened, 'glyphicon-triangle-bottom': !signatureOpened}"></span>
@@ -87,7 +86,7 @@
 		</div>
 	</div>
 	<div class="row" ng-show="signatureOpened">
-		<div class="col-xs-11 col-xs-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': signatureOpened}">
 				<div class="col-xs-12 col-sm-6" ng-show="!signatureValidated">
 					<canvas class="thumbnail" id="signature-pad" width="400" height="200"></canvas>
@@ -104,12 +103,10 @@
 	<br>
 	<br>
 	<div class="row row-center">
-		<div class="col-xs-10 col-xs-offset-1">
-	    	<button class="btn btn-success" 
-	    			ng-disabled="!photoValidated || !fingerprintsValidated || !signatureValidated"
-	    			translate="identification.biometrics.button.accept"
-	    			ng-click="certify()" >Accept</button>
-		</div>
+    	<button class="btn btn-success" 
+    			translate="identification.biometrics.button.accept"
+    			ng-disabled="!photoValidated || !fingerprintsValidated || !signatureValidated"
+    			ng-click="certify()" >Accept</button>
 	</div>
 </div>
     

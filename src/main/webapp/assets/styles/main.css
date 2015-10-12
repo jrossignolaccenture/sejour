@@ -377,6 +377,17 @@ ul#strengthBar {
 	cursor: default;
 }
 
+.btn-right {
+	margin-left: 20px;
+}
+
+/* LISTE AGENT */
+@media (min-width: 768px) {
+	.list {
+		padding-left: 40px;
+	}
+}
+
 /* PILOTAGE */
 .tableauPlaceholder{
 	width: 982px;

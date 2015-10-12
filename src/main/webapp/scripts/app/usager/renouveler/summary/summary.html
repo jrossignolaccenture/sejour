@@ -1,18 +1,16 @@
 <div ng-cloak>
-    <div class="row">
-    	<div class="col-xs-11 col-xs-offset-1 title-underscore">
-    		<h4 translate="etudier.title">Request for a student stay</h4>
-   		</div>
+    <div class="row title-underscore">
+    	<h4 translate="etudier.title">Request for a student stay</h4>
     </div>
     <br>
     <steps-menu stepnumber="4"></steps-menu>
-    <br>
-    <br>
+    <br><br>
+    
 	<div class="row">
 		<div class="col-xs-1 col-xs-offset-1">
-	    	<span class="step-number-align">
+	    	<div class="step-number-align">
 	    		<div class="step-number">4</div>
-	    	</span>
+	    	</div>
 	    </div>
 	    <div class="col-xs-10 form-title-text">
 	    	<p translate="etudier.summary.step.long">Summary</p>
@@ -20,17 +18,15 @@
 	</div>
 	<br>
 	<div class="row row-center">
-		<div class="col-xs-11 col-xs-offset-1 ">
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<h4 style="font-weight: normal; line-height: 1.5" translate="summary.form.subtitle">Please verify</h4>
-				</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h4 style="font-weight: normal; line-height: 1.5" translate="summary.form.subtitle">Please verify</h4>
 			</div>
 		</div>
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-xs-11 col-xs-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
 				<div class="panel-heading">
 					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': identityOpened, 'glyphicon-triangle-bottom': !identityOpened}"></span>
@@ -40,9 +36,9 @@
 		</div>
 	</div>
 	<div class="row" ng-show="identityOpened">
-		<div class="col-xs-11 col-xs-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': identityOpened}">
-				<div class="col-xs-5">
+				<div class="col-sm-5">
 					<div class="form-group">
 				        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
 				        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="demande.identity.lastName" readonly="readonly">
@@ -100,7 +96,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-11 col-xs-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': addressOpened}" ng-click="addressOpened = !addressOpened">
 				<div class="panel-heading">
 					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': addressOpened, 'glyphicon-triangle-bottom': !addressOpened}"></span>
@@ -110,9 +106,9 @@
 		</div>
 	</div>
 	<div class="row" ng-show="addressOpened">
-		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': addressOpened}">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-sm-5">
 					<div class="form-group">
 			            <label translate="address.form.owner" for="field_owner">Owner</label>
 			            <input type="text" class="form-control" name="owner" id="field_owner"
@@ -175,7 +171,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-11 col-xs-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
 				<div class="panel-heading">
 					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': projectOpened, 'glyphicon-triangle-bottom': !projectOpened}"></span>
@@ -185,9 +181,9 @@
 		</div>
 	</div>
 	<div class="row" ng-show="projectOpened">
-		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+				<div class="col-sm-5">
 			        <div class="form-group">
 			            <label translate="project.form.university" for="field_university">University</label>
 			            <input type="text" class="form-control" name="university" id="field_university"
@@ -231,7 +227,7 @@
 			                    ng-model="demande.project.resourceAmount" readonly="readonly">
 			        </div>
 				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-sm-7">
 					<div class="panel panel-default">
 						<div class="panel-heading" style="text-align: center">
 							<span class="glyphicon glyphicon-arrow-right hand" ng-show="project.images.length > 1" ng-click="nextImg(project)" style="float: right;"></span>
@@ -249,12 +245,11 @@
 	<br>
 	<br>
     <div class="row row-center">
-    	<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-        	<button class="btn btn-default" translate="etudier.button.back" ui-sref="renouveler/project">Back</button>
-        	<button style="margin-left: 20px" ng-disabled="projectForm.$invalid || projectForm.$submitted" class="btn btn-success"
-        		ng-click="save()" translate="summary.form.button.validate">Validate</button>
-      		</div>
-       </div>
+       	<button class="btn btn-default" translate="etudier.button.back" ui-sref="renouveler/project">Back</button>
+       	<button class="btn btn-success btn-right" translate="summary.form.button.validate"
+       			 ng-disabled="projectForm.$invalid || projectForm.$submitted"
+       			 ng-click="save()">Validate</button>
+    </div>
 </div>
 
 <script type="text/javascript">

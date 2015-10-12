@@ -1,12 +1,11 @@
 <div ng-cloak>
-    <div class="row">
-    	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
-    		<h4 translate="control.title" translate-values="{ userName: '{{userName}}'}">Control</h4>
-   		</div>
+    <div class="row title-underscore">
+    	<h4 translate="control.title" translate-values="{ userName: '{{userName}}'}">Control</h4>
     </div>
-    <br>
+    <br><br>
+    
     <div class="row row-center">
-    	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 thumbnail">
+    	<div class="col-xs-12">
 	    	<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
 			<div class='tableauPlaceholder'>
 				<noscript>
@@ -32,6 +31,7 @@
 			</div>
 		</div>
 	</div>
+	<br>
 	<div class="row row-center">
     	<button class="btn btn-primary" translate="control.button.back" ui-sref="home">Back</button>
 	</div>
