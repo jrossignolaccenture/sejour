@@ -314,6 +314,11 @@ ul#strengthBar {
 	}
 }
 
+/** LIST **/
+.detail-link {
+	float: right;
+	margin: -15px 10px 0px 0px;
+}
 
 /** FORM **/
 .title-underscore > h4 {

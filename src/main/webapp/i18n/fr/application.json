@@ -1,5 +1,6 @@
 {
 	"application" : {
+		"page.title": "Mes demandes",
 		"title": "Mes demandes",
 		"list": {
 			"title.premiere": {
@@ -11,6 +12,7 @@
 				"validated.sejour_etudiant": "Demande de renouvellement de séjour étudiant - validée le {{decisionDate}}"
 			},
 			"noApplication": "Vous n'avez pas de demande.",
+			"detail": "Détail",
 			"modified": "Demande modifiée le {{modificationDate}} - {{userName}}",
 			"submit": "Demande déposée le {{submitDate}} - {{userName}}",
 			"payment": "Demande payée le {{paymentDate}} - {{userName}}",

@@ -14,6 +14,7 @@ angular.module('sejourApp')
         		$scope.account = account;
         		if(account) {
         			$scope.userType = account.type;
+        			$rootScope.userType = account.type;
         			if(account.type == 'agent'){
         				Demande.getCount().then(function(result) {
 	        		        $scope.nbRecevability = result.nbRecevability;

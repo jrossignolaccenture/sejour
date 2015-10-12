@@ -1,12 +1,18 @@
 {
 	"application" : {
+		"page.title": "My applications",
 		"title": "My applications",
 		"list": {
-			"title": {
-				"created.sejour_etudiant": "First application of student stay - created on {{creationDate}}",
-				"validated.sejour_etudiant": "First application of student stay - validated on {{decisionDate}}"
+			"title.premiere": {
+				"created.sejour_etudiant": "First application of student residency - created on {{creationDate}}",
+				"validated.sejour_etudiant": "First application of student residency - validated on {{decisionDate}}"
+			},
+			"title.renouvellement": {
+				"created.sejour_etudiant": "Student residency renewal application - created on {{creationDate}}",
+				"validated.sejour_etudiant": "Student residency renewal application - validated on {{decisionDate}}"
 			},
 			"noApplication": "You don't have application",
+			"detail": "Detail",
 			"modified": "Application modified on {{modificationDate}} - {{userName}}",
 			"submit": "Application submitted on {{submitDate}} - {{userName}}",
 			"payment": "Application paid on {{paymentDate}} - {{userName}}",

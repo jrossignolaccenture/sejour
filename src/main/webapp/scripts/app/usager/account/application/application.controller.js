@@ -5,7 +5,7 @@ angular.module('sejourApp')
 
     	$scope.demandes = [];
 
-        Demande.getAll().then(function(result) {
+        Demande.getAll().then(function(result){
         	$scope.demandes = result;
         	var length = $scope.demandes.length;
         	for(var i=0; i<length; i++){
@@ -19,8 +19,16 @@ angular.module('sejourApp')
     		return moment(date).format("DD/MM/YYYY");
     	}
     	
+    	$scope.goToDetail = function(type, id){
+    		if(type == 'premiere'){
+    			$state.go('etudier/detail', {id: id});
+    		} else{
+    			$state.go('renouveler/detail', {id: id});
+    		}
+    	}
+    	
     	$scope.remove = function(id){
-    		Demande.remove(id).then(function() {
+    		Demande.remove(id).then(function(){
             	var length = $scope.demandes.length;
     			for(var i=0; i<length; i++){
     				if($scope.demandes[i].id == id){

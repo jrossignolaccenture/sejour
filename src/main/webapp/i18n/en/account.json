@@ -1,5 +1,6 @@
 {
     "account": {
+    	"page.title": "My account",
         "title": {
 	        "info": "My personal informations",
 	        "application": "My applications",
