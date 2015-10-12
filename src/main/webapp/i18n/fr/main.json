@@ -6,7 +6,9 @@
     		"choice": "Choisissez votre profil :",
     		"button": {
     			"individual": "Je suis un particulier",
-    			"company": "Je suis une entreprise"
+    			"individual.short": "Particulier",
+    			"company": "Je suis une entreprise",
+    			"company.short": "Entreprise"
     		}
     	},
     	"usager": {

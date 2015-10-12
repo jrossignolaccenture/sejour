@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('MainController', function ($scope, $state, Principal, Demande) {
+    .controller('MainController', function ($rootScope, $scope, $state, Principal, Demande) {
     	
         $scope.isAuthenticated = Principal.isAuthenticated;
         
@@ -25,7 +25,12 @@ angular.module('sejourApp')
         	});
         }
         
+        $rootScope.$watch('userType', function(newValue, oldValue) {
+        	$scope.userType = newValue;
+        });
+        
         $scope.choose = function(userType) {
         	$scope.userType = userType;
+        	$rootScope.userType = userType;
         }
     });

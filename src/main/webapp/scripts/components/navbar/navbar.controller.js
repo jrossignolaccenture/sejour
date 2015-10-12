@@ -17,6 +17,16 @@ angular.module('sejourApp')
         		 $scope.account = newValue;
         	  }
         });
+        
+        $rootScope.$watch('userType', function(newValue, oldValue) {
+        	$scope.userType = newValue;
+        });
+        
+        $scope.choose = function(userType) {
+        	$scope.userType = userType;
+        	$rootScope.userType = userType;
+        	$state.go('home');
+        }
 
         $scope.logout = function () {
         	$scope.account = null;

@@ -203,6 +203,16 @@ ul#strengthBar {
 }
 
 /* BOX MENU */
+.navbar-box {
+	float: left;
+}
+
+.navbar-box > button {
+	width: 100px;
+	padding: 1px 2px 1px 2px;
+	margin: 1px;
+	display: inherit;
+}
 
 .box-disabled {
 	opacity: 0.4;
