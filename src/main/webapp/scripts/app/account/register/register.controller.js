@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('RegisterController', function ($scope, $translate, $timeout, Auth) {
+    .controller('RegisterController', function ($rootScope, $scope, $translate, $timeout, Auth) {
         $scope.success = null;
         $scope.error = null;
         $scope.doNotMatch = null;
         $scope.registerAccount = {};
         $timeout(function (){angular.element('[ng-model="registerAccount.email"]').focus();});
+        
+        $scope.registerAccount.type = $rootScope.userType;
 
         $scope.register = function () {
             if ($scope.registerAccount.password !== $scope.confirmPassword) {
