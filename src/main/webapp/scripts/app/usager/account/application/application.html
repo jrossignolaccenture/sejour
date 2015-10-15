@@ -43,7 +43,7 @@
 						translate-values="{ submitDate: '{{getFormattedDate(demande.modificationDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
 					<li ng-if="demande.paymentDate"
 						translate="application.list.payment"
-						translate-values="{ paymentDate: '{{getFormattedDate(demande.paymentDate)}}', paymentHour: '{{getFormattedHour(demande.paymentDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
+						translate-values="{ paymentDate: '{{getFormattedDate(demande.paymentDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
 					<li ng-if="demande.statut == 'recevability'"
 						translate="application.list.recevability.wait"></li>
 					<li ng-if="demande.recevabilityDate"
@@ -51,7 +51,7 @@
 						translate-values="{ recevabilityDate: '{{getFormattedDate(demande.recevabilityDate)}}'}"></li>
 					<li ng-if="demande.rdvDate && demande.statut == 'identification'"
 						translate="application.list.rdv.future" 
-						translate-values="{ rdvDate: '{{getFormattedDate(demande.rdvDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
+						translate-values="{ rdvDate: '{{getFormattedDate(demande.rdvDate)}}', rdvHour: '{{getFormattedHour(demande.rdvDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
 					<li ng-if="demande.rdvDate && demande.statut != 'identification'"
 						translate="application.list.rdv.passed" 
 						translate-values="{ rdvDate: '{{getFormattedDate(demande.rdvDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>

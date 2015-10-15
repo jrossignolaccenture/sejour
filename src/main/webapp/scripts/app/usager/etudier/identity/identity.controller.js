@@ -20,7 +20,8 @@ angular.module('sejourApp')
             Demande.getInProgressDemande($scope.account.email).then(function(result) {
             	$scope.demande = result;
                 $scope.identity = result.identity;
-                if($scope.identity != null && $scope.identity.birthDateTxt != null){
+                if($scope.identity != null && $scope.identity.birthDate != null){
+                	console.log("ici");
                 	$scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
                 }
             });

@@ -5,7 +5,7 @@ angular.module('sejourApp')
         
 
 		$scope.autocomplete = function() {
-			if ($scope.payment.cardOwner === 'kim') {
+			if ($scope.payment.cardOwner === 'Kim') {
 				$scope.payment.cardNumber = '4970 1012 3456 7890';
 				$scope.payment.cardExpiringDate = '08 / 16';
 				$scope.payment.cardCV = '123';
