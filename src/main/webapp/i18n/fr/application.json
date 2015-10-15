@@ -15,7 +15,7 @@
 			"detail": "Détail",
 			"modified": "Demande modifiée le {{modificationDate}} - {{userName}}",
 			"submit": "Demande déposée le {{submitDate}} - {{userName}}",
-			"payment": "Demande payée le {{paymentDate}} - {{userName}}",
+			"payment": "Paiement effectué le {{paymentDate}} à {{paymentHour}} - {{userName}}",
 			"recevability.wait": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
 			"recevability": "Recevabilité de la demande vérifiée le {{recevabilityDate}} - Administration des étrangers en France",
 			"rdv.future": "Rendez-vous confirmé le {{rdvDate}} - {{userName}}",

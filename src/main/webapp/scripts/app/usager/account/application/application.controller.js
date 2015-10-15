@@ -19,6 +19,10 @@ angular.module('sejourApp')
     		return moment(date).format("DD/MM/YYYY");
     	}
     	
+    	$scope.getFormattedHour = function(date){
+    		return moment(date).format("HH:mm");
+    	}
+    	
     	$scope.goToDetail = function(type, id){
     		if(type == 'premiere'){
     			$state.go('etudier/detail', {id: id});

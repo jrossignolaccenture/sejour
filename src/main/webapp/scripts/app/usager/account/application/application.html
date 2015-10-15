@@ -43,7 +43,7 @@
 						translate-values="{ submitDate: '{{getFormattedDate(demande.modificationDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
 					<li ng-if="demande.paymentDate"
 						translate="application.list.payment"
-						translate-values="{ paymentDate: '{{getFormattedDate(demande.paymentDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
+						translate-values="{ paymentDate: '{{getFormattedDate(demande.paymentDate)}}', paymentHour: '{{getFormattedHour(demande.paymentDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
 					<li ng-if="demande.statut == 'recevability'"
 						translate="application.list.recevability.wait"></li>
 					<li ng-if="demande.recevabilityDate"

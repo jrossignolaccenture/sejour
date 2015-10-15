@@ -15,7 +15,7 @@
 			"detail": "Detail",
 			"modified": "Application modified on {{modificationDate}} - {{userName}}",
 			"submit": "Application submitted on {{submitDate}} - {{userName}}",
-			"payment": "Application paid on {{paymentDate}} - {{userName}}",
+			"payment": "Payment done on {{paymentDate}} at {{paymentHour}} - {{userName}}",
 			"recevability.wait": "Waiting for recevability verification by the french administration of foreigners",
 			"recevability": "Application recevability verified on {{recevabilityDate}} - French administration of foreigners",
 			"rdv.future": "Appointment confirmed for {{rdvDate}} - {{userName}}",
