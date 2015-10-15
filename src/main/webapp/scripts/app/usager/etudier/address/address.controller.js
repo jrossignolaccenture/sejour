@@ -22,6 +22,7 @@ angular.module('sejourApp')
         });
         
         $scope.save = function () {
+        	$scope.demande.address = $scope.address;
         	console.log($scope.demande);
             Demande.update($scope.demande, false).then(function(result){
             	$state.go('etudier/project');

@@ -94,7 +94,7 @@
                         </li>
                     </ul>
                 </li>
-                <li ng-switch-when="false" ng-show="userType != null" class="dropdown pointer">
+                <li ng-switch-when="false" ng-show="userType != null && userType != 'agent'" class="dropdown pointer">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="">
                                 <span>
                                     <span class="fa" ng-class="{'fa-user': userType === 'individual', 'fa-industry': userType === 'company'}"></span>

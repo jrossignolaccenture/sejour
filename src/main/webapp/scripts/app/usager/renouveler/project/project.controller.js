@@ -19,10 +19,10 @@ angular.module('sejourApp')
             Demande.getInProgressDemande($scope.account.email).then(function(result) {
             	$scope.demande = result;
                 $scope.project = result.project;
-                if($scope.project.comingDate != null){
+                if($scope.project != null && $scope.project.comingDate != null){
                 	$scope.project.comingDateTxt = moment($scope.project.comingDate).format("DD/MM/YYYY");
                 }
-                if($scope.project.trainingStart != null){
+                if($scope.project != null && $scope.project.trainingStart != null){
                 	$scope.project.trainingStartTxt = moment($scope.project.trainingStart).format("DD/MM/YYYY");
                 }
             });
@@ -71,6 +71,7 @@ angular.module('sejourApp')
         $scope.save = function () {
             $scope.project.comingDate = moment($scope.project.comingDateTxt, "DD/MM/YYYY").toDate();
             $scope.project.trainingStart = moment($scope.project.trainingStartTxt, "DD/MM/YYYY").toDate();
+        	$scope.demande.project = $scope.project;
         	console.log($scope.demande);
             Demande.update($scope.demande, false).then(function(result){
             	$state.go('renouveler/summary');

@@ -22,6 +22,10 @@ angular.module('sejourApp')
 	        		        $scope.nbDecision = result.nbDecision;
         				});
         			}
+        		} else {
+        			if($rootScope.userType == 'agent') {
+        				$state.go('login');
+        			}
         		}
         	});
         }

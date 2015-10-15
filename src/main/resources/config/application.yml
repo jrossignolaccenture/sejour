@@ -17,7 +17,7 @@ mail:
     host: smtp.gmail.com
     port: 587
     username: sejour.sief@gmail.com
-    password: sejour2015
+    password: sief1234
     protocol: smtp
     tls: true
     auth: true

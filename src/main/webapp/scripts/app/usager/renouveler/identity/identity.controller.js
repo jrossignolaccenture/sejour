@@ -18,7 +18,9 @@ angular.module('sejourApp')
             Demande.getInProgressDemande($scope.account.email).then(function(result) {
             	$scope.demande = result;
                 $scope.identity = result.identity;
-                $scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
+                if($scope.identity != null && $scope.identity.birthDateTxt != null){
+                	$scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
+                }
             });
             
             Country.get().then(function(result) {
@@ -33,6 +35,7 @@ angular.module('sejourApp')
         
         $scope.save = function () {
         	$scope.identity.birthDate = moment($scope.identity.birthDateTxt, "DD/MM/YYYY").toDate();
+        	$scope.demande.identity = $scope.identity;
         	console.log($scope.demande);
             Demande.update($scope.demande, false).then(function(result){
             	$state.go('renouveler/address');
