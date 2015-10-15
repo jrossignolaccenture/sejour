@@ -128,7 +128,7 @@
 			</div>
 			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
 				<div class="col-sm-5">
-					<div class="form-group">
+					<div class="form-group" ng-if="demande.type == 'premiere'">
 			            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
 				        <div class="input-group date">
 					        <span class="input-group-addon">

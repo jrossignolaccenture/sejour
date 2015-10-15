@@ -27,8 +27,8 @@ angular.module('sejourApp')
     	$scope.demande.project.trainingStartTxt = moment(currentDemande.project.trainingStart).format("DD/MM/YYYY");
     	$scope.demande.identity.birthDateTxt = moment(currentDemande.identity.birthDate).format("DD/MM/YYYY");
     	$scope.studentName = currentDemande.identity.firstName + " " + currentDemande.identity.lastName;
-    	$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com.png", title: "project.form.inscriptionCertificate"});
-    	$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com.png", title: "project.form.resourceProof"});
+    	$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com_renouvellement.png", title: "project.form.inscriptionCertificate"});
+    	$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com_renouvellement.png", title: "project.form.resourceProof"});
     	$scope.project.currentImg = $scope.project.images[$scope.project.currentImgIndex];
     	$scope.identity.images.push({src: "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg", title: "identity.form.passport"});
     	$scope.identity.images.push({src: "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png", title: "identity.form.birthAct"});

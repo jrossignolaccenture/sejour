@@ -27,8 +27,13 @@ angular.module('sejourApp')
     	$scope.demande.project.trainingStartTxt = $scope.getFormattedDate(currentDemande.project.trainingStart);
     	$scope.demande.identity.birthDateTxt = $scope.getFormattedDate(currentDemande.identity.birthDate);
     	$scope.studentName = currentDemande.identity.firstName + " " + currentDemande.identity.lastName;
-    	$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com.png", title: "project.form.inscriptionCertificate"});
-    	$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com.png", title: "project.form.resourceProof"});
+    	if($scope.demande.type == 'premiere'){
+    		$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com.png", title: "project.form.inscriptionCertificate"});
+    		$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com.png", title: "project.form.resourceProof"});
+    	} else {
+    		$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com_renouvellement.png", title: "project.form.inscriptionCertificate"});
+    		$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com_renouvellement.png", title: "project.form.resourceProof"});
+    	}
     	$scope.project.currentImg = $scope.project.images[$scope.project.currentImgIndex];
     	$scope.identity.images.push({src: "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg", title: "identity.form.passport"});
     	$scope.identity.images.push({src: "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png", title: "identity.form.birthAct"});
@@ -42,7 +47,7 @@ angular.module('sejourApp')
             	$scope.demandeArchived = result;
             	$scope.identityValidationDate = $scope.demandeArchived.rdvDate;
             	$scope.historyStartDate = $scope.getFormattedDate(moment($scope.demandeArchived.project.trainingStart));
-            	$scope.historyEndDate = $scope.getFormattedDate(moment($scope.demandeArchived.project.trainingStart).add($scope.demandeArchived.project.trainingLength, 'M'));
+            	$scope.historyEndDate = $scope.getFormattedDate(moment($scope.demandeArchived.project.trainingStart).add($scope.demandeArchived.project.trainingLength, 'M').subtract(1, 'd'));
             });
     	}
     	

@@ -2,10 +2,11 @@
 	"final" : {
 		"form": {
     		"success": "Votre paiement s'est déroulé avec succès",
-    		"recevability": "La recevabilité de votre dossier va être vérifiée par l'Administration des étrangers en France.<br>Si votre dossier n'est pas recevable, nous vous indiquerons les raisons et vous préciserons le(s) élément(s) manquant(s) le cas échéant.<br>Si votre dossier est recevable, votre dossier sera instruit et vous recevrez une notification de la décision.",
+    		"recevability": "La recevabilité de votre dossier va être vérifiée par l'Administration des étrangers en France.<br>Si votre dossier est recevable, nous vous enverrons une notification de confirmation vous invitant à finaliser le dépôt de votre demande.<br>Si votre dossier n'est pas recevable, nous vous indiquerons les raisons et vous préciserons le(s) élément(s) manquant(s) le cas échéant.",
+    		"recevability.renouvellement": "La recevabilité de votre dossier va être vérifiée par l'Administration des étrangers en France.<br>Si votre dossier n'est pas recevable, nous vous indiquerons les raisons et vous préciserons le(s) élément(s) manquant(s) le cas échéant.",
     		"rdv": "Lors du rendez-vous à l'Ambassade de France à Séoul, l'authenticité de votre passeport et de vos documents d'état civil sera vérifiée, et vos données biométriques enregistrées.",
-    		"decision": "A l'issue du rendez-vous, votre dossier sera instruit et vous recevrez une notification de la décision.<br>Si la décision est favorable et après débit des taxes de séjour, vous serez invité(e) à venir récupérer votre titre de séjour lorsqu'il est prêt. <br>Si la décision est défavorable, vous serez informé(e) sur les voies de recours dont vous disposez.",
-			"decision.renouvellement": "Votre dossier sera ensuite instruit et vous recevrez une notification de la décision.<br>Si la décision est favorable et après débit des taxes de séjour, vous serez invité(e) à venir récupérer votre titre de séjour lorsqu'il est prêt. <br>Si la décision est défavorable, vous serez informé(e) sur les voies de recours dont vous disposez."
+    		"decision": "A l'issue du rendez-vous, votre dossier sera instruit et vous recevrez une notification de la décision.<br>Si la décision est favorable et après débit des taxes de séjour, vous serez invité(e) à venir récupérer votre titre de séjour lorsqu'il sera disponible. <br>Si la décision est défavorable, vous serez informé(e) sur les voies de recours dont vous disposez.",
+			"decision.renouvellement": "Si votre dossier est recevable, votre dossier sera instruit et vous recevrez une notification de la décision.<br>Si la décision est favorable et après débit des taxes de séjour, vous serez invité(e) à venir récupérer votre titre de séjour lorsqu'il sera disponible. <br>Si la décision est défavorable, vous serez informé(e) sur les voies de recours dont vous disposez."
 		}
 	}
 }
