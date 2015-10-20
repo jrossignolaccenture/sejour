@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('EtudierUsagerController', function ($rootScope, $scope, $state, Demande) {
+    .controller('EtudierUsagerController', function ($rootScope, $scope, $state, Application) {
     	
-        $scope.initRequest = function(){
-            Demande.init().then(function(){
-            	$state.go('etudier/identity');
+        $scope.initRequest = function() {
+            Application.create('premiere', 'sejour_etudiant').then(function(id) {
+            	$state.go('identity', {base: 'etudier', id: id});
             });
         }
     });

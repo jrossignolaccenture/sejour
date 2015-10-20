@@ -1,10 +1,7 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('AccountUsagerController', function ($scope, $state, Demande) {
+    .controller('AccountUsagerController', function ($scope, $state, userApplications) {
     	
-    	$scope.nbApplication = 0;
-    	Demande.getCurrentCount().then(function(result) {
-	        $scope.nbApplication = result;
-		});
+    	$scope.nbApplication = userApplications.length;
     });

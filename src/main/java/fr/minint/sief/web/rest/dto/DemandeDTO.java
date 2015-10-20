@@ -49,7 +49,7 @@ public class DemandeDTO implements Serializable {
     
     private DateTime paymentDate;
     
-    private DateTime recevabilityDate;
+    private DateTime admissibilityDate;
     
     private DateTime rdvDate;
     
@@ -155,12 +155,12 @@ public class DemandeDTO implements Serializable {
 		this.paymentDate = paymentDate;
 	}
 
-	public DateTime getRecevabilityDate() {
-		return recevabilityDate;
+	public DateTime getAdmissibilityDate() {
+		return admissibilityDate;
 	}
 
-	public void setRecevabilityDate(DateTime recevabilityDate) {
-		this.recevabilityDate = recevabilityDate;
+	public void setAdmissibilityDate(DateTime admissibilityDate) {
+		this.admissibilityDate = admissibilityDate;
 	}
 
 	public DateTime getRdvDate() {
@@ -231,7 +231,7 @@ public class DemandeDTO implements Serializable {
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
                 ", paymentDate='" + paymentDate + "'" +
-                ", recevabilityDate='" + recevabilityDate + "'" +
+                ", admissibilityDate='" + admissibilityDate + "'" +
                 ", rdv='" + rdvDate + "'" +
                 ", documentsDate='" + documentsDate + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +

@@ -4,70 +4,69 @@
     </div>
 	<br><br>
 	
-	<div class="row" ng-show="demandes.length == 0">
+	<div class="row" ng-show="userApplications.length == 0">
 		<div class="col-sm-10 col-sm-offset-1">
 	    	<h5 translate="application.list.noApplication">No application</h5>
 	    </div>
 	</div>	
 	
-	<div ng-repeat="demande in demandes">
+	<div ng-repeat="application in userApplications">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<div class="collapsable-panel" ng-class="{'opened': demande.opened}" ng-click="demande.opened = !demande.opened">
+				<div class="collapsable-panel" ng-class="{'opened': application.opened}" ng-click="application.opened = !application.opened">
 					<div class="panel-heading">
-						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': demande.opened, 'glyphicon-triangle-bottom': !demande.opened}"></span>
+						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': application.opened, 'glyphicon-triangle-bottom': !application.opened}"></span>
 						<h5 class="panel-title" 
-							ng-if="!demande.decisionDate"
-							translate="application.list.title.{{demande.type}}.created.{{demande.nature}}"
-							translate-values="{creationDate: '{{getFormattedDate(demande.creationDate)}}'}">Application</h5>
+							ng-if="!application.decisionDate"
+							translate="application.list.title.{{application.type}}.created.{{application.nature}}"
+							translate-values="{creationDate: '{{getFormattedDate(application.creationDate)}}'}">Application</h5>
 						<h5 class="panel-title" 
-							ng-if="demande.decisionDate"
-							translate="application.list.title.{{demande.type}}.validated.{{demande.nature}}"
-							translate-values="{decisionDate: '{{getFormattedDate(demande.decisionDate)}}'}">Application</h5>
+							ng-if="application.decisionDate"
+							translate="application.list.title.{{application.type}}.validated.{{application.nature}}"
+							translate-values="{decisionDate: '{{getFormattedDate(application.decisionDate)}}'}">Application</h5>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row" ng-show="demande.opened">
+		<div class="row" ng-show="application.opened">
 			<div class="col-sm-10 col-sm-offset-1">
-				<a href="" class="detail-link" ng-if="demande.statut !== 'draft'" ng-click="goToDetail(demande.type, demande.id)">
+				<a href="" class="detail-link" ng-if="application.statut !== 'draft'" ng-click="goToDetail(application.type, application.id)">
 					<span class="glyphicon glyphicon-search"></span>
 					<span translate="application.list.detail"></span>
 				</a>
 				<ul style="line-height: 2">
-					<li ng-if="demande.statut == 'draft'"
+					<li ng-if="application.statut === 'draft'"
 						translate="application.list.modified" 
-						translate-values="{ modificationDate: '{{getFormattedDate(demande.modificationDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
-					<li ng-if="demande.statut == 'payment' || demande.paymentDate"
+						translate-values="{ modificationDate: '{{getFormattedDate(application.modificationDate)}}', userName: '{{application.identity.firstName}} {{application.identity.lastName}}'}"></li>
+					<li ng-if="application.paymentDate"
 						translate="application.list.submit" 
-						translate-values="{ submitDate: '{{getFormattedDate(demande.modificationDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
-					<li ng-if="demande.paymentDate"
+						translate-values="{ submitDate: '{{getFormattedDate(application.modificationDate)}}', userName: '{{application.identity.firstName}} {{application.identity.lastName}}'}"></li>
+					<li ng-if="application.paymentDate"
 						translate="application.list.payment"
-						translate-values="{ paymentDate: '{{getFormattedDate(demande.paymentDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
-					<li ng-if="demande.statut == 'recevability'"
-						translate="application.list.recevability.wait"></li>
-					<li ng-if="demande.recevabilityDate"
-						translate="application.list.recevability" 
-						translate-values="{ recevabilityDate: '{{getFormattedDate(demande.recevabilityDate)}}'}"></li>
-					<li ng-if="demande.rdvDate && demande.statut == 'identification'"
-						translate="application.list.rdv.future" 
-						translate-values="{ rdvDate: '{{getFormattedDate(demande.rdvDate)}}', rdvHour: '{{getFormattedHour(demande.rdvDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
-					<li ng-if="demande.rdvDate && demande.statut != 'identification'"
+						translate-values="{ paymentDate: '{{getFormattedDate(application.paymentDate)}}', userName: '{{application.identity.firstName}} {{application.identity.lastName}}'}"></li>
+					<li ng-if="application.statut === 'paid'"
+						translate="application.list.admissibility.wait"></li>
+					<li ng-if="application.admissibilityDate"
+						translate="application.list.admissibility" 
+						translate-values="{ admissibilityDate: '{{getFormattedDate(application.admissibilityDate)}}'}"></li>
+					<li ng-if="application.statut === 'scheduled'"
+						translate="application.list.rdv.future"
+						translate-values="{ rdvDate: '{{getFormattedDate(application.rdvDate)}}', rdvHour: '{{getFormattedHour(application.rdvDate)}}', userName: '{{application.identity.firstName}} {{application.identity.lastName}}'}"></li>
+					<li ng-if="application.rdvDate && application.statut !== 'scheduled'"
 						translate="application.list.rdv.passed" 
-						translate-values="{ rdvDate: '{{getFormattedDate(demande.rdvDate)}}', userName: '{{demande.identity.firstName}} {{demande.identity.lastName}}'}"></li>
-					<li ng-if="demande.statut == 'decision'"
+						translate-values="{ rdvDate: '{{getFormattedDate(application.rdvDate)}}', userName: '{{application.identity.firstName}} {{application.identity.lastName}}'}"></li>
+					<li ng-if="application.statut === 'identity_verified'"
 						translate="application.list.decision.wait"></li>
-					<li ng-if="demande.decisionDate"
+					<li ng-if="application.statut === 'validated'"
 						translate="application.list.decision" 
-						translate-values="{ decisionDate: '{{getFormattedDate(demande.decisionDate)}}'}"></li>
+						translate-values="{ decisionDate: '{{getFormattedDate(application.decisionDate)}}'}"></li>
 				</ul>
 			</div>
 		</div>
-		<div class="row row-center" style="margin-top: 10px;" ng-show="demande.opened">
-	    	<button class="btn btn-danger" translate="application.button.delete" ng-if="demande.statut == 'draft'" ng-click="remove(demande.id)">Delete</button>
-	    	<button class="btn btn-success btn-right" translate="application.button.continue" ng-if="demande.statut == 'draft'" ng-click="goToDraft(demande.type)">Continue</button>
-	    	<button class="btn btn-success" translate="application.button.payment" ng-if="demande.statut == 'payment'" ng-click="goToPayment(demande.type)">RDV</button>
-	    	<button class="btn btn-success" translate="application.button.rdv" ng-if="demande.statut == 'rdv'" ui-sref="etudier/rdv">RDV</button>
+		<div class="row row-center" style="margin-top: 10px;" ng-show="application.opened">
+	    	<button class="btn btn-danger" translate="application.button.delete" ng-if="application.statut === 'draft'" ng-click="delete(application.id)">Delete</button>
+	    	<button class="btn btn-success btn-right" translate="application.button.continue" ng-if="application.statut === 'draft'" ng-click="goToDraft(application.type, application.id)">Continue</button>
+	    	<button class="btn btn-success" translate="application.button.rdv" ng-if="application.statut === 'receivable'" ng-click="goToRdv(application.type, application.id)">RDV</button>
 		</div>
 		<br>
 		<br>

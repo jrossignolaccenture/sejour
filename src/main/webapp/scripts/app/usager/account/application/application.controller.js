@@ -1,19 +1,11 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('ApplicationController', function ($scope, $state, Demande) {
+    .controller('ApplicationController', function ($scope, $state, Application, userApplications) {
 
-    	$scope.demandes = [];
-
-        Demande.getAll().then(function(result){
-        	$scope.demandes = result;
-        	var length = $scope.demandes.length;
-        	for(var i=0; i<length; i++){
-        		if(i==0){
-        			$scope.demandes[i].opened = true;
-        		}
-        	}
-        });
+    	$scope.userApplications = userApplications;
+    	
+    	openFirstApplication()
     	
     	$scope.getFormattedDate = function(date){
     		return moment(date).format("DD/MM/YYYY");
@@ -24,41 +16,32 @@ angular.module('sejourApp')
     	}
     	
     	$scope.goToDetail = function(type, id){
-    		if(type == 'premiere'){
-    			$state.go('etudier/detail', {id: id});
-    		} else{
-    			$state.go('renouveler/detail', {id: id});
-    		}
+    		$state.go('summary', {base: type === 'premiere' ? 'etudier' : 'renouveler', id: id});
     	}
     	
-    	$scope.remove = function(id){
-    		Demande.remove(id).then(function(){
-            	var length = $scope.demandes.length;
-    			for(var i=0; i<length; i++){
-    				if($scope.demandes[i].id == id){
-    					$scope.demandes.splice(i, 1);
-    					if($scope.demandes.length>0){
-    						$scope.demandes[0].opened = true;
-    					}
+    	$scope.goToDraft = function(type, id){
+    		$state.go('identity', {base: type === 'premiere' ? 'etudier' : 'renouveler', id: id});
+    	}
+    	
+    	$scope.goToRdv = function(type, id){
+    		$state.go('rdv', {base: type === 'premiere' ? 'etudier' : 'renouveler', id: id});
+    	}
+    	
+    	$scope.delete = function(id) {
+    		Application.delete(id).then(function() {
+    			for(var i=0; i<$scope.userApplications.length; i++) {
+    				if($scope.userApplications[i].id == id) {
+    					$scope.userApplications.splice(i, 1);
     					break;
     				}
             	}
+    			openFirstApplication();
     		});
     	}
     	
-    	$scope.goToDraft = function(type){
-    		if(type == 'premiere'){
-    			$state.go('etudier/identity');
-    		} else {
-    			$state.go('renouveler/identity');
-    		}
-    	}
-    	
-    	$scope.goToPayment = function(type){
-    		if(type == 'premiere'){
-    			$state.go('etudier/payment');
-    		} else {
-    			$state.go('renouveler/payment');
-    		}
+    	function openFirstApplication(){
+    		if($scope.userApplications.length > 0) {
+				$scope.userApplications[0].opened = true;
+			}
     	}
     });

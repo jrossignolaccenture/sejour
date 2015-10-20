@@ -52,13 +52,13 @@
     <div class="row" ng-switch-when="agent">
     	<div class="col-sm-7 col-md-8">
 		    <div class="row">
-	        	<box-menu class="box-badge" boxtitle="main.agent.title.verify" boxlogo="check" boxbadge="{{nbRecevability}}" ui-sref="etudier/recevability/list"></box-menu>
+	        	<box-menu class="box-badge" boxtitle="main.agent.title.verify" boxlogo="check" boxbadge="{{nbPaid}}" ui-sref="admissibility/list"></box-menu>
 	        </div>
 		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.rdv.drive" boxlogo="calendar-check-o" boxbadge="{{nbRdv}}" ui-sref="etudier/identification"></box-menu>
+		        <box-menu class="box-badge" boxtitle="main.agent.title.rdv.drive" boxlogo="calendar-check-o" boxbadge="{{nbScheduled}}" ui-sref="identification/list"></box-menu>
 	        </div>
 		    <div class="row">
-		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbDecision}}" ui-sref="etudier/validation/list"></box-menu>
+		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbIdentityVerified}}" ui-sref="validation/list"></box-menu>
 	        </div>
         </div>
         <div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1">

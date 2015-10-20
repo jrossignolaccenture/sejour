@@ -1,0 +1,269 @@
+<div ng-cloak>
+    <div class="row title-underscore">
+    	<h4 translate="agent.title.{{application.type}}.{{application.nature}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    </div>
+	<br><br>
+	
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': identityOpened, 'glyphicon-triangle-bottom': !identityOpened}"></span>
+					<h5 class="panel-title" translate="admissibility.form.identity">Identity</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!identityValidated" ng-click="identityValidated = !identityValidated; identityOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="identityValidated" ng-click="identityValidated = !identityValidated">
+			<span translate="admissibility.form.toVerify" ng-show="!identityValidated">To validate</span>
+			<span translate="admissibility.form.verified" ng-show="identityValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="identityOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': identityOpened}">
+				<div class="col-sm-5">
+					<div class="form-group">
+				        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
+				        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="application.identity.lastName" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
+				        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="application.identity.usedLastName" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
+				        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="application.identity.firstName" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.sex" for="field_sex">Sex</label>
+				        <div>
+					        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="application.identity.sex" value="F" disabled>{{'sejourApp.SexType.F' | translate}}</label>
+							<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="application.identity.sex" value="M" disabled>{{'sejourApp.SexType.M' | translate}}</label>
+		                </div>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
+				        <div class="input-group date">
+					        <span class="input-group-addon">
+		                        <span class="fa fa-calendar"></span>
+		                    </span>
+		                    <input type="text" class="form-control"
+						           name="birthDateTxt" id="field_birthDateTxt"
+						           ng-model="application.identity.birthDateTxt"
+						           placeholder="{{'global.form.date.format' | translate}}" readonly="readonly">
+						</div>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
+				        <input type="text" class="form-control" name="birthCity" id="field_birthCity"
+				                ng-model="application.identity.birthCity" readonly="readonly">
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
+				        <select class="form-control" name="birthCountry" id="field_birthCountry"
+						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+						      ng-model="application.identity.birthCountry" disabled></select>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
+				        <select class="form-control" name="nationality" id="field_nationality"
+						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+						      ng-model="application.identity.nationality" disabled></select>
+				    </div>
+				    <div class="form-group">
+				        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
+				        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="application.identity.passportNumber" readonly="readonly">
+				    </div>
+				</div>
+				<div class="col-sm-7" ng-if="application.type == 'premiere'">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="text-align: center">
+							<span class="glyphicon glyphicon-arrow-right hand" ng-show="application.identity.images.length > 1" ng-click="nextImg(application.identity)" style="float: right;"></span>
+							<span class="glyphicon glyphicon-arrow-left hand" ng-show="application.identity.images.length > 1" ng-click="previousImg(application.identity)" style="float: left;"></span>
+							<span translate="{{application.identity.currentImg.title}}"></span><span> ({{application.identity.currentImgIndex + 1}}/{{application.identity.images.length}})</span>
+						</div>
+						<div class="panel-body">
+							<img ng-src="{{application.identity.currentImg.src}}" class="img-responsive">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" ng-show="application.type == 'renouvellement'">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': addressOpened}" ng-click="addressOpened = !addressOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': addressOpened, 'glyphicon-triangle-bottom': !addressOpened}"></span>
+					<h5 class="panel-title" translate="admissibility.form.address">Address</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!addressValidated" ng-click="addressValidated = !addressValidated; addressOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="addressValidated" ng-click="addressValidated = !addressValidated">
+			<span translate="admissibility.form.toVerify" ng-show="!addressValidated">To validate</span>
+			<span translate="admissibility.form.verified" ng-show="addressValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="addressOpened && application.type == 'renouvellement'">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': addressOpened}">
+				<div class="col-sm-5">
+					<div class="form-group">
+			            <label translate="address.form.owner" for="field_owner">Owner</label>
+			            <input type="text" class="form-control" name="owner" id="field_owner"
+			                    ng-model="application.address.owner" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.number" for="field_number">Number</label>
+			            <input type="text" class="form-control" name="number" id="field_number" ng-model="application.address.number" 
+			            		readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.street" for="field_street">Street</label>
+			            <input type="text" class="form-control" name="street" id="field_street"
+			                    ng-model="application.address.street" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.complement" for="field_complement">Complement</label>
+			            <input type="text" class="form-control" name="complement" id="field_complement"
+			                    ng-model="application.address.complement" readonly="readonly">
+			
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.postalCode" for="field_postalCode">PostalCode</label>
+			            <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+			                    ng-model="application.address.postalCode" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.city" for="field_city">City</label>
+			            <input type="text" class="form-control" name="city" id="field_city"
+			                    ng-model="application.address.city" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.country" for="field_country">Country</label>
+			            <select class="form-control" name="country" id="field_country"
+						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+						      ng-model="application.address.country" disabled></select>
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.phone" for="field_phone">Phone</label>
+			            <input type="text" class="form-control" name="phone" id="field_phone"
+			                    ng-model="application.address.phone" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.email" for="field_email">Email</label>
+			            <input type="text" class="form-control" name="email" id="field_email"
+			                    ng-model="application.address.email" readonly="readonly">
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': projectOpened, 'glyphicon-triangle-bottom': !projectOpened}"></span>
+					<h5 class="panel-title" translate="admissibility.form.project">Project</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!projectValidated" ng-click="projectValidated = !projectValidated; projectOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="projectValidated" ng-click="projectValidated = !projectValidated">
+			<span translate="admissibility.form.toVerify" ng-show="!projectValidated">To validate</span>
+			<span translate="admissibility.form.verified" ng-show="projectValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="projectOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
+				<div class="col-sm-5">
+					<div class="form-group" ng-if="application.type == 'premiere'">
+			            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
+				        <div class="input-group date">
+					        <span class="input-group-addon">
+		                        <span class="fa fa-calendar"></span>
+		                    </span>
+		                    <input type="text" class="form-control"
+						           name="comingDateTxt" id="field_comingDateTxt"
+						           ng-model="application.project.comingDateTxt"
+						           placeholder="{{'global.form.date.format' | translate}}"
+						           readonly="readonly">
+						</div>
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.university" for="field_university">University</label>
+			            <input type="text" class="form-control" name="university" id="field_university"
+			                    ng-model="application.project.university" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.training" for="field_training">Training</label>
+			            <input type="text" class="form-control" name="training" id="field_training"
+			                    ng-model="application.project.training" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
+				        <div class="input-group date">
+					        <span class="input-group-addon">
+		                        <span class="fa fa-calendar"></span>
+		                    </span>
+		                    <input type="text" class="form-control"
+						           name="trainingStartTxt" id="field_trainingStartTxt"
+						           ng-model="application.project.trainingStartTxt"
+						           placeholder="{{'global.form.date.format' | translate}}"
+						           readonly="readonly">
+						</div>
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
+			            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
+			                    ng-model="application.project.trainingLength" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.resourceType" for="field_resourceType">ResourceType</label>
+			            <select class="form-control" name="resourceType" ng-model="application.project.resourceType" id="field_resourceType" disabled>
+			                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
+			                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
+			                <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
+			                <option value="month" translate="sejourApp.ResourceType.month">month</option>
+			            </select>
+			        </div>
+			        <div class="form-group">
+			            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
+			            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount"
+			                    ng-model="application.project.resourceAmount" readonly="readonly">
+			        </div>
+				</div>
+				<div class="col-sm-7">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="text-align: center">
+							<span class="glyphicon glyphicon-arrow-right hand" ng-show="application.project.images.length > 1" ng-click="nextImg(application.project)" style="float: right;"></span>
+							<span class="glyphicon glyphicon-arrow-left hand" ng-show="application.project.images.length > 1" ng-click="previousImg(application.project)" style="float: left;"></span>
+							<span translate="{{application.project.currentImg.title}}"></span><span> ({{application.project.currentImgIndex + 1}}/{{application.project.images.length}})</span>
+						</div>
+						<div class="panel-body">
+							<img ng-src="{{application.project.currentImg.src}}" class="img-responsive">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row row-center">
+    	<button class="btn btn-danger" translate="admissibility.form.button.decline">Decline</button>
+    	<button class="btn btn-success btn-right" translate="admissibility.form.button.accept"
+    			 ng-disabled="!identityValidated || (application.type == 'renouvellement' && !addressValidated) || !projectValidated"
+    			 ng-click="verify()">Accept</button>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

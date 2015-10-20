@@ -17,6 +17,9 @@ angular.module('sejourApp')
                     }
                 },
                 resolve: {
+	            	userApplications: ['Application', function(Application) {
+                        return Application.get();
+                    }],
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('account');
                         return $translate.refresh();

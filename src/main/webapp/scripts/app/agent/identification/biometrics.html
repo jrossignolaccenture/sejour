@@ -1,0 +1,118 @@
+<div ng-cloak>
+    <div class="row title-underscore">
+    	<h4 translate="agent.title.{{application.type}}.{{application.nature}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    </div>
+	<br><br>
+	
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': photoOpened}" ng-click="photoOpened = !photoOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': photoOpened, 'glyphicon-triangle-bottom': !photoOpened}"></span>
+					<h5 class="panel-title" translate="identification.biometrics.photo">photo</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!photoValidated" ng-click="validatePhoto()">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="photoValidated" ng-click="validatePhoto()">
+			<span translate="identification.biometrics.toValidate" ng-show="!photoValidated">To validate</span>
+			<span translate="identification.biometrics.validated" ng-show="photoValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="photoOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': photoOpened}">
+				<div class="col-xs-12 col-sm-6" ng-show="!photoValidated">
+					<ng-camera
+					    viewer-height="400"
+					    viewer-width="700"
+					    crop-height="400"
+					    crop-width="311"
+					    image-format="png"
+					    jpeg-quality="100"
+					    action-message="{{photoButtonText}}"
+					    snapshot="webcamphoto"
+					    overlay-url="assets/images/photo_overlay.png"></ng-camera>
+				</div>
+				<div class="col-xs-12 col-sm-6" ng-show="webcamphoto">
+				    <img src="{{webcamphoto}}" class="img-responsive thumbnail" style="max-width: 311px;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': fingerprintsOpened}" ng-click="fingerprintsOpened = !fingerprintsOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': fingerprintsOpened, 'glyphicon-triangle-bottom': !fingerprintsOpened}"></span>
+					<h5 class="panel-title" translate="identification.biometrics.fingerprints">fingerprints</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!fingerprintsValidated" ng-click="validateFingerprints()">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="fingerprintsValidated" ng-click="validateFingerprints()">
+			<span translate="identification.biometrics.toValidate" ng-show="!fingerprintsValidated">To validate</span>
+			<span translate="identification.biometrics.validated" ng-show="fingerprintsValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="fingerprintsOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': fingerprintsOpened}">
+				<div class="col-xs-12">
+					<div ng-show="!fingerprints">
+						<button class="btn btn-primary" translate="identification.biometrics.button.fingerprints" style="width:311px;" ng-click="activateFingerprints()">Fingerprints</button>
+					</div>
+					<img class="img-responsive thumbnail" src="assets/images/Handprints.gif" ng-if="fingerprints" width="800px" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': signatureOpened}" ng-click="signatureOpened = !signatureOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': signatureOpened, 'glyphicon-triangle-bottom': !signatureOpened}"></span>
+					<h5 class="panel-title" translate="identification.biometrics.signature">signature</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!signatureValidated" onclick="angular.element(this).scope().validateSignature(signaturepad);">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="signatureValidated" onclick="angular.element(this).scope().validateSignature(signaturepad);">
+			<span translate="identification.biometrics.toValidate" ng-show="!signatureValidated">To validate</span>
+			<span translate="identification.biometrics.validated" ng-show="signatureValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="signatureOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': signatureOpened}">
+				<div class="col-xs-12 col-sm-6" ng-show="!signatureValidated">
+					<canvas class="thumbnail" id="signature-pad" width="400" height="200"></canvas>
+					<button class="btn btn-primary btn-signature" 
+							onclick="angular.element(this).scope().clearSignature(signaturepad)" 
+							translate="identification.biometrics.button.signature.clear">Clear</button>
+				</div>
+				<div class="col-xs-12 col-sm-6" ng-show="padsignature">
+				    <img src="{{padsignature}}" class="img-responsive thumbnail" style="max-width: 311px;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row row-center">
+    	<button class="btn btn-success" 
+    			translate="identification.biometrics.button.accept"
+    			ng-disabled="!photoValidated || !fingerprintsValidated || !signatureValidated"
+    			ng-click="certify()" >Accept</button>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	var canvas = document.getElementById("signature-pad");
+	var signaturepad = new SignaturePad(canvas);
+</script>

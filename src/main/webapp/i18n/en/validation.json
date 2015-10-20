@@ -1,14 +1,14 @@
 {
+	"applicationList": {
+		"title": "Application list for final decision",
+		"noApplication": "There is no validation to do at this time.",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"id": "Foreign number",
+		"nationality": "Nationality",
+		"applicationType": "Application type"
+	},
 	"validation" : {
-		"list": {
-			"title": "Application list for final decision",
-			"noApplication": "There is no validation to do at this time.",
-			"firstName": "First Name",
-			"lastName": "Last Name",
-			"id": "Foreign number",
-			"nationality": "Nationality",
-			"applicationType": "Application type"
-		},
 		"form": {
 	    	"identity": "User identity",
 	    	"preinscription": "(Pre)Inscription confirm on {{confirmationDate}} - {{confirmationAuthor}}",

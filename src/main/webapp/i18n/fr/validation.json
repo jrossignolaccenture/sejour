@@ -1,14 +1,14 @@
 {
+	"applicationList": {
+		"title": "Liste des demandes pour décision finale",
+		"noApplication": "Aucune demande à valider actuellement.",
+		"firstName": "Prénom",
+		"lastName": "Nom",
+		"id": "Numéro étranger",
+		"nationality": "Nationalité",
+		"applicationType": "Type de demande"
+	},
 	"validation" : {
-		"list": {
-			"title": "Liste des demandes pour décision finale",
-			"noApplication": "Aucune demande à valider actuellement.",
-			"firstName": "Prénom",
-			"lastName": "Nom",
-			"id": "Numéro étranger",
-			"nationality": "Nationalité",
-			"applicationType": "Type de demande"
-		},
 		"form": {
 	    	"identity": "Identité de l'usager",
 	    	"preinscription": "(Pré) inscription confirmée le {{confirmationDate}} - {{confirmationAuthor}}",

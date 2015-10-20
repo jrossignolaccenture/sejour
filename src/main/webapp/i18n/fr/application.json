@@ -16,8 +16,8 @@
 			"modified": "Demande modifiée le {{modificationDate}} - {{userName}}",
 			"submit": "Demande déposée le {{submitDate}} - {{userName}}",
 			"payment": "Paiement effectué le {{paymentDate}} - {{userName}}",
-			"recevability.wait": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
-			"recevability": "Recevabilité de la demande vérifiée le {{recevabilityDate}} - Administration des étrangers en France",
+			"admissibility.wait": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
+			"admissibility": "Recevabilité de la demande vérifiée le {{admissibilityDate}} - Administration des étrangers en France",
 			"rdv.future": "Rendez-vous confirmé le {{rdvDate}} à {{rdvHour}} - {{userName}}",
 			"rdv.passed": "Rendez-vous réalisé le {{rdvDate}} - {{userName}}",
 			"decision.wait": "En attente d'instruction et décision par l'administration des étrangers en France",
@@ -27,7 +27,6 @@
 	    "button": {
     		"continue": "Reprendre",
     		"delete": "Supprimer",
-    		"payment": "Valider le paiement",
     		"rdv": "Prendre rendez-vous"
 		}
 	}

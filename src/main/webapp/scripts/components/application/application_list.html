@@ -1,0 +1,97 @@
+<div ng-cloak>
+    <div class="row title-underscore">
+    	<h4 translate="applicationList.title"></h4>
+    </div>
+	<br><br>
+	
+	<div class="row">
+		<div class="col-xs-12 list" ng-if="applications.length == 0">
+	    	<h5 translate="applicationList.noApplication">No application</h5>
+	    </div>
+		<div class="col-xs-12 list" ng-if="applications.length > 0">
+	    	<table class="table" ng-if="listType === 'admissibility'">
+				<thead>
+					<tr>
+						<th style="width:18%;" translate="applicationList.lastName"></th>
+						<th style="width:18%;" translate="applicationList.firstName"></th>
+						<th style="width:18%;" translate="applicationList.nationality"></th>
+						<th style="width:28%;" translate="applicationList.applicationType"></th>
+						<th style="width:18%;" translate="applicationList.creationDate"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="applicationListLine" ng-repeat="application in applications" ng-click="goToDetail(application)">
+						<td>{{application.identity.lastName}}</td>
+						<td>{{application.identity.firstName}}</td>
+						<td>{{getNationality(application.identity.nationality)}}</td>
+						<td>
+							<span translate="sejourApp.TypeDemande.{{application.type}}"></span>
+							<span translate="sejourApp.NatureDemande.{{application.nature}}"></span>
+						</td>
+						<td>{{getFormattedDate(application.creationDate)}}</td>
+					</tr>
+				</tbody>
+			</table>
+	    	<table class="table" ng-if="listType === 'validation'">
+				<thead>
+					<tr>
+						<th style="width:17%;" translate="applicationList.lastName"></th>
+						<th style="width:17%;" translate="applicationList.firstName"></th>
+						<th style="width:24%;" translate="applicationList.id"></th>
+						<th style="width:17%;" translate="applicationList.nationality"></th>
+						<th style="width:25%;" translate="applicationList.applicationType"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="applicationListLine" ng-repeat="application in applications" ng-click="goToDetail(application)">
+						<td>{{application.identity.lastName}}</td>
+						<td>{{application.identity.firstName}}</td>
+						<td>{{application.userId}}</td>
+						<td>{{getNationality(application.identity.nationality)}}</td>
+						<td>
+							<span translate="sejourApp.TypeDemande.{{application.type}}"></span>
+							<span translate="sejourApp.NatureDemande.{{application.nature}}"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table" ng-if="listType === 'identification'">
+				<thead>
+					<tr>
+						<th style="width:14%;" translate="applicationList.lastName"></th>
+						<th style="width:14%;" translate="applicationList.firstName"></th>
+						<th style="width:24%;" translate="applicationList.id"></th>
+						<th style="width:24%;" translate="applicationList.applicationType"></th>
+						<th style="width:24%;" translate="applicationList.step"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="applicationListLine" ng-repeat-start="application in applications" ng-click="goToDocuments(application)" ng-if="!application.documentsDate">
+						<td>{{application.identity.lastName}}</td>
+						<td>{{application.identity.firstName}}</td>
+						<td>{{application.userId}}</td>
+						<td>
+							<span translate="sejourApp.TypeDemande.{{application.type}}"></span>
+							<span translate="sejourApp.NatureDemande.{{application.nature}}"></span>
+						</td>
+						<td translate="applicationList.documents"></td>
+					</tr>
+					<tr class="applicationListLine" ng-repeat-end ng-click="goToBiometrics(application)" ng-if="!application.biometricsDate">
+						<td>{{application.identity.lastName}}</td>
+						<td>{{application.identity.firstName}}</td>
+						<td>{{application.userId}}</td>
+						<td>
+							<span translate="sejourApp.TypeDemande.{{application.type}}"></span>
+							<span translate="sejourApp.NatureDemande.{{application.nature}}"></span>
+						</td>
+						<td translate="applicationList.biometrics"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

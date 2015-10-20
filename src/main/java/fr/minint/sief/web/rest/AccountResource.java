@@ -78,14 +78,8 @@ public class AccountResource {
             .map(user -> new ResponseEntity<>("e-mail address already in use", HttpStatus.BAD_REQUEST))
             .orElseGet(() -> {
                 User user = userService.createUserInformation(userDTO.getEmail().toLowerCase(), userDTO.getPassword(),
-                userDTO.getType(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getLangKey());
-                String baseUrl = request.getScheme() + // "http"
-                "://" +                                // "://"
-                request.getServerName() +              // "myhost"
-                ":" +                                  // ":"
-                request.getServerPort();               // "80"
-
-                mailService.sendActivationEmail(user, baseUrl);
+                				userDTO.getType(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getLangKey());
+                mailService.sendActivationEmail(user, getBaseUrl(request));
                 return new ResponseEntity<>(HttpStatus.CREATED);
             });
     }
@@ -159,14 +153,8 @@ public class AccountResource {
                 userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), 
                 		identityMapper.identityDTOToIdentity(userDTO.getIdentity()),
                 		userDTO.getComingDate(), addressMapper.addressDTOToAddress(userDTO.getFrenchAddress()), 
-                		userDTO.getEmail(),
-                    userDTO.getLangKey());
-                String baseUrl = request.getScheme() +
-                        "://" +
-                        request.getServerName() +
-                        ":" +
-                        request.getServerPort();
-                mailService.sendRenewalEmail(u, baseUrl);
+                		userDTO.getEmail(), userDTO.getLangKey());
+                mailService.sendRenewalEmail(u, getBaseUrl(request));
                 return new ResponseEntity<String>(HttpStatus.OK);
             })
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
@@ -196,9 +184,7 @@ public class AccountResource {
     @Timed
     public ResponseEntity<List<PersistentToken>> getCurrentSessions() {
         return userRepository.findOneByEmail(SecurityUtils.getCurrentLogin())
-            .map(user -> new ResponseEntity<>(
-                persistentTokenRepository.findByUser(user),
-                HttpStatus.OK))
+            .map(user -> new ResponseEntity<>(persistentTokenRepository.findByUser(user), HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
@@ -221,9 +207,10 @@ public class AccountResource {
     public void invalidateSession(@PathVariable String series) throws UnsupportedEncodingException {
         String decodedSeries = URLDecoder.decode(series, "UTF-8");
         userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
-            persistentTokenRepository.findByUser(u).stream()
-                .filter(persistentToken -> StringUtils.equals(persistentToken.getSeries(), decodedSeries))
-                .findAny().ifPresent(t -> persistentTokenRepository.delete(decodedSeries));
+            	persistentTokenRepository.findByUser(u)
+            		.stream()
+            		.filter(persistentToken -> StringUtils.equals(persistentToken.getSeries(), decodedSeries))
+            		.findAny().ifPresent(t -> persistentTokenRepository.delete(decodedSeries));
         });
     }
 
@@ -234,15 +221,11 @@ public class AccountResource {
     public ResponseEntity<?> requestPasswordReset(@RequestBody String mail, HttpServletRequest request) {
         
         return userService.requestPasswordReset(mail)
-            .map(user -> {
-                String baseUrl = request.getScheme() +
-                    "://" +
-                    request.getServerName() +
-                    ":" +
-                    request.getServerPort();
-            mailService.sendPasswordResetMail(user, baseUrl);
-            return new ResponseEntity<>("e-mail was sent", HttpStatus.OK);
-            }).orElse(new ResponseEntity<>("e-mail address not registered", HttpStatus.BAD_REQUEST));
+        		.map(user -> {
+        			mailService.sendPasswordResetMail(user, getBaseUrl(request));
+        			return new ResponseEntity<>("e-mail was sent", HttpStatus.OK);
+        		})
+        		.orElse(new ResponseEntity<>("e-mail address not registered", HttpStatus.BAD_REQUEST));
         
     }
 
@@ -255,11 +238,16 @@ public class AccountResource {
             return new ResponseEntity<>("Incorrect password", HttpStatus.BAD_REQUEST);
         }
         return userService.completePasswordReset(keyAndPassword.getNewPassword(), keyAndPassword.getKey())
-              .map(user -> new ResponseEntity<String>(HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+        		.map(user -> new ResponseEntity<String>(HttpStatus.OK))
+        		.orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     private boolean checkPasswordLength(String password) {
       return (!StringUtils.isEmpty(password) && password.length() >= UserDTO.PASSWORD_MIN_LENGTH && password.length() <= UserDTO.PASSWORD_MAX_LENGTH);
+    }
+    
+    private String getBaseUrl(HttpServletRequest request) {
+    	return request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
     }
 
 }

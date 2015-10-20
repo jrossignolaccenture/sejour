@@ -1,18 +1,17 @@
 {
+	"applicationList": {
+		"title": "Liste des demandes pour rendez-vous",
+		"noApplication": "Aucun rendez-vous actuellement.",
+		"firstName": "Prénom",
+		"lastName": "Nom",
+		"id": "Numéro étranger",
+		"applicationType": "Type de demande",
+		"step": "Etape",
+		"documents": "Certification des documents",
+		"biometrics": "Recueil de la biométrie"
+	},
 	"identification" : {
-		"list": {
-			"title": "Liste des demandes pour rendez-vous",
-			"noApplication": "Aucun rendez-vous actuellement.",
-			"firstName": "Prénom",
-			"lastName": "Nom",
-			"id": "Numéro étranger",
-			"applicationType": "Type de demande",
-			"step": "Etape",
-			"documents": "Certification des documents",
-			"biometrics": "Recueil de la biométrie"
-		},
 		"documents": {
-	    	"title": "{{studentName}} - Première demande de séjour étudiant",
 	    	"passport": "Certification de l'authenticité du passeport",
 	    	"birthAct": "Certification de l'authenticité de l'acte de naissance",
 	    	"inscriptionCertificate": "Certification de l'authenticité du certificat de (pré)inscription",
@@ -26,7 +25,6 @@
 	    	}
 		},
 		"biometrics": {
-	    	"title": "{{studentName}} - Première demande de séjour étudiant",
 	    	"photo": "Recueil de la photographie",
 	    	"fingerprints": "Recueil des empreintes digitales",
 	    	"signature": "Recueil de la signature",

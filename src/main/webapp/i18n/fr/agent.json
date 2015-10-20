@@ -1,0 +1,6 @@
+{
+    "agent": {
+        "title.premiere.sejour_etudiant": "{{studentName}} - Première demande de séjour étudiant",
+        "title.renouvellement.sejout_etudiant": "{{studentName}} - Renouvellement de séjour étudiant"
+    }
+}

@@ -9,50 +9,40 @@ public class DemandeCountDTO implements Serializable {
 	
 	private static final long serialVersionUID = -8061995948732515536L;
 	
-	private Long nbConsult = 0L;
-	private Long nbRecevability = 0L;
-	private Long nbIdentification = 0L;
-    private Long nbDecision = 0L;
-    
-    public Long getNbConsult() {
-		return nbConsult;
+	private Long nbPaid = 0L;
+	private Long nbScheduled = 0L;
+    private Long nbIdentityVerified = 0L;
+
+	public Long getNbPaid() {
+		return nbPaid;
 	}
 
-	public void setNbConsult(Long nbConsult) {
-		this.nbConsult = nbConsult;
+	public void setNbPaid(Long nbPaid) {
+		this.nbPaid = nbPaid;
 	}
 
-	public Long getNbRecevability() {
-		return nbRecevability;
+	public Long getNbScheduled() {
+		return nbScheduled;
 	}
 
-	public void setNbRecevability(Long nbRecevability) {
-		this.nbRecevability = nbRecevability;
+	public void setNbScheduled(Long nbScheduled) {
+		this.nbScheduled = nbScheduled;
 	}
 
-	public Long getNbIdentification() {
-		return nbIdentification;
+	public Long getNbIdentityVerified() {
+		return nbIdentityVerified;
 	}
 
-	public void setNbIdentification(Long nbIdentification) {
-		this.nbIdentification = nbIdentification;
-	}
-
-	public Long getNbDecision() {
-		return nbDecision;
-	}
-
-	public void setNbDecision(Long nbDecision) {
-		this.nbDecision = nbDecision;
+	public void setNbIdentityVerified(Long nbIdentityVerified) {
+		this.nbIdentityVerified = nbIdentityVerified;
 	}
 
 	@Override
     public String toString() {
         return "DemandeCountDTO{" +
-                "nbConsult=" + nbConsult +
-                ", nbRecevability='" + nbRecevability + "'" +
-                ", nbRecevability='" + nbRecevability + "'" +
-                ", nbDecision='" + nbDecision + "'" +
+                "nbPaid='" + nbPaid + "'" +
+                ", nbScheduled='" + nbScheduled + "'" +
+                ", nbIdentityVerified='" + nbIdentityVerified + "'" +
                 '}';
     }
 }

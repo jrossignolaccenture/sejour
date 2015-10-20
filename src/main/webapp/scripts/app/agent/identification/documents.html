@@ -1,0 +1,73 @@
+<div ng-cloak>
+    <div class="row title-underscore">
+    	<h4 translate="agent.title.{{application.type}}.{{application.nature}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    </div>
+	<br><br>
+	
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': passportOpened}" ng-click="passportOpened = !passportOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': passportOpened, 'glyphicon-triangle-bottom': !passportOpened}"></span>
+					<h5 class="panel-title" translate="identification.documents.passport">Passport</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!passportValidated" ng-click="passportValidated = !passportValidated; passportOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="passportValidated" ng-click="passportValidated = !passportValidated">
+			<span translate="identification.documents.toCertify" ng-show="!passportValidated">To validate</span>
+			<span translate="identification.documents.certified" ng-show="passportValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="passportOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': passportOpened}">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<img src="{{passport}}" class="img-responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': birthActOpened}" ng-click="birthActOpened = !birthActOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': birthActOpened, 'glyphicon-triangle-bottom': !birthActOpened}"></span>
+					<h5 class="panel-title" translate="identification.documents.birthAct">birthAct</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!birthActValidated" ng-click="birthActValidated = !birthActValidated; birthActOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="birthActValidated" ng-click="birthActValidated = !birthActValidated">
+			<span translate="identification.documents.toCertify" ng-show="!birthActValidated">To validate</span>
+			<span translate="identification.documents.certified" ng-show="birthActValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="birthActOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': birthActOpened}">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<img src="{{birthAct}}" class="img-responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row row-center">
+    	<button class="btn btn-success" 
+    			translate="identification.documents.button.accept"
+    			ng-disabled="!passportValidated || !birthActValidated" 
+    			ng-click="certify()" >Accept</button>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

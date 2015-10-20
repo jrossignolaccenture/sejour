@@ -76,8 +76,8 @@ public class Demande implements Serializable {
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
-    @Field("recevability_date")
-    private DateTime recevabilityDate;
+    @Field("admissibility_date")
+    private DateTime admissibilityDate;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -195,12 +195,12 @@ public class Demande implements Serializable {
 		this.paymentDate = paymentDate;
 	}
 
-	public DateTime getRecevabilityDate() {
-		return recevabilityDate;
+	public DateTime getAdmissibilityDate() {
+		return admissibilityDate;
 	}
 
-	public void setRecevabilityDate(DateTime recevabilityDate) {
-		this.recevabilityDate = recevabilityDate;
+	public void setAdmissibilityDate(DateTime admissibilityDate) {
+		this.admissibilityDate = admissibilityDate;
 	}
 
 	public DateTime getRdvDate() {
@@ -271,7 +271,7 @@ public class Demande implements Serializable {
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
                 ", paymentDate='" + getPaymentDate() + "'" +
-                ", recevabilityDate='" + recevabilityDate + "'" +
+                ", admissibilityDate='" + admissibilityDate + "'" +
                 ", rdv='" + rdvDate + "'" +
                 ", documentsDate='" + documentsDate + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
