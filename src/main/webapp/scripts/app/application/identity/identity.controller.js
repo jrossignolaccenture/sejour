@@ -13,6 +13,8 @@ angular.module('sejourApp')
 			allowInputToggle: true
         }
         
+        $scope.isRenewal = currentApplication.type === 'renouvellement';
+        
         $scope.identity = currentApplication.identity;
         if($scope.identity != null && $scope.identity.birthDate != null) {
         	$scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");

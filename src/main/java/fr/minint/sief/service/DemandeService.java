@@ -1,7 +1,7 @@
 package fr.minint.sief.service;
 
 import static fr.minint.sief.domain.enumeration.NatureDemande.sejour_etudiant;
-import static fr.minint.sief.domain.enumeration.TypeDemande.premiere;
+import static fr.minint.sief.domain.enumeration.TypeDemande.renouvellement;
 
 import java.util.List;
 
@@ -52,36 +52,6 @@ public class DemandeService {
 		return demandeRepository.findOneByEmailAndStatut(currentUser.getEmail(), statut);
 	}
 
-	public void initWithUserInfo() {
-		// Récupération info utilisateur connecté
-		User currentUser = userService.getUser();
-
-		// init demande with user info (pour les clones on verra plus tard
-		// hein...)
-		Demande demande = new Demande();
-		demande.setEmail(currentUser.getEmail());
-		demande.setType(TypeDemande.renouvellement);
-		demande.setNature(NatureDemande.sejour_etudiant);
-		demande.setModificationDate(DateTime.now());
-		demande.setUserId(currentUser.getId());
-		demande.setIdentity(currentUser.getIdentity());
-		demande.setAddress(currentUser.getFrenchAddress());
-		Project project = new Project();
-		project.setComingDate(currentUser.getComingDate());
-		project.setUniversity("Télécom Paris Tech");
-		project.setTraining("Master of Science in Multimedia Information Technologies");
-		demande.setProject(project);
-
-		// suppression précédente demande en cours
-		Demande existingDemande = getCurrentDemande(StatutDemande.draft);
-		if (existingDemande != null) {
-			demandeRepository.delete(existingDemande);
-		}
-
-		// init nouvelle demande
-		demandeRepository.save(demande);
-	}
-
 	/**
 	 * Create an application
 	 * 
@@ -98,6 +68,8 @@ public class DemandeService {
 			demandeRepository.delete(oldDraftApplication);
 		}
 
+		User currentUser = userService.getUser();
+		
 		// Create new application
 		Demande application = new Demande();
 		application.setEmail(SecurityUtils.getCurrentLogin());
@@ -105,10 +77,21 @@ public class DemandeService {
 		application.setNature(nature);
 		application.setModificationDate(DateTime.now());
 		// This is ugly for now (we don't need a user id reference in the application)
-		application.setUserId(userService.getUser().getId());
+		application.setUserId(currentUser.getId());
 
 		if (nature == sejour_etudiant) {
 			updateWithCampusInfos(application);
+		}
+		
+		if(type == renouvellement) {
+			// Get identity and address from user infos
+			application.setIdentity(currentUser.getIdentity());
+			application.setAddress(currentUser.getFrenchAddress());
+			if(application.getProject() != null) {
+				// don't need project training start and length
+				application.getProject().setTrainingStart(null);
+				application.getProject().setTrainingLength(null);
+			}
 		}
 
 		application = demandeRepository.save(application);
@@ -116,40 +99,38 @@ public class DemandeService {
 		return application.getId();
 	}
 
-	public void updateWithCampusInfos(Demande demande) {
-		// call campus (badass style)
-		if ("kim.soon.jeen@gmail.com".equals(demande.getEmail())) {
-			if (demande.getType() == premiere) {
-				// IDENTITY
-				Identity identity = new Identity();
-				identity.setLastName("Kim");
-				identity.setFirstName("Soon-jeen");
-				identity.setSex(SexType.F);
-				identity.setBirthDate(DateTime.parse("1992-12-10T00:00"));
-				identity.setBirthCity("Séoul");
-				identity.setBirthCountry("KR");
-				identity.setNationality("KR");
-				identity.setPassportNumber("5577997");
-				demande.setIdentity(identity);
-				// ADDRESS
-				Address address = new Address();
-				address.setNumber("122-1");
-				address.setStreet("Bujeon-ro");
-				address.setComplement("Busanjin-gu");
-				address.setPostalCode("614-861");
-				address.setCity("Busan");
-				address.setCountry("KR");
-				address.setPhone("+82 51 999999");
-				address.setEmail(demande.getEmail());
-				demande.setAddress(address);
-			}
+	public void updateWithCampusInfos(Demande application) {
+		// Call campus (badass style)
+		if ("kim.soon.jeen@gmail.com".equals(application.getEmail())) {
+			// IDENTITY
+			Identity identity = new Identity();
+			identity.setLastName("Kim");
+			identity.setFirstName("Soon-jeen");
+			identity.setSex(SexType.F);
+			identity.setBirthDate(DateTime.parse("1992-12-10T00:00"));
+			identity.setBirthCity("Séoul");
+			identity.setBirthCountry("KR");
+			identity.setNationality("KR");
+			identity.setPassportNumber("5577997");
+			application.setIdentity(identity);
+			// ADDRESS
+			Address address = new Address();
+			address.setNumber("122-1");
+			address.setStreet("Bujeon-ro");
+			address.setComplement("Busanjin-gu");
+			address.setPostalCode("614-861");
+			address.setCity("Busan");
+			address.setCountry("KR");
+			address.setPhone("+82 51 999999");
+			address.setEmail(application.getEmail());
+			application.setAddress(address);
 			// PROJECT
 			Project project = new Project();
 			project.setUniversity("Télécom Paris Tech");
 			project.setTraining("Master of Science in Multimedia Information Technologies");
 			project.setTrainingStart(DateTime.parse("2016-01-05T00:00"));
 			project.setTrainingLength(12);
-			demande.setProject(project);
+			application.setProject(project);
 		}
 	}
 }

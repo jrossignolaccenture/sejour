@@ -7,7 +7,8 @@ angular.module('sejourApp')
 	            parent: 'agent',
 	            url: '/validation',
 	            data: {
-	                roles: ['ROLE_AGENT']
+	                roles: ['ROLE_AGENT'],
+	                listType: 'validation'
 	            },
 	            views: {
 	                'content@': {
@@ -16,9 +17,6 @@ angular.module('sejourApp')
 	                }
 	            },
 	            resolve: {
-	            	listType: function() {
-	            		return 'validation'
-	            	},
 	            	applications: ['$stateParams', 'Application', function($stateParams, Application) {
 	                    return Application.getByStatus('identity_verified');
 	                }],

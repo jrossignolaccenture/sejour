@@ -43,7 +43,7 @@ angular.module('sejourApp')
     		$scope.identityValidationDate = $scope.application.rdvDate;
     	} else {
     		Application.getByStatus('validated', currentApplication.email).then(function(result) {
-            	$scope.applicationArchived = result;
+            	$scope.applicationArchived = result[0];
             	$scope.identityValidationDate = $scope.applicationArchived.rdvDate;
             	$scope.historyStartDate = $scope.getFormattedDate(moment($scope.applicationArchived.project.trainingStart));
             	$scope.historyEndDate = $scope.getFormattedDate(moment($scope.applicationArchived.project.trainingStart).add($scope.applicationArchived.project.trainingLength, 'M').subtract(1, 'd'));

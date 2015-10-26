@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('BiometricsController', function ($scope, $state, $translate, Application, File, currentApplication) {
     	
     	$scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
+    	$scope.application = currentApplication;
     	
     	$scope.photoValidated = false;
     	$scope.photoOpened = true;

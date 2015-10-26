@@ -17,6 +17,7 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    	$translatePartialLoader.deletePart('etudier', true); // tips to get high priority to this part
                         $translatePartialLoader.addPart('etudier');
                         return $translate.refresh();
                     }]

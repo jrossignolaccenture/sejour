@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('ApplicationListController', function ($scope, $state, Country, listType, applications) {
+    .controller('ApplicationListController', function ($scope, $state, Country, applications) {
 
-        $scope.listType = listType;
+        $scope.listType = $state.current.data.listType;
     	$scope.applications = applications;
     	
     	$scope.countries = [];

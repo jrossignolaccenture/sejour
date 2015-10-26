@@ -1,5 +1,7 @@
 package fr.minint.sief.web.rest;
 
+import static fr.minint.sief.domain.enumeration.StatutDemande.identity_verified;
+import static fr.minint.sief.domain.enumeration.StatutDemande.receivable;
 import static fr.minint.sief.domain.enumeration.TypeDemande.premiere;
 
 import java.util.LinkedList;
@@ -259,10 +261,12 @@ public class ApplicationResource {
 		log.debug("REST request to make receivable application : {}", id);
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
-					application.setStatut(StatutDemande.receivable);
+					application.setStatut(application.getType() == premiere ? receivable : identity_verified);
 					application.setAdmissibilityDate(DateTime.now());
 					applicationRepository.save(application);
-					mailService.sendApplicationReceivableEmail(application, getBaseUrl(request));
+					if(application.getType() == premiere) {
+						mailService.sendApplicationReceivableEmail(application, getBaseUrl(request));
+					}
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
@@ -361,6 +365,7 @@ public class ApplicationResource {
 					application.setDecisionDate(DateTime.now());
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));
+					// Send more emails to have to be send by batch in reality
 					mailService.sendPermitEmail(application, getBaseUrl(request));
 					if(application.getType() == premiere) {
 						mailService.sendArrivalEmail(application, getBaseUrl(request));

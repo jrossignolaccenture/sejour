@@ -7,7 +7,8 @@ angular.module('sejourApp')
 	            parent: 'agent',
 	            url: '/identification',
 	            data: {
-	                roles: ['ROLE_AGENT']
+	                roles: ['ROLE_AGENT'],
+	                listType: 'identification'
 	            },
 	            views: {
 	                'content@': {
@@ -16,9 +17,6 @@ angular.module('sejourApp')
 	                }
 	            },
 	            resolve: {
-	            	listType: function() {
-	            		return 'identification'
-	            	},
 	            	applications: ['$stateParams', 'Application', function($stateParams, Application) {
 	                    return Application.getByStatus('scheduled');
 	                }],

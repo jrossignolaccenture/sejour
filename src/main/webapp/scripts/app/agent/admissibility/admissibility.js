@@ -7,7 +7,8 @@ angular.module('sejourApp')
 	            parent: 'agent',
 	            url: '/recevabilite',
 	            data: {
-	                roles: ['ROLE_AGENT']
+	                roles: ['ROLE_AGENT'],
+	                listType: 'admissibility'
 	            },
 	            views: {
 	                'content@': {
@@ -16,9 +17,6 @@ angular.module('sejourApp')
 	                }
 	            },
 	            resolve: {
-	            	listType: function() {
-	            		return 'admissibility'
-	            	},
 	            	applications: ['$stateParams', 'Application', function($stateParams, Application) {
 	                    return Application.getByStatus('paid');
 	                }],

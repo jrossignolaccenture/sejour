@@ -3,6 +3,8 @@
 angular.module('sejourApp')
     .controller('AddressController', function ($scope, $state, $stateParams, Country, Application, currentApplication) {
         
+        $scope.isRenewal = currentApplication.type === 'renouvellement';
+        
     	$scope.address = currentApplication.address;
 
         $scope.countries = [];

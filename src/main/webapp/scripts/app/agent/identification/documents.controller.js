@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('DocumentsController', function ($scope, $state, Application, currentApplication) {
     	
     	$scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
+    	$scope.application = currentApplication;
     	
     	$scope.passportOpened = true;
     	$scope.birthActOpened = true;

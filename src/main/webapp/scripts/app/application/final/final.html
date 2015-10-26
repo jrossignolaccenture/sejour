@@ -13,12 +13,17 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-xs-10 col-xs-offset-1">
+		<div class="col-xs-10 col-xs-offset-1" ng-if="!isRenewal">
 			<p style="line-height: 2" translate="final.form.recevability">Recevability</p>
 			<br>
 			<p style="line-height: 2" translate="final.form.rdv">Rdv</p>
 			<br>
 			<p style="line-height: 2" translate="final.form.decision">Decision</p>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1" ng-if="isRenewal">
+			<p style="line-height: 2" translate="final.form.recevability.renouvellement">Recevability</p>
+			<br>
+			<p style="line-height: 2" translate="final.form.decision.renouvellement">Decision</p>
 		</div>
 	</div>
 	<br>

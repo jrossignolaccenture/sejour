@@ -12,6 +12,8 @@ angular.module('sejourApp')
 			locale: 'fr',
 			allowInputToggle: true
         }
+        
+        $scope.isRenewal = currentApplication.type === 'renouvellement';
 
         $scope.project = currentApplication.project;
         if($scope.project != null && $scope.project.comingDate != null) {

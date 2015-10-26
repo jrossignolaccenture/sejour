@@ -9,6 +9,8 @@ angular.module('sejourApp')
     	
     	$scope.isInDraftMode = currentApplication.statut === 'draft';
         
+        $scope.isRenewal = currentApplication.type === 'renouvellement';
+        
         $scope.identity = currentApplication.identity;
         $scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
         $scope.identity.images = [];

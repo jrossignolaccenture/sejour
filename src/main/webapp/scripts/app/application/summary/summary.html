@@ -198,7 +198,7 @@
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
 				<div class="col-sm-5">
-					<div class="form-group">
+					<div class="form-group" ng-if="!isRenewal">
 			            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
 				        <div class="input-group date">
 					        <span class="input-group-addon">
