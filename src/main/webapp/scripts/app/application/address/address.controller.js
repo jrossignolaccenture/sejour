@@ -11,6 +11,20 @@ angular.module('sejourApp')
         Country.get().then(function(countries) {
         	$scope.countries = countries;
         });
+    	
+        $scope.contactTypeValues = [ { value: 'email', checked: $scope.address.contactType.indexOf('email') != -1 },
+                                     { value: 'sms', checked: $scope.address.contactType.indexOf('sms') != -1 },
+                                     { value: 'postal', checked: $scope.address.contactType.indexOf('postal') != -1 },
+                               ];
+    	$scope.updateContactType = function(contactType) {
+    		var index = $scope.address.contactType.indexOf(contactType.value);
+    		if(contactType.checked && index == -1) {
+    			$scope.address.contactType.push(contactType.value);
+            }else if(!contactType.checked && index != -1) {
+            	$scope.address.contactType.splice(index, 1);
+            }
+    	}
+    	
         
         $scope.save = function () {
         	currentApplication.address = $scope.address;

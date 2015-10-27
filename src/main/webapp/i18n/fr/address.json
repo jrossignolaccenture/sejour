@@ -12,8 +12,8 @@
 			"country": "Pays de résidence",
 			"phone": "Téléphone",
 			"email": "Email",
-			"contactType": "Moyen de contact préféré",
-			"contactType.tooltip": "Votre moyen de contact préféré sera utilisé pour vous informer sur le déroulement de votre demande."
+			"contactType": "Moyen(s) de contact préféré(s)",
+			"contactType.tooltip": "Vos moyens de contact préférés seront utilisés pour vous informer sur le déroulement de votre demande."
 		},
 		"french" : {
 			"page.title": "Mon arrivée en France",

@@ -2,8 +2,8 @@
 	"renouveler": {
 		"title": "Residency renewal application",
 		"choice": "Choose your approach",
-		"stateUnchange": "I want to extend my residency without status change",
-		"stateChange": "I want to extend my residency and change my status"
+		"stateUnchange": "I want to extend my residency without status change<br><br><span style='font-size: 17px'>(For instance : I extend my study)</span>",
+		"stateChange": "I want to extend my residency and change my status<br><br><span style='font-size: 17px'>(For instance :  I change from student status to worker status)</span>"
 	},
     "etudier": {
         "title": "Student residency renewal application",
@@ -29,7 +29,7 @@
         	"step.short": "Payment",
         	"step.long": "Pre-pay your residency taxes"
         },
-        "preparationText": "<p>To complete your application, you must be in possession :</p><ul><li>a certificate of registration or pre-enrollment in a French school,</li><li>proof of sufficient financial resources, or greater than or equal to 615 € monthly (grant certificate, bank statement, pay stubs or proof of support by a guarantor),</li><li>in case of change of civil status , a valid passport and an extract of your birth certificate with filiation or a full copy of your birth certificate,</li><li>in case of change of address, proof of address,</li></ul><p>All supporting documents must be accompanied, where appropriate, a translation into French by a certified translator interpreter near an appellate court.</p>",
+        "preparationText": "<p>To complete your application, you must be in possession :</p><ul><li>a certificate of registration or pre-enrollment in a French school,</li><li>proof of sufficient financial resources, or greater than or equal to 615 € monthly (grant certificate, bank statement, pay stubs or proof of support by a guarantor),</li><li>in case of change of civil status , a valid passport and an extract of your birth certificate with filiation or a full copy of your birth certificate,</li><li>in case of change of address, proof of address,</li></ul><p>All supporting documents must be accompanied, where appropriate, a translation into French by a certified translator interpreter near an appellate court.</p><p><a href='#'>Find a certified translator interpreter</a></p>",
         "button": {
         	"start": "Start",
         	"continue": "Continue",

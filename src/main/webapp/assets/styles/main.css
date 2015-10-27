@@ -312,6 +312,22 @@ ul#strengthBar {
 	.box-light > .box > .icon > .info {
 		margin-left: -30px;
 	}
+	
+	.accueil-renouveler .box .icon .info {
+		height: 230px;
+	}
+}
+
+@media (min-width: 992px) {
+	.accueil-renouveler .box .icon .info {
+		height: 260px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.accueil-renouveler .box .icon .info {
+		height: 230px;
+	}
 }
 
 /** LIST **/

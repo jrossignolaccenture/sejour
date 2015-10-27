@@ -137,5 +137,10 @@ public class ApplicationService {
 			project.setTrainingLength(12);
 			application.setProject(project);
 		}
+		else {
+			application.setIdentity(new Identity());
+			application.setAddress(new Address());
+			application.setProject(new Project());
+		}
 	}
 }

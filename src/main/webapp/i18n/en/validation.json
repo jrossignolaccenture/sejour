@@ -13,7 +13,7 @@
 	    	"identity": "User identity",
 	    	"preinscription": "(Pre)Inscription confirm on {{confirmationDate}} - {{confirmationAuthor}}",
 	    	"project": "Project",
-	    	"policeControl": "Police control",
+	    	"policeControl": "Security control",
 	    	"history": "SIEF History",
 	    	"history.list": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "No history",

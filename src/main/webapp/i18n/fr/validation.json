@@ -13,7 +13,7 @@
 	    	"identity": "Identité de l'usager",
 	    	"preinscription": "(Pré) inscription confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
 	    	"project": "Projet de séjour",
-	    	"policeControl": "Contrôle policier",
+	    	"policeControl": "Contrôle sécuritaire",
 	    	"history": "Historique SIEF",
 	    	"history.list": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "Pas d'historique",

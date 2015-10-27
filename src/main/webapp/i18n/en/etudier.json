@@ -23,7 +23,7 @@
         	"step.short": "Payment",
         	"step.long": "Pay your application fee and pre-pay your residency taxes"
         },
-        "preparationText": "<p>To complete your application, you must be in possession :</p><ul><li>a valid passport,</li><li>an extract of your birth certificate with filiation or a full copy of your birth certificate,</li><li>a certificate of registration or pre-enrollment in a French school,</li><li>proof of sufficient financial resources, or greater than or equal to 615 € monthly (grant certificate, bank statement, pay stubs or proof of support by a guarantor).</li></ul><p>All supporting documents must be accompanied, where appropriate, a translation into French by a certified translator interpreter near an appellate court.</p><p>You will need to bring the originals of these documents during the visit.</p>",
+        "preparationText": "<p>To complete your application, you must be in possession :</p><ul><li>a valid passport,</li><li>an extract of your birth certificate with filiation or a full copy of your birth certificate,</li><li>a certificate of registration or pre-enrollment in a French school,</li><li>proof of sufficient financial resources, or greater than or equal to 615 € monthly (grant certificate, bank statement, pay stubs or proof of support by a guarantor).</li></ul><p>All supporting documents must be accompanied, where appropriate, a translation into French by a certified translator interpreter near an appellate court.</p><p>You will need to bring the originals of these documents during the visit.</p><p><a href='#'>Find a certified translator interpreter</a></p>",
         "button": {
         	"start": "Start",
         	"continue": "Continue",

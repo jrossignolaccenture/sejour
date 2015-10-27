@@ -1,6 +1,8 @@
 package fr.minint.sief.web.rest.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
@@ -38,7 +40,7 @@ public class AddressDTO implements Serializable {
     private String email;
 
     @NotNull
-    private ContactType contactType;
+    private List<ContactType> contactType = new ArrayList<>();;
 
     public String getOwner() {
         return owner;
@@ -112,11 +114,11 @@ public class AddressDTO implements Serializable {
         this.email = email;
     }
 
-    public ContactType getContactType() {
+    public List<ContactType> getContactType() {
         return contactType;
     }
 
-    public void setContactType(ContactType contactType) {
+    public void setContactType(List<ContactType> contactType) {
         this.contactType = contactType;
     }
 

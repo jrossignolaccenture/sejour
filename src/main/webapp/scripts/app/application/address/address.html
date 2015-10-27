@@ -119,13 +119,16 @@
 		        </div>
 		        <div class="form-group">
 		            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
-		            <select class="form-control" name="contactType" ng-model="address.contactType" id="field_contactType" 
-		            		tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'address.form.contactType.tooltip' | translate}}"
-		            		required>
-		                <option value="email" translate="sejourApp.ContactType.email">email</option>
-		                <option value="sms" translate="sejourApp.ContactType.sms">sms</option>
-		                <option value="postal" translate="sejourApp.ContactType.postal">postal</option>
-		            </select>
+		            <span class="glyphicon glyphicon-info-sign form-info" id="contactType-info"
+				    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'address.form.contactType.tooltip' | translate}}"></span>
+
+			        <div class="checkbox" ng-repeat="contactType in contactTypeValues">
+				        <label><input type="checkbox" id="field_contactType_{{contactType.value}}" name="contactType_{{contactType.value}}" 
+				        				ng-model="contactType.checked" 
+				        				value="{{contactType.value}}" 
+				        				ng-click="updateContactType(contactType)"  
+				        				ng-required="contactTypes.length==0">{{'sejourApp.ContactType.'+contactType.value | translate}}</label>
+					</div>
 		
 		            <div ng-show="addressForm.contactType.$dirty && addressForm.contactType.$invalid">
 		                <p class="help-block" ng-show="addressForm.contactType.$error.required" translate="entity.validation.required">
@@ -148,7 +151,7 @@
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 	
 	$(function () {
-		$('#field_contactType').popover();
+		$('#contactType-info').popover();
 	})
 </script>
     

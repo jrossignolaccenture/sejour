@@ -172,13 +172,12 @@
 			        </div>
 			        <div class="form-group">
 			            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
-			            <select class="form-control" name="contactType" ng-model="address.contactType" id="field_contactType" 
-			            		tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'address.form.contactType.tooltip' | translate}}"
-			            		disabled>
-			                <option value="email" translate="sejourApp.ContactType.email">email</option>
-			                <option value="sms" translate="sejourApp.ContactType.sms">sms</option>
-			                <option value="postal" translate="sejourApp.ContactType.postal">postal</option>
-			            </select>
+			            <div class="checkbox" ng-repeat="contactType in ['email', 'sms', 'postal']">
+					        <label><input type="checkbox" id="field_contactType_{{contactType}}" name="contactType_{{contactType}}" 
+					        				value="{{contactType}}" 
+					        				ng-checked="address.contactType.indexOf(contactType) != -1" 
+					        				disabled>{{'sejourApp.ContactType.'+contactType | translate}}</label>
+						</div>
 			        </div>
 				</div>
 			</div>
