@@ -1,4 +1,4 @@
-package fr.minint.sief.web.rest.dto;
+package fr.minint.sief.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -8,55 +8,95 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.joda.time.DateTime;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import fr.minint.sief.domain.enumeration.NatureDemande;
-import fr.minint.sief.domain.enumeration.StatutDemande;
-import fr.minint.sief.domain.enumeration.TypeDemande;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import fr.minint.sief.domain.enumeration.ApplicationNature;
+import fr.minint.sief.domain.enumeration.ApplicationStatus;
+import fr.minint.sief.domain.enumeration.ApplicationType;
+import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
+import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 
 /**
- * A DTO for the Demande entity.
+ * An application.
  */
-public class DemandeDTO implements Serializable {
+@Document(collection = "APPLICATION")
+public class Application implements Serializable {
 
+    @Id
     private String id;
 
-	@Email
-	@NotNull
-	@Size(min = 5, max = 100)
-	private String email;
-	
-	private String userId;
-
-	@NotNull
-    private NatureDemande nature;
-
+    @Email
     @NotNull
-    private TypeDemande type = TypeDemande.premiere;
-
-    @NotNull
-    private StatutDemande statut = StatutDemande.draft;
+    @Size(min = 5, max = 100)
+    private String email;
     
+    private String userId;
+
     @NotNull
+    @Field("nature")
+    private ApplicationNature nature;
+
+    @NotNull
+    @Field("type")
+    private ApplicationType type = ApplicationType.premiere;
+
+    @NotNull
+    @Field("statut")
+    private ApplicationStatus statut = ApplicationStatus.draft;
+    
+    @NotNull        
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("creation_date")
     private DateTime creationDate = DateTime.now();
-    
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("modification_date")
     private DateTime modificationDate = DateTime.now();
     
-    private IdentityDTO identity;
+    @Field("identity")
+    private Identity identity;
     
-    private AddressDTO address;
+    @Field("address")
+    private Address address;
     
-    private ProjectDTO project;
-    
+    @Field("project")
+    private Project project;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("payment_date")
     private DateTime paymentDate;
-    
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("admissibility_date")
     private DateTime admissibilityDate;
-    
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("rdv_date")
     private DateTime rdvDate;
-    
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("documents_date")
     private DateTime documentsDate;
-    
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("biometrics_date")
     private DateTime biometricsDate;
-    
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("decision_date")
     private DateTime decisionDate;
 
     public String getId() {
@@ -83,27 +123,27 @@ public class DemandeDTO implements Serializable {
 		this.userId = userId;
 	}
 
-	public NatureDemande getNature() {
+	public ApplicationNature getNature() {
         return nature;
     }
 
-    public void setNature(NatureDemande nature) {
+    public void setNature(ApplicationNature nature) {
         this.nature = nature;
     }
 
-    public TypeDemande getType() {
+    public ApplicationType getType() {
         return type;
     }
 
-    public void setType(TypeDemande type) {
+    public void setType(ApplicationType type) {
         this.type = type;
     }
 
-    public StatutDemande getStatut() {
+    public ApplicationStatus getStatut() {
         return statut;
     }
 
-    public void setStatut(StatutDemande statut) {
+    public void setStatut(ApplicationStatus statut) {
         this.statut = statut;
     }
 
@@ -115,7 +155,7 @@ public class DemandeDTO implements Serializable {
 		this.creationDate = creationDate;
 	}
 
-    public DateTime getModificationDate() {
+	public DateTime getModificationDate() {
 		return modificationDate;
 	}
 
@@ -123,27 +163,27 @@ public class DemandeDTO implements Serializable {
 		this.modificationDate = modificationDate;
 	}
 
-	public IdentityDTO getIdentity() {
+	public Identity getIdentity() {
 		return identity;
 	}
 
-	public void setIdentity(IdentityDTO identity) {
+	public void setIdentity(Identity identity) {
 		this.identity = identity;
 	}
 
-    public AddressDTO getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressDTO address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
-	public ProjectDTO getProject() {
+	public Project getProject() {
 		return project;
 	}
 
-	public void setProject(ProjectDTO project) {
+	public void setProject(Project project) {
 		this.project = project;
 	}
 
@@ -204,9 +244,9 @@ public class DemandeDTO implements Serializable {
             return false;
         }
 
-        DemandeDTO demandeDTO = (DemandeDTO) o;
+        Application application = (Application) o;
 
-        if ( ! Objects.equals(id, demandeDTO.id)) return false;
+        if ( ! Objects.equals(id, application.id)) return false;
 
         return true;
     }
@@ -218,7 +258,7 @@ public class DemandeDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "DemandeDTO{" +
+        return "Application{" +
                 "id=" + id +
                 ", email='" + email + "'" +
                 ", userId='" + userId + "'" +
@@ -230,12 +270,12 @@ public class DemandeDTO implements Serializable {
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
-                ", paymentDate='" + paymentDate + "'" +
+                ", paymentDate='" + getPaymentDate() + "'" +
                 ", admissibilityDate='" + admissibilityDate + "'" +
                 ", rdv='" + rdvDate + "'" +
                 ", documentsDate='" + documentsDate + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
-                ", decisionDate='" + decisionDate + "'" +
+                ", decisionDate='" + getDecisionDate() + "'" +
                 '}';
     }
 }

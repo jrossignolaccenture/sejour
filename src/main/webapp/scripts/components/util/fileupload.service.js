@@ -12,11 +12,11 @@ angular.module('sejourApp')
 		            headers: {'Content-Type': undefined}
 		        });
 	        },
-	    	uploadBiometrics: function (uri, type, idDemande) {
+	    	uploadBiometrics: function (uri, type, idApplication) {
 	        	var fd = new FormData();
 		        fd.append('uri', uri);
 		        fd.append('type', type);
-		        fd.append('idDemande', idDemande);
+		        fd.append('idApplication', idApplication);
 		        return $http.post("/fileUpload/biometrics", fd, {
 		            transformRequest: angular.identity,
 		            headers: {'Content-Type': undefined}

@@ -13,14 +13,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import fr.minint.sief.domain.Demande;
+import fr.minint.sief.domain.Application;
 import fr.minint.sief.domain.User;
-import fr.minint.sief.repository.DemandeRepository;
+import fr.minint.sief.repository.ApplicationRepository;
 import fr.minint.sief.repository.UserRepository;
 import fr.minint.sief.security.SecurityUtils;
 
 /**
- * Service class for managing demande.
+ * Service class for managing files.
  */
 @Service
 public class FileService {
@@ -31,7 +31,7 @@ public class FileService {
     private UserRepository userRepository;
 
     @Inject
-    private DemandeRepository demandeRepository;
+    private ApplicationRepository applicationRepository;
 
     public void loadFile(MultipartFile sourceFile, String destFilePrefix) {
     	
@@ -52,10 +52,10 @@ public class FileService {
         }
 	}
 
-    public void loadPhoto(String sourceUri, String destFilePrefix, String idDemande) {
+    public void loadPhoto(String sourceUri, String destFilePrefix, String idApplication) {
     	
-        Demande demande = demandeRepository.findOne(idDemande);
-        String destFileName = destFilePrefix + "_" + demande.getEmail() + ".jpeg";
+        Application application = applicationRepository.findOne(idApplication);
+        String destFileName = destFilePrefix + "_" + application.getEmail() + ".jpeg";
         
         try {
             byte[] bytes = Base64.getDecoder().decode(sourceUri);

@@ -1,6 +1,6 @@
 package fr.minint.sief.service;
 
-import static fr.minint.sief.domain.enumeration.TypeDemande.renouvellement;
+import static fr.minint.sief.domain.enumeration.ApplicationType.renouvellement;
 
 import java.util.Locale;
 
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
-import fr.minint.sief.domain.Demande;
+import fr.minint.sief.domain.Application;
 import fr.minint.sief.domain.User;
 import fr.minint.sief.repository.UserRepository;
 
@@ -107,7 +107,7 @@ public class MailService {
     }
 
     @Async
-    public void sendApplicationPaidEmail(Demande application, String baseUrl) {
+    public void sendApplicationPaidEmail(Application application, String baseUrl) {
         log.debug("Sending application payment e-mail to '{}'", application.getEmail());
         Locale locale = Locale.forLanguageTag(userRepository.findOneByEmail(application.getEmail()).get().getLangKey());
         Context context = new Context(locale);
@@ -121,7 +121,7 @@ public class MailService {
     }
 
     @Async
-    public void sendApplicationReceivableEmail(Demande application, String baseUrl) {
+    public void sendApplicationReceivableEmail(Application application, String baseUrl) {
         log.debug("Sending application admissibility e-mail to '{}'", application.getEmail());
         Locale locale = Locale.forLanguageTag(userRepository.findOneByEmail(application.getEmail()).get().getLangKey());
         Context context = new Context(locale);
@@ -134,7 +134,7 @@ public class MailService {
     }
 
     @Async
-    public void sendApplicationScheduledEmail(Demande application, String baseUrl) {
+    public void sendApplicationScheduledEmail(Application application, String baseUrl) {
         log.debug("Sending application scheduled e-mail to '{}'", application.getEmail());
         Locale locale = Locale.forLanguageTag(userRepository.findOneByEmail(application.getEmail()).get().getLangKey());
         Context context = new Context(locale);
@@ -148,7 +148,7 @@ public class MailService {
     }
 
     @Async
-    public void sendApplicationValidatedEmail(Demande application, String baseUrl) {
+    public void sendApplicationValidatedEmail(Application application, String baseUrl) {
         log.debug("Sending application validated e-mail to '{}'", application.getEmail());
         Locale locale = Locale.forLanguageTag(userRepository.findOneByEmail(application.getEmail()).get().getLangKey());
         Context context = new Context(locale);
@@ -160,7 +160,7 @@ public class MailService {
     }
 
     @Async
-    public void sendPermitEmail(Demande application, String baseUrl) {
+    public void sendPermitEmail(Application application, String baseUrl) {
         log.debug("Sending permit e-mail to '{}'", application.getEmail());
         Locale locale = Locale.forLanguageTag(userRepository.findOneByEmail(application.getEmail()).get().getLangKey());
         Context context = new Context(locale);
@@ -172,7 +172,7 @@ public class MailService {
     }
 
     @Async
-    public void sendArrivalEmail(Demande application, String baseUrl) {
+    public void sendArrivalEmail(Application application, String baseUrl) {
         log.debug("Sending arrival e-mail to '{}'", application.getEmail());
         Locale locale = Locale.forLanguageTag(userRepository.findOneByEmail(application.getEmail()).get().getLangKey());
         Context context = new Context(locale);

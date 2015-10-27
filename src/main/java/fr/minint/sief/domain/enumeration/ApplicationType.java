@@ -1,8 +1,8 @@
 package fr.minint.sief.domain.enumeration;
 
 /**
- * The TypeDemande enumeration.
+ * The type of application enumeration.
  */
-public enum TypeDemande {
+public enum ApplicationType {
     premiere,reexamen,renouvellement
 }

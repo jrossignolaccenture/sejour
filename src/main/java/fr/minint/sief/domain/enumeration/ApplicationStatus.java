@@ -1,9 +1,9 @@
 package fr.minint.sief.domain.enumeration;
 
 /**
- * The StatutDemande enumeration.
+ * The status of application enumeration.
  */
-public enum StatutDemande {
+public enum ApplicationStatus {
     draft,
     paid,
     receivable,

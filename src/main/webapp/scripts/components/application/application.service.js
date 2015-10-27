@@ -33,8 +33,8 @@ angular.module('sejourApp')
                     return response.data;
                 });
         	},
-	        update: function (demande) {
-        		return $http.put('api/application', demande).then(function (response) {
+	        update: function (application) {
+        		return $http.put('api/application', application).then(function (response) {
                     return response.data;
                 });
 	        },

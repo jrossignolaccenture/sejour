@@ -1,8 +1,8 @@
 package fr.minint.sief.web.rest;
 
-import static fr.minint.sief.domain.enumeration.StatutDemande.identity_verified;
-import static fr.minint.sief.domain.enumeration.StatutDemande.receivable;
-import static fr.minint.sief.domain.enumeration.TypeDemande.premiere;
+import static fr.minint.sief.domain.enumeration.ApplicationStatus.identity_verified;
+import static fr.minint.sief.domain.enumeration.ApplicationStatus.receivable;
+import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,21 +28,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
 
-import fr.minint.sief.domain.Demande;
-import fr.minint.sief.domain.enumeration.NatureDemande;
-import fr.minint.sief.domain.enumeration.StatutDemande;
-import fr.minint.sief.domain.enumeration.TypeDemande;
-import fr.minint.sief.repository.DemandeRepository;
+import fr.minint.sief.domain.Application;
+import fr.minint.sief.domain.enumeration.ApplicationNature;
+import fr.minint.sief.domain.enumeration.ApplicationStatus;
+import fr.minint.sief.domain.enumeration.ApplicationType;
+import fr.minint.sief.repository.ApplicationRepository;
 import fr.minint.sief.repository.UserRepository;
 import fr.minint.sief.security.SecurityUtils;
-import fr.minint.sief.service.DemandeService;
+import fr.minint.sief.service.ApplicationService;
 import fr.minint.sief.service.MailService;
-import fr.minint.sief.web.rest.dto.DemandeCountDTO;
-import fr.minint.sief.web.rest.dto.DemandeDTO;
-import fr.minint.sief.web.rest.mapper.DemandeMapper;
+import fr.minint.sief.web.rest.dto.ApplicationCountDTO;
+import fr.minint.sief.web.rest.dto.ApplicationDTO;
+import fr.minint.sief.web.rest.mapper.ApplicationMapper;
 
 /**
- * REST controller for managing Demande.
+ * REST controller for managing Application.
  */
 @RestController
 @RequestMapping("/api")
@@ -51,7 +51,7 @@ public class ApplicationResource {
     private final Logger log = LoggerFactory.getLogger(ApplicationResource.class);
 
     @Inject
-    private DemandeRepository applicationRepository;
+    private ApplicationRepository applicationRepository;
 
     @Inject
     private UserRepository userRepository;
@@ -60,10 +60,10 @@ public class ApplicationResource {
     private MailService mailService;
     
     @Inject
-    private DemandeService demandeService;
+    private ApplicationService applicationService;
 
     @Inject
-    private DemandeMapper demandeMapper;
+    private ApplicationMapper applicationMapper;
 
     /**
      * POST  /application -> create an application
@@ -76,9 +76,9 @@ public class ApplicationResource {
     				method = RequestMethod.POST,
     				produces = MediaType.TEXT_PLAIN_VALUE)
     @Timed
-    public ResponseEntity<String> create(@Valid @RequestParam TypeDemande type, @Valid @RequestParam NatureDemande nature) {
+    public ResponseEntity<String> create(@Valid @RequestParam ApplicationType type, @Valid @RequestParam ApplicationNature nature) {
         log.debug("REST request to create application : {} {}", type, nature);
-        String id = demandeService.createApplication(type, nature);
+        String id = applicationService.createApplication(type, nature);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
     
@@ -112,10 +112,10 @@ public class ApplicationResource {
 					method = RequestMethod.GET, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public List<DemandeDTO> get() {
+	public List<ApplicationDTO> get() {
 		log.debug("REST request to get all application owned by current user");
-		return demandeService.getUserDemandes().stream()
-				.map(demandeMapper::demandeToDemandeDTO)
+		return applicationService.getUserApplications().stream()
+				.map(applicationMapper::applicationToApplicationDTO)
 	            .collect(Collectors.toCollection(LinkedList::new));
 	}
     
@@ -129,10 +129,10 @@ public class ApplicationResource {
 					method = RequestMethod.GET, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public ResponseEntity<DemandeDTO> get(@PathVariable String id) {
+	public ResponseEntity<ApplicationDTO> get(@PathVariable String id) {
 		log.debug("REST request to get application : {}", id);
 		return Optional.ofNullable(applicationRepository.findOne(id))
-				.map(demandeMapper::demandeToDemandeDTO)
+				.map(applicationMapper::applicationToApplicationDTO)
 				.map(applicationDTO -> new ResponseEntity<>(applicationDTO, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
@@ -147,13 +147,13 @@ public class ApplicationResource {
 					method = RequestMethod.GET, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public List<DemandeDTO> getByStatus(@RequestParam StatutDemande status, String email) {
+	public List<ApplicationDTO> getByStatus(@RequestParam ApplicationStatus status, String email) {
 		log.debug("REST request to get application by statut {} and email {}", status, email);
-		List<Demande> applications = email == null ? applicationRepository.findByStatutOrderByCreationDateAsc(status) 
+		List<Application> applications = email == null ? applicationRepository.findByStatutOrderByCreationDateAsc(status) 
 				: applicationRepository.findByStatutAndEmailOrderByCreationDateAsc(status, email);
 		return applications
 				.stream()
-				.map(demandeMapper::demandeToDemandeDTO)
+				.map(applicationMapper::applicationToApplicationDTO)
 				.collect(Collectors.toCollection(LinkedList::new));
 	}
     
@@ -166,14 +166,14 @@ public class ApplicationResource {
 					method = RequestMethod.GET, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public ResponseEntity<DemandeCountDTO> getCount() {
+	public ResponseEntity<ApplicationCountDTO> getCount() {
 		log.debug("REST request to get count of application not archived");
 		// TODO Tout mettre en une seule requete & accessoirement revoir tout ça pour gérer plus de statut
 		// -> on renvoit une liste de type (?) et on laisse le front gérer le count qu'il veut
-		DemandeCountDTO count = new DemandeCountDTO();
-		count.setNbPaid(applicationRepository.countByStatut(StatutDemande.paid));
-		count.setNbScheduled(applicationRepository.countByStatut(StatutDemande.scheduled));
-		count.setNbIdentityVerified(applicationRepository.countByStatut(StatutDemande.identity_verified));
+		ApplicationCountDTO count = new ApplicationCountDTO();
+		count.setNbPaid(applicationRepository.countByStatut(ApplicationStatus.paid));
+		count.setNbScheduled(applicationRepository.countByStatut(ApplicationStatus.scheduled));
+		count.setNbIdentityVerified(applicationRepository.countByStatut(ApplicationStatus.identity_verified));
 		return new ResponseEntity<>(count, HttpStatus.OK);
 	}
 	
@@ -187,11 +187,11 @@ public class ApplicationResource {
 			        method = RequestMethod.PUT,
 			        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<?> update(@Valid @RequestBody DemandeDTO applicationDTO) {
+    public ResponseEntity<?> update(@Valid @RequestBody ApplicationDTO applicationDTO) {
         log.debug("REST request to update application : {}", applicationDTO);
         return Optional.ofNullable(applicationDTO)
         		.filter(application -> application.getEmail().equals(SecurityUtils.getCurrentLogin()))
-        		.map(demandeMapper::demandeDTOToDemande)
+        		.map(applicationMapper::applicationDTOToApplication)
         		.map(application -> {
         			application.setModificationDate(DateTime.now());
         			applicationRepository.save(application);
@@ -237,7 +237,7 @@ public class ApplicationResource {
         return Optional.ofNullable(applicationRepository.findOne(id))
         		.filter(application -> application.getEmail().equals(SecurityUtils.getCurrentLogin()))
             	.map(application -> {
-            		application.setStatut(StatutDemande.paid);
+            		application.setStatut(ApplicationStatus.paid);
             		application.setPaymentDate(DateTime.now());
                     applicationRepository.save(application);
                     mailService.sendApplicationPaidEmail(application, getBaseUrl(request));
@@ -284,12 +284,12 @@ public class ApplicationResource {
 					method = RequestMethod.PUT, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public ResponseEntity<?> rdv(@Valid @RequestBody DemandeDTO applicationDTO, HttpServletRequest request) {
+	public ResponseEntity<?> rdv(@Valid @RequestBody ApplicationDTO applicationDTO, HttpServletRequest request) {
 		log.debug("REST request to schedule application : {}", applicationDTO);
 		return Optional.ofNullable(applicationRepository.findOne(applicationDTO.getId()))
         		.filter(application -> application.getEmail().equals(SecurityUtils.getCurrentLogin()))
 				.map(application -> {
-					application.setStatut(StatutDemande.scheduled);
+					application.setStatut(ApplicationStatus.scheduled);
 					application.setRdvDate(applicationDTO.getRdvDate());
 					applicationRepository.save(application);
 					mailService.sendApplicationScheduledEmail(application, getBaseUrl(request));
@@ -314,7 +314,7 @@ public class ApplicationResource {
 				.map(application -> {
 					application.setDocumentsDate(DateTime.now());
 					if(application.getBiometricsDate() != null) {
-						application.setStatut(StatutDemande.identity_verified);
+						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
                     return new ResponseEntity<>(HttpStatus.OK);
@@ -338,7 +338,7 @@ public class ApplicationResource {
 				.map(application -> {
 					application.setBiometricsDate(DateTime.now());
 					if(application.getDocumentsDate() != null) {
-						application.setStatut(StatutDemande.identity_verified);
+						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
                     return new ResponseEntity<>(HttpStatus.OK);
@@ -361,7 +361,7 @@ public class ApplicationResource {
 		log.debug("REST request to validate application : {}", id);
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
-					application.setStatut(StatutDemande.validated);
+					application.setStatut(ApplicationStatus.validated);
 					application.setDecisionDate(DateTime.now());
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));

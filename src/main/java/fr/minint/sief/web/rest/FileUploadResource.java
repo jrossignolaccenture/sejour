@@ -54,12 +54,12 @@ public class FileUploadResource {
     @RequestMapping(value = "/biometrics", method = RequestMethod.POST)
     @ResponseBody
     @Timed
-    public void uploadPhoto(@RequestParam String uri, @RequestParam String type, @RequestParam String idDemande)  {
+    public void uploadPhoto(@RequestParam String uri, @RequestParam String type, @RequestParam String idApplication)  {
     	if (uri.isEmpty()) {
     		log.debug( "You failed to upload " + uri + " because the file was empty.");
     		return;
     	}
     	
-    	fileService.loadPhoto(uri, type, idDemande);
+    	fileService.loadPhoto(uri, type, idApplication);
     }
 }

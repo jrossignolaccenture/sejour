@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 /**
- * REST controller for managing Demande.
+ * REST controller for managing application appointment.
  */
 @RestController
 @RequestMapping("/api")
@@ -44,7 +44,7 @@ public class RdvResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<SortedMap<DateTime, Set<String>>> getDemande(@RequestParam(value = "email") String email) {
+    public ResponseEntity<SortedMap<DateTime, Set<String>>> getTimeSlots(@RequestParam(value = "email") String email) {
         log.debug("REST request to get rdv time slots with mail {}", email);
         SortedMap<DateTime, Set<String>> timeSlots = new TreeMap<DateTime, Set<String>>();
         

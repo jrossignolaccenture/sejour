@@ -22,8 +22,8 @@ angular.module('sejourApp')
 	                }],
 	                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 	                	$translatePartialLoader.addPart('admissibility');
-	                	$translatePartialLoader.addPart('natureDemande');
-	                	$translatePartialLoader.addPart('typeDemande');
+	                	$translatePartialLoader.addPart('applicationNature');
+	                	$translatePartialLoader.addPart('applicationType');
 	                    return $translate.refresh();
 	                }]
 	            }

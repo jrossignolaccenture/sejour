@@ -3,9 +3,9 @@ package fr.minint.sief.web.rest.dto;
 import java.io.Serializable;
 
 /**
- * A DTO for the Demande count.
+ * A DTO for the Application count.
  */
-public class DemandeCountDTO implements Serializable {
+public class ApplicationCountDTO implements Serializable {
 	
 	private static final long serialVersionUID = -8061995948732515536L;
 	
@@ -39,7 +39,7 @@ public class DemandeCountDTO implements Serializable {
 
 	@Override
     public String toString() {
-        return "DemandeCountDTO{" +
+        return "ApplicationCountDTO{" +
                 "nbPaid='" + nbPaid + "'" +
                 ", nbScheduled='" + nbScheduled + "'" +
                 ", nbIdentityVerified='" + nbIdentityVerified + "'" +

@@ -1,7 +1,7 @@
 package fr.minint.sief.service;
 
-import static fr.minint.sief.domain.enumeration.NatureDemande.sejour_etudiant;
-import static fr.minint.sief.domain.enumeration.TypeDemande.renouvellement;
+import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
+import static fr.minint.sief.domain.enumeration.ApplicationType.renouvellement;
 
 import java.util.List;
 
@@ -13,43 +13,48 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import fr.minint.sief.domain.Address;
-import fr.minint.sief.domain.Demande;
+import fr.minint.sief.domain.Application;
 import fr.minint.sief.domain.Identity;
 import fr.minint.sief.domain.Project;
 import fr.minint.sief.domain.User;
-import fr.minint.sief.domain.enumeration.NatureDemande;
+import fr.minint.sief.domain.enumeration.ApplicationNature;
+import fr.minint.sief.domain.enumeration.ApplicationStatus;
+import fr.minint.sief.domain.enumeration.ApplicationType;
 import fr.minint.sief.domain.enumeration.SexType;
-import fr.minint.sief.domain.enumeration.StatutDemande;
-import fr.minint.sief.domain.enumeration.TypeDemande;
-import fr.minint.sief.repository.DemandeRepository;
+import fr.minint.sief.repository.ApplicationRepository;
 import fr.minint.sief.security.SecurityUtils;
 
 /**
- * Service class for managing demande.
+ * Service class for managing application.
  */
 @Service
-public class DemandeService {
+public class ApplicationService {
 
-	private final Logger log = LoggerFactory.getLogger(DemandeService.class);
+	private final Logger log = LoggerFactory.getLogger(ApplicationService.class);
 
 	@Inject
 	private UserService userService;
 
 	@Inject
-	private DemandeRepository demandeRepository;
+	private ApplicationRepository applicationRepository;
 
-	public List<Demande> getUserDemandes() {
-		// Récupération info utilisateur connecté
+	/**
+	 * Get applications owned by logged user
+	 * @return list of applications
+	 */
+	public List<Application> getUserApplications() {
 		User currentUser = userService.getUser();
-		// Récupération des demandes
-		return demandeRepository.findByEmailOrderByCreationDateDesc(currentUser.getEmail());
+		return applicationRepository.findByEmailOrderByCreationDateDesc(currentUser.getEmail());
 	}
 
-	public Demande getCurrentDemande(StatutDemande statut) {
-		// Récupération info utilisateur connecté
+	/**
+	 * Get the application with specific status owned by logged user
+	 * @param status Status of the application to look for
+	 * @return An application
+	 */
+	public Application getCurrentApplication(ApplicationStatus status) {
 		User currentUser = userService.getUser();
-		// Récupération demande en cours
-		return demandeRepository.findOneByEmailAndStatut(currentUser.getEmail(), statut);
+		return applicationRepository.findOneByEmailAndStatut(currentUser.getEmail(), status);
 	}
 
 	/**
@@ -61,17 +66,17 @@ public class DemandeService {
 	 *            The nature of the application to create
 	 * @return the id of the new created application
 	 */
-	public String createApplication(TypeDemande type, NatureDemande nature) {
+	public String createApplication(ApplicationType type, ApplicationNature nature) {
 		// Delete old draft application
-		Demande oldDraftApplication = getCurrentDemande(StatutDemande.draft);
+		Application oldDraftApplication = getCurrentApplication(ApplicationStatus.draft);
 		if (oldDraftApplication != null) {
-			demandeRepository.delete(oldDraftApplication);
+			applicationRepository.delete(oldDraftApplication);
 		}
 
 		User currentUser = userService.getUser();
 		
 		// Create new application
-		Demande application = new Demande();
+		Application application = new Application();
 		application.setEmail(SecurityUtils.getCurrentLogin());
 		application.setType(type);
 		application.setNature(nature);
@@ -94,12 +99,12 @@ public class DemandeService {
 			}
 		}
 
-		application = demandeRepository.save(application);
+		application = applicationRepository.save(application);
 
 		return application.getId();
 	}
 
-	public void updateWithCampusInfos(Demande application) {
+	public void updateWithCampusInfos(Application application) {
 		// Call campus (badass style)
 		if ("kim.soon.jeen@gmail.com".equals(application.getEmail())) {
 			// IDENTITY

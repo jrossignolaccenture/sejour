@@ -11,7 +11,8 @@ angular.module('sejourApp')
 	            },
 	            views: {
 	                'content@': {
-	                    templateUrl: 'scripts/app/usager/renouveler/renouveler.html'
+	                    templateUrl: 'scripts/app/usager/renouveler/renouveler.html',
+                        controller: 'RenouvelerUsagerController'
 	                }
 	            },
 	            resolve: {

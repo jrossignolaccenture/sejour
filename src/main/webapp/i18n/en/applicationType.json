@@ -1,7 +1,6 @@
 {
     "sejourApp": {
-        "TypeDemande" : {
-            "SELECT": "{VALUE, select, premiere{premiere} reexamen{reexamen} other{}}",
+        "ApplicationType" : {
             "premiere": "First application",
             "reexamen": "Reexamen",
             "renouvellement": "Renewal"
