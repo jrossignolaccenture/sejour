@@ -3,7 +3,8 @@
         "ApplicationType" : {
             "premiere": "Primo-demande",
             "reexamen": "Réexamen",
-            "renouvellement": "Renouvellement"
+            "renouvellement": "Renouvellement",
+            "naturalisation": "Naturalisation"
         }
     }
 }

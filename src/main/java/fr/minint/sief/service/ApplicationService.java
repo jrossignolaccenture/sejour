@@ -1,6 +1,7 @@
 package fr.minint.sief.service;
 
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
+import static fr.minint.sief.domain.enumeration.ApplicationType.naturalisation;
 import static fr.minint.sief.domain.enumeration.ApplicationType.renouvellement;
 
 import java.util.List;
@@ -88,7 +89,7 @@ public class ApplicationService {
 			updateWithCampusInfos(application);
 		}
 		
-		if(type == renouvellement) {
+		if(type == renouvellement || type == naturalisation) {
 			// Get identity and address from user infos
 			application.setIdentity(currentUser.getIdentity());
 			application.setAddress(currentUser.getFrenchAddress());

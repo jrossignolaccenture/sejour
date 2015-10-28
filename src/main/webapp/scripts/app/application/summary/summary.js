@@ -22,7 +22,6 @@ angular.module('sejourApp')
                     translatePartialLoader: ['$stateParams', '$translate', '$translatePartialLoader', function ($stateParams, $translate, $translatePartialLoader) {
                     	$translatePartialLoader.deletePart($stateParams.base, true); // tips to get high priority to this part
                     	$translatePartialLoader.addPart($stateParams.base);
-                        $translatePartialLoader.addPart('summary');
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
                     	$translatePartialLoader.addPart('address');

@@ -13,14 +13,7 @@
 			"phone": "Téléphone",
 			"email": "Email",
 			"contactType": "Moyen(s) de contact préféré(s)",
-			"contactType.tooltip": "Vos moyens de contact préférés seront utilisés pour vous informer sur le déroulement de votre demande."
-		},
-		"french" : {
-			"page.title": "Mon arrivée en France",
-			"form" : {
-				"title": "Mon arrivée en France",
-				"button": "Confirmer mon arrivée en France"
-			}
+			"contactType.tooltip": "Vous avez la possibilité de choisir un ou plusieurs moyens de contact préférés. Ils seront utilisés pour vous informer sur le déroulement de votre demande."
 		}
 	}
 }

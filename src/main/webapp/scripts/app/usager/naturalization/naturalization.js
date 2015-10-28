@@ -8,9 +8,9 @@ angular.module('sejourApp')
                 url: '/naturalisation',
                 data: {
                     pageTitle: 'naturalization.page.title',
-                    type: 'premiere',
+                    type: 'naturalisation',
                     nature: 'naturalisation',
-                    base: 'naturalization'
+                    base: 'naturalisation'
                 },
                 views: {
                     'content@': {
@@ -20,8 +20,8 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    	$translatePartialLoader.deletePart('naturalization', true); // tips to get high priority to this part
-                        $translatePartialLoader.addPart('naturalization');
+                    	$translatePartialLoader.deletePart('naturalisation', true); // tips to get high priority to this part
+                        $translatePartialLoader.addPart('naturalisation');
                         return $translate.refresh();
                     }]
                 }

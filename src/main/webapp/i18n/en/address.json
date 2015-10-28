@@ -13,14 +13,7 @@
 			"phone": "Phone",
 			"email": "Email",
 			"contactType": "Prefered Contact(s)",
-			"contactType.tooltip": "Your preferred contact methods will be used to inform you about the progress of your application."
-		},
-		"french" : {
-			"page.title": "My arrival in France",
-			"form" : {
-				"title": "My arrival in France",
-				"button": "Confirm my arrival in France"
-			}
+			"contactType.tooltip": "You have the option of choosing one or more preferred contact means. They will be used to inform you about the progress of your application."
 		}
 	}
 }

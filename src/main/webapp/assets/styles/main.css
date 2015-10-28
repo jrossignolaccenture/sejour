@@ -412,6 +412,11 @@ ul#strengthBar {
 	margin-left: 20px;
 }
 
+.final-informations p {
+	line-height: 1.8;
+	padding-top: 13px;
+}
+
 /* LISTE AGENT */
 @media (min-width: 768px) {
 	.list {

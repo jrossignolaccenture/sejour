@@ -44,7 +44,10 @@ angular.module('sejourApp')
             }
             element.currentImg = element.images[element.currentImgIndex];
         }
-        
+
+        $scope.back = function () {
+        	$state.go('project', $stateParams);
+        };
         $scope.next = function () {
             $state.go('payment', $stateParams);
         };

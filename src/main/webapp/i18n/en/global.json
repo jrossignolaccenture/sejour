@@ -47,6 +47,14 @@
             "email.placeholder": "Your e-mail",
             "date.format": "dd/mm/yyyy"
         },
+        "button": {
+        	"start": "Start",
+        	"continue": "Continue",
+        	"back": "Back",
+        	"validate": "Validate my application",
+        	"payment": "Confirm payment",
+        	"end": "End"
+        },
         "messages": {
             "info": {
                 "register": "You don't have an account yet? <a href=\"#/register\">Register a new account</a>"

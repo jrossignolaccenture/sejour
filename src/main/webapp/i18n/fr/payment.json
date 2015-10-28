@@ -1,9 +1,6 @@
 {
 	"payment" : {
 		"form": {
-			"applicationFee": "Vos frais de dossier s'élèvent à 50,00 euros. Ils seront débités quelle que soit l'issue de votre demande.",
-			"residencyTaxes": "Vos taxes de séjour s'élèvent à 77,00 euros. Elles ne seront débitées qu'en cas d'issue favorable à votre demande.",
-			"residencyTaxes.renouvellement": "Vos taxes de séjour s'élèvent à 49,00 euros. Elles ne seront débitées qu'en cas d'issue favorable à votre demande.",
 			"cardOwner": "Propriétaire de la carte",
 			"cardNumber": "Numéro de carte",
 			"cardExpiringDate": "Date d'expiration",

@@ -13,7 +13,8 @@ angular.module('sejourApp')
 			allowInputToggle: true
         }
         
-        $scope.isRenewal = currentApplication.type === 'renouvellement';
+        $scope.needComingDate = currentApplication.type !== 'renouvellement';
+        $scope.needForm = currentApplication.type !== 'naturalisation';
 
         $scope.project = currentApplication.project;
         if($scope.project != null && $scope.project.comingDate != null) {
@@ -22,7 +23,10 @@ angular.module('sejourApp')
         if($scope.project != null && $scope.project.trainingStart != null) {
         	$scope.project.trainingStartTxt = moment($scope.project.trainingStart).format("DD/MM/YYYY");
         }
-        
+
+        $scope.back = function () {
+        	$state.go('address', $stateParams);
+        };
         $scope.save = function () {
             $scope.project.comingDate = moment($scope.project.comingDateTxt, "DD/MM/YYYY").toDate();
             $scope.project.trainingStart = moment($scope.project.trainingStartTxt, "DD/MM/YYYY").toDate();

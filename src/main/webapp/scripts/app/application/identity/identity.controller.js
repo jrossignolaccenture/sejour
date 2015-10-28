@@ -13,7 +13,7 @@ angular.module('sejourApp')
 			allowInputToggle: true
         }
         
-        $scope.isRenewal = currentApplication.type === 'renouvellement';
+        $scope.needDocuments = currentApplication.type === 'premiere';
         
         $scope.identity = currentApplication.identity;
         if($scope.identity != null && $scope.identity.birthDate != null) {

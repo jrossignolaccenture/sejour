@@ -43,7 +43,7 @@ public class Application implements Serializable {
 
     @NotNull
     @Field("type")
-    private ApplicationType type = ApplicationType.premiere;
+    private ApplicationType type;
 
     @NotNull
     @Field("statut")

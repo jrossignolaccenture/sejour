@@ -1,0 +1,46 @@
+{
+    "etudier": {
+        "title": "Application for naturalization by decree",
+        "page.title": "Application for naturalization by decree",
+        "step.title": "5 steps for your application",
+        "identity": {
+        	"step.short": "Identity",
+        	"step.long": "Verify your civil status and personal information and those of your ancestors and relatives"
+        },
+        "address": {
+        	"step.short": "Address",
+        	"step.long": "Verify your address"
+        },
+        "project": {
+        	"step.short": "Project",
+        	"step.long": "Complete your project details"
+        },
+        "summary": {
+        	"step.short": "Summary",
+        	"step.long": "Verify your application informations"
+        },
+        "payment": {
+        	"step.short": "Payment",
+        	"step.long": "Pay your stamp duty"
+        },
+        "preparationText": "<p>To complete your application, you must be in possession :</p><ul><li>acts of civil status of your parents</li><li>Only if you do not want to allow the administration of foreigners to retrieve that data directly from the URSSAF : supporting resource (contract(s) of work, previous employment certificates, attastation employment center as appropriate, last three newsletters salary, wages bulettins November and December the last three years),</li><li>Only if you do not want to allow the administration of foreigners to retrieve that data directly from the Public Finance : a slip P237 recent tax position on the imposition of the past three years and the tax notice of 3 recent years.</li></ul><p>All supporting documents must be accompanied, where appropriate, a translation into French by a certified translator interpreter near an appellate court.</p><p><a href='#'>Find a certified translator interpreter</a></p>"
+    },
+    "summary": {
+    	"form": {
+	    	"subtitle": "You are about to make an application for naturalization by decree. Before paying, make sure that the information below are correct.",
+	    	"identity": "My personal information and those of my close",
+	    	"address": "My address",
+	    	"project": "My project"
+    	}
+    },
+    "payment" : {
+		"form": {
+			"informations": "<p>Your stamp duty amounts to 55.00 euros. It will be charged regardless of the outcome of your request.</p>"
+		}
+	},
+	"final" : {
+		"form": {
+    		"informations": "<p>The admissibility of your application will be verified by the Administration of foreigners in France.<br>If your application is admissible, you will receive a confirmation notice telling you to make an appointment for an interview assimilation.<br>If your application is inadmissible, we will tell you and you will specify the reason(s) element(s) missing(s) where applicable.</p><p>After the appointment, your case will be heard and you will be notified of the decision.<br>If the decision is favorable, you will be prompted to a welcoming ceremony in the French nationality in which you will be given the naturalization decree.<br>If the decision is unfavorable, you will informed of the remedies you have.</p>"
+		}
+	}
+}

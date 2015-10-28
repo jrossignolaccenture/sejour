@@ -47,6 +47,14 @@
             "email.placeholder": "Votre email",
             "date.format": "jj/mm/aaaa"
         },
+        "button": {
+        	"start": "Démarrer",
+        	"continue": "Continuer",
+        	"back": "Retour",
+        	"validate": "Valider ma demande",
+        	"payment": "Valider le paiement",
+        	"end": "Terminer"
+        },
         "messages": {
             "info": {
                 "register": "Vous n'avez pas encore de compte ? <a href=\"#/register\">Créer un compte</a>"

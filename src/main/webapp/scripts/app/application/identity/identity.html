@@ -125,7 +125,7 @@
 			    </div>
 			</div>
 		</div>
-		<div ng-if="!isRenewal">
+		<div ng-if="needDocuments">
 			<br>
 			<div class="row">
 				<div class="col-xs-1 col-xs-offset-1">
@@ -145,7 +145,7 @@
 		</div>
 		<br>
 	    <div class="row row-center">
-       		<button type="submit" class="btn btn-primary" translate="etudier.button.continue"
+       		<button type="submit" class="btn btn-primary" translate="global.button.continue"
        				 ng-disabled="identityForm.$invalid || identityForm.$submitted">Continue</button>
         </div>
 	</form>

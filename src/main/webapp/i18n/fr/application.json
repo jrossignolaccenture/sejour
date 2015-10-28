@@ -3,13 +3,17 @@
 		"page.title": "Mes demandes",
 		"title": "Mes demandes",
 		"list": {
-			"title.premiere": {
-				"created.sejour_etudiant": "Première demande de séjour étudiant - créée le {{creationDate}}",
-				"validated.sejour_etudiant": "Première demande de séjour étudiant - validée le {{decisionDate}}"
-			},
-			"title.renouvellement": {
-				"created.sejour_etudiant": "Demande de renouvellement de séjour étudiant - créée le {{creationDate}}",
-				"validated.sejour_etudiant": "Demande de renouvellement de séjour étudiant - validée le {{decisionDate}}"
+			"title": {
+				"created": {
+					"premiere.sejour_etudiant": "Première demande de séjour étudiant - créée le {{creationDate}}",
+					"renouvellement.sejour_etudiant": "Demande de renouvellement de séjour étudiant - créée le {{creationDate}}",
+					"naturalisation.naturalisation": "Demande de naturalisation par décret - créée le {{creationDate}}"
+				},
+				"validated": {
+					"premiere.sejour_etudiant": "Première demande de séjour étudiant - validée le {{decisionDate}}",
+					"renouvellement.sejour_etudiant": "Demande de renouvellement de séjour étudiant - validée le {{decisionDate}}",
+					"naturalisation.naturalisation": "Demande de naturalisation par décret - validée le {{decisionDate}}"
+				}
 			},
 			"noApplication": "Vous n'avez pas de demande.",
 			"detail": "Détail",

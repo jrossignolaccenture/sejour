@@ -65,7 +65,7 @@ angular.module('sejourApp')
                 
               	$(function () {
             	  $('[data-toggle="popover"]').popover()
-            	})
+            	});
             }
         };
     });;

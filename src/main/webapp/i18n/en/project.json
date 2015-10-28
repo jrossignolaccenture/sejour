@@ -15,7 +15,20 @@
             "resourceProof.tooltip": "Thank you to attach proof of greater than or equal to 615 € monthly financial resources (bank statement, pay stubs, proof of scholarship)",
             "inscriptionCertificate": "Inscription certificate",
             "inscriptionCertificate.placeholder": "Click or drag your certificate here...",
-            "inscriptionCertificate.tooltip": "Thank you to attach proof of registration or pre- registration with an educational institution"
+            "inscriptionCertificate.tooltip": "Thank you to attach proof of registration or pre- registration with an educational institution",
+            
+            "resources": {
+            	"title": "Resources",
+            	"yes": "Yes, I authorize the administration of foreigners in France to get my supporting resource directly from URSSAF. I have then no supporting piece to attach to my request.",
+            	"no": "No, I want to justify myself by my resources. Then I have to join my request supporting documents requested of me.",
+            	"no.tooltip" : "If applicable, attach: employment contract, certificate of past employment, employment certificate pole, last 3 payslips, payslips November and December the last three years."
+            },
+            "taxSituation": {
+            	"title": "Tax situation",
+            	"yes": "Yes, I authorize the administration of foreigners in France to recover my tax receipts directly from the Public Finance. I have then no supporting piece to attach to my request.",
+            	"no": "No, I want to justify my tax situation without allowing sharing my information with the Ministry of Finance. Then I have to join my request supporting documents requested of me.",
+            	"no.tooltip": "If applicable, attach: slip P237 recent tax position on the imposition of the past three years and tax notice last 3 years."
+            }
 		}
 	}
 }

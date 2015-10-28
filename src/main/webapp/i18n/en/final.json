@@ -1,11 +1,7 @@
 {
 	"final" : {
 		"form": {
-    		"success": "Your payment was held successfully",
-    		"recevability": "The admissibility of your application will be verified by the Administration of foreigners in France.<br>If your application is not admissible, we will tell you and you will specify the reason(s) element(s) missing where appropriate.<br>If your application is admissible, you will receive a confirmation notice.",
-    		"rdv": "During the visit to the Embassy of France in Seoul, the authenticity of your passport and your vital documents will be verified, and saved biometric data.",
-    		"decision": "After the appointment, your case will be heard and you will be notified of the decision <br>If the decision is favorable and after flow of tourist taxes, you will be prompted. come and collect your residence permit when it is ready. <br>If the decision is unfavorable, you will be informed of the remedies available to you.",
-    		"decision.renouvellement": "Your case will be heard and you will be notified of the decision <br>If the decision is favorable and after flow of tourist taxes, you will be prompted. come and collect your residence permit when it is ready. <br>If the decision is unfavorable, you will be informed of the remedies available to you."
+    		"success": "Your payment was held successfully"
 		}
 	}
 }

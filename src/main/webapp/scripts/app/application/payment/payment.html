@@ -18,10 +18,7 @@
 	</div>
 	<br>
 	<div class="row row-center">
-    	<div class="col-xs-10 col-xs-offset-1">
-   			<p translate="payment.form.applicationFee" ng-if="!isRenewal">application fee</p>
-   			<p translate="payment.form.residencyTaxes" ng-if="!isRenewal">residency taxes</p>
-   			<p translate="payment.form.residencyTaxes.renouvellement" ng-if="isRenewal">residency taxes</p>
+    	<div class="col-xs-10 col-xs-offset-1" translate="payment.form.informations">
    		</div>
 	</div>
 	<br>
@@ -95,7 +92,8 @@
                     </div>
                     <br>
                     <div class="row row-center">
-                    	<button type="submit" class="btn btn-success" translate="etudier.button.payment"
+				       	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+                    	<button type="submit" class="btn btn-success btn-right" translate="global.button.payment"
                     			 ng-disabled="payment.cardOwner == null || payment.cardNumber == null || payment.cardExpiringDate == null || payment.cardCV == null || paymentForm.$invalid || paymentForm.$submitted">Payment</button>
                     </div>
                     <div class="row" style="display:none;">

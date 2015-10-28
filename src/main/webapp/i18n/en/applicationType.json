@@ -3,7 +3,8 @@
         "ApplicationType" : {
             "premiere": "First application",
             "reexamen": "Reexamen",
-            "renouvellement": "Renewal"
+            "renouvellement": "Renewal",
+            "naturalisation": "Naturalization"
         }
     }
 }

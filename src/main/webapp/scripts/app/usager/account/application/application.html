@@ -18,11 +18,11 @@
 						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': application.opened, 'glyphicon-triangle-bottom': !application.opened}"></span>
 						<h5 class="panel-title" 
 							ng-if="!application.decisionDate"
-							translate="application.list.title.{{application.type}}.created.{{application.nature}}"
+							translate="application.list.title.created.{{application.type}}.{{application.nature}}"
 							translate-values="{creationDate: '{{getFormattedDate(application.creationDate)}}'}">Application</h5>
 						<h5 class="panel-title" 
 							ng-if="application.decisionDate"
-							translate="application.list.title.{{application.type}}.validated.{{application.nature}}"
+							translate="application.list.title.validated.{{application.type}}.{{application.nature}}"
 							translate-values="{decisionDate: '{{getFormattedDate(application.decisionDate)}}'}">Application</h5>
 					</div>
 				</div>

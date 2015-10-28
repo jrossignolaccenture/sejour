@@ -31,7 +31,7 @@ public class ApplicationDTO implements Serializable {
     private ApplicationNature nature;
 
     @NotNull
-    private ApplicationType type = ApplicationType.premiere;
+    private ApplicationType type;
 
     @NotNull
     private ApplicationStatus statut = ApplicationStatus.draft;

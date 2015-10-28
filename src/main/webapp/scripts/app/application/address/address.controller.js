@@ -24,8 +24,10 @@ angular.module('sejourApp')
             	$scope.address.contactType.splice(index, 1);
             }
     	}
-    	
-        
+
+        $scope.back = function () {
+        	$state.go('identity', $stateParams);
+        };
         $scope.save = function () {
         	currentApplication.address = $scope.address;
             Application.update(currentApplication).then(function() {
