@@ -5,7 +5,7 @@
 		"stateUnchange": "I want to extend my residency without status change<br><br><span style='font-size: 17px'>(For instance : I extend my study)</span>",
 		"stateChange": "I want to extend my residency and change my status<br><br><span style='font-size: 17px'>(For instance :  I change from student status to worker status)</span>"
 	},
-    "etudier": {
+    "procedure": {
         "title": "Student residency renewal application",
         "page.title": "Student residency renewal application",
         "step.title": "5 steps for your application",

@@ -5,7 +5,7 @@
 		"stateUnchange": "Je veux prolonger mon séjour sans changement de statut<br><br><span style='font-size: 17px'>(exemple : je prolonge mes études)</span>",
 		"stateChange": "Je veux prolonger mon séjour et changer de statut<br><br><span style='font-size: 17px'>(exemple :  je passe du statut d'étudiant au statut de salarié)</span>"
 	},
-    "etudier": {
+    "procedure": {
         "title": "Demande de renouvellement de séjour étudiant",
         "page.title": "Demande de renouvellement de séjour étudiant",
         "step.title": "5 étapes pour déposer votre demande",
