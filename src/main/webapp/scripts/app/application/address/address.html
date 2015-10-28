@@ -127,7 +127,7 @@
 				        				ng-model="contactType.checked" 
 				        				value="{{contactType.value}}" 
 				        				ng-click="updateContactType(contactType)"  
-				        				ng-required="contactTypes.length==0">{{'sejourApp.ContactType.'+contactType.value | translate}}</label>
+				        				ng-required="address.contactType.length==0">{{'sejourApp.ContactType.'+contactType.value | translate}}</label>
 					</div>
 		
 		            <div ng-show="addressForm.contactType.$dirty && addressForm.contactType.$invalid">
