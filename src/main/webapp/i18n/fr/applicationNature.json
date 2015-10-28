@@ -3,7 +3,8 @@
         "ApplicationNature" : {
             "sejour_etudiant": "Séjour étudiant",
             "sejour_salarie": "Séjour salarie",
-            "sejour_competences_talents": "Séjour competences talents"
+            "sejour_competences_talents": "Séjour competences talents",
+            "naturalisation": "Naturalisation"
         }
     }
 }

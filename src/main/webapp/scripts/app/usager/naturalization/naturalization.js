@@ -3,14 +3,14 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('usager/etudier', {
+            .state('usager/naturalization', {
                 parent: 'usager',
-                url: '/etudier',
+                url: '/naturalisation',
                 data: {
-                    pageTitle: 'etudier.page.title',
+                    pageTitle: 'naturalization.page.title',
                     type: 'premiere',
-                    nature: 'sejour_etudiant',
-                    base: 'etudier'
+                    nature: 'naturalisation',
+                    base: 'naturalization'
                 },
                 views: {
                     'content@': {
@@ -20,8 +20,8 @@ angular.module('sejourApp')
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    	$translatePartialLoader.deletePart('etudier', true); // tips to get high priority to this part
-                        $translatePartialLoader.addPart('etudier');
+                    	$translatePartialLoader.deletePart('naturalization', true); // tips to get high priority to this part
+                        $translatePartialLoader.addPart('naturalization');
                         return $translate.refresh();
                     }]
                 }
