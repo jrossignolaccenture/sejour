@@ -152,57 +152,8 @@
 	    <br>
 	    <div class="row">
 			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
-		        
-		        <div class="form-group">
-		            <label translate="project.form.inscriptionCertificate" for="field_inscriptionCertificate">InscriptionCertificate</label>
-			        <span class="glyphicon glyphicon-info-sign form-info" id="inscriptionCertificate-info"
-			    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'project.form.inscriptionCertificate.tooltip' | translate}}"></span>
-			        <div class="input-group">
-				        <span class="input-group-addon" id="logo_inscriptionCertificate">
-	                        <span class="fa fa-file"></span>
-	                    </span>
-				        <input id="file_inscriptionCertificate" type="file" ng-model="inscriptionCertificateFile" onchange="angular.element(this).scope().uploadInscriptionCertificateFile(this)" style="display: none;">
-				        <input type="text" class="form-control" name="inscriptionCertificate" id="field_inscriptionCertificate" readonly="readonly"
-				                ng-model="project.inscriptionCertificate" placeholder="{{'project.form.inscriptionCertificate.placeholder' | translate}}"
-				                required >
-				        <span class="input-group-addon">
-	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !project.inscriptionCertificate}"></span>
-	                    </span>
-					</div>
-							
-			        <div ng-show="projectForm.inscriptionCertificate.$dirty && projectForm.inscriptionCertificate.$invalid">
-			            <p class="help-block" ng-show="identityForm.inscriptionCertificate.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-		
-		        </div>
-		        
-		        <div class="form-group">
-		            <label translate="project.form.resourceProof" for="field_resourceProof">ResourceProof</label>
-			        <span class="glyphicon glyphicon-info-sign form-info" id="resourceProof-info"
-			    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'project.form.resourceProof.tooltip' | translate}}"></span>
-			        <div class="input-group">
-				        <span class="input-group-addon" id="logo_resourceProof">
-	                        <span class="fa fa-file"></span>
-	                    </span>
-				        <input id="file_resourceProof" type="file" ng-model="resourceProofFile" onchange="angular.element(this).scope().uploadResourceProofFile(this)" style="display: none;">
-				        <input type="text" class="form-control" name="resourceProof" id="field_resourceProof" readonly="readonly"
-				                ng-model="project.resourceProof" placeholder="{{'project.form.resourceProof.placeholder' | translate}}" 
-				                required >
-				        <span class="input-group-addon">
-	                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !project.resourceProof}"></span>
-	                    </span>
-					</div>
-							
-			        <div ng-show="projectForm.resourceProof.$dirty && projectForm.resourceProof.$invalid">
-			            <p class="help-block" ng-show="projectForm.resourceProof.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-		
-		        </div>
-        
+			    <file-upload ng-model="project.inscriptionCertificate" input-group="project" input-name="inscriptionCertificate"></file-upload>
+			    <file-upload ng-model="project.resourceProof" input-group="project" input-name="resourceProof"></file-upload>
 		    </div>
 		</div>
 		<br>
@@ -216,24 +167,4 @@
 
 <script type="text/javascript">
 	$("html, body").animate({ scrollTop: 0 }, "slow");
-
-	$(function () {
-		$('#inscriptionCertificate-info').popover();
-	});
-	$(function () {
-		$('#resourceProof-info').popover();
-	});
-
-	$('#logo_resourceProof').click(function(){
-	    $('#file_resourceProof').click();
-	});
-	$('#field_resourceProof').click(function(){
-	    $('#file_resourceProof').click();
-	});
-	$('#logo_inscriptionCertificate').click(function(){
-	    $('#file_inscriptionCertificate').click();
-	});
-	$('#field_inscriptionCertificate').click(function(){
-	    $('#file_inscriptionCertificate').click();
-	});
 </script>

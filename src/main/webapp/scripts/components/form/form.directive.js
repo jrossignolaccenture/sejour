@@ -24,4 +24,48 @@ angular.module('sejourApp')
                 });
             }
         };
-    });
+    })
+    .directive('fileUpload', function() {
+        return {
+            restrict: 'E',
+            required: '^ngModel',
+            scope: {
+            	fileName: "=ngModel",
+            	inputGroup: "@",
+            	inputName: "@"
+            },
+            templateUrl: 'scripts/components/form/fileUpload.html',
+            controller: ['$scope', 'File', function($scope, File) {
+            	
+            	$scope.file = {};
+            	
+                $scope.uploadFile = function(element) {
+                	$scope.$apply(function(scope) {
+                        if(element.files.length > 0) {
+                        	File.upload(element.files[0], scope.inputName)
+        				        .success(function() {
+        	                		scope.file = element.files[0];
+        	                    	scope.fileName = element.files[0].name;
+        				        })
+        				        .error(function() {
+        				        });
+                        	
+                        } else {
+                        	scope.file = {};
+                        	scope.fileName = "";
+                        }
+        			});
+                };
+            }],
+            link: function postLink(scope, iElement, iAttrs, ctrl) {
+
+                scope.uploadFileClick = function () {
+                	  angular.element('#file_'+scope.inputName).trigger('click');
+                };
+                
+              	$(function () {
+            	  $('[data-toggle="popover"]').popover()
+            	})
+            }
+        };
+    });;

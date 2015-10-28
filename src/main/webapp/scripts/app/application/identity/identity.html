@@ -138,52 +138,8 @@
 		    <br>
 		    <div class="row">
 				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
-				    <div class="form-group">
-				        <label translate="identity.form.passport" for="field_passport">Passport</label>
-				    	<span class="glyphicon glyphicon-info-sign form-info" id="passport-info"
-				    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'identity.form.passport.tooltip' | translate}}"></span>
-				        <div class="input-group">
-					        <span class="input-group-addon" id="logo_passport">
-		                        <span class="fa fa-file"></span>
-		                    </span>
-					        <input id="file_passport" type="file" ng-model="passportFile" onchange="angular.element(this).scope().uploadPassportFile(this)" style="display: none;">
-					        <input type="text" class="form-control" name="passport" id="field_passport" readonly="readonly"
-					                ng-model="identity.passport" placeholder="{{'identity.form.passport.placeholder' | translate}}" 
-					                required >
-					        <span class="input-group-addon">
-		                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !identity.passport}"></span>
-		                    </span>
-						</div>
-								
-				        <div ng-show="identityForm.passport.$dirty && identityForm.passport.$invalid">
-				            <p class="help-block" ng-show="identityForm.passport.$error.required" translate="entity.validation.required">
-				                This field is required.
-				            </p>
-				        </div>
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.birthAct" for="field_birthAct">BirthAct</label>
-				        <span class="glyphicon glyphicon-info-sign form-info" id="birthAct-info"
-				    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'identity.form.birthAct.tooltip' | translate}}"></span>
-				        <div class="input-group">
-					        <span class="input-group-addon" id="logo_birthAct">
-		                        <span class="fa fa-file"></span>
-		                    </span>
-					        <input id="file_birthAct" type="file" ng-model="birthActFile" onchange="angular.element(this).scope().uploadBirthActFile(this)" style="display: none;">
-					        <input type="text" class="form-control" name="birthAct" id="field_birthAct" readonly="readonly"
-					                ng-model="identity.birthAct" placeholder="{{'identity.form.birthAct.placeholder' | translate}}"
-					                required >
-					        <span class="input-group-addon">
-		                        <span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !identity.birthAct}"></span>
-		                    </span>
-						</div>
-								
-				        <div ng-show="identityForm.birthAct.$dirty && identityForm.birthAct.$invalid">
-				            <p class="help-block" ng-show="identityForm.birthAct.$error.required" translate="entity.validation.required">
-				                This field is required.
-				            </p>
-				        </div>
-				    </div>
+				    <file-upload ng-model="identity.passport" input-group="identity" input-name="passport"></file-upload>
+				    <file-upload ng-model="identity.birthAct" input-group="identity" input-name="birthAct"></file-upload>
 			   	</div>
 			</div>
 		</div>
@@ -200,27 +156,5 @@
 
 	$(function () {
 		$('#field_lastName').popover();
-	});
-</script>
-
-<script type="text/javascript" ng-if="!isRenewal">
-	$(function () {
-		$('#passport-info').popover();
-	});
-	$(function () {
-		$('#birthAct-info').popover();
-	});
-	
-	$('#logo_passport').click(function(){
-	    $('#file_passport').click();
-	});
-	$('#field_passport').click(function(){
-	    $('#file_passport').click();
-	});
-	$('#logo_birthAct').click(function(){
-	    $('#file_birthAct').click();
-	});
-	$('#field_birthAct').click(function(){
-	    $('#file_birthAct').click();
 	});
 </script>

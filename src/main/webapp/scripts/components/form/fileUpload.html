@@ -1,0 +1,32 @@
+<div class="form-group">
+	<label translate="{{::inputGroup}}.form.{{::inputName}}"
+		for="field_{{::inputName}}"></label> <span class="glyphicon glyphicon-info-sign form-info"
+			id="{{::inputName}}-info" 
+			tabindex="0" 
+			data-placement="right"
+			data-toggle="popover" 
+			data-trigger="hover"
+			data-content="{{inputGroup+'.form.'+inputName+'.tooltip' | translate}}"></span>
+	<div class="input-group">
+		<span class="input-group-addon" id="logo_{{::inputName}}" ng-click="uploadFileClick()">
+			<span class="fa fa-file"></span>
+		</span>
+		<input type="file"
+				class="hidden"
+				id="file_{{::inputName}}"
+			   	ng-model="file"
+				onchange="angular.element(this).scope().uploadFile(this)">
+		<input type="text"
+				class="form-control" 
+				name="{{::inputName}}" 
+				id="field_{{::inputName}}"
+				ng-model="fileName"
+				ng-click="uploadFileClick()"
+				placeholder="{{inputGroup+'.form.'+inputName+'.placeholder' | translate}}"
+				readonly="readonly" 
+				required>
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !fileName}"></span>
+		</span>
+	</div>
+</div>
