@@ -1,0 +1,71 @@
+<div ng-cloak>
+    <div class="col-sm-5">
+		<div class="form-group" ng-if="!isRenewal">
+            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
+	        <div class="input-group date">
+		        <span class="input-group-addon">
+                       <span class="fa fa-calendar"></span>
+                   </span>
+                   <input type="text" class="form-control"
+			           name="comingDateTxt" id="field_comingDateTxt"
+			           ng-model="project.comingDateTxt"
+			           placeholder="{{'global.form.date.format' | translate}}"
+			           readonly="readonly">
+			</div>
+        </div>
+        <div class="form-group">
+            <label translate="project.form.university" for="field_university">University</label>
+            <input type="text" class="form-control" name="university" id="field_university"
+                    ng-model="project.university" readonly="readonly">
+        </div>
+        <div class="form-group">
+            <label translate="project.form.training" for="field_training">Training</label>
+            <input type="text" class="form-control" name="training" id="field_training"
+                    ng-model="project.training" readonly="readonly">
+        </div>
+        <div class="form-group">
+            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
+	        <div class="input-group date">
+		        <span class="input-group-addon">
+                       <span class="fa fa-calendar"></span>
+                   </span>
+                   <input type="text" class="form-control"
+			           name="trainingStartTxt" id="field_trainingStartTxt"
+			           ng-model="project.trainingStartTxt"
+			           placeholder="{{'global.form.date.format' | translate}}"
+			           readonly="readonly">
+			</div>
+        </div>
+        <div class="form-group">
+            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
+            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
+                    ng-model="project.trainingLength" readonly="readonly">
+        </div>
+        <div class="form-group">
+            <label translate="project.form.resourceType" for="field_resourceType">ResourceType</label>
+            <select class="form-control" name="resourceType" ng-model="project.resourceType" id="field_resourceType" disabled>
+                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
+                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
+                <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
+                <option value="month" translate="sejourApp.ResourceType.month">month</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
+            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount"
+                    ng-model="project.resourceAmount" readonly="readonly">
+        </div>
+	</div>
+	<div class="col-sm-7">
+		<div class="panel panel-default">
+			<div class="panel-heading" style="text-align: center">
+				<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="project.images.length > 1" ng-click="nextImg(project)"></span>
+				<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="project.images.length > 1" ng-click="previousImg(project)"></span>
+				<span translate="{{project.currentImg.title}}"></span><span> ({{project.currentImgIndex + 1}}/{{project.images.length}})</span>
+			</div>
+			<div class="panel-body">
+				<img ng-src="{{project.currentImg.src}}" class="img-responsive">
+			</div>
+		</div>
+	</div>
+</div>

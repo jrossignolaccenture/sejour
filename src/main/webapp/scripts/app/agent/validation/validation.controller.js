@@ -2,42 +2,40 @@
 
 angular.module('sejourApp')
     .controller('ValidationController', function ($scope, $state, Application, Country, currentApplication) {
-    	$scope.studentName = "";
-    	$scope.identity = {
-			images: [], 
-			currentImg: {},
-			currentImgIndex: 0
-        };
-    	$scope.project = {
-			images: [], 
-			currentImg: {},
-			currentImgIndex: 0
-    	};
 
-    	$scope.getFormattedDate = function(date) {
-    		return moment(date).format("DD/MM/YYYY");
-    	}
+        $scope.isRenewal = currentApplication.type === 'renouvellement';
+        $scope.viewSuffix = currentApplication.type === 'naturalisation' ? '-naturalization' : '';
     	
         Country.get().then(function(result) {
         	$scope.countries = result;
         });
+
+    	$scope.getFormattedDate = function(date) {
+    		return moment(date).format("DD/MM/YYYY");
+    	}
+        
+        $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
+        
+        $scope.identity = currentApplication.identity;
+        $scope.identity.birthDateTxt = $scope.getFormattedDate(currentApplication.identity.birthDate);
+        $scope.identity.images = [];
+        $scope.identity.images.push({src: "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg", title: "identity.form.passport"});
+        $scope.identity.images.push({src: "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png", title: "identity.form.birthAct"});
+        $scope.identity.currentImg = currentApplication.identity.images[0];
+        $scope.identity.currentImgIndex = 0;
+    	
+        $scope.project = currentApplication.project;
+        $scope.project.comingDateTxt = $scope.getFormattedDate(currentApplication.project.comingDate);
+        $scope.project.trainingStartTxt = $scope.getFormattedDate(currentApplication.project.trainingStart);
+    	var photoSuffix = $scope.isRenewal ? '_renouvellement' : '';
+    	$scope.project.images = [];
+		$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com"+photoSuffix+".png", title: "project.form.inscriptionCertificate"});
+		$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com"+photoSuffix+".png", title: "project.form.resourceProof"});
+    	$scope.project.currentImg = currentApplication.project.images[0];
+    	$scope.project.currentImgIndex = 0;
     	
         $scope.application = currentApplication;
-    	$scope.application.project.comingDateTxt = $scope.getFormattedDate(currentApplication.project.comingDate);
-    	$scope.application.project.trainingStartTxt = $scope.getFormattedDate(currentApplication.project.trainingStart);
-    	$scope.application.identity.birthDateTxt = $scope.getFormattedDate(currentApplication.identity.birthDate);
-    	$scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
-    	if($scope.application.type == 'premiere') {
-    		$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com.png", title: "project.form.inscriptionCertificate"});
-    		$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com.png", title: "project.form.resourceProof"});
-    	} else {
-    		$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com_renouvellement.png", title: "project.form.inscriptionCertificate"});
-    		$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com_renouvellement.png", title: "project.form.resourceProof"});
-    	}
-    	$scope.project.currentImg = $scope.project.images[$scope.project.currentImgIndex];
-    	$scope.identity.images.push({src: "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg", title: "identity.form.passport"});
-    	$scope.identity.images.push({src: "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png", title: "identity.form.birthAct"});
-    	$scope.identity.currentImg = $scope.identity.images[$scope.identity.currentImgIndex];
+    	
     	$scope.applicationArchived = {};
     	if($scope.application.type == 'premiere') {
     		$scope.identityValidationDate = $scope.application.rdvDate;

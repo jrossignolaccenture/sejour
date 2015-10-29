@@ -1,0 +1,68 @@
+<div ng-cloak>
+	<div class="col-sm-5">
+		<div class="form-group">
+	        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
+	        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName" readonly="readonly">
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
+	        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="identity.usedLastName" readonly="readonly">
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
+	        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="identity.firstName" readonly="readonly">
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.sex" for="field_sex">Sex</label>
+	        <div>
+		        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="F" disabled>{{'sejourApp.SexType.F' | translate}}</label>
+				<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="M" disabled>{{'sejourApp.SexType.M' | translate}}</label>
+               </div>
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
+	        <div class="input-group date">
+		        <span class="input-group-addon">
+                       <span class="fa fa-calendar"></span>
+                   </span>
+                   <input type="text" class="form-control"
+			           name="birthDateTxt" id="field_birthDateTxt"
+			           ng-model="identity.birthDateTxt"
+			           placeholder="{{'global.form.date.format' | translate}}" readonly="readonly">
+			</div>
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
+	        <input type="text" class="form-control" name="birthCity" id="field_birthCity"
+	                ng-model="identity.birthCity" readonly="readonly">
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
+	        <select class="form-control" name="birthCountry" id="field_birthCountry"
+			      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+			      ng-model="identity.birthCountry" disabled></select>
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
+	        <select class="form-control" name="nationality" id="field_nationality"
+			      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+			      ng-model="identity.nationality" disabled></select>
+	    </div>
+	    <div class="form-group">
+	        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
+	        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="identity.passportNumber" readonly="readonly">
+	    </div>
+	</div>
+	<div class="col-sm-7">
+		<div class="panel panel-default">
+			<div class="panel-heading" style="text-align: center">
+				<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="identity.images.length > 1" ng-click="nextImg(identity)"></span>
+				<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="identity.images.length > 1" ng-click="previousImg(identity)"></span>
+				<span translate="{{identity.currentImg.title}}"></span><span> ({{identity.currentImgIndex + 1}}/{{identity.images.length}})</span>
+			</div>
+			<div class="panel-body">
+				<img ng-src="{{identity.currentImg.src}}" class="img-responsive">
+			</div>
+		</div>
+	</div>
+</div>

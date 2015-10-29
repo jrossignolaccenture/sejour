@@ -10,6 +10,7 @@ angular.module('sejourApp')
     	$scope.isInDraftMode = currentApplication.statut === 'draft';
         
         $scope.isRenewal = currentApplication.type === 'renouvellement';
+        $scope.viewSuffix = currentApplication.type === 'naturalisation' ? '-naturalization' : '';
         
         $scope.identity = currentApplication.identity;
         $scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
@@ -46,7 +47,8 @@ angular.module('sejourApp')
         }
 
         $scope.back = function () {
-        	$state.go('project', $stateParams);
+        	var stateToGo = currentApplication.statut === 'draft' ? 'project' : 'account/application';
+        	$state.go(stateToGo, $stateParams);
         };
         $scope.next = function () {
             $state.go('payment', $stateParams);

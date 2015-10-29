@@ -21,72 +21,7 @@
 	<div class="row" ng-show="identityOpened">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': identityOpened}">
-				<div class="col-sm-5">
-					<div class="form-group">
-				        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
-				        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="application.identity.lastName" readonly="readonly">
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
-				        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="application.identity.usedLastName" readonly="readonly">
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
-				        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="application.identity.firstName" readonly="readonly">
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.sex" for="field_sex">Sex</label>
-				        <div>
-					        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="application.identity.sex" value="F" disabled>{{'sejourApp.SexType.F' | translate}}</label>
-							<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="application.identity.sex" value="M" disabled>{{'sejourApp.SexType.M' | translate}}</label>
-		                </div>
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
-				        <div class="input-group date">
-					        <span class="input-group-addon">
-		                        <span class="fa fa-calendar"></span>
-		                    </span>
-		                    <input type="text" class="form-control"
-						           name="birthDateTxt" id="field_birthDateTxt"
-						           ng-model="application.identity.birthDateTxt"
-						           placeholder="{{'global.form.date.format' | translate}}" readonly="readonly">
-						</div>
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
-				        <input type="text" class="form-control" name="birthCity" id="field_birthCity"
-				                ng-model="application.identity.birthCity" readonly="readonly">
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
-				        <select class="form-control" name="birthCountry" id="field_birthCountry"
-						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
-						      ng-model="application.identity.birthCountry" disabled></select>
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
-				        <select class="form-control" name="nationality" id="field_nationality"
-						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
-						      ng-model="application.identity.nationality" disabled></select>
-				    </div>
-				    <div class="form-group">
-				        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
-				        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="application.identity.passportNumber" readonly="readonly">
-				    </div>
-				</div>
-				<div class="col-sm-7">
-					<div class="panel panel-default">
-						<div class="panel-heading" style="text-align: center">
-							<span class="glyphicon glyphicon-arrow-right hand" ng-show="identity.images.length > 1" ng-click="nextImg(identity)" style="float: right;"></span>
-							<span class="glyphicon glyphicon-arrow-left hand" ng-show="identity.images.length > 1" ng-click="previousImg(identity)" style="float: left;"></span>
-							<span translate="{{identity.currentImg.title}}"></span><span> ({{identity.currentImgIndex + 1}}/{{identity.images.length}})</span>
-						</div>
-						<div class="panel-body">
-							<img src="{{identity.currentImg.src}}" class="img-responsive">
-						</div>
-					</div>
-				</div>
+				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
@@ -127,75 +62,7 @@
 				</ul>
 			</div>
 			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
-				<div class="col-sm-5">
-					<div class="form-group" ng-if="application.type == 'premiere'">
-			            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
-				        <div class="input-group date">
-					        <span class="input-group-addon">
-		                        <span class="fa fa-calendar"></span>
-		                    </span>
-		                    <input type="text" class="form-control"
-						           name="comingDateTxt" id="field_comingDateTxt"
-						           ng-model="application.project.comingDateTxt"
-						           placeholder="{{'global.form.date.format' | translate}}"
-						           readonly="readonly">
-						</div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.university" for="field_university">University</label>
-			            <input type="text" class="form-control" name="university" id="field_university"
-			                    ng-model="application.project.university" readonly="readonly">
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.training" for="field_training">Training</label>
-			            <input type="text" class="form-control" name="training" id="field_training"
-			                    ng-model="application.project.training" readonly="readonly">
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
-				        <div class="input-group date">
-					        <span class="input-group-addon">
-		                        <span class="fa fa-calendar"></span>
-		                    </span>
-		                    <input type="text" class="form-control"
-						           name="trainingStartTxt" id="field_trainingStartTxt"
-						           ng-model="application.project.trainingStartTxt"
-						           placeholder="{{'global.form.date.format' | translate}}"
-						           readonly="readonly">
-						</div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
-			            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
-			                    ng-model="application.project.trainingLength" readonly="readonly">
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.resourceType" for="field_resourceType">ResourceType</label>
-			            <select class="form-control" name="resourceType" ng-model="application.project.resourceType" id="field_resourceType" disabled>
-			                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
-			                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
-			                <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
-			                <option value="month" translate="sejourApp.ResourceType.month">month</option>
-			            </select>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
-			            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount"
-			                    ng-model="application.project.resourceAmount" readonly="readonly">
-			        </div>
-				</div>
-				<div class="col-sm-7">
-					<div class="panel panel-default">
-						<div class="panel-heading" style="text-align: center">
-							<span class="glyphicon glyphicon-arrow-right hand" ng-show="project.images.length > 1" ng-click="nextImg(project)" style="float: right;"></span>
-							<span class="glyphicon glyphicon-arrow-left hand" ng-show="project.images.length > 1" ng-click="previousImg(project)" style="float: left;"></span>
-							<span translate="{{project.currentImg.title}}"></span><span> ({{project.currentImgIndex + 1}}/{{project.images.length}})</span>
-						</div>
-						<div class="panel-body">
-							<img src="{{project.currentImg.src}}" class="img-responsive">
-						</div>
-					</div>
-				</div>
+				<ng-include src="'scripts/app/application/project/project'+viewSuffix+'-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
@@ -211,7 +78,7 @@
 			<span translate="validation.form.noHistory" ng-if="application.type == 'premiere'">No history</span>
 		</div>
 	</div>
-	<div class="row" ng-if="application.type == 'renouvellement'">
+	<div class="row" ng-if="isRenewal">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div>
 				<ul>
