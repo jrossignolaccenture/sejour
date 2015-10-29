@@ -1,5 +1,5 @@
 <div ng-cloak>
-    <div class="row title-underscore">
+    <div class="row title-main title-underline">
     	<h4 translate="procedure.title">Title</h4>
     </div>
     <br>
@@ -19,215 +19,144 @@
 		    </div>
 		</div>
 		<br>
-		<div ng-if="needForm">
-		    <div class="row">
-				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
-				    <div class="form-group" ng-if="needComingDate">
-			            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
-				        <div class="input-group date">
-					        <span class="input-group-addon">
-		                        <span class="fa fa-calendar"></span>
-		                    </span>
-		                    <input type="text" class="form-control"
-						           datetimepicker
-						           datetimepicker-options="{{datePickerOptions}}"
-						           name="comingDateTxt" id="field_comingDateTxt"
-						           ng-model="project.comingDateTxt"
-						           placeholder="{{'global.form.date.format' | translate}}" >
-						</div>
-			
-			            <div ng-show="projectForm.comingDateTxt.$dirty && projectForm.comingDateTxt.$invalid">
-			                <p class="help-block" ng-show="projectForm.comingDate.$error.required" translate="entity.validation.required">
-			                    This field is required.
-			                </p>
-			                <p class="help-block" ng-show="projectForm.comingDate.$error.date" translate="entity.validation.datetimelocal">
-			                    This field should be a date.
-			                </p>
-			            </div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.university" for="field_university">University</label>
-			            <input type="text" class="form-control" name="university" id="field_university"
-			                    ng-model="project.university" required>
-			
-			            <div ng-show="projectForm.university.$dirty && projectForm.university.$invalid">
-			                <p class="help-block" ng-show="projectForm.university.$error.required" translate="entity.validation.required">
-			                    This field is required.
-			                </p>
-			            </div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.training" for="field_training">Training</label>
-			            <input type="text" class="form-control" name="training" id="field_training"
-			                    ng-model="project.training" required>
-			
-			            <div ng-show="projectForm.training.$dirty && projectForm.training.$invalid">
-			                <p class="help-block" ng-show="projectForm.training.$error.required" translate="entity.validation.required">
-			                    This field is required.
-			                </p>
-			            </div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
-				        <div class="input-group date">
-					        <span class="input-group-addon">
-		                        <span class="fa fa-calendar"></span>
-		                    </span>
-		                    <input type="text" class="form-control"
-						           datetimepicker
-						           datetimepicker-options="{{datePickerOptions}}"
-						           name="trainingStartTxt" id="field_trainingStartTxt"
-						           ng-model="project.trainingStartTxt"
-						           placeholder="{{'global.form.date.format' | translate}}">
-						</div>
-			
-			            <div ng-show="projectForm.trainingStartTxt.$dirty && projectForm.trainingStartTxt.$invalid">
-			                <p class="help-block" ng-show="projectForm.trainingStart.$error.required" translate="entity.validation.required">
-			                    This field is required.
-			                </p>
-			                <p class="help-block" ng-show="projectForm.trainingStart.$error.datetimelocal" translate="entity.validation.datetimelocal">
-			                    This field should be a date and time.
-			                </p>
-			            </div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
-			            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength" min="0"
-			                    ng-model="project.trainingLength" required>
-			
-			            <div ng-show="projectForm.trainingLength.$dirty && projectForm.trainingLength.$invalid">
-			                <p class="help-block" ng-show="projectForm.trainingLength.$error.required" translate="entity.validation.required">
-			                    This field is required.
-			                </p>
-			                <p class="help-block" ng-show="projectForm.trainingLength.$error.number" translate="entity.validation.number">
-			                    This field should be a number.
-			                </p>
-			                <p class="help-block" ng-show="projectForm.trainingLength.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
-			                    This field should be a positive.
-			                </p>
-			            </div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.resourceType" for="field_resourceType">ResourceType</label>
-			            <select class="form-control" name="resourceType" ng-model="project.resourceType" id="field_resourceType" required>
-			                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
-			                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
-			                <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
-			                <option value="month" translate="sejourApp.ResourceType.month">month</option>
-			            </select>
-			
-			            <div ng-show="projectForm.resourceType.$dirty && projectForm.resourceType.$invalid">
-			                <p class="help-block" ng-show="projectForm.resourceType.$error.required" translate="entity.validation.required">
-			                    This field is required.
-			                </p>
-			            </div>
-			        </div>
-			        <div class="form-group">
-			            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
-			            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount" min="0"
-			                    ng-model="project.resourceAmount" required>
-			
-			            <div ng-show="projectForm.resourceAmount.$dirty && projectForm.resourceAmount.$invalid">
-			                <p class="help-block" ng-show="projectForm.resourceAmount.$error.required" translate="entity.validation.required">
-			                    This field is required.
-			                </p>
-			                <p class="help-block" ng-show="projectForm.resourceAmount.$error.number" translate="entity.validation.number">
-			                    This field should be a number.
-			                </p>
-			                <p class="help-block" ng-show="projectForm.resourceAmount.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
-			                    This field should be a positive.
-			                </p>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-xs-1 col-xs-offset-1">
-			    	
-			    </div>
-			    <div class="col-xs-10 form-title-text">
-					<p translate="project.form.document.title">Project documents</p>
-			    </div>
-			</div>
-		    <br>
-		    <div class="row">
-				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
-				    <file-upload ng-model="project.inscriptionCertificate" input-group="project" input-name="inscriptionCertificate"></file-upload>
-				    <file-upload ng-model="project.resourceProof" input-group="project" input-name="resourceProof"></file-upload>
-			    </div>
-			</div>
-		</div>
-		<div ng-if="!needForm">
-			<div class="row">
-				<div class="col-xs-9 col-xs-offset-2 col-sm-8 col-sm-offset-3">
-					<div class="form-group">
-						<label translate="project.form.resources.title" for="field_resources">Resources</label>
-				        <div class="radio">
-					        <label>
-					        	<input type="radio" id="field_resources" name="resources" ng-model="project.resources" value="Y" required>
-					        	{{'project.form.resources.yes' | translate}}
-					    	</label>
-					    	<br><br>
-							<label>
-								<input type="radio" id="field_resources" name="resources" ng-model="project.resources" value="N" required>
-								{{'project.form.resources.no' | translate}}
-								<span class="glyphicon glyphicon-info-sign form-info"
-										id="resources-no-info" 
-										tabindex="0" 
-										data-placement="right"
-										data-toggle="popover" 
-										data-trigger="hover"
-										data-content="{{'project.form.resources.no.tooltip' | translate}}"></span>
-								<script type="text/javascript">
-									$(function () {
-								  	  $('[data-toggle="popover"]').popover()
-								  	})
-								</script>
-							</label>
-		                </div>
-				        <div ng-show="projectForm.resources.$dirty && projectForm.resources.$invalid">
-				            <p class="help-block" ng-show="projectForm.resources.$error.required" translate="entity.validation.required">
-				                This field is required.
-				            </p>
-				        </div>
-				    </div>
-				    <br>
-					<div class="form-group">
-						<label translate="project.form.taxSituation.title" for="field_taxSituation">Tax situation</label>
-				        <div class="radio">
-					        <label>
-					        	<input type="radio" id="field_taxSituation" name="taxSituation" ng-model="project.taxSituation" value="Y" required>
-					        	{{'project.form.taxSituation.yes' | translate}}
-					    	</label>
-					    	<br><br>
-							<label>
-								<input type="radio" id="field_taxSituation" name="taxSituation" ng-model="project.taxSituation" value="N" required>
-								{{'project.form.taxSituation.no' | translate}}
-								<span class="glyphicon glyphicon-info-sign form-info"
-										id="taxSituation-no-info" 
-										tabindex="0" 
-										data-placement="right"
-										data-toggle="popover" 
-										data-trigger="hover"
-										data-content="{{'project.form.taxSituation.no.tooltip' | translate}}"></span>
-							</label>
-		                </div>
-				        <div ng-show="projectForm.taxSituation.$dirty && projectForm.taxSituation.$invalid">
-				            <p class="help-block" ng-show="projectForm.taxSituation.$error.required" translate="entity.validation.required">
-				                This field is required.
-				            </p>
-				        </div>
-				    </div>
-				</div>
-			</div>
-			<script type="text/javascript">
-				$(function () {
-			  	  $('[data-toggle="popover"]').popover()
-			  	})
-			</script>
+	    <div class="row">
+			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+			    <div class="form-group" ng-if="needComingDate">
+		            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
+			        <div class="input-group date">
+				        <span class="input-group-addon">
+	                        <span class="fa fa-calendar"></span>
+	                    </span>
+	                    <input type="text" class="form-control"
+					           datetimepicker
+					           datetimepicker-options="{{datePickerOptions}}"
+					           name="comingDateTxt" id="field_comingDateTxt"
+					           ng-model="project.comingDateTxt"
+					           placeholder="{{'global.form.date.format' | translate}}" >
+					</div>
+		
+		            <div ng-show="projectForm.comingDateTxt.$dirty && projectForm.comingDateTxt.$invalid">
+		                <p class="help-block" ng-show="projectForm.comingDate.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.comingDate.$error.date" translate="entity.validation.datetimelocal">
+		                    This field should be a date.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="project.form.university" for="field_university">University</label>
+		            <input type="text" class="form-control" name="university" id="field_university"
+		                    ng-model="project.university" required>
+		
+		            <div ng-show="projectForm.university.$dirty && projectForm.university.$invalid">
+		                <p class="help-block" ng-show="projectForm.university.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="project.form.training" for="field_training">Training</label>
+		            <input type="text" class="form-control" name="training" id="field_training"
+		                    ng-model="project.training" required>
+		
+		            <div ng-show="projectForm.training.$dirty && projectForm.training.$invalid">
+		                <p class="help-block" ng-show="projectForm.training.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
+			        <div class="input-group date">
+				        <span class="input-group-addon">
+	                        <span class="fa fa-calendar"></span>
+	                    </span>
+	                    <input type="text" class="form-control"
+					           datetimepicker
+					           datetimepicker-options="{{datePickerOptions}}"
+					           name="trainingStartTxt" id="field_trainingStartTxt"
+					           ng-model="project.trainingStartTxt"
+					           placeholder="{{'global.form.date.format' | translate}}">
+					</div>
+		
+		            <div ng-show="projectForm.trainingStartTxt.$dirty && projectForm.trainingStartTxt.$invalid">
+		                <p class="help-block" ng-show="projectForm.trainingStart.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.trainingStart.$error.datetimelocal" translate="entity.validation.datetimelocal">
+		                    This field should be a date and time.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
+		            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength" min="0"
+		                    ng-model="project.trainingLength" required>
+		
+		            <div ng-show="projectForm.trainingLength.$dirty && projectForm.trainingLength.$invalid">
+		                <p class="help-block" ng-show="projectForm.trainingLength.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.trainingLength.$error.number" translate="entity.validation.number">
+		                    This field should be a number.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.trainingLength.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="project.form.resourceType" for="field_resourceType">ResourceType</label>
+		            <select class="form-control" name="resourceType" ng-model="project.resourceType" id="field_resourceType" required>
+		                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
+		                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
+		                <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
+		                <option value="month" translate="sejourApp.ResourceType.month">month</option>
+		            </select>
+		
+		            <div ng-show="projectForm.resourceType.$dirty && projectForm.resourceType.$invalid">
+		                <p class="help-block" ng-show="projectForm.resourceType.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
+		            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount" min="0"
+		                    ng-model="project.resourceAmount" required>
+		
+		            <div ng-show="projectForm.resourceAmount.$dirty && projectForm.resourceAmount.$invalid">
+		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.number" translate="entity.validation.number">
+		                    This field should be a number.
+		                </p>
+		                <p class="help-block" ng-show="projectForm.resourceAmount.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
+		                </p>
+		            </div>
+		        </div>
+		    </div>
 		</div>
 		<br>
+		<div class="row">
+			<div class="col-xs-1 col-xs-offset-1">
+		    	
+		    </div>
+		    <div class="col-xs-10 form-title-text">
+				<p translate="project.form.document.title">Project documents</p>
+		    </div>
+		</div>
+	    <br>
+	    <div class="row">
+			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+			    <file-upload ng-model="project.inscriptionCertificate" input-group="project" input-name="inscriptionCertificate"></file-upload>
+			    <file-upload ng-model="project.resourceProof" input-group="project" input-name="resourceProof"></file-upload>
+		    </div>
+		</div>
+		<br><br>
 	    <div class="row row-center">
         	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
         	<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"

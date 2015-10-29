@@ -1,0 +1,101 @@
+<div ng-cloak>
+    <div class="row title-main title-underline">
+    	<h4 translate="procedure.title">Title</h4>
+    </div>
+    <br>
+    <steps-menu stepnumber="3"></steps-menu>
+    <br><br>
+
+	<form name="projectForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
+	
+		<div class="row">
+			<div class="col-xs-1 col-xs-offset-1">
+		    	<div class="step-number-align">
+		    		<div class="step-number">3</div>
+		    	</div>
+		    </div>
+		    <div class="col-xs-10 form-title-text">
+		    	<p translate="procedure.project.step.long">Project</p>
+		    </div>
+		</div>
+		<br>
+		<div class="row">
+		    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-2 form-title-text title-underline">
+				<h4 translate="project.form.resources.title">Resources</h4>
+		    </div>
+		</div>
+		<div class="row">
+			<div class="col-xs-9 col-xs-offset-2 col-sm-8 col-sm-offset-3">
+				<div class="form-group">
+			        <div class="radio">
+				        <label>
+				        	<input type="radio" id="field_resources" name="resources" ng-model="project.resourcesSearchAuthorized" ng-value="true" required>
+				        	{{'project.form.resources.yes' | translate}}
+				    	</label>
+				    	<br><br>
+						<label>
+							<input type="radio" id="field_resources" name="resources" ng-model="project.resourcesSearchAuthorized" ng-value="false"required>
+							{{'project.form.resources.no' | translate}}
+							<tooltip tooltip-text='project.form.resources.no.tooltip'></tooltip>
+						</label>
+	                </div>
+			        <div ng-show="projectForm.resources.$dirty && projectForm.resources.$invalid">
+			            <p class="help-block" ng-show="projectForm.resources.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+			    </div>
+			    <div ng-if="project.resourcesSearchAuthorized === false">
+			    	<br>
+			    	<file-upload ng-model="project.contract" input-group="project" input-name="resources.contract"></file-upload>
+			    	<file-upload ng-model="project.certificate" input-group="project" input-name="resources.certificate"></file-upload>
+			    	<file-upload ng-model="project.paySlip" input-group="project" input-name="resources.paySlip"></file-upload>
+			    </div>
+			</div>
+		</div>	
+		<br>
+		<div class="row">
+		    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-2 form-title-text title-underline">
+				<h4 translate="project.form.taxSituation.title">Tax situation</h4>
+		    </div>
+		</div>
+		<div class="row">
+			<div class="col-xs-9 col-xs-offset-2 col-sm-8 col-sm-offset-3">
+				<div class="form-group">
+			        <div class="radio">
+				        <label>
+				        	<input type="radio" id="field_taxSituation" name="taxSituation" ng-model="project.taxSituationSearchAuthorized" ng-value="true" required>
+				        	{{'project.form.taxSituation.yes' | translate}}
+				    	</label>
+				    	<br><br>
+						<label>
+							<input type="radio" id="field_taxSituation" name="taxSituation" ng-model="project.taxSituationSearchAuthorized" ng-value="false" required>
+							{{'project.form.taxSituation.no' | translate}}
+							<tooltip tooltip-text='project.form.taxSituation.no.tooltip'></tooltip>
+						</label>
+	                </div>
+			        <div ng-show="projectForm.taxSituation.$dirty && projectForm.taxSituation.$invalid">
+			            <p class="help-block" ng-show="projectForm.taxSituation.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+			    </div>
+			    <div ng-if="project.taxSituationSearchAuthorized === false">
+			    	<br>
+			    	<file-upload ng-model="project.taxSlip" input-group="project" input-name="taxSituation.taxSlip"></file-upload>
+			    	<file-upload ng-model="project.taxNotice" input-group="project" input-name="taxSituation.taxNotice"></file-upload>
+			    </div>
+			</div>
+		</div>
+		<br><br>
+	    <div class="row row-center">
+        	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+        	<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"
+        			 ng-disabled="projectForm.$invalid || projectForm.$submitted">Continue</button>
+        </div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

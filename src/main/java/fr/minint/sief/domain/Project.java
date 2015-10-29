@@ -59,6 +59,12 @@ public class Project implements Serializable {
     
     @Field("inscription_certificate")
     private String inscriptionCertificate;
+    
+    @Field("resources_search_authorized")
+    private Boolean resourcesSearchAuthorized;
+    
+    @Field("tax_situation_search_authorized")
+    private Boolean taxSituationSearchAuthorized;
 
     public DateTime getComingDate() {
         return comingDate;
@@ -132,7 +138,23 @@ public class Project implements Serializable {
         this.inscriptionCertificate = inscriptionCertificate;
     }
 
-    @Override
+    public Boolean isResourcesSearchAuthorized() {
+		return resourcesSearchAuthorized;
+	}
+
+	public void setResourcesSearchAuthorized(Boolean resourcesSearchAuthorized) {
+		this.resourcesSearchAuthorized = resourcesSearchAuthorized;
+	}
+
+	public Boolean isTaxSituationSearchAuthorized() {
+		return taxSituationSearchAuthorized;
+	}
+
+	public void setTaxSituationSearchAuthorized(Boolean taxSituationSearchAuthorized) {
+		this.taxSituationSearchAuthorized = taxSituationSearchAuthorized;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -172,6 +194,8 @@ public class Project implements Serializable {
                 ", resourceAmount='" + resourceAmount + "'" +
                 ", resourceProof='" + resourceProof + "'" +
                 ", inscriptionCertificate='" + inscriptionCertificate + "'" +
+                ", resourcesSearchAuthorized='" + resourcesSearchAuthorized + "'" +
+                ", taxSituationSearchAuthorized='" + taxSituationSearchAuthorized + "'" +
                 '}';
     }
 }

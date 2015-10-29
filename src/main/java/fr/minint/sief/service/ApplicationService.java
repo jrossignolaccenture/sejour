@@ -93,11 +93,9 @@ public class ApplicationService {
 			// Get identity and address from user infos
 			application.setIdentity(currentUser.getIdentity());
 			application.setAddress(currentUser.getFrenchAddress());
-			if(application.getProject() != null) {
-				// don't need project training start and length
-				application.getProject().setTrainingStart(null);
-				application.getProject().setTrainingLength(null);
-			}
+			// don't need project training start and length
+			application.getProject().setTrainingStart(null);
+			application.getProject().setTrainingLength(null);
 		}
 
 		application = applicationRepository.save(application);

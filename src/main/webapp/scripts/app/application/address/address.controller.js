@@ -29,7 +29,6 @@ angular.module('sejourApp')
         	$state.go('identity', $stateParams);
         };
         $scope.save = function () {
-        	currentApplication.address = $scope.address;
             Application.update(currentApplication).then(function() {
             	$state.go('project', $stateParams);
             });

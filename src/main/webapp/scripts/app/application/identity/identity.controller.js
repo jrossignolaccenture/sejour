@@ -2,8 +2,6 @@
 
 angular.module('sejourApp')
     .controller('IdentityController', function ($scope, $state, $stateParams, Country, File, Application, currentApplication) {
-        $scope.passportFile = {};
-        $scope.birthActFile = {};
         
         $scope.birthDatePickerOptions = {
 			format: 'DD/MM/YYYY',
@@ -16,7 +14,7 @@ angular.module('sejourApp')
         $scope.needDocuments = currentApplication.type === 'premiere';
         
         $scope.identity = currentApplication.identity;
-        if($scope.identity != null && $scope.identity.birthDate != null) {
+        if($scope.identity.birthDate) {
         	$scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
         }
         
@@ -27,7 +25,7 @@ angular.module('sejourApp')
         
         $scope.save = function () {
         	$scope.identity.birthDate = moment($scope.identity.birthDateTxt, "DD/MM/YYYY").toDate();
-        	currentApplication.identity = $scope.identity;
+        	
             Application.update(currentApplication).then(function() {
             	$state.go('address', $stateParams);
             });

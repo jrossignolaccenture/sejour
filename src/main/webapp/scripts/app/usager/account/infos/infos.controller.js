@@ -55,7 +55,6 @@ angular.module('sejourApp')
         $scope.save = function () {
         	$scope.identity.birthDate = moment($scope.identity.birthDateTxt, "DD/MM/YYYY").toDate();
         	$scope.account.comingDate = moment($scope.account.comingDateTxt, "DD/MM/YYYY").toDate();
-        	console.log($scope.account);
         	Auth.updateAccount($scope.account).then(function(result){
         		$scope.error = null;
             	$state.go('usager/account');

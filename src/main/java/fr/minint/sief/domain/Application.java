@@ -61,13 +61,13 @@ public class Application implements Serializable {
     private DateTime modificationDate = DateTime.now();
     
     @Field("identity")
-    private Identity identity;
+    private Identity identity = new Identity();
     
     @Field("address")
-    private Address address;
+    private Address address = new Address();
     
     @Field("project")
-    private Project project;
+    private Project project = new Project();
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)

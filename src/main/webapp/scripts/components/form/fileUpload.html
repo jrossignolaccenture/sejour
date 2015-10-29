@@ -1,12 +1,6 @@
 <div class="form-group">
-	<label translate="{{::inputGroup}}.form.{{::inputName}}"
-		for="field_{{::inputName}}"></label> <span class="glyphicon glyphicon-info-sign form-info"
-			id="{{::inputName}}-info" 
-			tabindex="0" 
-			data-placement="right"
-			data-toggle="popover" 
-			data-trigger="hover"
-			data-content="{{inputGroup+'.form.'+inputName+'.tooltip' | translate}}"></span>
+	<label translate="{{::inputGroup}}.form.{{::inputName}}" for="field_{{::inputName}}"></label>
+	<tooltip tooltip-text="{{inputGroup+'.form.'+inputName+'.tooltip'}}"></tooltip>
 	<div class="input-group">
 		<span class="input-group-addon" id="logo_{{::inputName}}" ng-click="uploadFileClick()">
 			<span class="fa fa-file"></span>

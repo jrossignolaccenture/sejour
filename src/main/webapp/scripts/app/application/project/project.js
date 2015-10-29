@@ -11,7 +11,10 @@ angular.module('sejourApp')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/application/project/project.html',
+                        templateUrl: function(stateParams) {
+                        	var suffix = stateParams.base === 'naturalisation' ? '-naturalization' : '';
+                        	return 'scripts/app/application/project/project'+suffix+'.html';
+                        },
                         controller: 'ProjectController'
                     }
                 },

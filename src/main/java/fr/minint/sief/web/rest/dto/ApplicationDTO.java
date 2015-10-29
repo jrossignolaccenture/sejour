@@ -41,11 +41,11 @@ public class ApplicationDTO implements Serializable {
     
     private DateTime modificationDate = DateTime.now();
     
-    private IdentityDTO identity;
+    private IdentityDTO identity = new IdentityDTO();
     
-    private AddressDTO address;
+    private AddressDTO address = new AddressDTO();
     
-    private ProjectDTO project;
+    private ProjectDTO project = new ProjectDTO();
     
     private DateTime paymentDate;
     

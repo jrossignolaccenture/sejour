@@ -25,6 +25,19 @@ angular.module('sejourApp')
             }
         };
     })
+    .directive('tooltip', function() {
+        return {
+            restrict: 'E',
+            required: '^tooltipText',
+            scope: {
+            	tooltipText: "@"
+            },
+            templateUrl: 'scripts/components/form/tooltip.html',
+            link: function postLink(scope, iElement, iAttrs, ctrl) {
+            	$('[data-toggle="popover"]').popover()
+            }
+        };
+    })
     .directive('fileUpload', function() {
         return {
             restrict: 'E',
@@ -58,14 +71,9 @@ angular.module('sejourApp')
                 };
             }],
             link: function postLink(scope, iElement, iAttrs, ctrl) {
-
                 scope.uploadFileClick = function () {
                 	  angular.element('#file_'+scope.inputName).trigger('click');
                 };
-                
-              	$(function () {
-            	  $('[data-toggle="popover"]').popover()
-            	});
             }
         };
     });;

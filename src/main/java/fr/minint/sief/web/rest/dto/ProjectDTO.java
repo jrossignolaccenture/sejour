@@ -38,6 +38,10 @@ public class ProjectDTO implements Serializable {
     private String resourceProof;
 
     private String inscriptionCertificate;
+    
+    private Boolean resourcesSearchAuthorized;
+    
+    private Boolean taxSituationSearchAuthorized;
 
     public DateTime getComingDate() {
         return comingDate;
@@ -111,6 +115,22 @@ public class ProjectDTO implements Serializable {
         this.inscriptionCertificate = inscriptionCertificate;
     }
 
+    public Boolean isResourcesSearchAuthorized() {
+		return resourcesSearchAuthorized;
+	}
+
+	public void setResourcesSearchAuthorized(Boolean resourcesSearchAuthorized) {
+		this.resourcesSearchAuthorized = resourcesSearchAuthorized;
+	}
+
+	public Boolean isTaxSituationSearchAuthorized() {
+		return taxSituationSearchAuthorized;
+	}
+
+	public void setTaxSituationSearchAuthorized(Boolean taxSituationSearchAuthorized) {
+		this.taxSituationSearchAuthorized = taxSituationSearchAuthorized;
+	}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -151,6 +171,8 @@ public class ProjectDTO implements Serializable {
                 ", resourceAmount='" + resourceAmount + "'" +
                 ", resourceProof='" + resourceProof + "'" +
                 ", inscriptionCertificate='" + inscriptionCertificate + "'" +
+                ", resourcesSearchAuthorized='" + resourcesSearchAuthorized + "'" +
+                ", taxSituationSearchAuthorized='" + taxSituationSearchAuthorized + "'" +
                 '}';
     }
 }

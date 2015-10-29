@@ -337,11 +337,14 @@ ul#strengthBar {
 }
 
 /** FORM **/
-.title-underscore > h4 {
-	padding-bottom: 7px;
+.title-main > h4 {
 	font-weight: bolder;
 	color: rgb(53, 86, 137);
-	border-bottom: 2px solid rgb(53, 86, 137);;
+	border-color: rgb(53, 86, 137);
+}
+.title-underline > h4 {
+	padding-bottom: 7px;
+	border-bottom: 2px solid;
 }
 
 .collapsable-panel {
