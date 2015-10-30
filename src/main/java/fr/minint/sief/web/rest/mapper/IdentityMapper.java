@@ -1,14 +1,14 @@
 package fr.minint.sief.web.rest.mapper;
 
-import fr.minint.sief.domain.*;
-import fr.minint.sief.web.rest.dto.IdentityDTO;
+import org.mapstruct.Mapper;
 
-import org.mapstruct.*;
+import fr.minint.sief.domain.Identity;
+import fr.minint.sief.web.rest.dto.IdentityDTO;
 
 /**
  * Mapper for the entity Identity and its DTO IdentityDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {DocumentMapper.class})
 public interface IdentityMapper {
 
     IdentityDTO identityToIdentityDTO(Identity identity);

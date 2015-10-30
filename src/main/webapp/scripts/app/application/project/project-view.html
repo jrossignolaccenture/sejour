@@ -59,9 +59,9 @@
 	<div class="col-sm-7">
 		<div class="panel panel-default">
 			<div class="panel-heading" style="text-align: center">
-				<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="project.images.length > 1" ng-click="nextImg(project)"></span>
-				<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="project.images.length > 1" ng-click="previousImg(project)"></span>
-				<span translate="{{project.currentImg.title}}"></span><span> ({{project.currentImgIndex + 1}}/{{project.images.length}})</span>
+				<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="project.documents.length > 1" ng-click="nextImg(project)"></span>
+				<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="project.documents.length > 1" ng-click="previousImg(project)"></span>
+				<span translate="{{project.currentImg.title}}"></span><span> ({{project.currentImgIndex + 1}}/{{project.documents.length}})</span>
 			</div>
 			<div class="panel-body">
 				<img ng-src="{{project.currentImg.src}}" class="img-responsive">

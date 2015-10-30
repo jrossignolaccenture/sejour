@@ -1,26 +1,24 @@
 <div class="form-group">
-	<label translate="{{::inputGroup}}.form.{{::inputName}}" for="field_{{::inputName}}"></label>
-	<tooltip tooltip-text="{{inputGroup+'.form.'+inputName+'.tooltip'}}"></tooltip>
-	<div class="input-group">
-		<span class="input-group-addon" id="logo_{{::inputName}}" ng-click="uploadFileClick()">
-			<span class="fa fa-file"></span>
-		</span>
-		<input type="file"
-				class="hidden"
-				id="file_{{::inputName}}"
-			   	ng-model="file"
-				onchange="angular.element(this).scope().uploadFile(this)">
+	<label translate="{{::translateKey}}"></label>
+	<tooltip tooltip-text="{{translateKey+'.tooltip'}}"></tooltip>
+	<div class="input-group" ng-repeat="doc in docs" ng-class="{'input-group-file-suppl': $index > 0}">
+		<span class="input-group-addon" ng-click="uploadFileClick($id, $index)"><span class="fa fa-file"></span></span>
+		<input type="file" class="hidden" id="{{::$id}}_{{$index}}" onchange="angular.element(this).scope().uploadFile(this)">
 		<input type="text"
-				class="form-control" 
-				name="{{::inputName}}" 
-				id="field_{{::inputName}}"
-				ng-model="fileName"
-				ng-click="uploadFileClick()"
-				placeholder="{{inputGroup+'.form.'+inputName+'.placeholder' | translate}}"
+				class="form-control"
+				ng-model="doc.name"
+				ng-click="uploadFileClick($id, $index)"
+				placeholder="{{translateKey+'.placeholder' | translate}}"
 				readonly="readonly" 
-				required>
-		<span class="input-group-addon">
-			<span class="glyphicon glyphicon-plus input-file-plus" ng-class="{'img-disabled': !fileName}"></span>
+				ng-required="docs.length == 1">
+		<span class="input-group-addon input-group-addon-file" ng-if="doc.name" ng-click="removeDoc($index)">
+			<span class="glyphicon glyphicon-trash"></span>
+		</span>
+		<span class="input-group-addon input-group-addon-file" ng-if="$index == (docs.length - 1)" ng-click="addDoc($index)" >
+			<span class="glyphicon glyphicon-plus" ng-class="{'img-disabled': !doc.name}"></span>
 		</span>
 	</div>
+	<div ng-show="fileUploadFail">
+        <p class="help-block" translate="entity.validation.file.upload">Upload failed</p>
+    </div>
 </div>

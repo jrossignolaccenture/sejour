@@ -7,7 +7,6 @@ import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import fr.minint.sief.domain.enumeration.ContactType;
@@ -15,7 +14,6 @@ import fr.minint.sief.domain.enumeration.ContactType;
 /**
  * A Address.
  */
-@Document(collection = "ADDRESS")
 public class Address implements Serializable {
 
     @Field("owner")

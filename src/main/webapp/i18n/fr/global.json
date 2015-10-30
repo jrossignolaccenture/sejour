@@ -115,7 +115,8 @@
             "pattern": "Ce champs doit suivre l'expression régulière {{pattern}}.",
             "number": "Ce champs doit être un nombre.",
             "datetimelocal": "Ce champs doit être une date et une heure.",
-            "date": "Ce champs doit être une date."
+            "date": "Ce champs doit être une date.",
+            "file.upload": "Le téléchargement du fichier a échoué"
         }
     }
 }

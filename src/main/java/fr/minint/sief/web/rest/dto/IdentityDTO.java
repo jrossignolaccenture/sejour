@@ -1,6 +1,8 @@
 package fr.minint.sief.web.rest.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
@@ -40,10 +42,7 @@ public class IdentityDTO implements Serializable {
     private String passportNumber;
 
     @NotNull
-    private String passport;
-
-    @NotNull
-    private String birthAct;
+    private List<DocumentDTO> documents = new ArrayList<>();
 
     public String getLastName() {
         return lastName;
@@ -117,23 +116,15 @@ public class IdentityDTO implements Serializable {
         this.passportNumber = passportNumber;
     }
 
-    public String getPassport() {
-        return passport;
-    }
+    public List<DocumentDTO> getDocuments() {
+		return documents;
+	}
 
-    public void setPassport(String passport) {
-        this.passport = passport;
-    }
+	public void setDocuments(List<DocumentDTO> documents) {
+		this.documents = documents;
+	}
 
-    public String getBirthAct() {
-        return birthAct;
-    }
-
-    public void setBirthAct(String birthAct) {
-        this.birthAct = birthAct;
-    }
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -166,8 +157,7 @@ public class IdentityDTO implements Serializable {
                 ", birthCountry='" + birthCountry + "'" +
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
-                ", passport='" + passport + "'" +
-                ", birthAct='" + birthAct + "'" +
+                ", documents='" + documents + "'" +
                 '}';
     }
 }

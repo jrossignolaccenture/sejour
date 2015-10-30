@@ -1,0 +1,10 @@
+{
+    "sejourApp": {
+        "DocumentType" : {
+            "passport": "Passport",
+            "birthAct": "Birth act",
+            "inscriptionCertificate": "Inscription certificate",
+            "resourceProof": "Resource proof"
+        }
+    }
+}

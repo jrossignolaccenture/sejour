@@ -1,6 +1,8 @@
 package fr.minint.sief.web.rest.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
@@ -35,9 +37,8 @@ public class ProjectDTO implements Serializable {
     @NotNull
     private Integer resourceAmount;
 
-    private String resourceProof;
-
-    private String inscriptionCertificate;
+    @NotNull
+    private List<DocumentDTO> documents = new ArrayList<>();
     
     private Boolean resourcesSearchAuthorized;
     
@@ -99,21 +100,13 @@ public class ProjectDTO implements Serializable {
         this.resourceAmount = resourceAmount;
     }
 
-    public String getResourceProof() {
-        return resourceProof;
-    }
+    public List<DocumentDTO> getDocuments() {
+		return documents;
+	}
 
-    public void setResourceProof(String resourceProof) {
-        this.resourceProof = resourceProof;
-    }
-
-    public String getInscriptionCertificate() {
-        return inscriptionCertificate;
-    }
-
-    public void setInscriptionCertificate(String inscriptionCertificate) {
-        this.inscriptionCertificate = inscriptionCertificate;
-    }
+	public void setDocuments(List<DocumentDTO> documents) {
+		this.documents = documents;
+	}
 
     public Boolean isResourcesSearchAuthorized() {
 		return resourcesSearchAuthorized;
@@ -169,8 +162,7 @@ public class ProjectDTO implements Serializable {
                 ", trainingLength='" + trainingLength + "'" +
                 ", resourceType='" + resourceType + "'" +
                 ", resourceAmount='" + resourceAmount + "'" +
-                ", resourceProof='" + resourceProof + "'" +
-                ", inscriptionCertificate='" + inscriptionCertificate + "'" +
+                ", documents='" + documents + "'" +
                 ", resourcesSearchAuthorized='" + resourcesSearchAuthorized + "'" +
                 ", taxSituationSearchAuthorized='" + taxSituationSearchAuthorized + "'" +
                 '}';

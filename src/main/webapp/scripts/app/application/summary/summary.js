@@ -28,6 +28,7 @@ angular.module('sejourApp')
                     	$translatePartialLoader.addPart('contactType');
                     	$translatePartialLoader.addPart('project');
                     	$translatePartialLoader.addPart('resourceType');
+                    	$translatePartialLoader.addPart('documentType');
                         return $translate.refresh();
                     }]
                 }

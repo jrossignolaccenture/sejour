@@ -1,12 +1,13 @@
 package fr.minint.sief.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
 import org.joda.time.DateTime;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -19,7 +20,6 @@ import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 /**
  * A Project.
  */
-@Document(collection = "PROJECT")
 public class Project implements Serializable {
 
     @NotNull        
@@ -54,11 +54,8 @@ public class Project implements Serializable {
     @Field("resource_amount")
     private Integer resourceAmount;
     
-    @Field("resource_proof")
-    private String resourceProof;
-    
-    @Field("inscription_certificate")
-    private String inscriptionCertificate;
+    @Field("documents")
+    private List<Document> documents = new ArrayList<>();
     
     @Field("resources_search_authorized")
     private Boolean resourcesSearchAuthorized;
@@ -122,21 +119,13 @@ public class Project implements Serializable {
         this.resourceAmount = resourceAmount;
     }
 
-    public String getResourceProof() {
-        return resourceProof;
-    }
+    public List<Document> getDocuments() {
+		return documents;
+	}
 
-    public void setResourceProof(String resourceProof) {
-        this.resourceProof = resourceProof;
-    }
-
-    public String getInscriptionCertificate() {
-        return inscriptionCertificate;
-    }
-
-    public void setInscriptionCertificate(String inscriptionCertificate) {
-        this.inscriptionCertificate = inscriptionCertificate;
-    }
+	public void setDocuments(List<Document> documents) {
+		this.documents = documents;
+	}
 
     public Boolean isResourcesSearchAuthorized() {
 		return resourcesSearchAuthorized;
@@ -192,8 +181,7 @@ public class Project implements Serializable {
                 ", trainingLength='" + trainingLength + "'" +
                 ", resourceType='" + resourceType + "'" +
                 ", resourceAmount='" + resourceAmount + "'" +
-                ", resourceProof='" + resourceProof + "'" +
-                ", inscriptionCertificate='" + inscriptionCertificate + "'" +
+                ", documents='" + documents + "'" +
                 ", resourcesSearchAuthorized='" + resourcesSearchAuthorized + "'" +
                 ", taxSituationSearchAuthorized='" + taxSituationSearchAuthorized + "'" +
                 '}';

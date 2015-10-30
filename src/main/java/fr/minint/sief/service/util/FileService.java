@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Base64;
+import java.util.UUID;
 
 import javax.inject.Inject;
 
@@ -33,23 +34,27 @@ public class FileService {
     @Inject
     private ApplicationRepository applicationRepository;
 
-    public void loadFile(MultipartFile sourceFile, String destFilePrefix) {
+    /**
+     * Load a file on disk
+     * 
+     * @param sourceFile The file to load
+     * @param destFilePrefix The prefix of the file name to create
+     * @return an uuid
+     */
+    public String loadFile(MultipartFile sourceFile, String destFilePrefix) {
     	
         User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
-        String destFileName = destFilePrefix + "_"
-        							+ currentUser.getEmail() + "."
-        							+ FilenameUtils.getExtension(sourceFile.getOriginalFilename());
+        String uuid = Long.toString(UUID.randomUUID().getLeastSignificantBits(), Character.MAX_RADIX);
+        String destFileName = destFilePrefix + "_" + currentUser.getEmail() + uuid + "." + FilenameUtils.getExtension(sourceFile.getOriginalFilename());
         
-        try {
-            byte[] bytes = sourceFile.getBytes();
-            BufferedOutputStream stream =
-                    new BufferedOutputStream(new FileOutputStream(new File("src/main/webapp/assets/fileUpload", destFileName)));
-            stream.write(bytes);
-            stream.close();
+        try(BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/webapp/assets/fileUpload", destFileName)))) {
+            stream.write(sourceFile.getBytes());
             log.debug( "You successfully uploaded " + destFileName + "!");
         } catch (Exception e) {
         	log.debug( "You failed to upload " + destFileName + " => " + e.getMessage());
         }
+        
+        return uuid;
 	}
 
     public void loadPhoto(String sourceUri, String destFilePrefix, String idApplication) {
@@ -57,12 +62,8 @@ public class FileService {
         Application application = applicationRepository.findOne(idApplication);
         String destFileName = destFilePrefix + "_" + application.getEmail() + ".jpeg";
         
-        try {
-            byte[] bytes = Base64.getDecoder().decode(sourceUri);
-            BufferedOutputStream stream =
-                    new BufferedOutputStream(new FileOutputStream(new File("src/main/webapp/assets/fileUpload", destFileName)));
-            stream.write(bytes);
-            stream.close();
+        try(BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/webapp/assets/fileUpload", destFileName)))) {
+            stream.write(Base64.getDecoder().decode(sourceUri));
             log.debug( "You successfully uploaded " + destFileName + "!");
         } catch (Exception e) {
         	log.debug( "You failed to upload " + destFileName + " => " + e.getMessage());

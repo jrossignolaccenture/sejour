@@ -391,6 +391,11 @@ ul#strengthBar {
 	color: #337ab7;
 }
 
+.final-informations p {
+	line-height: 1.8;
+	padding-top: 13px;
+}
+
 .popover-content {
     margin: 0;
     padding: 8px;
@@ -403,21 +408,20 @@ ul#strengthBar {
 	}
 }
 
-.input-file-plus {
+.input-group-file-suppl {
+	padding-top: 7px;
+}
+
+.input-group-addon-file {
 	cursor: pointer;
 }
 
-.input-file-plus.img-disabled {
+.input-group-addon-file > img-disabled {
 	cursor: default;
 }
 
 .btn-right {
 	margin-left: 20px;
-}
-
-.final-informations p {
-	line-height: 1.8;
-	padding-top: 13px;
 }
 
 /* LISTE AGENT */

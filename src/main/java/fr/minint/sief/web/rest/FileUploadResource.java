@@ -1,11 +1,12 @@
 package fr.minint.sief.web.rest;
 
-import java.io.IOException;
-
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,25 +32,32 @@ public class FileUploadResource {
 
     /**
      * POST  /document -> save file
-     * @throws IOException 
-     * @throws IllegalStateException 
+     * 
+     * @param file
+     * @param type
      */
-    @RequestMapping(value = "/document", method = RequestMethod.POST)
+    @RequestMapping(value = "/document", 
+    				method = RequestMethod.POST,
+					produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     @Timed
-    public void uploadFile(@RequestParam MultipartFile file, @RequestParam String type)  {
+    public ResponseEntity<String> uploadFile(@RequestParam MultipartFile file, @RequestParam String type)  {
     	if (file.isEmpty()) {
     		log.debug( "You failed to upload " + file.getOriginalFilename() + " because the file was empty.");
-    		return;
+    		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     	}
     	
-    	fileService.loadFile(file, type);
+    	String uuid = fileService.loadFile(file, type);
+    	
+    	return new ResponseEntity<>(uuid, HttpStatus.OK);
     }
 
     /**
      * POST  /photo -> save uri file
-     * @throws IOException 
-     * @throws IllegalStateException 
+     * 
+     * @param uri
+     * @param type
+     * @param idApplication
      */
     @RequestMapping(value = "/biometrics", method = RequestMethod.POST)
     @ResponseBody

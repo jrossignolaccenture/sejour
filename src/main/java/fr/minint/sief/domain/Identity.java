@@ -1,12 +1,13 @@
 package fr.minint.sief.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
 import org.joda.time.DateTime;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -19,7 +20,6 @@ import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 /**
  * A Identity.
  */
-@Document(collection = "IDENTITY")
 public class Identity implements Serializable {
 
     @NotNull        
@@ -58,11 +58,8 @@ public class Identity implements Serializable {
     @Field("passport_number")
     private String passportNumber;
     
-    @Field("passport")
-    private String passport;
-    
-    @Field("birth_act")
-    private String birthAct;
+    @Field("documents")
+    private List<Document> documents = new ArrayList<>();
 
     public String getLastName() {
         return lastName;
@@ -136,23 +133,15 @@ public class Identity implements Serializable {
         this.passportNumber = passportNumber;
     }
 
-    public String getPassport() {
-        return passport;
-    }
+    public List<Document> getDocuments() {
+		return documents;
+	}
 
-    public void setPassport(String passport) {
-        this.passport = passport;
-    }
+	public void setDocuments(List<Document> documents) {
+		this.documents = documents;
+	}
 
-    public String getBirthAct() {
-        return birthAct;
-    }
-
-    public void setBirthAct(String birthAct) {
-        this.birthAct = birthAct;
-    }
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -185,8 +174,7 @@ public class Identity implements Serializable {
                 ", birthCountry='" + birthCountry + "'" +
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
-                ", passport='" + passport + "'" +
-                ", birthAct='" + birthAct + "'" +
+                ", documents='" + documents + "'" +
                 '}';
     }
 }

@@ -14,10 +14,7 @@ angular.module('sejourApp')
         
         $scope.identity = currentApplication.identity;
         $scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
-        $scope.identity.images = [];
-        $scope.identity.images.push({src: "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg", title: "identity.form.passport"});
-        $scope.identity.images.push({src: "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png", title: "identity.form.birthAct"});
-        $scope.identity.currentImg = $scope.identity.images[0];
+        $scope.identity.currentImg = getImgSrc($scope.identity.documents[0]);
         $scope.identity.currentImgIndex = 0;
         
         $scope.address = currentApplication.address;
@@ -25,25 +22,27 @@ angular.module('sejourApp')
         $scope.project = currentApplication.project;
     	$scope.project.comingDateTxt = moment($scope.project.comingDate).format("DD/MM/YYYY");
     	$scope.project.trainingStartTxt = moment($scope.project.trainingStart).format("DD/MM/YYYY");
-    	$scope.project.images = [];
-    	$scope.project.images.push({src: "assets/fileUpload/inscriptionCertificate_kim.soon.jeen@gmail.com.png", title: "project.form.inscriptionCertificate"});
-    	$scope.project.images.push({src: "assets/fileUpload/resourceProof_kim.soon.jeen@gmail.com.png", title: "project.form.resourceProof"});
-    	$scope.project.currentImg = $scope.project.images[0];
+    	$scope.project.currentImg = getImgSrc($scope.project.documents[0]);
     	$scope.project.currentImgIndex = 0;
+    	
+    	function getImgSrc(document) {
+    		var extension = document.name.substring(document.name.lastIndexOf("."));
+    		return {title: 'sejourApp.DocumentType.'+document.type, src: "assets/fileUpload/" + document.type + "_" + currentApplication.email + document.id + extension};
+    	}
     	
     	$scope.nextImg = function (element) {
             element.currentImgIndex++;
-            if (element.currentImgIndex >= element.images.length) {
+            if (element.currentImgIndex >= element.documents.length) {
                 element.currentImgIndex = 0;
             }
-            element.currentImg = element.images[element.currentImgIndex];
+            element.currentImg = getImgSrc(element.documents[element.currentImgIndex]);
         },
         $scope.previousImg = function (element) {
             element.currentImgIndex--;
             if (element.currentImgIndex < 0) {
-                element.currentImgIndex = element.images.length - 1;
+                element.currentImgIndex = element.documents.length - 1;
             }
-            element.currentImg = element.images[element.currentImgIndex];
+            element.currentImg = getImgSrc(element.documents[element.currentImgIndex]);
         }
 
         $scope.back = function () {

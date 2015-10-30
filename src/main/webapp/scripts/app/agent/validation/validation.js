@@ -50,6 +50,7 @@ angular.module('sejourApp')
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
                     	$translatePartialLoader.addPart('resourceType');
+                    	$translatePartialLoader.addPart('documentType');
                         return $translate.refresh();
                     }]
                 }

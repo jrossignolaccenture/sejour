@@ -115,7 +115,8 @@
             "pattern": "This field should follow pattern {{pattern}}.",
             "number": "This field should be a number.",
             "datetimelocal": "This field should be a date and time.",
-            "date": "This field should be a date."
+            "date": "This field should be a date.",
+            "file.upload": "File upload failed"
         }
     },
     "error" : {
