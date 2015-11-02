@@ -19,6 +19,9 @@ public class DocumentDTO implements Serializable {
     
     @NotNull
     private String name;
+    
+    @NotNull
+    private String fileName;
 
     public DocumentType getType() {
 		return type;
@@ -44,6 +47,14 @@ public class DocumentDTO implements Serializable {
 		this.name = name;
 	}
 
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -57,7 +68,8 @@ public class DocumentDTO implements Serializable {
 
         if ( ! Objects.equals(type, document.type)
         			|| ! Objects.equals(id, document.id)
-        			|| ! Objects.equals(name, document.name)) return false;
+        			|| ! Objects.equals(name, document.name)
+        			|| ! Objects.equals(fileName, document.fileName)) return false;
 
         return true;
     }
@@ -69,6 +81,7 @@ public class DocumentDTO implements Serializable {
     	result = prime * result + Objects.hashCode(type);
     	result = prime * result + Objects.hashCode(id);
     	result = prime * result + Objects.hashCode(name);
+    	result = prime * result + Objects.hashCode(fileName);
     	return result;
     }
 
@@ -78,6 +91,7 @@ public class DocumentDTO implements Serializable {
                 "type='" + type + "'" +
                 ", id='" + id + "'" +
                 ", name='" + name + "'" +
+                ", fileName='" + fileName + "'" +
                 '}';
     }
 }

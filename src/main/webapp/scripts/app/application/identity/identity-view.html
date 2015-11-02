@@ -54,15 +54,6 @@
 	    </div>
 	</div>
 	<div class="col-sm-7">
-		<div class="panel panel-default">
-			<div class="panel-heading" style="text-align: center">
-				<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="identity.documents.length > 1" ng-click="nextImg(identity)"></span>
-				<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="identity.documents.length > 1" ng-click="previousImg(identity)"></span>
-				<span translate="{{identity.currentImg.title}}"></span><span> ({{identity.currentImgIndex + 1}}/{{identity.documents.length}})</span>
-			</div>
-			<div class="panel-body">
-				<img ng-src="{{identity.currentImg.src}}" class="img-responsive">
-			</div>
-		</div>
+		<photo-viewer ng-model="identity.documents"></photo-viewer>
 	</div>
 </div>

@@ -23,11 +23,7 @@
 	<div class="row" ng-show="passportOpened">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': passportOpened}">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<img src="{{passport}}" class="img-responsive">
-					</div>
-				</div>
+				<photo-viewer ng-model="application.identity.documents" type-filter="passport"></photo-viewer>
 			</div>
 		</div>
 	</div>
@@ -50,11 +46,7 @@
 	<div class="row" ng-show="birthActOpened">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': birthActOpened}">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<img src="{{birthAct}}" class="img-responsive">
-					</div>
-				</div>
+				<photo-viewer ng-model="application.identity.documents" type-filter="birthAct"></photo-viewer>
 			</div>
 		</div>
 	</div>

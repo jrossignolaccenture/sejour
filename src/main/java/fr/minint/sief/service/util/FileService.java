@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Base64;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -15,7 +16,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import fr.minint.sief.domain.Application;
+import fr.minint.sief.domain.Document;
 import fr.minint.sief.domain.User;
+import fr.minint.sief.domain.enumeration.DocumentType;
 import fr.minint.sief.repository.ApplicationRepository;
 import fr.minint.sief.repository.UserRepository;
 import fr.minint.sief.security.SecurityUtils;
@@ -41,20 +44,27 @@ public class FileService {
      * @param destFilePrefix The prefix of the file name to create
      * @return an uuid
      */
-    public String loadFile(MultipartFile sourceFile, String destFilePrefix) {
+    public Optional<Document> loadFile(MultipartFile sourceFile, DocumentType destFileType) {
+    	
+    	Document doc = null;
     	
         User currentUser = userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).get();
         String uuid = Long.toString(UUID.randomUUID().getLeastSignificantBits(), Character.MAX_RADIX);
-        String destFileName = destFilePrefix + "_" + currentUser.getEmail() + uuid + "." + FilenameUtils.getExtension(sourceFile.getOriginalFilename());
+        String destFileName = destFileType + "_" + currentUser.getEmail() + uuid + "." + FilenameUtils.getExtension(sourceFile.getOriginalFilename());
         
         try(BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/webapp/assets/fileUpload", destFileName)))) {
             stream.write(sourceFile.getBytes());
+            doc = new Document();
+            doc.setId(uuid);
+            doc.setType(destFileType);
+            doc.setName(sourceFile.getOriginalFilename());
+            doc.setFileName("assets/fileUpload/" + destFileName);
             log.debug( "You successfully uploaded " + destFileName + "!");
         } catch (Exception e) {
         	log.debug( "You failed to upload " + destFileName + " => " + e.getMessage());
         }
         
-        return uuid;
+        return Optional.ofNullable(doc);
 	}
 
     public void loadPhoto(String sourceUri, String destFilePrefix, String idApplication) {

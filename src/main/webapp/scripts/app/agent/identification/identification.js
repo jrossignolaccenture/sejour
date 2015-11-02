@@ -46,6 +46,7 @@ angular.module('sejourApp')
                     }],
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     	$translatePartialLoader.addPart('identification');
+                    	$translatePartialLoader.addPart('documentType');
                         return $translate.refresh();
                     }]
                 }

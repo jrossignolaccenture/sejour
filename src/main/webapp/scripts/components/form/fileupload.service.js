@@ -48,8 +48,7 @@ angular.module('sejourApp')
                 		scope.fileUploadFail = false;
                         if(element.files.length > 0) {
                         	File.upload(element.files[0], scope.docType)
-        				        .success(function(uuid) {
-        				        	var doc = {type: scope.docType, id: uuid, name: element.files[0].name};
+        				        .success(function(doc) {
         				        	scope.model.push(doc);
         	                    	scope.docs[scope.docs.length-1] = doc;
         				        })

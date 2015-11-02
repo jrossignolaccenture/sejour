@@ -24,6 +24,10 @@ public class Document implements Serializable {
     @NotNull
     @Field("name")
     private String name;
+    
+    @NotNull
+    @Field("file_name")
+    private String fileName;
 
     public DocumentType getType() {
 		return type;
@@ -49,6 +53,14 @@ public class Document implements Serializable {
 		this.name = name;
 	}
 
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -62,7 +74,8 @@ public class Document implements Serializable {
 
         if ( ! Objects.equals(type, document.type)
     			|| ! Objects.equals(id, document.id)
-    			|| ! Objects.equals(name, document.name)) return false;
+    			|| ! Objects.equals(name, document.name)
+    			|| ! Objects.equals(fileName, document.fileName)) return false;
 
         return true;
     }
@@ -74,6 +87,7 @@ public class Document implements Serializable {
     	result = prime * result + Objects.hashCode(type);
     	result = prime * result + Objects.hashCode(id);
     	result = prime * result + Objects.hashCode(name);
+    	result = prime * result + Objects.hashCode(fileName);
     	return result;
     }
 
@@ -83,6 +97,7 @@ public class Document implements Serializable {
                 "type='" + type + "'" +
                 ", id='" + id + "'" +
                 ", name='" + name + "'" +
+                ", fileName='" + fileName + "'" +
                 '}';
     }
 }

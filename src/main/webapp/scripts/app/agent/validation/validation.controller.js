@@ -18,14 +18,10 @@ angular.module('sejourApp')
         
         $scope.identity = currentApplication.identity;
         $scope.identity.birthDateTxt = $scope.getFormattedDate(currentApplication.identity.birthDate);
-        $scope.identity.currentImg = getImgSrc($scope.identity.documents[0]);
-        $scope.identity.currentImgIndex = 0;
     	
         $scope.project = currentApplication.project;
         $scope.project.comingDateTxt = $scope.getFormattedDate(currentApplication.project.comingDate);
         $scope.project.trainingStartTxt = $scope.getFormattedDate(currentApplication.project.trainingStart);
-    	$scope.project.currentImg = getImgSrc($scope.project.documents[0]);
-    	$scope.project.currentImgIndex = 0;
     	
         $scope.application = currentApplication;
     	
@@ -40,26 +36,6 @@ angular.module('sejourApp')
             	$scope.historyEndDate = $scope.getFormattedDate(moment($scope.applicationArchived.project.trainingStart).add($scope.applicationArchived.project.trainingLength, 'M').subtract(1, 'd'));
             });
     	}
-    	
-    	function getImgSrc(document) {
-    		var extension = document.name.substring(document.name.lastIndexOf("."));
-    		return {title: 'sejourApp.DocumentType.'+document.type, src: "assets/fileUpload/" + document.type + "_" + currentApplication.email + document.id + extension};
-    	}
-    	
-    	$scope.nextImg = function (element) {
-            element.currentImgIndex++;
-            if (element.currentImgIndex >= element.documents.length) {
-                element.currentImgIndex = 0;
-            }
-            element.currentImg = getImgSrc(element.documents[element.currentImgIndex]);
-        },
-        $scope.previousImg = function (element) {
-            element.currentImgIndex--;
-            if (element.currentImgIndex < 0) {
-                element.currentImgIndex = element.documents.length - 1;
-            }
-            element.currentImg = getImgSrc(element.documents[element.currentImgIndex]);
-        }
         
         $scope.validate = function () {
     		Application.validate(currentApplication.id).then(function(result) {

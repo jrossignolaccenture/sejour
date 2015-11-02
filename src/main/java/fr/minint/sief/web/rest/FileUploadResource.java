@@ -16,7 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.codahale.metrics.annotation.Timed;
 
+import fr.minint.sief.domain.enumeration.DocumentType;
 import fr.minint.sief.service.util.FileService;
+import fr.minint.sief.web.rest.dto.DocumentDTO;
+import fr.minint.sief.web.rest.mapper.DocumentMapper;
 
 /**
  * REST controller for managing Identity.
@@ -29,6 +32,9 @@ public class FileUploadResource {
     
     @Inject
     private FileService fileService;
+    
+    @Inject
+    private DocumentMapper documentMapper;
 
     /**
      * POST  /document -> save file
@@ -38,18 +44,19 @@ public class FileUploadResource {
      */
     @RequestMapping(value = "/document", 
     				method = RequestMethod.POST,
-					produces = MediaType.TEXT_PLAIN_VALUE)
+					produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @Timed
-    public ResponseEntity<String> uploadFile(@RequestParam MultipartFile file, @RequestParam String type)  {
+    public ResponseEntity<DocumentDTO> uploadFile(@RequestParam MultipartFile file, @RequestParam DocumentType type)  {
     	if (file.isEmpty()) {
     		log.debug( "You failed to upload " + file.getOriginalFilename() + " because the file was empty.");
     		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     	}
     	
-    	String uuid = fileService.loadFile(file, type);
-    	
-    	return new ResponseEntity<>(uuid, HttpStatus.OK);
+    	return fileService.loadFile(file, type)
+    			.map(documentMapper::documentToDocumentDTO)
+				.map(documentDTO -> new ResponseEntity<>(documentDTO, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     /**
