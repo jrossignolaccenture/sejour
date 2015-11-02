@@ -47,9 +47,9 @@
 			    </div>
 			    <div ng-if="project.resourcesSearchAuthorized === false">
 			    	<br>
-			    	<file-upload ng-model="project.contract" input-group="project" input-name="resources.contract"></file-upload>
-			    	<file-upload ng-model="project.certificate" input-group="project" input-name="resources.certificate"></file-upload>
-			    	<file-upload ng-model="project.paySlip" input-group="project" input-name="resources.paySlip"></file-upload>
+			    	<file-upload ng-model="project.documents" doc-type="workContract" translate-key="project.form.resources.workContract"></file-upload>
+					<file-upload ng-model="project.documents" doc-type="workCertificate" translate-key="project.form.resources.workCertificate"></file-upload>
+					<file-upload ng-model="project.documents" doc-type="paySlip" translate-key="project.form.resources.paySlip"></file-upload>
 			    </div>
 			</div>
 		</div>	
@@ -82,8 +82,8 @@
 			    </div>
 			    <div ng-if="project.taxSituationSearchAuthorized === false">
 			    	<br>
-			    	<file-upload ng-model="project.taxSlip" input-group="project" input-name="taxSituation.taxSlip"></file-upload>
-			    	<file-upload ng-model="project.taxNotice" input-group="project" input-name="taxSituation.taxNotice"></file-upload>
+			    	<file-upload ng-model="project.documents" doc-type="taxSlip" translate-key="project.form.taxSituation.taxSlip"></file-upload>
+					<file-upload ng-model="project.documents" doc-type="taxNotice" translate-key="project.form.taxSituation.taxNotice"></file-upload>
 			    </div>
 			</div>
 		</div>
