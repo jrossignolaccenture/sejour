@@ -3,16 +3,16 @@
 angular.module('sejourApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('address', {
+            .state('family', {
                 parent: 'site',
-                url: '/{base}/{id}/adresse',
+                url: '/{base}/{id}/famille',
                 data: {
                     roles: ['ROLE_USAGER']
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/application/address/address.html',
-                        controller: 'AddressController'
+                        templateUrl: 'scripts/app/application/family/family.html',
+                        controller: 'FamilyController'
                     }
                 },
                 resolve: {
@@ -21,24 +21,12 @@ angular.module('sejourApp')
                     }],
                     translatePartialLoader: ['$stateParams', '$translate', '$translatePartialLoader', function ($stateParams, $translate, $translatePartialLoader) {
                     	$translatePartialLoader.addPart($stateParams.base);
+                    	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('address');
-                    	$translatePartialLoader.addPart('contactType');
+                    	$translatePartialLoader.addPart('sexType');
+                    	$translatePartialLoader.addPart('personType');
                         return $translate.refresh();
                     }]
                 }
             });
-    })
-    .directive('addressFormLight', function() {
-        return {
-            restrict: 'E',
-            required: '^ngModel',
-            scope: {
-            	address: "=ngModel",
-            	withTooltip: "="
-            },
-            templateUrl: 'scripts/app/application/address/address-light.html',
-            link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	$('[data-toggle="popover"]').popover(scope.withTooltip === true ? undefined : 'disable');
-            }
-        };
     });

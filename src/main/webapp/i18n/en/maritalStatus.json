@@ -1,0 +1,13 @@
+{
+    "sejourApp": {
+        "MaritalStatus" : {
+            "single": "Single",
+            "cohabitant": "Cohabitant",
+            "civil_partner": "Civil partner",
+            "married": "Married",
+            "separated": "Separated",
+            "divorced": "Divorced",
+            "widowed": "Widowed"
+        }
+    }
+}

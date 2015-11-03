@@ -1,0 +1,73 @@
+<ng-form name="addressLightForm">
+	<div class="form-group">
+	    <label translate="address.form.owner" for="field_owner">Owner</label>
+	    <input type="text" class="form-control" name="owner" id="field_owner" ng-model="address.owner"
+	            tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'address.form.tooltip' | translate}}"
+	 		 	autofocus>
+	 		
+	    <div ng-show="addressLightForm.owner.$dirty && addressLightForm.owner.$invalid">
+	        <p class="help-block" ng-show="addressLightForm.owner.$error.required" translate="entity.validation.required">
+	            This field is required.
+	        </p>
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label translate="address.form.number" for="field_number">Number</label>
+	    <input type="text" class="form-control" name="number" id="field_number" ng-model="address.number" required>
+	
+	    <div ng-show="addressLightForm.number.$dirty && addressLightForm.number.$invalid">
+	        <p class="help-block" ng-show="addressLightForm.number.$error.required" translate="entity.validation.required">
+	            This field is required.
+	        </p>
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label translate="address.form.street" for="field_street">Street</label>
+	    <input type="text" class="form-control" name="street" id="field_street"
+	            ng-model="address.street" required>
+	
+	    <div ng-show="addressLightForm.street.$dirty && addressLightForm.street.$invalid">
+	        <p class="help-block" ng-show="addressLightForm.street.$error.required" translate="entity.validation.required">
+	            This field is required.
+	        </p>
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label translate="address.form.complement" for="field_complement">Complement</label>
+	    <input type="text" class="form-control" name="complement" id="field_complement"
+	            ng-model="address.complement" >
+	
+	</div>
+	<div class="form-group">
+	    <label translate="address.form.postalCode" for="field_postalCode">PostalCode</label>
+	    <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+	            ng-model="address.postalCode" required>
+	
+	    <div ng-show="addressLightForm.postalCode.$dirty && addressLightForm.postalCode.$invalid">
+	        <p class="help-block" ng-show="addressLightForm.postalCode.$error.required" translate="entity.validation.required">
+	            This field is required.
+	        </p>
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label translate="address.form.city" for="field_city">City</label>
+	    <input type="text" class="form-control" name="city" id="field_city"
+	            ng-model="address.city" required>
+	
+	    <div ng-show="addressLightForm.city.$dirty && addressLightForm.city.$invalid">
+	        <p class="help-block" ng-show="addressLightForm.city.$error.required" translate="entity.validation.required">
+	            This field is required.
+	        </p>
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label translate="address.form.country" for="field_country">Country</label>
+	    <select-country name="country" id="field_country" ng-model="address.country" required></select-country>
+	
+	    <div ng-show="addressLightForm.country.$dirty && addressLightForm.country.$invalid">
+	        <p class="help-block" ng-show="addressLightForm.country.$error.required" translate="entity.validation.required">
+	            This field is required.
+	        </p>
+	    </div>
+	</div>
+</ng-form>

@@ -6,6 +6,7 @@ package fr.minint.sief.domain.enumeration;
 public enum DocumentType {
     passport,
     birthAct,
+    civilStatusAct,
     inscriptionCertificate,
     resourceProof
 }

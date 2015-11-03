@@ -1,0 +1,13 @@
+{
+    "sejourApp": {
+        "MaritalStatus" : {
+            "single": "Célibataire",
+            "cohabitant": "Concubin(e)",
+            "civil_partner": "Pacsé(e)",
+            "married": "Marié(e)",
+            "separated": "Séparé(e)",
+            "divorced": "Divorcé(e)",
+            "widowed": "Veuf(ve)"
+        }
+    }
+}

@@ -11,6 +11,10 @@
             "birthCountry": "Pays de naissance",
             "nationality": "Nationalité",
             "passportNumber": "Numéro de passeport",
+            "maritalStatus": "Situation familiale",
+            "childsNumber": "Nombre d'enfants",
+            "brothersNumber": "Nombre de frères et soeurs",
+            "activity": "Activité",
             "document.title": "Joignez vos pièces justificatives",
             "passport": "Passeport",
             "passport.placeholder": "Cliquer ou déposer votre passeport ici...",
@@ -18,8 +22,9 @@
             "birthAct": "Document(s) d'état-civil",
             "birthAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici...",
             "birthAct.tooltip": "Merci de joindre un extrait de votre acte de naissance avec filiation ou une copie intégrale de votre acte de naissance",
-            "father": "Père",
-            "mother": "Mère"
+            "civilStatusAct": "Document(s) d'état-civil",
+            "civilStatusAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici...",
+            "civilStatusAct.tooltip": "Merci de joindre un extrait de l'acte d'état-civil avec filiation ou une copie intégrale de l'acte d'état-civil"
 		}
 	}
 }

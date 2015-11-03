@@ -1,0 +1,9 @@
+{
+    "sejourApp": {
+        "PersonType" : {
+            "parents": "Parent {{index}}",
+            "brothers": "Brother/Sister {{index}}",
+            "childs": "Child {{index}}"
+        }
+    }
+}

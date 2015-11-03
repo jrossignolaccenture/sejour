@@ -22,7 +22,7 @@ angular.module('sejourApp')
 
         $scope.back = function () {
         	if(currentApplication.type === 'naturalisation') {
-        		$state.go('identity-family', $stateParams);
+        		$state.go('family', $stateParams);
         	} else {
         		$state.go('identity', $stateParams);
         	}

@@ -1,0 +1,14 @@
+{
+    "sejourApp": {
+        "ActivityType" : {
+            "salaried": "Salarié(e)",
+            "unemployed": "Demandeur d'emploi",
+            "trainee": "Stagiaire de la formation professionnelle",
+            "crafstman": "Artisan, commerçant exploitant agricole, gérant",
+            "liberal": "Profession libérale",
+            "student": "Etudiant",
+            "annuitant": "Rentier",
+            "other": "Autre"
+        }
+    }
+}

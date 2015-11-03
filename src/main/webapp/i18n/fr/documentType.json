@@ -3,6 +3,7 @@
         "DocumentType" : {
             "passport": "Passeport",
             "birthAct": "Acte de naissance",
+            "civilStatusAct": "Acte d'état-civil",
             "inscriptionCertificate": "Certificat d'inscription",
             "resourceProof": "Preuve(s) de ressource"
         }

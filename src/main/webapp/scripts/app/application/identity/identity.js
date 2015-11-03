@@ -23,30 +23,8 @@ angular.module('sejourApp')
                     	$translatePartialLoader.addPart($stateParams.base);
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
-                        return $translate.refresh();
-                    }]
-                }
-            })
-            .state('identity-family', {
-                parent: 'site',
-                url: '/{base}/{id}/etatcivilfamille',
-                data: {
-                    roles: ['ROLE_USAGER']
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'scripts/app/application/identity/identity-family.html',
-                        controller: 'IdentityFamilyController'
-                    }
-                },
-                resolve: {
-                    currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
-                        return Application.get({id : $stateParams.id});
-                    }],
-                    translatePartialLoader: ['$stateParams', '$translate', '$translatePartialLoader', function ($stateParams, $translate, $translatePartialLoader) {
-                    	$translatePartialLoader.addPart($stateParams.base);
-                    	$translatePartialLoader.addPart('identity');
-                    	$translatePartialLoader.addPart('sexType');
+                    	$translatePartialLoader.addPart('maritalStatus');
+                    	$translatePartialLoader.addPart('activityType');
                         return $translate.refresh();
                     }]
                 }
@@ -62,9 +40,7 @@ angular.module('sejourApp')
             },
             templateUrl: 'scripts/app/application/identity/identity-light.html',
             link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	if(scope.withTooltip === true) {
-            		$('[data-toggle="popover"]').popover();
-            	}
+            	$('[data-toggle="popover"]').popover(scope.withTooltip === true ? undefined : 'disable');
             }
         };
-    });;
+    });

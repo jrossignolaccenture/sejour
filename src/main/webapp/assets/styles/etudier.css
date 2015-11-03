@@ -36,7 +36,7 @@
 	font-weight: bold;
 }
 
-.form-title-text {
+.form-title-text, .form-title-text-inline {
 	line-height: 26px;
 	padding-left: 10px;
 	font-size: 18px;

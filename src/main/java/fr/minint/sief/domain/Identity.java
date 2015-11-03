@@ -15,6 +15,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import fr.minint.sief.domain.enumeration.ActivityType;
+import fr.minint.sief.domain.enumeration.MaritalStatus;
 import fr.minint.sief.domain.enumeration.PersonType;
 import fr.minint.sief.domain.enumeration.SexType;
 import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
@@ -60,6 +62,20 @@ public class Identity implements Serializable {
     @NotNull        
     @Field("passport_number")
     private String passportNumber;
+
+    @NotNull        
+    @Field("marital_status")
+    private MaritalStatus maritalStatus;
+
+    @Field("childs_number")
+    private int childsNumber;
+
+    @Field("brothers_number")
+    private int brothersNumber;
+
+    @NotNull        
+    @Field("activity")
+    private ActivityType activity;
     
     @Field("documents")
     private List<Document> documents = new ArrayList<>();
@@ -139,7 +155,39 @@ public class Identity implements Serializable {
         this.passportNumber = passportNumber;
     }
 
-    public List<Document> getDocuments() {
+    public MaritalStatus getMaritalStatus() {
+		return maritalStatus;
+	}
+
+	public void setMaritalStatus(MaritalStatus maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
+
+	public int getChildsNumber() {
+		return childsNumber;
+	}
+
+	public void setChildsNumber(int childsNumber) {
+		this.childsNumber = childsNumber;
+	}
+
+	public int getBrothersNumber() {
+		return brothersNumber;
+	}
+
+	public void setBrothersNumber(int brothersNumber) {
+		this.brothersNumber = brothersNumber;
+	}
+
+	public ActivityType getActivity() {
+		return activity;
+	}
+
+	public void setActivity(ActivityType activity) {
+		this.activity = activity;
+	}
+
+	public List<Document> getDocuments() {
 		return documents;
 	}
 
@@ -188,6 +236,10 @@ public class Identity implements Serializable {
                 ", birthCountry='" + birthCountry + "'" +
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
+                ", maritalStatus='" + maritalStatus + "'" +
+                ", childsNumber='" + childsNumber + "'" +
+                ", brothersNumber='" + brothersNumber + "'" +
+                ", activity='" + activity + "'" +
                 ", documents='" + documents + "'" +
                 ", family='" + family + '\'' +
                 '}';

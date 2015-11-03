@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 
 import org.joda.time.DateTime;
 
+import fr.minint.sief.domain.enumeration.ActivityType;
+import fr.minint.sief.domain.enumeration.MaritalStatus;
 import fr.minint.sief.domain.enumeration.PersonType;
 import fr.minint.sief.domain.enumeration.SexType;
 
@@ -43,6 +45,16 @@ public class IdentityDTO implements Serializable {
 
     @NotNull
     private String passportNumber;
+
+    @NotNull        
+    private MaritalStatus maritalStatus;
+
+    private int childsNumber;
+
+    private int brothersNumber;
+
+    @NotNull        
+    private ActivityType activity;
 
     @NotNull
     private List<DocumentDTO> documents = new ArrayList<>();
@@ -121,6 +133,38 @@ public class IdentityDTO implements Serializable {
         this.passportNumber = passportNumber;
     }
 
+    public MaritalStatus getMaritalStatus() {
+		return maritalStatus;
+	}
+
+	public void setMaritalStatus(MaritalStatus maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
+
+	public int getChildsNumber() {
+		return childsNumber;
+	}
+
+	public void setChildsNumber(int childsNumber) {
+		this.childsNumber = childsNumber;
+	}
+
+	public int getBrothersNumber() {
+		return brothersNumber;
+	}
+
+	public void setBrothersNumber(int brothersNumber) {
+		this.brothersNumber = brothersNumber;
+	}
+
+	public ActivityType getActivity() {
+		return activity;
+	}
+
+	public void setActivity(ActivityType activity) {
+		this.activity = activity;
+	}
+
     public List<DocumentDTO> getDocuments() {
 		return documents;
 	}
@@ -170,6 +214,10 @@ public class IdentityDTO implements Serializable {
                 ", birthCountry='" + birthCountry + "'" +
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
+                ", maritalStatus='" + maritalStatus + "'" +
+                ", childsNumber='" + childsNumber + "'" +
+                ", brothersNumber='" + brothersNumber + "'" +
+                ", activity='" + activity + "'" +
                 ", documents='" + documents + "'" +
                 ", family='" + family + '\'' +
                 '}';

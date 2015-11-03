@@ -24,13 +24,8 @@
     <div class="form-group">
         <label translate="identity.form.sex" for="field_sex">Sex</label>
         <div>
-	        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="F" required>{{'sejourApp.SexType.F' | translate}}</label>
-			<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="M" required>{{'sejourApp.SexType.M' | translate}}</label>
-              </div>
-        <div ng-show="identityLightForm.sex.$dirty && identityLightForm.sex.$invalid">
-            <p class="help-block" ng-show="identityLightForm.sex.$error.required" translate="entity.validation.required">
-                This field is required.
-            </p>
+	        <label class="radio-inline"><input type="radio" id="field_sex" name="sex_{{$id}}" ng-model="identity.sex" value="F" required>{{'sejourApp.SexType.F' | translate}}</label>
+			<label class="radio-inline"><input type="radio" id="field_sex" name="sex_{{$id}}" ng-model="identity.sex" value="M" required>{{'sejourApp.SexType.M' | translate}}</label>
         </div>
     </div>
     <div class="form-group">

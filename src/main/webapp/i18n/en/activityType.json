@@ -1,0 +1,14 @@
+{
+    "sejourApp": {
+        "ActivityType" : {
+            "salaried": "Salaried",
+            "unemployed": "Unemployed",
+            "trainee": "Trainee",
+            "crafstman": "Craftsman",
+            "liberal": "Liberal",
+            "student": "Student",
+            "annuitant": "Annuitant",
+            "other": "Other"
+        }
+    }
+}

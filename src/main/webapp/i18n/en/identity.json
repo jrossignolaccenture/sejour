@@ -11,6 +11,10 @@
             "birthCountry": "Birth Country",
             "nationality": "Nationality",
             "passportNumber": "Passport Number",
+            "maritalStatus": "Marital status",
+            "childsNumber": "Number of childs",
+            "brothersNumber": "Number of brothers and sisters",
+            "activity": "Activity",
             "document.title": "Attach your documents",
             "passport": "Passport",
             "passport.placeholder": "Click or drag your passport here...",
@@ -18,8 +22,9 @@
             "birthAct": "Id document(s)",
             "birthAct.placeholder": "Click or drag your id documents here...",
             "birthAct.tooltip": "Thank you to attach an excerpt from your birth certificate with filiation or a full copy of your birth certificate",
-            "father": "Father",
-            "mother": "Mother"
+            "civilStatusAct": "Id document(s)",
+            "civilStatusAct.placeholder": "Click or drag your id documents here...",
+            "civilStatusAct.tooltip": "Thank you to attach an excerpt from the id certificate with filiation or a full copy of the id certificate"
 		}
 	}
 }
