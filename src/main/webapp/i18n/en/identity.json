@@ -2,9 +2,14 @@
 	"identity" : {
 		"form": {
 			"tooltip": "The civil status must match the information on your passport",
+			"francisation": "Francisation needed",
+			"francisation.true": "Yes",
+			"francisation.false": "No",
             "lastName": "Last Name",
+            "lastNameFrancise": "Francise Last Name",
             "usedLastName": "Use Last Name",
             "firstName": "First Name",
+            "firstNameFrancise": "Francise First Name",
             "sex": "Sex",
             "birthDate": "Birth Date",
             "birthCity": "Birth City",

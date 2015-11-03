@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('IdentityController', function ($scope, $state, $stateParams, Application, currentApplication) {
         
         $scope.needDocuments = currentApplication.type === 'premiere';
+        $scope.withFrancisation = currentApplication.type === 'naturalisation';
         
         $scope.identity = currentApplication.identity;
         

@@ -26,16 +26,25 @@ import fr.minint.sief.domain.util.CustomDateTimeSerializer;
  * A Identity.
  */
 public class Identity implements Serializable {
+	
+	@Field("francisation")
+	private boolean francisation;
 
     @NotNull        
     @Field("last_name")
     private String lastName;
+
+    @Field("last_name_francise")
+    private String lastNameFrancise;
     
     @Field("used_last_name")
     private String usedLastName;
     
     @Field("first_name")
     private String firstName;
+    
+    @Field("first_name_francise")
+    private String firstNameFrancise;
 
     @NotNull        
     @Field("sex")
@@ -83,7 +92,15 @@ public class Identity implements Serializable {
     @Field("family")
     private Map<PersonType, List<Person>> family = new HashMap<>();
 
-    public String getLastName() {
+    public boolean isFrancisation() {
+		return francisation;
+	}
+
+	public void setFrancisation(boolean francisation) {
+		this.francisation = francisation;
+	}
+
+	public String getLastName() {
         return lastName;
     }
 
@@ -91,7 +108,15 @@ public class Identity implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getUsedLastName() {
+    public String getLastNameFrancise() {
+		return lastNameFrancise;
+	}
+
+	public void setLastNameFrancise(String lastNameFrancise) {
+		this.lastNameFrancise = lastNameFrancise;
+	}
+
+	public String getUsedLastName() {
         return usedLastName;
     }
 
@@ -107,7 +132,15 @@ public class Identity implements Serializable {
         this.firstName = firstName;
     }
 
-    public SexType getSex() {
+    public String getFirstNameFrancise() {
+		return firstNameFrancise;
+	}
+
+	public void setFirstNameFrancise(String firstNameFrancise) {
+		this.firstNameFrancise = firstNameFrancise;
+	}
+
+	public SexType getSex() {
         return sex;
     }
 
@@ -227,9 +260,12 @@ public class Identity implements Serializable {
     @Override
     public String toString() {
         return "Identity{" +
-                "lastName='" + lastName + "'" +
+                "francisation='" + francisation + "'" +
+                ", lastName='" + lastName + "'" +
+                ", lastNameFrancise='" + lastNameFrancise + "'" +
                 ", usedLastName='" + usedLastName + "'" +
                 ", firstName='" + firstName + "'" +
+                ", firstNameFrancise='" + firstNameFrancise + "'" +
                 ", sex='" + sex + "'" +
                 ", birthDate='" + birthDate + "'" +
                 ", birthCity='" + birthCity + "'" +

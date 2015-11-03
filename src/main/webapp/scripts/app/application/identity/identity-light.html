@@ -1,12 +1,27 @@
 <ng-form name="identityLightForm">
+    <div class="form-group" ng-if="withFrancisation">
+        <label translate="identity.form.francisation" for="field_francisation">Francisation</label>
+        <div>
+	        <label class="radio-inline"><input type="radio" id="field_francisation" name="francisation_{{$id}}" ng-model="identity.francisation" ng-value="true" required>{{'identity.form.francisation.true' | translate}}</label>
+			<label class="radio-inline"><input type="radio" id="field_francisation" name="francisation_{{$id}}" ng-model="identity.francisation" ng-value="false" ng-click="resetFrancisation()" required>{{'identity.form.francisation.false' | translate}}</label>
+        </div>
+    </div>
     <div class="form-group">
         <label translate="identity.form.lastName" for="field_lastName">LastName</label>
         <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName"
         		tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'identity.form.tooltip' | translate}}"
         		autofocus required>
-
         <div ng-show="identityLightForm.lastName.$dirty && identityLightForm.lastName.$invalid">
             <p class="help-block" ng-show="identityLightForm.lastName.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="form-group" ng-if="withFrancisation && identity.francisation">
+        <label translate="identity.form.lastNameFrancise" for="field_lastNameFrancise">LastNameFrancise</label>
+        <input type="text" class="form-control" name="lastNameFrancise" id="field_lastNameFrancise" ng-model="identity.lastNameFrancise" required>
+        <div ng-show="identityLightForm.lastNameFrancise.$dirty && identityLightForm.lastNameFrancise.$invalid">
+            <p class="help-block" ng-show="identityLightForm.lastNameFrancise.$error.required" translate="entity.validation.required">
                 This field is required.
             </p>
         </div>
@@ -19,7 +34,10 @@
     <div class="form-group">
         <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
         <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="identity.firstName" >
-
+    </div>
+    <div class="form-group" ng-if="withFrancisation && identity.francisation">
+        <label translate="identity.form.firstNameFrancise" for="field_firstNameFrancise">FirstName</label>
+        <input type="text" class="form-control" name="firstNameFrancise" id="field_firstNameFrancise" ng-model="identity.firstNameFrancise" >
     </div>
     <div class="form-group">
         <label translate="identity.form.sex" for="field_sex">Sex</label>

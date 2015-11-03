@@ -2,9 +2,14 @@
 	"identity" : {
 		"form": {
 			"tooltip": "L'état-civil doit correspondre aux informations figurant sur votre passeport",
+			"francisation": "Francisation souhaitée",
+			"francisation.true": "Oui",
+			"francisation.false": "Non",
             "lastName": "Nom",
+            "lastNameFrancise": "Nom francisé",
             "usedLastName": "Nom d'usage",
             "firstName": "Prénom(s)",
+            "firstNameFrancise": "Prénom(s) francisé(s)",
             "sex": "Sexe",
             "birthDate": "Date de naissance",
             "birthCity": "Ville de naissance",
