@@ -1,16 +1,11 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('AddressController', function ($scope, $state, $stateParams, Country, Application, currentApplication) {
+    .controller('AddressController', function ($scope, $state, $stateParams, Application, currentApplication) {
         
         $scope.isRenewal = currentApplication.type === 'renouvellement';
         
     	$scope.address = currentApplication.address;
-
-        $scope.countries = [];
-        Country.get().then(function(countries) {
-        	$scope.countries = countries;
-        });
     	
         $scope.contactTypeValues = [ { value: 'email', checked: $scope.address.contactType.indexOf('email') != -1 },
                                      { value: 'sms', checked: $scope.address.contactType.indexOf('sms') != -1 },
@@ -26,7 +21,11 @@ angular.module('sejourApp')
     	}
 
         $scope.back = function () {
-        	$state.go('identity', $stateParams);
+        	if(currentApplication.type === 'naturalisation') {
+        		$state.go('identity-family', $stateParams);
+        	} else {
+        		$state.go('identity', $stateParams);
+        	}
         };
         $scope.save = function () {
             Application.update(currentApplication).then(function() {

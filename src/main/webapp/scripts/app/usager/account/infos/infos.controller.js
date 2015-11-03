@@ -1,10 +1,8 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('AccountInfosController', function ($scope, $state, Principal, Auth, Country) {
+    .controller('AccountInfosController', function ($scope, $state, Principal, Auth) {
     	$scope.error = null;
-    	
-        $scope.countries = [];
 
         $scope.birthDatePickerOptions = {
 			format: 'DD/MM/YYYY',
@@ -20,10 +18,6 @@ angular.module('sejourApp')
 			locale: 'fr',
 			allowInputToggle: true
         }
-        
-        Country.get().then(function(countries) {
-        	$scope.countries = countries;
-        });
         
         Principal.identity().then(function(account) {
             $scope.account = account;

@@ -2,7 +2,9 @@ package fr.minint.sief.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
@@ -13,6 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import fr.minint.sief.domain.enumeration.PersonType;
 import fr.minint.sief.domain.enumeration.SexType;
 import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
 import fr.minint.sief.domain.util.CustomDateTimeSerializer;
@@ -60,6 +63,9 @@ public class Identity implements Serializable {
     
     @Field("documents")
     private List<Document> documents = new ArrayList<>();
+    
+    @Field("family")
+    private Map<PersonType, List<Person>> family = new HashMap<>();
 
     public String getLastName() {
         return lastName;
@@ -141,6 +147,14 @@ public class Identity implements Serializable {
 		this.documents = documents;
 	}
 
+	public Map<PersonType, List<Person>> getFamily() {
+		return family;
+	}
+
+	public void setFamily(Map<PersonType, List<Person>> family) {
+		this.family = family;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -175,6 +189,7 @@ public class Identity implements Serializable {
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
                 ", documents='" + documents + "'" +
+                ", family='" + family + '\'' +
                 '}';
     }
 }

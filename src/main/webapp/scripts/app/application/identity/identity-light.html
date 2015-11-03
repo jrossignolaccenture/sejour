@@ -1,0 +1,83 @@
+<ng-form name="identityLightForm">
+    <div class="form-group">
+        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
+        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName"
+        		tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'identity.form.tooltip' | translate}}"
+        		autofocus required>
+
+        <div ng-show="identityLightForm.lastName.$dirty && identityLightForm.lastName.$invalid">
+            <p class="help-block" ng-show="identityLightForm.lastName.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
+        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="identity.usedLastName" >
+
+    </div>
+    <div class="form-group">
+        <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
+        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="identity.firstName" >
+
+    </div>
+    <div class="form-group">
+        <label translate="identity.form.sex" for="field_sex">Sex</label>
+        <div>
+	        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="F" required>{{'sejourApp.SexType.F' | translate}}</label>
+			<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="M" required>{{'sejourApp.SexType.M' | translate}}</label>
+              </div>
+        <div ng-show="identityLightForm.sex.$dirty && identityLightForm.sex.$invalid">
+            <p class="help-block" ng-show="identityLightForm.sex.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
+        <div class="input-group date">
+	        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+            <input-birth-date ng-model="identity.birthDate"></input-birth-date>
+		</div>
+		
+        <div ng-show="identityLightForm.birthDateTxt.$dirty && identityLightForm.birthDateTxt.$invalid">
+            <p class="help-block" ng-show="identityLightForm.birthDateTxt.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+            <p class="help-block" ng-show="identityLightForm.birthDateTxt.$error.date" translate="entity.validation.date">
+                This field should be a date.
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
+        <input type="text" class="form-control" name="birthCity" id="field_birthCity"
+                ng-model="identity.birthCity" required>
+
+        <div ng-show="identityLightForm.birthCity.$dirty && identityLightForm.birthCity.$invalid">
+            <p class="help-block" ng-show="identityLightForm.birthCity.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
+        <select-country name="birthCountry" id="field_birthCountry" ng-model="identity.birthCountry" required></select-country>
+
+        <div ng-show="identityLightForm.birthCountry.$dirty && identityLightForm.birthCountry.$invalid">
+            <p class="help-block" ng-show="identityLightForm.birthCountry.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
+        <select-country name="nationality" id="field_nationality" ng-model="identity.nationality" required></select-country>
+        
+        <div ng-show="identityLightForm.nationality.$dirty && identityLightForm.nationality.$invalid">
+            <p class="help-block" ng-show="identityLightForm.nationality.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+</ng-form>

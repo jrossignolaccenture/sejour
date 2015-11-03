@@ -17,7 +17,9 @@
             "passport.tooltip": "Merci de joindre les pages relatives à l'état-civil, aux dates de validité, aux cachets d'entrée et aux visas",
             "birthAct": "Document(s) d'état-civil",
             "birthAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici...",
-            "birthAct.tooltip": "Merci de joindre un extrait de votre acte de naissance avec filiation ou une copie intégrale de votre acte de naissance"
+            "birthAct.tooltip": "Merci de joindre un extrait de votre acte de naissance avec filiation ou une copie intégrale de votre acte de naissance",
+            "father": "Père",
+            "mother": "Mère"
 		}
 	}
 }

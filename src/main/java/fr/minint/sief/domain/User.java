@@ -43,17 +43,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
 	/** ENUM = COMPANY, PERSON, UNIVERSITY */
 	@NotNull
 	private UserType type;
-
-    @Size(max = 50)
-    @Field("first_name")
-    private String firstName;
-
-    @Size(max = 50)
-    @Field("last_name")
-    private String lastName;
     
     @Field("identity")
-    private Identity identity;
+    private Identity identity = new Identity();
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -61,7 +53,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private DateTime comingDate;
     
     @Field("french_address")
-    private Address frenchAddress;
+    private Address frenchAddress = new Address();
 
     private boolean activated = false;
 
@@ -116,22 +108,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setType(UserType type) {
         this.type = type;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public Identity getIdentity() {
@@ -234,8 +210,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return "User{" +
                 "email='" + email + '\'' +
                 ", type='" + type + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", identity='" + identity + '\'' +
                 ", comingDate='" + comingDate + '\'' +
                 ", frenchAddress='" + frenchAddress + '\'' +

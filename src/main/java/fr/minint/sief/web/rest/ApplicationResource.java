@@ -195,28 +195,7 @@ public class ApplicationResource {
         		.map(application -> {
         			application.setModificationDate(DateTime.now());
         			applicationRepository.save(application);
-        			
-        			// Update user infos
-                    return userRepository.findOneByEmail(application.getEmail())
-	                    	.map(user -> {
-	                    		if(application.getIdentity() != null) {
-		                    		user.setFirstName(application.getIdentity().getFirstName());
-		                    		user.setLastName(application.getIdentity().getLastName());
-		                    		//TODO A CLONER
-		                    		user.setIdentity(application.getIdentity());
-	                    		}
-	                    		if(application.getProject() != null) {
-	                    			user.setComingDate(application.getProject().getComingDate());
-	                    		}
-	                    		if(application.getAddress() != null) {
-	                    			//TODO A CLONER
-	                    			user.setFrenchAddress(application.getAddress());
-	                    		}
-	                    		userRepository.save(user);
-	                    		
-	                    		return new ResponseEntity<String>(HttpStatus.OK);
-	                    	})
-	                    	.orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+        			return new ResponseEntity<>(HttpStatus.OK);
         		})
         		.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -241,7 +220,19 @@ public class ApplicationResource {
             		application.setPaymentDate(DateTime.now());
                     applicationRepository.save(application);
                     mailService.sendApplicationPaidEmail(application, getBaseUrl(request));
-                    return new ResponseEntity<String>(HttpStatus.OK);
+                    
+                    // Update user infos
+                    return userRepository.findOneByEmail(application.getEmail())
+	                    	.map(user -> {
+	                    		//TODO Pas mal de cloner peut etre...
+	                    		user.setIdentity(application.getIdentity());
+                    			user.setComingDate(application.getProject().getComingDate());
+                    			user.setFrenchAddress(application.getAddress());
+	                    		userRepository.save(user);
+	                    		
+	                    		return new ResponseEntity<>(HttpStatus.OK);
+	                    	})
+	                    	.orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
             	})
             	.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }

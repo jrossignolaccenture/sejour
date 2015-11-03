@@ -37,6 +37,7 @@ import fr.minint.sief.web.rest.dto.KeyAndPasswordDTO;
 import fr.minint.sief.web.rest.dto.UserDTO;
 import fr.minint.sief.web.rest.mapper.AddressMapper;
 import fr.minint.sief.web.rest.mapper.IdentityMapper;
+import fr.minint.sief.web.rest.mapper.PersonMapper;
 
 
 /**
@@ -66,6 +67,9 @@ public class AccountResource {
     @Inject
     private AddressMapper addressMapper;
 
+    @Inject
+    private PersonMapper personMapper;
+
     /**
      * POST  /register -> register the user.
      */
@@ -78,7 +82,7 @@ public class AccountResource {
             .map(user -> new ResponseEntity<>("e-mail address already in use", HttpStatus.BAD_REQUEST))
             .orElseGet(() -> {
                 User user = userService.createUserInformation(userDTO.getEmail().toLowerCase(), userDTO.getPassword(),
-                				userDTO.getType(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getLangKey());
+                				userDTO.getType(), userDTO.getLangKey());
                 mailService.sendActivationEmail(user, getBaseUrl(request));
                 return new ResponseEntity<>(HttpStatus.CREATED);
             });
@@ -125,8 +129,6 @@ public class AccountResource {
                         user.getEmail(),
                         null,
                         user.getType(),
-                        user.getFirstName(),
-                        user.getLastName(),
                         identityMapper.identityToIdentityDTO(user.getIdentity()),
                         user.getComingDate(),
                         addressMapper.addressToAddressDTO(user.getFrenchAddress()),
@@ -150,7 +152,7 @@ public class AccountResource {
             .findOneByEmail(userDTO.getEmail())
             .filter(u -> u.getEmail().equals(SecurityUtils.getCurrentLogin()))
             .map(u -> {
-                userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), 
+                userService.updateUserInformation(
                 		identityMapper.identityDTOToIdentity(userDTO.getIdentity()),
                 		userDTO.getComingDate(), addressMapper.addressDTOToAddress(userDTO.getFrenchAddress()), 
                 		userDTO.getEmail(), userDTO.getLangKey());

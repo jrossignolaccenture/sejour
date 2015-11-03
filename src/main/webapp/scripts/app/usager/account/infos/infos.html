@@ -97,9 +97,7 @@
 			    </div>
 			    <div class="form-group">
 			        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
-			        <select class="form-control" name="birthCountry" id="field_birthCountry"
-					      ng-options="country.key as country.name for country in countries | orderBy:'name'"
-					      ng-model="identity.birthCountry" required></select>
+			        <select-country name="birthCountry" id="field_birthCountry" ng-model="identity.birthCountry" required></select-country>
 			
 			        <div ng-show="identityForm.birthCountry.$dirty && identityForm.birthCountry.$invalid">
 			            <p class="help-block" ng-show="identityForm.birthCountry.$error.required" translate="entity.validation.required">
@@ -109,9 +107,7 @@
 			    </div>
 			    <div class="form-group">
 			        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
-			        <select class="form-control" name="nationality" id="field_nationality"
-					      ng-options="country.key as country.name for country in countries | orderBy:'name'"
-					      ng-model="identity.nationality" required></select>
+			        <select-country name="nationality" id="field_nationality" ng-model="identity.nationality" required></select-country>
 			        
 			        <div ng-show="identityForm.nationality.$dirty && identityForm.nationality.$invalid">
 			            <p class="help-block" ng-show="identityForm.nationality.$error.required" translate="entity.validation.required">
@@ -229,9 +225,7 @@
 		        </div>
 		        <div class="form-group">
 		            <label translate="address.form.country" for="field_country">Country</label>
-		            <select class="form-control" name="country" id="field_country"
-					      ng-options="country.key as country.name for country in countries | orderBy:'name'"
-					      ng-model="account.frenchAddress.country" required></select>
+		            <select-country name="country" id="field_country" ng-model="account.frenchAddress.country" required></select-country>
 		
 		            <div ng-show="infosForm.country.$dirty && infosForm.country.$invalid">
 		                <p class="help-block" ng-show="infosForm.country.$error.required" translate="entity.validation.required">

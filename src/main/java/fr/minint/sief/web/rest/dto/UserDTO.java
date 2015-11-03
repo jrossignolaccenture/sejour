@@ -29,18 +29,12 @@ public class UserDTO {
 	/** ENUM = COMPANY, PERSON */
 	@NotNull
 	private UserType type;
-
-	@Size(max = 50)
-	private String firstName;
-
-	@Size(max = 50)
-	private String lastName;
 	
-    private IdentityDTO identity;
+    private IdentityDTO identity = new IdentityDTO();
 	
     private DateTime comingDate;
     
-    private AddressDTO frenchAddress;
+    private AddressDTO frenchAddress = new AddressDTO();
 
 	@Size(min = 2, max = 5)
 	private String langKey;
@@ -50,14 +44,12 @@ public class UserDTO {
 	public UserDTO() {
 	}
 
-	public UserDTO(String id, String email, String password, UserType type, String firstName,
-			String lastName, IdentityDTO identity, DateTime comingDate, AddressDTO frenchAddress, String langKey, List<String> roles) {
+	public UserDTO(String id, String email, String password, UserType type, IdentityDTO identity, DateTime comingDate, 
+			AddressDTO frenchAddress, String langKey, List<String> roles) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.type = type;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.identity = identity;
 		this.comingDate = comingDate;
 		this.frenchAddress = frenchAddress;
@@ -79,14 +71,6 @@ public class UserDTO {
 
 	public String getPassword() {
 		return password;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
 	}
 
     public IdentityDTO getIdentity() {
@@ -116,8 +100,6 @@ public class UserDTO {
 				", email='" + email + '\'' + 
 				", password='" + password + '\'' + 
 				", type='" + type + '\'' + 
-				", firstName='" + firstName + '\'' + 
-				", lastName='" + lastName + '\'' + 
                 ", identity='" + identity + '\'' +
                 ", comingDate='" + comingDate + '\'' +
                 ", frenchAddress='" + frenchAddress + '\'' +

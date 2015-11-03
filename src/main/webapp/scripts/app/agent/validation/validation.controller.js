@@ -1,14 +1,10 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('ValidationController', function ($scope, $state, Application, Country, currentApplication) {
+    .controller('ValidationController', function ($scope, $state, Application, currentApplication) {
 
         $scope.isRenewal = currentApplication.type === 'renouvellement';
         $scope.viewSuffix = currentApplication.type === 'naturalisation' ? '-naturalization' : '';
-    	
-        Country.get().then(function(result) {
-        	$scope.countries = result;
-        });
 
     	$scope.getFormattedDate = function(date) {
     		return moment(date).format("DD/MM/YYYY");

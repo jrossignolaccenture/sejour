@@ -2,13 +2,16 @@ package fr.minint.sief.web.rest.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
 import org.joda.time.DateTime;
 
+import fr.minint.sief.domain.enumeration.PersonType;
 import fr.minint.sief.domain.enumeration.SexType;
 
 /**
@@ -43,6 +46,8 @@ public class IdentityDTO implements Serializable {
 
     @NotNull
     private List<DocumentDTO> documents = new ArrayList<>();
+    
+    private Map<PersonType, List<PersonDTO>> family = new HashMap<>();
 
     public String getLastName() {
         return lastName;
@@ -124,6 +129,14 @@ public class IdentityDTO implements Serializable {
 		this.documents = documents;
 	}
 
+	public Map<PersonType, List<PersonDTO>> getFamily() {
+		return family;
+	}
+
+	public void setFamily(Map<PersonType, List<PersonDTO>> family) {
+		this.family = family;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -158,6 +171,7 @@ public class IdentityDTO implements Serializable {
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
                 ", documents='" + documents + "'" +
+                ", family='" + family + '\'' +
                 '}';
     }
 }

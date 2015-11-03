@@ -126,8 +126,6 @@ public class AccountResourceTest {
 
         User user = new User();
         user.setEmail("john.doe@jhipter.com");
-        user.setFirstName("john");
-        user.setLastName("doe");
         user.setAuthorities(authorities);
         when(mockUserService.getUserWithAuthorities()).thenReturn(user);
 
@@ -136,8 +134,6 @@ public class AccountResourceTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.login").value("test"))
-                .andExpect(jsonPath("$.firstName").value("john"))
-                .andExpect(jsonPath("$.lastName").value("doe"))
                 .andExpect(jsonPath("$.email").value("john.doe@jhipter.com"))
                 .andExpect(jsonPath("$.roles").value(AuthoritiesConstants.ADMIN));
     }
@@ -159,8 +155,6 @@ public class AccountResourceTest {
             "joe@example.com",      // e-mail
             "password",             // password
             UserType.individual,	// type
-            "Joe",                  // firstName
-            "Shmoe",                // lastName
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress
@@ -186,8 +180,6 @@ public class AccountResourceTest {
             "funkymail",       // e-mail <-- invalid
             "password",         // password
             UserType.individual,// type
-            "Bob",              // firstName
-            "Green",            // lastName
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress
@@ -214,8 +206,6 @@ public class AccountResourceTest {
             "john@example.com",     // e-mail
             "password",             // password
             UserType.individual,	// type
-            "John",                 // firstName
-            "Doe",                  // lastName
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress
@@ -224,7 +214,7 @@ public class AccountResourceTest {
         );
 
         // Duplicate e-mail, different login
-        UserDTO dup = new UserDTO("222", u.getEmail(), u.getPassword(), u.getType(), "otherJohn", "otherDoe", null, null, null,
+        UserDTO dup = new UserDTO("222", u.getEmail(), u.getPassword(), u.getType(), null, null, null,
             u.getLangKey(), u.getRoles());
 
         // Good user
@@ -253,8 +243,6 @@ public class AccountResourceTest {
             "badguy@example.com",   // e-mail
             "password",             // password
             UserType.individual,	// type
-            "Bad",                  // firstName
-            "Guy",                  // lastName
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress

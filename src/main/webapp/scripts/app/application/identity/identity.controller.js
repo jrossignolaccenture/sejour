@@ -1,32 +1,42 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('IdentityController', function ($scope, $state, $stateParams, Country, File, Application, currentApplication) {
-        
-        $scope.birthDatePickerOptions = {
-			format: 'DD/MM/YYYY',
-			maxDate: 'moment', 
-			viewMode: 'years', 
-			locale: 'fr',
-			allowInputToggle: true
-        }
+    .controller('IdentityController', function ($scope, $state, $stateParams, File, Application, currentApplication) {
         
         $scope.needDocuments = currentApplication.type === 'premiere';
         
         $scope.identity = currentApplication.identity;
-        if($scope.identity.birthDate) {
-        	$scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
-        }
-        
-        $scope.countries = [];
-        Country.get().then(function(countries) {
-        	$scope.countries = countries;
-        });
         
         $scope.save = function () {
-        	$scope.identity.birthDate = moment($scope.identity.birthDateTxt, "DD/MM/YYYY").toDate();
-        	
             Application.update(currentApplication).then(function() {
+            	if(currentApplication.type === 'naturalisation') {
+            		$state.go('identity-family', $stateParams);
+            	} else {
+            		$state.go('address', $stateParams);
+            	}
+            });
+        };
+        
+    })
+    .controller('IdentityFamilyController', function ($scope, $state, $stateParams, File, Application, currentApplication) {
+
+    	$scope.view = 'father';
+    	
+    	$scope.father = currentApplication.identity.family['father'];
+    	$scope.father = $scope.father ? $scope.father[0] : {};
+    	
+    	$scope.mother = currentApplication.identity.family['mother'];
+    	$scope.mother = $scope.mother ? $scope.mother[0] : {};
+
+        $scope.back = function () {
+        	$state.go('identity', $stateParams);
+        };
+        
+        $scope.save = function () {
+        	currentApplication.identity.family['father'] = [$scope.father];
+        	currentApplication.identity.family['mother'] = [$scope.mother];
+        	
+        	Application.update(currentApplication).then(function() {
             	$state.go('address', $stateParams);
             });
         };

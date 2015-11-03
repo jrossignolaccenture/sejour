@@ -17,7 +17,9 @@
             "passport.tooltip": "Thank you to join the pages relating to the civil status, validity dates, the entry stamps and visas",
             "birthAct": "Id document(s)",
             "birthAct.placeholder": "Click or drag your id documents here...",
-            "birthAct.tooltip": "Thank you to attach an excerpt from your birth certificate with filiation or a full copy of your birth certificate"
+            "birthAct.tooltip": "Thank you to attach an excerpt from your birth certificate with filiation or a full copy of your birth certificate",
+            "father": "Father",
+            "mother": "Mother"
 		}
 	}
 }

@@ -1,11 +1,7 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('SummaryController', function ($scope, $state, $stateParams, Country, currentApplication) {
-
-    	Country.get().then(function(countries) {
-        	$scope.countries = countries;
-        });
+    .controller('SummaryController', function ($scope, $state, $stateParams, currentApplication) {
     	
     	$scope.isInDraftMode = currentApplication.statut === 'draft';
         

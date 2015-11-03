@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('AdmissibilityController', function ($rootScope, $scope, $state, Country, Application, currentApplication) {
+    .controller('AdmissibilityController', function ($rootScope, $scope, $state, Application, currentApplication) {
 
     	//  !!!!! BEAUCOUP DE CODE A MUTUALISER AVEC VALIDATION.CONTROLLER.JS !!!!!
     	$scope.isAgent = true;
@@ -17,10 +17,6 @@ angular.module('sejourApp')
     		$scope.addressOpened = false;
     		$scope.addressValidated = true;
     	}
-    	
-        Country.get().then(function(countries) {
-        	$scope.countries = countries;
-        });
     	
         $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
         
