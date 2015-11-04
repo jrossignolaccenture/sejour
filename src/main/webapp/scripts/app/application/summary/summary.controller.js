@@ -10,14 +10,8 @@ angular.module('sejourApp')
         $scope.viewSuffix = isNaturalization ? '-naturalization' : '';
         
         $scope.identity = currentApplication.identity;
-        
         $scope.address = currentApplication.address;
-        
         $scope.project = currentApplication.project;
-    	$scope.project.comingDateTxt = moment($scope.project.comingDate).format("DD/MM/YYYY");
-    	$scope.project.trainingStartTxt = moment($scope.project.trainingStart).format("DD/MM/YYYY");
-    	
-
     	
     	$scope.updatePanelOpen = function (view) {
     		$scope.panelOpen = $scope.panelOpen===view ? '' : view;

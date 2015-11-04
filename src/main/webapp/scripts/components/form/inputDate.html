@@ -3,11 +3,11 @@
 	<input type="text" 
 			class="form-control" 
 			datetimepicker 
-			datetimepicker-options="{{birthDatePickerOptions}}" 
-			name="birthDateTxt" 
-			id="field_birthDateTxt" 
+			datetimepicker-options="{{datePickerOptions}}" 
+			name="{{::fieldName}}" 
+			id="{{::fieldId}}" 
 			placeholder="{{'global.form.date.format' | translate}}" 
-			ng-model="birthDateTxt" 
+			ng-model="dateTxt" 
 			ng-change="updateDate()" 
 			ng-readonly="readonly!==undefined">
 </div>

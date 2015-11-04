@@ -3,7 +3,6 @@
 angular.module('sejourApp')
     .controller('AdmissibilityController', function ($rootScope, $scope, $state, Application, currentApplication) {
 
-    	//  !!!!! BEAUCOUP DE CODE A MUTUALISER AVEC VALIDATION.CONTROLLER.JS !!!!!
     	$scope.isAgent = true;
         $scope.isRenewal = currentApplication.type === 'renouvellement';
         $scope.viewSuffix = currentApplication.type === 'naturalisation' ? '-naturalization' : '';
@@ -21,13 +20,8 @@ angular.module('sejourApp')
         $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
         
         $scope.identity = currentApplication.identity;
-        $scope.identity.birthDateTxt = moment(currentApplication.identity.birthDate).format("DD/MM/YYYY");
-
     	$scope.address = currentApplication.address;
-    	
         $scope.project = currentApplication.project;
-        $scope.project.comingDateTxt = moment(currentApplication.project.comingDate).format("DD/MM/YYYY");
-        $scope.project.trainingStartTxt = moment(currentApplication.project.trainingStart).format("DD/MM/YYYY");
     	
     	$scope.application = currentApplication;
         

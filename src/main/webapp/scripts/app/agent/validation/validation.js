@@ -49,6 +49,8 @@ angular.module('sejourApp')
                     	$translatePartialLoader.addPart('project');
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
+                    	$translatePartialLoader.addPart('maritalStatus');
+                    	$translatePartialLoader.addPart('activityType');
                     	$translatePartialLoader.addPart('resourceType');
                     	$translatePartialLoader.addPart('documentType');
                         return $translate.refresh();

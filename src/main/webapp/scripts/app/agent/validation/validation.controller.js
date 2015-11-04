@@ -13,11 +13,7 @@ angular.module('sejourApp')
         $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
         
         $scope.identity = currentApplication.identity;
-        $scope.identity.birthDateTxt = $scope.getFormattedDate(currentApplication.identity.birthDate);
-    	
         $scope.project = currentApplication.project;
-        $scope.project.comingDateTxt = $scope.getFormattedDate(currentApplication.project.comingDate);
-        $scope.project.trainingStartTxt = $scope.getFormattedDate(currentApplication.project.trainingStart);
     	
         $scope.application = currentApplication;
     	

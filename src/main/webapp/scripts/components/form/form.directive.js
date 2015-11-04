@@ -61,11 +61,13 @@ angular.module('sejourApp')
             restrict: 'E',
             scope: {
             	ngModel: "=",
-            	readonly: "@"
+            	readonly: "@",
+            	fieldName: "@",
+            	fieldId: "@"
             },
-            templateUrl: 'scripts/components/form/inputBirthDate.html',
+            templateUrl: 'scripts/components/form/inputDate.html',
             controller: ['$scope', function($scope) {
-            	$scope.birthDatePickerOptions = {
+            	$scope.datePickerOptions = {
         			format: 'DD/MM/YYYY',
         			maxDate: 'moment', 
         			viewMode: 'years', 
@@ -73,10 +75,37 @@ angular.module('sejourApp')
         			allowInputToggle: true
                 }
             	if($scope.ngModel) {
-                	$scope.birthDateTxt = moment($scope.ngModel).format("DD/MM/YYYY");
+                	$scope.dateTxt = moment($scope.ngModel).format("DD/MM/YYYY");
                 }
             	$scope.updateDate = function(){
-            		$scope.ngModel = moment($scope.birthDateTxt, "DD/MM/YYYY").toDate();
+            		$scope.ngModel = moment($scope.dateTxt, "DD/MM/YYYY").toDate();
+            	}
+            }]
+        };
+    })
+    .directive('inputDate', function() {
+        return {
+            restrict: 'E',
+            scope: {
+            	ngModel: "=",
+            	readonly: "@",
+            	fieldName: "@",
+            	fieldId: "@"
+            },
+            templateUrl: 'scripts/components/form/inputDate.html',
+            controller: ['$scope', function($scope) {
+            	$scope.datePickerOptions = {
+        			format: 'DD/MM/YYYY',
+        			minDate: 'moment', 
+        			viewMode: 'years', 
+        			locale: 'fr',
+        			allowInputToggle: true
+                }
+            	if($scope.ngModel) {
+                	$scope.dateTxt = moment($scope.ngModel).format("DD/MM/YYYY");
+                }
+            	$scope.updateDate = function(){
+            		$scope.ngModel = moment($scope.dateTxt, "DD/MM/YYYY").toDate();
             	}
             }]
         };

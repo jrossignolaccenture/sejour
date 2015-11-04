@@ -48,12 +48,12 @@
     </div>
     <div class="form-group">
         <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
-        <input-birth-date ng-model="identity.birthDate"></input-birth-date>
-        <div ng-show="identityLightForm.birthDateTxt.$dirty && identityLightForm.birthDateTxt.$invalid">
-            <p class="help-block" ng-show="identityLightForm.birthDateTxt.$error.required" translate="entity.validation.required">
+        <input-birth-date field-name="birthDate" field-id="field_birthDate" ng-model="identity.birthDate"></input-birth-date>
+        <div ng-show="identityLightForm.birthDate.$dirty && identityLightForm.birthDate.$invalid">
+            <p class="help-block" ng-show="identityLightForm.birthDate.$error.required" translate="entity.validation.required">
                 This field is required.
             </p>
-            <p class="help-block" ng-show="identityLightForm.birthDateTxt.$error.date" translate="entity.validation.date">
+            <p class="help-block" ng-show="identityLightForm.birthDate.$error.date" translate="entity.validation.date">
                 This field should be a date.
             </p>
         </div>

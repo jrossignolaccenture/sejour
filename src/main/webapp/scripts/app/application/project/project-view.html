@@ -1,49 +1,28 @@
 <div ng-cloak>
     <div class="col-sm-5">
 		<div class="form-group" ng-if="!isRenewal">
-            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
-	        <div class="input-group date">
-		        <span class="input-group-addon">
-                       <span class="fa fa-calendar"></span>
-                   </span>
-                   <input type="text" class="form-control"
-			           name="comingDateTxt" id="field_comingDateTxt"
-			           ng-model="project.comingDateTxt"
-			           placeholder="{{'global.form.date.format' | translate}}"
-			           readonly="readonly">
-			</div>
+            <label translate="project.form.comingDate">ComingDate</label>
+            <input-date ng-model="project.comingDate" readonly="readonly"></input-date>
         </div>
         <div class="form-group">
-            <label translate="project.form.university" for="field_university">University</label>
-            <input type="text" class="form-control" name="university" id="field_university"
-                    ng-model="project.university" readonly="readonly">
+            <label translate="project.form.university">University</label>
+            <input type="text" class="form-control" ng-model="project.university" readonly="readonly">
         </div>
         <div class="form-group">
-            <label translate="project.form.training" for="field_training">Training</label>
-            <input type="text" class="form-control" name="training" id="field_training"
-                    ng-model="project.training" readonly="readonly">
+            <label translate="project.form.training">Training</label>
+            <input type="text" class="form-control"ng-model="project.training" readonly="readonly">
         </div>
         <div class="form-group">
-            <label translate="project.form.trainingStart" for="field_trainingStart">TrainingStart</label>
-	        <div class="input-group date">
-		        <span class="input-group-addon">
-                       <span class="fa fa-calendar"></span>
-                   </span>
-                   <input type="text" class="form-control"
-			           name="trainingStartTxt" id="field_trainingStartTxt"
-			           ng-model="project.trainingStartTxt"
-			           placeholder="{{'global.form.date.format' | translate}}"
-			           readonly="readonly">
-			</div>
+            <label translate="project.form.trainingStart">TrainingStart</label>
+            <input-date ng-model="project.trainingStart" readonly="readonly"></input-date>
         </div>
         <div class="form-group">
-            <label translate="project.form.trainingLength" for="field_trainingLength">TrainingLength</label>
-            <input type="number" class="form-control" name="trainingLength" id="field_trainingLength"
-                    ng-model="project.trainingLength" readonly="readonly">
+            <label translate="project.form.trainingLength">TrainingLength</label>
+            <input type="number" class="form-control" ng-model="project.trainingLength" readonly="readonly">
         </div>
         <div class="form-group">
-            <label translate="project.form.resourceType" for="field_resourceType">ResourceType</label>
-            <select class="form-control" name="resourceType" ng-model="project.resourceType" id="field_resourceType" disabled>
+            <label translate="project.form.resourceType">ResourceType</label>
+            <select class="form-control" ng-model="project.resourceType" disabled>
                 <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
                 <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
                 <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
@@ -51,9 +30,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label translate="project.form.resourceAmount" for="field_resourceAmount">ResourceAmount</label>
-            <input type="number" class="form-control" name="resourceAmount" id="field_resourceAmount"
-                    ng-model="project.resourceAmount" readonly="readonly">
+            <label translate="project.form.resourceAmount">ResourceAmount</label>
+            <input type="number" class="form-control" ng-model="project.resourceAmount" readonly="readonly">
         </div>
 	</div>
 	<div class="col-sm-7">
