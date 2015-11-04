@@ -38,7 +38,7 @@ angular.module('sejourApp')
             },
             templateUrl: 'scripts/app/application/address/address-light.html',
             link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	$('[data-toggle="popover"]').popover(scope.withTooltip === true ? undefined : 'disable');
+            	$('#field_owner').popover(scope.withTooltip === true ? undefined : 'disable');
             }
         };
     });

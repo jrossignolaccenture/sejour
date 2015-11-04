@@ -34,7 +34,9 @@ angular.module('sejourApp')
             },
             templateUrl: 'scripts/components/form/tooltip.html',
             link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	$('[data-toggle="popover"]').popover();
+            	$(function () {
+            		$('[data-toggle="popover"]').popover();
+            	});
             }
         };
     })

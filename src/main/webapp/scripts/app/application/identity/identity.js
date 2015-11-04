@@ -47,7 +47,7 @@ angular.module('sejourApp')
             	}
             }],
             link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	$('[data-toggle="popover"]').popover(scope.withTooltip === true ? undefined : 'disable');
+            	$('#field_lastName').popover(scope.withTooltip === true ? undefined : 'disable');
             }
         };
     });

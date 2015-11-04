@@ -24,6 +24,15 @@
 			    
 				<identity-form-light ng-model="identity" with-francisation="withFrancisation" with-tooltip="true"></identity-form-light>
 				
+			    <div class="form-group">
+			        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
+			        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="identity.passportNumber" required>
+			        <div ng-show="identityForm.passportNumber.$dirty && identityForm.passportNumber.$invalid">
+			            <p class="help-block" ng-show="identityForm.passportNumber.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+			    </div>
 				<div class="form-group">
 			        <label translate="identity.form.maritalStatus" for="field_maritalStatus">Marital status</label>
 			        <select class="form-control" name="maritalStatus" id="field_maritalStatus" ng-model="identity.maritalStatus" required>
@@ -87,15 +96,6 @@
 			        </select>
 			        <div ng-show="identityForm.activity.$dirty && identityForm.activity.$invalid">
 			            <p class="help-block" ng-show="identityForm.activity.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
-			        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="identity.passportNumber" required>
-			        <div ng-show="identityForm.passportNumber.$dirty && identityForm.passportNumber.$invalid">
-			            <p class="help-block" ng-show="identityForm.passportNumber.$error.required" translate="entity.validation.required">
 			                This field is required.
 			            </p>
 			        </div>

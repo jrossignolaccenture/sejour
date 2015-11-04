@@ -4,7 +4,7 @@ angular.module('sejourApp')
     .controller('FamilyController', function ($scope, $state, $stateParams, Application, currentApplication) {
 
     	$scope.panelOpen = 0;
-    	
+
     	$scope.parents = currentApplication.identity.family['parents'];
     	if(!$scope.parents || $scope.parents.length == 0) {
     		$scope.parents = [{identity: {documents: []}, address: {}}, {identity: {documents: []}, address: {}}];
