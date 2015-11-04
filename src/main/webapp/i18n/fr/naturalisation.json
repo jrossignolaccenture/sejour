@@ -28,7 +28,8 @@
     "summary": {
     	"form": {
 			"subtitle": "Vous êtes sur le point de déposer une demande de naturalisation par décret. Avant de procéder au paiement, assurez-vous que les informations ci-dessous soient correctes.",
-	    	"identity": "Mes informations personnelles et celles de mes proches",
+	    	"identity": "Mes informations personnelles",
+	    	"family": "Les informations personnelles de mes proches",
 	    	"address": "Mes coordonnées",
 	    	"project": "Mon projet"
 	    }

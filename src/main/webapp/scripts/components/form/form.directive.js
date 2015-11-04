@@ -60,9 +60,10 @@ angular.module('sejourApp')
         return {
             restrict: 'E',
             scope: {
-            	ngModel: "="
+            	ngModel: "=",
+            	readonly: "@"
             },
-            template: '<input type="text" class="form-control" datetimepicker datetimepicker-options="{{birthDatePickerOptions}}" name="birthDateTxt" id="field_birthDateTxt" ng-model="birthDateTxt" ng-change="updateDate()" placeholder="{{\'global.form.date.format\' | translate}}">',
+            templateUrl: 'scripts/components/form/inputBirthDate.html',
             controller: ['$scope', function($scope) {
             	$scope.birthDatePickerOptions = {
         			format: 'DD/MM/YYYY',

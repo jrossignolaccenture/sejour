@@ -27,53 +27,76 @@
 		</div>
 		<br>
     </div>
+    <!-- IDENTITY -->
 	<div class="row">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
+			<div class="collapsable-panel" id="PanelIdentity" ng-class="{'opened': panelOpen==='Identity'}" ng-click="updatePanelOpen('Identity')">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': identityOpened, 'glyphicon-triangle-bottom': !identityOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Identity', 'glyphicon-triangle-bottom': panelOpen!=='Identity'}"></span>
 					<h5 class="panel-title" translate="summary.form.identity">Identity</h5>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-show="identityOpened">
+	<div class="row" ng-if="panelOpen==='Identity'">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': identityOpened}">
+			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
+    <!-- FAMILY -->
+	<div ng-if="displayFamily">
+		<div class="row">
+			<div class="col-sm-11 col-sm-offset-1">
+				<div class="collapsable-panel" id="PanelFamily" ng-class="{'opened': panelOpen==='Family'}" ng-click="updatePanelOpen('Family')">
+					<div class="panel-heading">
+						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Family', 'glyphicon-triangle-bottom': panelOpen!=='Family'}"></span>
+						<h5 class="panel-title" translate="summary.form.family">Family</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" ng-if="panelOpen==='Family'">
+			<div class="col-sm-11 col-sm-offset-1">
+				<div class="row validation-visualization-row opened">
+					<family-view ng-model="identity"></family-view>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- ADDRESS -->
 	<div class="row">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': addressOpened}" ng-click="addressOpened = !addressOpened">
+			<div class="collapsable-panel" id="PanelAddress" ng-class="{'opened': panelOpen==='Address'}" ng-click="updatePanelOpen('Address')">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': addressOpened, 'glyphicon-triangle-bottom': !addressOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Address', 'glyphicon-triangle-bottom': panelOpen!=='Address'}"></span>
 					<h5 class="panel-title" translate="summary.form.address">Address</h5>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-show="addressOpened">
+	<div class="row" ng-if="panelOpen==='Address'">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': addressOpened}">
+			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/address/address-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
+    <!-- PROJECT -->
 	<div class="row">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
+			<div class="collapsable-panel" id="PanelProject" ng-class="{'opened': panelOpen==='Project'}" ng-click="updatePanelOpen('Project')">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': projectOpened, 'glyphicon-triangle-bottom': !projectOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Project', 'glyphicon-triangle-bottom': panelOpen!=='Project'}"></span>
 					<h5 class="panel-title" translate="summary.form.project">Project</h5>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-show="projectOpened">
+	<div class="row" ng-if="panelOpen==='Project'">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
+			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/project/project'+viewSuffix+'-view.html'"></ng-include>
 			</div>
 		</div>

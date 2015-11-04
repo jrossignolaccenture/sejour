@@ -28,7 +28,8 @@
     "summary": {
     	"form": {
 	    	"subtitle": "You are about to make an application for naturalization by decree. Before paying, make sure that the information below are correct.",
-	    	"identity": "My personal information and those of my close",
+	    	"identity": "My personal information",
+	    	"family": "My close's personal information",
 	    	"address": "My address",
 	    	"project": "My project"
     	}

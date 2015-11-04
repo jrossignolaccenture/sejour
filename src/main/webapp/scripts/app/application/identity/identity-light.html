@@ -48,11 +48,7 @@
     </div>
     <div class="form-group">
         <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
-        <div class="input-group date">
-	        <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-            <input-birth-date ng-model="identity.birthDate"></input-birth-date>
-		</div>
-		
+        <input-birth-date ng-model="identity.birthDate"></input-birth-date>
         <div ng-show="identityLightForm.birthDateTxt.$dirty && identityLightForm.birthDateTxt.$invalid">
             <p class="help-block" ng-show="identityLightForm.birthDateTxt.$error.required" translate="entity.validation.required">
                 This field is required.

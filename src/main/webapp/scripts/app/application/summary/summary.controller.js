@@ -1,21 +1,30 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('SummaryController', function ($scope, $state, $stateParams, currentApplication) {
+    .controller('SummaryController', function ($scope, $state, $stateParams, $timeout, currentApplication) {
     	
     	$scope.isInDraftMode = currentApplication.statut === 'draft';
-        
         $scope.isRenewal = currentApplication.type === 'renouvellement';
-        $scope.viewSuffix = currentApplication.type === 'naturalisation' ? '-naturalization' : '';
+        var isNaturalization = currentApplication.type === 'naturalisation';
+        $scope.displayFamily = isNaturalization;
+        $scope.viewSuffix = isNaturalization ? '-naturalization' : '';
         
         $scope.identity = currentApplication.identity;
-        $scope.identity.birthDateTxt = moment($scope.identity.birthDate).format("DD/MM/YYYY");
         
         $scope.address = currentApplication.address;
         
         $scope.project = currentApplication.project;
     	$scope.project.comingDateTxt = moment($scope.project.comingDate).format("DD/MM/YYYY");
     	$scope.project.trainingStartTxt = moment($scope.project.trainingStart).format("DD/MM/YYYY");
+    	
+
+    	
+    	$scope.updatePanelOpen = function (view) {
+    		$scope.panelOpen = $scope.panelOpen===view ? '' : view;
+    		$timeout(function() {
+    			$('html, body').animate({ scrollTop: $("#Panel"+view).offset().top }, "slow");
+    	    }, 50);
+    	}
 
         $scope.back = function () {
         	var stateToGo = currentApplication.statut === 'draft' ? 'project' : 'account/application';

@@ -1,0 +1,22 @@
+<div ng-cloak>
+	<div class="col-sm-5">
+		<div ng-repeat="parent in parents">
+			<div class="row">
+				<div class="collapsable-panel" id="Panel{{::$index}}" ng-class="{'opened': panelOpen===$index}" ng-click="updatePanelOpen($index)">
+					<div class="panel-heading">
+						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen===$index, 'glyphicon-triangle-bottom': panelOpen!==$index}"></span>
+						<h5 class="panel-title" translate="sejourApp.PersonType.parents" translate-values="{ index: '{{$index+1}}'}">Parent</h5>
+					</div>
+				</div>
+			</div>
+			<div ng-if="panelOpen===$index" ng-init="identity=parent.identity; address=parent.address">
+				<ng-include src="'scripts/app/application/identity/identity-light-view.html'"></ng-include>
+				<ng-include src="'scripts/app/application/address/address-light-view.html'"></ng-include>
+				<br>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-7">
+		<photo-viewer ng-model="currentDocuments"></photo-viewer>
+	</div>
+</div>

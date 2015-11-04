@@ -1,22 +1,18 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('FamilyController', function ($scope, $state, $stateParams, Application, currentApplication) {
-
-    	$scope.panelOpen = 0;
+    .controller('FamilyController', function ($scope, $state, $stateParams, $timeout, Application, currentApplication) {
 
     	$scope.parents = currentApplication.identity.family['parents'];
     	if(!$scope.parents || $scope.parents.length == 0) {
     		$scope.parents = [{identity: {documents: []}, address: {}}, {identity: {documents: []}, address: {}}];
     	}
     	
-    	$scope.updatePanelOpen = function (index) {
-    		$scope.panelOpen = $scope.panelOpen===index ? '' : index;
-    		if($scope.panelOpen === 0) {
-    			$('html, body').animate({ scrollTop: $("#parentHeader"+index).offset().top }, "slow");
-    		} else if($scope.panelOpen > 0) {
-    			$('html, body').animate({ scrollTop: $("#parentContent"+(index-1)).offset().top }, "slow");
-    		}
+    	$scope.updatePanelOpen = function (view) {
+    		$scope.panelOpen = $scope.panelOpen===view ? '' : view;
+    		$timeout(function() {
+    			$('html, body').animate({ scrollTop: $("#Panel"+view).offset().top }, "slow");
+    	    }, 50);
     	}
 
         $scope.back = function () {

@@ -24,7 +24,10 @@ angular.module('sejourApp')
                     	$translatePartialLoader.addPart($stateParams.base);
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
+                    	$translatePartialLoader.addPart('personType');
                     	$translatePartialLoader.addPart('address');
+                    	$translatePartialLoader.addPart('maritalStatus');
+                    	$translatePartialLoader.addPart('activityType');
                     	$translatePartialLoader.addPart('contactType');
                     	$translatePartialLoader.addPart('project');
                     	$translatePartialLoader.addPart('resourceType');
