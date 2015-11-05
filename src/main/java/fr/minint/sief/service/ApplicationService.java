@@ -1,8 +1,7 @@
 package fr.minint.sief.service;
 
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
-import static fr.minint.sief.domain.enumeration.ApplicationType.naturalisation;
-import static fr.minint.sief.domain.enumeration.ApplicationType.renouvellement;
+import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
 
 import java.util.List;
 
@@ -74,28 +73,24 @@ public class ApplicationService {
 			applicationRepository.delete(oldDraftApplication);
 		}
 
-		User currentUser = userService.getUser();
-		
 		// Create new application
 		Application application = new Application();
 		application.setEmail(SecurityUtils.getCurrentLogin());
 		application.setType(type);
 		application.setNature(nature);
 		application.setModificationDate(DateTime.now());
-		// This is ugly for now (we don't need a user id reference in the application)
-		application.setUserId(currentUser.getId());
-
+		
+		
+		// Get identity and address from user infos
+		User currentUser = userService.getUser();
+		application.setUserId(currentUser.getId()); // This is ugly for now (we don't need a user id reference in the application)
+		application.setIdentity(currentUser.getIdentity());
+		application.setAddress(currentUser.getAddress());
+		
+		application.setProject(new Project());
+		
 		if (nature == sejour_etudiant) {
 			updateWithCampusInfos(application);
-		}
-		
-		if(type == renouvellement || type == naturalisation) {
-			// Get identity and address from user infos
-			application.setIdentity(currentUser.getIdentity());
-			application.setAddress(currentUser.getFrenchAddress());
-			// don't need project training start and length
-			application.getProject().setTrainingStart(null);
-			application.getProject().setTrainingLength(null);
 		}
 
 		application = applicationRepository.save(application);
@@ -107,7 +102,7 @@ public class ApplicationService {
 		// Call campus (badass style)
 		if ("kim.soon.jeen@gmail.com".equals(application.getEmail())) {
 			// IDENTITY
-			Identity identity = new Identity();
+			Identity identity = application.getIdentity();
 			identity.setLastName("Kim");
 			identity.setFirstName("Soon-jeen");
 			identity.setSex(SexType.F);
@@ -116,30 +111,18 @@ public class ApplicationService {
 			identity.setBirthCountry("KR");
 			identity.setNationality("KR");
 			identity.setPassportNumber("5577997");
-			application.setIdentity(identity);
 			// ADDRESS
-			Address address = new Address();
-			address.setNumber("122-1");
-			address.setStreet("Bujeon-ro");
-			address.setComplement("Busanjin-gu");
-			address.setPostalCode("614-861");
-			address.setCity("Busan");
-			address.setCountry("KR");
+			Address address = application.getAddress();
 			address.setPhone("+82 51 999999");
 			address.setEmail(application.getEmail());
-			application.setAddress(address);
 			// PROJECT
-			Project project = new Project();
+			Project project = application.getProject();
 			project.setUniversity("Télécom Paris Tech");
 			project.setTraining("Master of Science in Multimedia Information Technologies");
-			project.setTrainingStart(DateTime.parse("2016-01-05T00:00"));
-			project.setTrainingLength(12);
-			application.setProject(project);
-		}
-		else {
-			application.setIdentity(new Identity());
-			application.setAddress(new Address());
-			application.setProject(new Project());
+			if(application.getType() == premiere) {
+				project.setTrainingStart(DateTime.parse("2016-01-05T00:00"));
+				project.setTrainingLength(12);
+			}
 		}
 	}
 }

@@ -52,8 +52,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Field("coming_date")
     private DateTime comingDate;
     
-    @Field("french_address")
-    private Address frenchAddress = new Address();
+    @Field("address")
+    private Address address = new Address();
 
     private boolean activated = false;
 
@@ -126,12 +126,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
 		this.comingDate = comingDate;
 	}
 
-	public Address getFrenchAddress() {
-		return frenchAddress;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setFrenchAddress(Address frenchAddress) {
-		this.frenchAddress = frenchAddress;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public boolean getActivated() {
@@ -212,7 +212,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
                 ", type='" + type + '\'' +
                 ", identity='" + identity + '\'' +
                 ", comingDate='" + comingDate + '\'' +
-                ", frenchAddress='" + frenchAddress + '\'' +
+                ", address='" + address + '\'' +
                 ", activated='" + activated + '\'' +
                 ", langKey='" + langKey + '\'' +
                 ", activationKey='" + activationKey + '\'' +

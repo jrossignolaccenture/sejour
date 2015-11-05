@@ -5,7 +5,7 @@ angular.module('sejourApp')
         $stateProvider
             .state('summary', {
                 parent: 'site',
-                url: '/{base}/{id}/resume',
+                url: '/{id}/resume',
                 data: {
                     roles: ['ROLE_USAGER'],
                 },
@@ -19,9 +19,11 @@ angular.module('sejourApp')
                     currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
                         return Application.get({id : $stateParams.id});
                     }],
-                    translatePartialLoader: ['$stateParams', '$translate', '$translatePartialLoader', function ($stateParams, $translate, $translatePartialLoader) {
-                    	$translatePartialLoader.deletePart($stateParams.base, true); // tips to get high priority to this part
-                    	$translatePartialLoader.addPart($stateParams.base);
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', 'I18N_APPLICATION', 'currentApplication',
+                                             function ($translate, $translatePartialLoader, I18N_APPLICATION, currentApplication) {
+                    	// tips to get high priority to the I18N_APPLICATION part
+                    	$translatePartialLoader.deletePart(I18N_APPLICATION[currentApplication.type][currentApplication.nature], true);
+                    	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]);
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
                     	$translatePartialLoader.addPart('personType');

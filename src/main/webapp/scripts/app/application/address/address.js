@@ -5,7 +5,7 @@ angular.module('sejourApp')
         $stateProvider
             .state('address', {
                 parent: 'site',
-                url: '/{base}/{id}/adresse',
+                url: '/{id}/adresse',
                 data: {
                     roles: ['ROLE_USAGER']
                 },
@@ -19,8 +19,9 @@ angular.module('sejourApp')
                     currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
                         return Application.get({id : $stateParams.id});
                     }],
-                    translatePartialLoader: ['$stateParams', '$translate', '$translatePartialLoader', function ($stateParams, $translate, $translatePartialLoader) {
-                    	$translatePartialLoader.addPart($stateParams.base);
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', 'I18N_APPLICATION', 'currentApplication',
+                                             function ($translate, $translatePartialLoader, I18N_APPLICATION, currentApplication) {
+                    	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]);
                     	$translatePartialLoader.addPart('address');
                     	$translatePartialLoader.addPart('contactType');
                         return $translate.refresh();
@@ -38,7 +39,7 @@ angular.module('sejourApp')
             },
             templateUrl: 'scripts/app/application/address/address-light.html',
             link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	$('#field_owner').popover(scope.withTooltip === true ? undefined : 'disable');
+            	$('[id=field_owner]').popover(scope.withTooltip === true ? undefined : 'disable');
             }
         };
     });

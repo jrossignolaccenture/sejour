@@ -28,8 +28,7 @@ angular.module('sejourApp')
                 data: {
                     pageTitle: 'renouveler.page.title',
                     type: 'renouvellement',
-                    nature: 'sejour_etudiant',
-                    base: 'renouveler'
+                    nature: 'sejour_etudiant'
                 },
                 views: {
                     'content@': {

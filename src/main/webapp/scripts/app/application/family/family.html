@@ -29,7 +29,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row" ng-if="panelOpen===$index">
+			<div class="row" ng-show="panelOpen===$index">
 				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
 					<identity-form-light ng-model="parent.identity"></identity-form-light>
 					<address-form-light ng-model="parent.address"></address-form-light>

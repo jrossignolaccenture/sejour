@@ -6,71 +6,73 @@
 	<!-- IDENTITY -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
+			<div class="collapsable-panel" ng-class="{'opened': panel.identity.open}" ng-click="panel.identity.open = !panel.identity.open">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': identityOpened, 'glyphicon-triangle-bottom': !identityOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.identity.open, 'glyphicon-triangle-bottom': !panel.identity.open}"></span>
 					<h5 class="panel-title" translate="admissibility.form.identity">Identity</h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!identityValidated" ng-click="identityValidated = !identityValidated; identityOpened = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="identityValidated" ng-click="identityValidated = !identityValidated">
-			<span translate="admissibility.form.toVerify" ng-show="!identityValidated">To validate</span>
-			<span translate="admissibility.form.verified" ng-show="identityValidated">validate</span>
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.identity.valid" ng-click="panel.identity.valid = !panel.identity.valid; panel.identity.open = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.identity.valid" ng-click="panel.identity.valid = !panel.identity.valid">
+			<span translate="admissibility.form.toVerify" ng-show="!panel.identity.valid">To validate</span>
+			<span translate="admissibility.form.verified" ng-show="panel.identity.valid">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="identityOpened">
+	<div class="row" ng-show="panel.identity.open">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': identityOpened}">
+			<div class="row validation-visualization-row" ng-class="{'opened': panel.identity.open}">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
 	<!-- FAMILY -->
-	<div class="row">
-		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': familyOpened}" ng-click="familyOpened = !familyOpened">
-				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': familyOpened, 'glyphicon-triangle-bottom': !familyOpened}"></span>
-					<h5 class="panel-title" translate="admissibility.form.family">Family</h5>
+	<div ng-if="displayFamily">
+		<div class="row">
+			<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+				<div class="collapsable-panel" ng-class="{'opened': panel.family.open}" ng-click="panel.family.open = !panel.family.open">
+					<div class="panel-heading">
+						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.family.open, 'glyphicon-triangle-bottom': !panel.family.open}"></span>
+						<h5 class="panel-title" translate="admissibility.form.family">Family</h5>
+					</div>
 				</div>
 			</div>
+			<div class="col-xs-3 validation-form">
+				<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.family.valid" ng-click="panel.family.valid = !panel.family.valid; panel.family.open = false;">
+				<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.family.valid" ng-click="panel.family.valid = !panel.family.valid">
+				<span translate="admissibility.form.toVerify" ng-show="!panel.family.valid">To validate</span>
+				<span translate="admissibility.form.verified" ng-show="panel.family.valid">validate</span>
+			</div>
 		</div>
-		<div class="col-xs-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!familyValidated" ng-click="familyValidated = !familyValidated; familyOpened = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="familyValidated" ng-click="familyValidated = !familyValidated">
-			<span translate="admissibility.form.toVerify" ng-show="!familyValidated">To validate</span>
-			<span translate="admissibility.form.verified" ng-show="familyValidated">validate</span>
-		</div>
-	</div>
-	<div class="row" ng-show="familyOpened">
-		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row opened">
-				<family-view ng-model="identity"></family-view>
+		<div class="row" ng-show="panel.family.open">
+			<div class="col-sm-11 col-sm-offset-1">
+				<div class="row validation-visualization-row opened">
+					<family-view ng-model="identity"></family-view>
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- ADDRESS -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': addressOpened}" ng-click="addressOpened = !addressOpened">
+			<div class="collapsable-panel" ng-class="{'opened': panel.address.open}" ng-click="panel.address.open = !panel.address.open">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': addressOpened, 'glyphicon-triangle-bottom': !addressOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.address.open, 'glyphicon-triangle-bottom': !panel.address.open}"></span>
 					<h5 class="panel-title" translate="admissibility.form.address">Address</h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!addressValidated" ng-click="addressValidated = !addressValidated; addressOpened = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="addressValidated" ng-click="addressValidated = !addressValidated">
-			<span translate="admissibility.form.toVerify" ng-show="!addressValidated">To validate</span>
-			<span translate="admissibility.form.verified" ng-show="addressValidated">validate</span>
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.address.valid" ng-click="panel.address.valid = !panel.address.valid; panel.address.open = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.address.valid" ng-click="panel.address.valid = !panel.address.valid">
+			<span translate="admissibility.form.toVerify" ng-show="!panel.address.valid">To validate</span>
+			<span translate="admissibility.form.verified" ng-show="panel.address.valid">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="addressOpened">
+	<div class="row" ng-show="panel.address.open">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': addressOpened}">
+			<div class="row validation-visualization-row" ng-class="{'opened': panel.address.open}">
 				<ng-include src="'scripts/app/application/address/address-view.html'"></ng-include>
 			</div>
 		</div>
@@ -78,24 +80,24 @@
 	<!-- PROJECT -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
+			<div class="collapsable-panel" ng-class="{'opened': panel.project.open}" ng-click="panel.project.open = !panel.project.open">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': projectOpened, 'glyphicon-triangle-bottom': !projectOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.project.open, 'glyphicon-triangle-bottom': !panel.project.open}"></span>
 					<h5 class="panel-title" translate="admissibility.form.project">Project</h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!projectValidated" ng-click="projectValidated = !projectValidated; projectOpened = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="projectValidated" ng-click="projectValidated = !projectValidated">
-			<span translate="admissibility.form.toVerify" ng-show="!projectValidated">To validate</span>
-			<span translate="admissibility.form.verified" ng-show="projectValidated">validate</span>
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.project.valid" ng-click="panel.project.valid = !panel.project.valid; panel.project.open = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.project.valid" ng-click="panel.project.valid = !panel.project.valid">
+			<span translate="admissibility.form.toVerify" ng-show="!panel.project.valid">To validate</span>
+			<span translate="admissibility.form.verified" ng-show="panel.project.valid">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="projectOpened">
+	<div class="row" ng-show="panel.project.open">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
-				<ng-include src="'scripts/app/application/project/project'+viewSuffix+'-view.html'"></ng-include>
+			<div class="row validation-visualization-row" ng-class="{'opened': panel.project.open}">
+				<ng-include src="'scripts/app/application/project/project-'+application.nature+'-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
@@ -104,7 +106,7 @@
 	<div class="row row-center">
     	<button class="btn btn-danger" translate="admissibility.form.button.decline">Decline</button>
     	<button class="btn btn-success btn-right" translate="admissibility.form.button.accept"
-    			 ng-disabled="!identityValidated || (displayFamily && !familyValidated) || !addressValidated || !projectValidated"
+    			 ng-disabled="!panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid"
     			 ng-click="verify()">Accept</button>
 	</div>
 </div>

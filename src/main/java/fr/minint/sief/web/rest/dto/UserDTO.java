@@ -34,7 +34,7 @@ public class UserDTO {
 	
     private DateTime comingDate;
     
-    private AddressDTO frenchAddress = new AddressDTO();
+    private AddressDTO address = new AddressDTO();
 
 	@Size(min = 2, max = 5)
 	private String langKey;
@@ -45,14 +45,14 @@ public class UserDTO {
 	}
 
 	public UserDTO(String id, String email, String password, UserType type, IdentityDTO identity, DateTime comingDate, 
-			AddressDTO frenchAddress, String langKey, List<String> roles) {
+			AddressDTO address, String langKey, List<String> roles) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.type = type;
 		this.identity = identity;
 		this.comingDate = comingDate;
-		this.frenchAddress = frenchAddress;
+		this.address = address;
 		this.langKey = langKey;
 		this.roles = roles;
 	}
@@ -81,8 +81,8 @@ public class UserDTO {
 		return comingDate;
 	}
 
-	public AddressDTO getFrenchAddress() {
-		return frenchAddress;
+	public AddressDTO getAddress() {
+		return address;
 	}
 
 	public String getLangKey() {
@@ -102,7 +102,7 @@ public class UserDTO {
 				", type='" + type + '\'' + 
                 ", identity='" + identity + '\'' +
                 ", comingDate='" + comingDate + '\'' +
-                ", frenchAddress='" + frenchAddress + '\'' +
+                ", address='" + address + '\'' +
 				", langKey='" + langKey + '\'' + 
 				", roles=" + roles + '}';
 	}

@@ -16,15 +16,15 @@ angular.module('sejourApp')
     	}
     	
     	$scope.goToDetail = function(type, id){
-    		$state.go('summary', {base: type === 'premiere' ? 'etudier' : 'renouveler', id: id});
+    		$state.go('summary', {id: id});
     	}
     	
     	$scope.goToDraft = function(type, id){
-    		$state.go('identity', {base: type === 'premiere' ? 'etudier' : 'renouveler', id: id});
+    		$state.go('identity', {id: id});
     	}
     	
     	$scope.goToRdv = function(type, id){
-    		$state.go('rdv', {base: type === 'premiere' ? 'etudier' : 'renouveler', id: id});
+    		$state.go('rdv', {id: id});
     	}
     	
     	$scope.delete = function(id) {

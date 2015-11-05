@@ -5,7 +5,7 @@ angular.module('sejourApp')
         $stateProvider
             .state('identity', {
                 parent: 'site',
-                url: '/{base}/{id}/etatcivil',
+                url: '/{id}/etatcivil',
                 data: {
                     roles: ['ROLE_USAGER']
                 },
@@ -19,8 +19,9 @@ angular.module('sejourApp')
                     currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
                         return Application.get({id : $stateParams.id});
                     }],
-                    translatePartialLoader: ['$stateParams', '$translate', '$translatePartialLoader', function ($stateParams, $translate, $translatePartialLoader) {
-                    	$translatePartialLoader.addPart($stateParams.base);
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', 'I18N_APPLICATION', 'currentApplication',
+                                             function ($translate, $translatePartialLoader, I18N_APPLICATION, currentApplication) {
+                    	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]);
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
                     	$translatePartialLoader.addPart('maritalStatus');
@@ -36,7 +37,6 @@ angular.module('sejourApp')
             required: '^ngModel',
             scope: {
             	identity: "=ngModel",
-            	withFrancisation: "=",
             	withTooltip: "="
             },
             templateUrl: 'scripts/app/application/identity/identity-light.html',
@@ -47,7 +47,7 @@ angular.module('sejourApp')
             	}
             }],
             link: function postLink(scope, iElement, iAttrs, ctrl) {
-            	$('#field_lastName').popover(scope.withTooltip === true ? undefined : 'disable');
+            	$('[id=field_lastName]').popover(scope.withTooltip === true ? undefined : 'disable');
             }
         };
     });

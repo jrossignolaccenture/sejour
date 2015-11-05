@@ -112,11 +112,11 @@ public class UserService {
         return newUser;
     }
 
-    public void updateUserInformation(Identity identity, DateTime comingDate, Address frenchAddress, String email, String langKey) {
+    public void updateUserInformation(Identity identity, DateTime comingDate, Address address, String email, String langKey) {
         userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
             u.setIdentity(identity);
             u.setComingDate(comingDate);
-            u.setFrenchAddress(frenchAddress);
+            u.setAddress(address);
             u.setEmail(email);
             u.setLangKey(langKey);
             userRepository.save(u);

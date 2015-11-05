@@ -28,7 +28,7 @@ import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 public class Identity implements Serializable {
 	
 	@Field("francisation")
-	private boolean francisation;
+	private Boolean francisation;
 
     @NotNull        
     @Field("last_name")
@@ -92,11 +92,11 @@ public class Identity implements Serializable {
     @Field("family")
     private Map<PersonType, List<Person>> family = new HashMap<>();
 
-    public boolean isFrancisation() {
+    public Boolean isFrancisation() {
 		return francisation;
 	}
 
-	public void setFrancisation(boolean francisation) {
+	public void setFrancisation(Boolean francisation) {
 		this.francisation = francisation;
 	}
 

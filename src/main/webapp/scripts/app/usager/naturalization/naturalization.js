@@ -9,8 +9,7 @@ angular.module('sejourApp')
                 data: {
                     pageTitle: 'naturalization.page.title',
                     type: 'naturalisation',
-                    nature: 'naturalisation',
-                    base: 'naturalisation'
+                    nature: 'naturalisation'
                 },
                 views: {
                     'content@': {

@@ -4,27 +4,31 @@ angular.module('sejourApp')
     .controller('AdmissibilityController', function ($rootScope, $scope, $state, Application, currentApplication) {
 
     	$scope.isAgent = true;
-        var isNaturalization = currentApplication.type === 'naturalisation';
-        $scope.withFrancisation = isNaturalization;
-        $scope.displayFamily = isNaturalization;
-        $scope.viewSuffix = isNaturalization ? '-naturalization' : '';
-
+    	
+        $scope.displayFamily = currentApplication.nature === 'naturalisation';
+        
         //TODO Moyen plus générique à trouver pour l'ouverture et la validation par défaut des panels
         // par exemple => détection d'un changement par rapport à l'état précédent et précédente date de validation (du coup on n'a pas besoin de tester le type)
-        $scope.identityOpened = true;
-        $scope.familyOpened = true;
-    	$scope.addressOpened = true;
-    	$scope.projectOpened = true;
-    	if(currentApplication.type === 'renouvellement') {
-        	$scope.identityOpened = false;
-    		$scope.identityValidated = true;
-    		$scope.addressOpened = false;
-    		$scope.addressValidated = true;
-    	}
-    	if(currentApplication.type === 'naturalisation') {
-    		$scope.addressOpened = false;
-    		$scope.addressValidated = true;
-    	}
+        var isRenewal = currentApplication.type === 'renouvellement';
+        var isNat = currentApplication.nature === 'naturalisation';
+        $scope.panel = {
+        	identity: {
+        		open: isRenewal ? false: true, 
+        		valid: isRenewal ? true : false
+        	},
+	        family: {
+	        	open: true,
+	        	valid: false
+	        },
+	        address: {
+	        	open: isRenewal || isNat ? false : true,
+	    	    valid: isRenewal || isNat ? true : false
+	        },
+	        project: {
+	        	open: true,
+	        	valid: false
+	        }
+        }
     	
         $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
         

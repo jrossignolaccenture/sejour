@@ -9,8 +9,7 @@ angular.module('sejourApp')
                 data: {
                     pageTitle: 'etudier.page.title',
                     type: 'premiere',
-                    nature: 'sejour_etudiant',
-                    base: 'etudier'
+                    nature: 'sejour_etudiant'
                 },
                 views: {
                     'content@': {

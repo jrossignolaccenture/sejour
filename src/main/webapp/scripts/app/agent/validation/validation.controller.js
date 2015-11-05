@@ -3,8 +3,6 @@
 angular.module('sejourApp')
     .controller('ValidationController', function ($scope, $state, Application, currentApplication) {
 
-        $scope.viewSuffix = currentApplication.type === 'naturalisation' ? '-naturalization' : '';
-
     	$scope.getFormattedDate = function(date) {
     		return moment(date).format("DD/MM/YYYY");
     	}

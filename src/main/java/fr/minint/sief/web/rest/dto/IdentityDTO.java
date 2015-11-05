@@ -21,7 +21,7 @@ import fr.minint.sief.domain.enumeration.SexType;
  */
 public class IdentityDTO implements Serializable {
 	
-	private boolean francisation;
+	private Boolean francisation;
 
     @NotNull
     private String lastName;
@@ -67,11 +67,11 @@ public class IdentityDTO implements Serializable {
     
     private Map<PersonType, List<PersonDTO>> family = new HashMap<>();
 
-    public boolean isFrancisation() {
+    public Boolean isFrancisation() {
 		return francisation;
 	}
 
-	public void setFrancisation(boolean francisation) {
+	public void setFrancisation(Boolean francisation) {
 		this.francisation = francisation;
 	}
 

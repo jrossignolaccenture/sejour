@@ -28,20 +28,20 @@ angular.module('sejourApp')
             if($scope.account.comingDate != null){
             	$scope.account.comingDateTxt = moment($scope.account.comingDate).format("DD/MM/YYYY");
             }
-            if($scope.account.frenchAddress == null) {
-            	$scope.account.frenchAddress = { contactType: [] };
+            if($scope.account.address == null) {
+            	$scope.account.address = { contactType: [] };
             }
             //TODO  A factoriser avec le code de address et peut etre summary
-            $scope.contactTypeValues = [ { value: 'email', checked: $scope.account.frenchAddress.contactType.indexOf('email') != -1 },
-                                         { value: 'sms', checked: $scope.account.frenchAddress.contactType.indexOf('sms') != -1 },
-                                         { value: 'postal', checked: $scope.account.frenchAddress.contactType.indexOf('postal') != -1 },
+            $scope.contactTypeValues = [ { value: 'email', checked: $scope.account.address.contactType.indexOf('email') != -1 },
+                                         { value: 'sms', checked: $scope.account.address.contactType.indexOf('sms') != -1 },
+                                         { value: 'postal', checked: $scope.account.address.contactType.indexOf('postal') != -1 },
                                    ];
         	$scope.updateContactType = function(contactType) {
-        		var index = $scope.account.frenchAddress.contactType.indexOf(contactType.value);
+        		var index = $scope.account.address.contactType.indexOf(contactType.value);
         		if(contactType.checked && index == -1) {
-        			$scope.account.frenchAddress.contactType.push(contactType.value);
+        			$scope.account.address.contactType.push(contactType.value);
                 }else if(!contactType.checked && index != -1) {
-                	$scope.account.frenchAddress.contactType.splice(index, 1);
+                	$scope.account.address.contactType.splice(index, 1);
                 }
         	}
         });

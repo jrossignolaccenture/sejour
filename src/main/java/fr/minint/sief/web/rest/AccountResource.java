@@ -131,7 +131,7 @@ public class AccountResource {
                         user.getType(),
                         identityMapper.identityToIdentityDTO(user.getIdentity()),
                         user.getComingDate(),
-                        addressMapper.addressToAddressDTO(user.getFrenchAddress()),
+                        addressMapper.addressToAddressDTO(user.getAddress()),
                         user.getLangKey(),
                         user.getAuthorities().stream().map(Authority::getName)
                             .collect(Collectors.toList())),
@@ -154,7 +154,7 @@ public class AccountResource {
             .map(u -> {
                 userService.updateUserInformation(
                 		identityMapper.identityDTOToIdentity(userDTO.getIdentity()),
-                		userDTO.getComingDate(), addressMapper.addressDTOToAddress(userDTO.getFrenchAddress()), 
+                		userDTO.getComingDate(), addressMapper.addressDTOToAddress(userDTO.getAddress()), 
                 		userDTO.getEmail(), userDTO.getLangKey());
                 mailService.sendRenewalEmail(u, getBaseUrl(request));
                 return new ResponseEntity<String>(HttpStatus.OK);

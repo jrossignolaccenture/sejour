@@ -1,5 +1,6 @@
 package fr.minint.sief.web.rest;
 
+import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.identity_verified;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.receivable;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
@@ -228,7 +229,7 @@ public class ApplicationResource {
 	                    		//TODO Pas mal de cloner peut etre...
 	                    		user.setIdentity(application.getIdentity());
                     			user.setComingDate(application.getProject().getComingDate());
-                    			user.setFrenchAddress(application.getAddress());
+                    			user.setAddress(application.getAddress());
 	                    		userRepository.save(user);
 	                    		
 	                    		return new ResponseEntity<>(HttpStatus.OK);
@@ -256,7 +257,7 @@ public class ApplicationResource {
 					application.setStatut(application.getType() == renouvellement ? identity_verified : receivable);
 					application.setAdmissibilityDate(DateTime.now());
 					applicationRepository.save(application);
-					if(application.getType() != renouvellement) {
+					if(application.getStatut() == receivable) {
 						mailService.sendApplicationReceivableEmail(application, getBaseUrl(request));
 					}
                     return new ResponseEntity<>(HttpStatus.OK);
@@ -358,9 +359,11 @@ public class ApplicationResource {
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));
 					// Send more emails to have to be send by batch in reality
-					mailService.sendPermitEmail(application, getBaseUrl(request));
-					if(application.getType() == premiere) {
-						mailService.sendArrivalEmail(application, getBaseUrl(request));
+					if(application.getNature() == sejour_etudiant) {
+						mailService.sendPermitEmail(application, getBaseUrl(request));
+						if(application.getType() == premiere) {
+							mailService.sendArrivalEmail(application, getBaseUrl(request));
+						}
 					}
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
