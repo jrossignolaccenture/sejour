@@ -3,7 +3,6 @@
 angular.module('sejourApp')
     .controller('ValidationController', function ($scope, $state, Application, currentApplication) {
 
-        $scope.isRenewal = currentApplication.type === 'renouvellement';
         $scope.viewSuffix = currentApplication.type === 'naturalisation' ? '-naturalization' : '';
 
     	$scope.getFormattedDate = function(date) {
@@ -17,17 +16,24 @@ angular.module('sejourApp')
     	
         $scope.application = currentApplication;
     	
-    	$scope.applicationArchived = {};
+        // TODO A gérer proprement en back sans avoir besoin de tester le type
     	if($scope.application.type == 'premiere') {
     		$scope.identityValidationDate = $scope.application.rdvDate;
-    	} else {
-    		Application.getByStatus('validated', currentApplication.email).then(function(result) {
-            	$scope.applicationArchived = result[0];
-            	$scope.identityValidationDate = $scope.applicationArchived.rdvDate;
-            	$scope.historyStartDate = $scope.getFormattedDate(moment($scope.applicationArchived.project.trainingStart));
-            	$scope.historyEndDate = $scope.getFormattedDate(moment($scope.applicationArchived.project.trainingStart).add($scope.applicationArchived.project.trainingLength, 'M').subtract(1, 'd'));
-            });
     	}
+    	
+    	// TODO Créer API qui renvoit l'historique simplifié => {id, type, nature, date début, date fin}
+    	$scope.history = [];
+		Application.getByStatus('validated', currentApplication.email).then(function(validatedApplications) {
+			validatedApplications.forEach(function(validatedApplication) {
+				if(validatedApplication.type == 'premiere') {
+					$scope.identityValidationDate = validatedApplication.rdvDate;
+				}
+				$scope.history.push({
+					startDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart)),
+					endDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart).add(validatedApplication.project.trainingLength, 'M').subtract(1, 'd'))
+				});
+			});
+        });
         
         $scope.validate = function () {
     		Application.validate(currentApplication.id).then(function(result) {

@@ -1,18 +1,7 @@
 <div ng-cloak>
-    <div class="form-group" ng-if="withFrancisation">
-        <label translate="identity.form.francisation">Francisation</label>
-        <div>
-	        <label class="radio-inline"><input type="radio" ng-model="identity.francisation" ng-value="true" disabled>{{'identity.form.francisation.true' | translate}}</label>
-			<label class="radio-inline"><input type="radio" ng-model="identity.francisation" ng-value="false" disabled>{{'identity.form.francisation.false' | translate}}</label>
-        </div>
-    </div>
 	<div class="form-group">
         <label translate="identity.form.lastName">LastName</label>
         <input type="text" class="form-control" ng-model="identity.lastName" readonly="readonly">
-    </div>
-    <div class="form-group" ng-if="withFrancisation && identity.francisation">
-        <label translate="identity.form.lastNameFrancise">LastNameFrancise</label>
-        <input type="text" class="form-control" ng-model="identity.lastNameFrancise" readonly="readonly">
     </div>
     <div class="form-group">
         <label translate="identity.form.usedLastName">UsedLastName</label>
@@ -22,10 +11,23 @@
         <label translate="identity.form.firstName">FirstName</label>
         <input type="text" class="form-control" ng-model="identity.firstName" readonly="readonly">
     </div>
-    <div class="form-group" ng-if="withFrancisation && identity.francisation">
-        <label translate="identity.form.firstNameFrancise">FirstNameFrancise</label>
-        <input type="text" class="form-control" ng-model="identity.firstNameFrancise" >
-    </div>
+    <div ng-if="withFrancisation">
+	    <div class="form-group">
+	        <label translate="identity.form.francisation">Francisation</label>
+	        <div>
+		        <label class="radio-inline"><input type="radio" ng-model="identity.francisation" ng-value="true" disabled>{{'identity.form.francisation.true' | translate}}</label>
+				<label class="radio-inline"><input type="radio" ng-model="identity.francisation" ng-value="false" disabled>{{'identity.form.francisation.false' | translate}}</label>
+	        </div>
+	    </div>
+	    <div class="form-group" ng-if="identity.francisation">
+	        <label translate="identity.form.lastNameFrancise">LastNameFrancise</label>
+	        <input type="text" class="form-control" ng-model="identity.lastNameFrancise" readonly="readonly">
+	    </div>
+	    <div class="form-group" ng-if="identity.francisation">
+	        <label translate="identity.form.firstNameFrancise">FirstNameFrancise</label>
+	        <input type="text" class="form-control" ng-model="identity.firstNameFrancise" >
+	    </div>
+	</div>
     <div class="form-group">
         <label translate="identity.form.sex">Sex</label>
         <div>

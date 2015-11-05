@@ -188,7 +188,7 @@ public class MailService {
         log.debug("Sending renewal e-mail to '{}'", user.getEmail());
         Locale locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);
-        context.setVariable("user", user);
+        context.setVariable("user", user.getIdentity());
         context.setVariable("baseUrl", baseUrl);
         String content = templateEngine.process("renewalEmail", context);
         String subject = messageSource.getMessage("email.renewal.title", null, locale);

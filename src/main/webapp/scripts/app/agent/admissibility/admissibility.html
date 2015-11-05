@@ -3,7 +3,7 @@
     	<h4 translate="agent.title.{{application.type}}.{{application.nature}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
     </div>
 	<br><br>
-	
+	<!-- IDENTITY -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
@@ -27,7 +27,32 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-show="isRenewal">
+	<!-- FAMILY -->
+	<div class="row">
+		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': familyOpened}" ng-click="familyOpened = !familyOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': familyOpened, 'glyphicon-triangle-bottom': !familyOpened}"></span>
+					<h5 class="panel-title" translate="admissibility.form.family">Family</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!familyValidated" ng-click="familyValidated = !familyValidated; familyOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="familyValidated" ng-click="familyValidated = !familyValidated">
+			<span translate="admissibility.form.toVerify" ng-show="!familyValidated">To validate</span>
+			<span translate="admissibility.form.verified" ng-show="familyValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="familyOpened">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row opened">
+				<family-view ng-model="identity"></family-view>
+			</div>
+		</div>
+	</div>
+	<!-- ADDRESS -->
+	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': addressOpened}" ng-click="addressOpened = !addressOpened">
 				<div class="panel-heading">
@@ -43,13 +68,14 @@
 			<span translate="admissibility.form.verified" ng-show="addressValidated">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="addressOpened && isRenewal">
+	<div class="row" ng-show="addressOpened">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': addressOpened}">
 				<ng-include src="'scripts/app/application/address/address-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
+	<!-- PROJECT -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
 			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
@@ -78,7 +104,7 @@
 	<div class="row row-center">
     	<button class="btn btn-danger" translate="admissibility.form.button.decline">Decline</button>
     	<button class="btn btn-success btn-right" translate="admissibility.form.button.accept"
-    			 ng-disabled="!identityValidated || (isRenewal && !addressValidated) || !projectValidated"
+    			 ng-disabled="!identityValidated || (displayFamily && !familyValidated) || !addressValidated || !projectValidated"
     			 ng-click="verify()">Accept</button>
 	</div>
 </div>

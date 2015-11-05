@@ -8,9 +8,9 @@ angular.module('sejourApp')
     	
     	$scope.countries = [];
         Country.get().then(function(countries) {
-        	for (var i=0; i<countries.length; i++) {
-        		$scope.countries[countries[i].key] = countries[i].name;
-        	}
+        	countries.forEach(function(country){
+        		$scope.countries[country.key] = country.name;
+        	});
         });
     	
     	$scope.getNationality = function(key){

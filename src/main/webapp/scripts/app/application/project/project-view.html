@@ -1,6 +1,6 @@
 <div ng-cloak>
     <div class="col-sm-5">
-		<div class="form-group" ng-if="!isRenewal">
+		<div class="form-group" ng-if="project.comingDate">
             <label translate="project.form.comingDate">ComingDate</label>
             <input-date ng-model="project.comingDate" readonly="readonly"></input-date>
         </div>

@@ -3,8 +3,6 @@
 angular.module('sejourApp')
     .controller('AddressController', function ($scope, $state, $stateParams, Application, currentApplication) {
         
-        $scope.isRenewal = currentApplication.type === 'renouvellement';
-        
     	$scope.address = currentApplication.address;
     	
         $scope.contactTypeValues = [ { value: 'email', checked: $scope.address.contactType.indexOf('email') != -1 },

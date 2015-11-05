@@ -1,6 +1,7 @@
 {
     "agent": {
         "title.premiere.sejour_etudiant": "{{studentName}} - Première demande de séjour étudiant",
-        "title.renouvellement.sejour_etudiant": "{{studentName}} - Renouvellement de séjour étudiant"
+        "title.renouvellement.sejour_etudiant": "{{studentName}} - Renouvellement de séjour étudiant",
+        "title.naturalisation.naturalisation": "{{studentName}} - Demande de naturalisation par décret"
     }
 }

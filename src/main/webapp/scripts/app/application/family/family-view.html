@@ -17,6 +17,6 @@
 		</div>
 	</div>
 	<div class="col-sm-7">
-		<photo-viewer ng-model="currentDocuments"></photo-viewer>
+		<photo-viewer ng-if="currentDocuments.length > 0" ng-model="currentDocuments"></photo-viewer>
 	</div>
 </div>

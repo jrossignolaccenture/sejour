@@ -56,14 +56,38 @@ angular.module('sejourApp')
             }]
         };
     })
+    .directive('selectMaritalStatus', function() {
+        return {
+            restrict: 'E',
+            scope: {
+            	ngModel: "=",
+            	fieldName: "@",
+            	fieldId: "@",
+            	disabled: "@"
+            },
+            templateUrl: 'scripts/components/form/selectMaritalStatus.html'
+        };
+    })
+    .directive('selectActivityType', function() {
+        return {
+            restrict: 'E',
+            scope: {
+            	ngModel: "=",
+            	fieldName: "@",
+            	fieldId: "@",
+            	disabled: "@"
+            },
+            templateUrl: 'scripts/components/form/selectActivityType.html'
+        };
+    })
     .directive('inputBirthDate', function() {
         return {
             restrict: 'E',
             scope: {
             	ngModel: "=",
-            	readonly: "@",
             	fieldName: "@",
-            	fieldId: "@"
+            	fieldId: "@",
+            	readonly: "@"
             },
             templateUrl: 'scripts/components/form/inputDate.html',
             controller: ['$scope', function($scope) {

@@ -35,16 +35,7 @@
 			    </div>
 				<div class="form-group">
 			        <label translate="identity.form.maritalStatus" for="field_maritalStatus">Marital status</label>
-			        <select class="form-control" name="maritalStatus" id="field_maritalStatus" ng-model="identity.maritalStatus" required>
-			        	<option label=" "></option>
-			        	<option value="single" translate="sejourApp.MaritalStatus.single"></option>
-			        	<option value="cohabitant" translate="sejourApp.MaritalStatus.cohabitant"></option>
-			        	<option value="civil_partner" translate="sejourApp.MaritalStatus.civil_partner"></option>
-			        	<option value="married" translate="sejourApp.MaritalStatus.married"></option>
-			        	<option value="separated" translate="sejourApp.MaritalStatus.separated"></option>
-			        	<option value="divorced" translate="sejourApp.MaritalStatus.divorced"></option>
-			        	<option value="widowed" translate="sejourApp.MaritalStatus.widowed"></option>
-			        </select>
+			        <select-marital-status field-name="maritalStatus" field-id="field_maritalStatus" ng-model="identity.maritalStatus" required></select-marital-status>
 			        <div ng-show="identityForm.maritalStatus.$dirty && identityForm.maritalStatus.$invalid">
 			            <p class="help-block" ng-show="identityForm.maritalStatus.$error.required" translate="entity.validation.required">
 			                This field is required.
@@ -83,17 +74,7 @@
 			    </div>
 				<div class="form-group">
 			        <label translate="identity.form.activity" for="field_activity">Activity</label>
-			        <select class="form-control" name="activity" id="field_activity" ng-model="identity.activity" required>
-			        	<option label=" "></option>
-			        	<option value="student" translate="sejourApp.ActivityType.student"></option>
-			        	<option value="trainee" translate="sejourApp.ActivityType.trainee"></option>
-			        	<option value="unemployed" translate="sejourApp.ActivityType.unemployed"></option>
-			        	<option value="salaried" translate="sejourApp.ActivityType.salaried"></option>
-			        	<option value="crafstman" translate="sejourApp.ActivityType.crafstman"></option>
-			        	<option value="liberal" translate="sejourApp.ActivityType.liberal"></option>
-			        	<option value="annuitant" translate="sejourApp.ActivityType.annuitant"></option>
-			        	<option value="other" translate="sejourApp.ActivityType.other"></option>
-			        </select>
+			        <select-activity-type field-name="activity" field-id="field_activity" ng-model="identity.activity" required></select-activity-type>
 			        <div ng-show="identityForm.activity.$dirty && identityForm.activity.$invalid">
 			            <p class="help-block" ng-show="identityForm.activity.$error.required" translate="entity.validation.required">
 			                This field is required.

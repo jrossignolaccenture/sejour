@@ -4,7 +4,6 @@ angular.module('sejourApp')
     .controller('SummaryController', function ($scope, $state, $stateParams, $timeout, currentApplication) {
     	
     	$scope.isInDraftMode = currentApplication.statut === 'draft';
-        $scope.isRenewal = currentApplication.type === 'renouvellement';
         var isNaturalization = currentApplication.type === 'naturalisation';
         $scope.displayFamily = isNaturalization;
         $scope.viewSuffix = isNaturalization ? '-naturalization' : '';

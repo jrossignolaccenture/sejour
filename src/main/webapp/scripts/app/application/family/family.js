@@ -45,8 +45,8 @@ angular.module('sejourApp')
             	$scope.panelOpen = 0;
             	
             	$scope.updatePanelOpen = function (index) {
+            		$scope.currentDocuments = $scope.panelOpen===index ? [] : $scope.parents[index].identity.documents;
             		$scope.panelOpen = $scope.panelOpen===index ? '' : index;
-            		$scope.currentDocuments = $scope.parents[index].identity.documents;
             		$timeout(function() {
             			$('html, body').animate({ scrollTop: $("#Panel"+index).offset().top }, "slow");
             	    }, 50);

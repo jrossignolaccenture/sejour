@@ -3,6 +3,7 @@ package fr.minint.sief.web.rest;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.identity_verified;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.receivable;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
+import static fr.minint.sief.domain.enumeration.ApplicationType.renouvellement;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -252,10 +253,10 @@ public class ApplicationResource {
 		log.debug("REST request to make receivable application : {}", id);
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
-					application.setStatut(application.getType() == premiere ? receivable : identity_verified);
+					application.setStatut(application.getType() == renouvellement ? identity_verified : receivable);
 					application.setAdmissibilityDate(DateTime.now());
 					applicationRepository.save(application);
-					if(application.getType() == premiere) {
+					if(application.getType() != renouvellement) {
 						mailService.sendApplicationReceivableEmail(application, getBaseUrl(request));
 					}
                     return new ResponseEntity<>(HttpStatus.OK);

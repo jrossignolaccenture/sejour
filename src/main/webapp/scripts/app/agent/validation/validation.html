@@ -75,14 +75,16 @@
 			</div>
 		</div>
 		<div class="col-xs-6 validation-form">
-			<span translate="validation.form.noHistory" ng-if="application.type == 'premiere'">No history</span>
+			<span translate="validation.form.noHistory" ng-if="history.length == 0">No history</span>
 		</div>
 	</div>
-	<div class="row" ng-if="isRenewal">
+	<div class="row" ng-if="history.length != 0">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div>
 				<ul>
-					<li><a href="#" translate="validation.form.history.list" translate-values="{startDate: '{{historyStartDate}}', endDate: '{{historyEndDate}}'}">validate</a></li>
+					<li ng-repeat="app in history">
+						<a href="#" translate="validation.form.history.list" translate-values="{startDate: '{{app.startDate}}', endDate: '{{app.endDate}}'}">validate</a>
+					</li>
 				</ul>
 			</div>
 		</div>

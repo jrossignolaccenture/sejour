@@ -11,6 +11,7 @@
 	"admissibility" : {
 		"form": {
 	    	"identity": "Verification of civil status and personal information",
+	    	"family": "Verification of information of close",
 	    	"address": "Verification of address",
 	    	"project": "Verification of project",
 	    	
