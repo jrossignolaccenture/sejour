@@ -11,7 +11,7 @@
         <label translate="identity.form.firstName">FirstName</label>
         <input type="text" class="form-control" ng-model="identity.firstName" readonly="readonly">
     </div>
-    <div ng-if="identity.francisation">
+    <div ng-if="identity.francisation != undefined">
 	    <div class="form-group">
 	        <label translate="identity.form.francisation">Francisation</label>
 	        <div>

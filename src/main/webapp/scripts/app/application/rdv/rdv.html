@@ -48,7 +48,7 @@
 		</div>
 		<br>
 		<br>
-		<div class="row row-center">
+		<div class="row row-center" ng-if="!isRdvInFrance">
 			<div class="col-xs-6 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2" style="text-align: left;">
 				<dfn>
 					<p><strong>Ambassade de France à Séoul</strong></p>
@@ -60,7 +60,22 @@
 				</dfn>
 			</div>
 			<div class="col-xs-6 col-sm-7 col-md-6">
-				<img src="assets/images/ambassade_france_map.png" class="img-responsive img-thumbnail">
+				<img src="assets/images/map_ambassade_france.png" class="img-responsive img-thumbnail">
+			</div>
+		</div>
+		<div class="row row-center" ng-if="isRdvInFrance">
+			<div class="col-xs-6 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2" style="text-align: left;">
+				<dfn>
+					<p><strong>Préfecture de Bobigny</strong></p>
+					<p>Service des étrangers</p>
+					<br>
+					<p>1 Esplanade Jean Moulin</p>
+					<p>93007 Bobigny</p>
+					<p>Tél : +33 1 41 60 60 60</p>
+				</dfn>
+			</div>
+			<div class="col-xs-6 col-sm-7 col-md-6">
+				<img src="assets/images/map_prefecture.png" class="img-responsive img-thumbnail">
 			</div>
 		</div>
 		<br>

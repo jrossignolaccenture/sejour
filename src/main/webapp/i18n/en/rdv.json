@@ -6,7 +6,6 @@
 				"title": "Available time on {{currentDate}}",
 				"empty": "Select a day"
 			},
-			"text": "Please bring your passport and your original civil status documents at your appointment.",
 			"button": "Confirm my appointment"
 		}
 	}

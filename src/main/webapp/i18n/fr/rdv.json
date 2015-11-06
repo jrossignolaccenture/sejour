@@ -6,7 +6,6 @@
 				"title": "Créneaux disponibles le {{currentDate}}",
 				"empty": "Sélectionner un jour"
 			},
-			"text": "Merci de vous munir de votre passeport et de vos documents d'état-civil originaux lors de votre rendez-vous.",
 			"button": "Confirmer mon rendez-vous"
 		}
 	}
