@@ -2,6 +2,7 @@ package fr.minint.sief.service;
 
 import static fr.minint.sief.domain.enumeration.ApplicationNature.naturalisation;
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
+import static fr.minint.sief.domain.enumeration.ApplicationStatus.validated;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
 
 import java.util.List;
@@ -96,7 +97,12 @@ public class ApplicationService {
 			// TODO pas la meilleure manière de gérer l'affichage de la francisation...
 			application.getIdentity().setFrancisation(false);
 		}
-
+		
+		List<Application> validatedApps = applicationRepository.findByStatutAndEmailOrderByCreationDateAsc(validated, application.getEmail());
+		if(validatedApps.size() > 0) {
+			// TODO Potentiellement il y aura d'autre chose à ajouter (admissibilityDate), voir aussi comment faire ça un peu mieux
+			application.setBiometricsDate(validatedApps.get(validatedApps.size()-1).getBiometricsDate());
+		}
 		application = applicationRepository.save(application);
 
 		return application.getId();

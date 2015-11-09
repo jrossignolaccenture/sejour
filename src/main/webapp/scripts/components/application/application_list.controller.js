@@ -12,6 +12,27 @@ angular.module('sejourApp')
         		$scope.countries[country.key] = country.name;
         	});
         });
+        
+        /** Verify if at least one document is not validated **/
+        var hasFamilyDocumentToCertify = function(application) {
+        	return Object.keys(application.identity.family).find(function(personType) {
+        		var persons = application.identity.family[personType];
+        		return persons.find(function(person) {
+    	    		return person.identity.documents.find(function(document) {
+    	        		return !document.validation;
+    	        	});
+    	    	});
+        	});
+        }
+        // TODO un peu violent si la liste d'application contient beaucoup d'élément non ??
+        $scope.hasDocumentToCertify = function(application) {
+        	var hasDocToCertify = application.identity.documents.find(function(document) {
+        		return !document.validation;
+        	});
+        	if(hasDocToCertify || hasFamilyDocumentToCertify(application)) {
+        		return true;
+        	}
+        }
     	
     	$scope.getNationality = function(key){
     		return $scope.countries[key];
@@ -36,5 +57,9 @@ angular.module('sejourApp')
     	
     	$scope.goToBiometrics = function(application) {
     		$state.go('biometrics', {id: application.id});
+    	}
+    	
+    	$scope.goToInterview = function(application) {
+    		$state.go('interview', {id: application.id});
     	}
     });

@@ -1,5 +1,6 @@
 package fr.minint.sief.web.rest;
 
+import static fr.minint.sief.domain.enumeration.ApplicationNature.naturalisation;
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.identity_verified;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.receivable;
@@ -305,11 +306,20 @@ public class ApplicationResource {
 		log.debug("REST request to make identified documents' application : {}", id);
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
-					application.setDocumentsDate(DateTime.now());
-					if(application.getBiometricsDate() != null) {
+					DateTime now = DateTime.now();
+					application.getIdentity().setDocumentsDate(now);
+					// TODO Revoir moyen de décider que l'étape est passée
+					if(application.getBiometricsDate() != null && (application.getNature() != naturalisation || application.getInterviewDate() != null)) {
 						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
+					
+					// Update User with document's validation date
+					userRepository.findOneByEmail(application.getEmail()).ifPresent(user -> {
+						user.getIdentity().setDocumentsDate(now);
+						userRepository.save(user);
+					});
+					
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
@@ -330,7 +340,8 @@ public class ApplicationResource {
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
 					application.setBiometricsDate(DateTime.now());
-					if(application.getDocumentsDate() != null) {
+					// TODO Revoir moyen de décider que l'étape est passée
+					if(!application.getIdentity().hasDocumentToValidate() && (application.getNature() != naturalisation || application.getInterviewDate() != null)) {
 						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
@@ -338,6 +349,33 @@ public class ApplicationResource {
 				})
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
 	}
+
+    /**
+     * POST  /application/interview -> Update application with interview report
+     * 
+     * @param id The id of the application to update
+     * @param report The interview report
+     * @return HttpStatus
+     */
+    @RequestMapping(value = "/application/interview", 
+    				method = RequestMethod.POST,
+    				produces = MediaType.TEXT_PLAIN_VALUE)
+    @Timed
+    public ResponseEntity<?> interview(@Valid @RequestParam String id, @Valid @RequestParam String report) {
+        log.debug("REST request to interview : {} {}", id, report);
+        return Optional.ofNullable(applicationRepository.findOne(id))
+        		.map(application -> {
+        			application.setInterviewDate(DateTime.now());
+        			application.setInterviewReport(report);
+        			// TODO Revoir moyen de décider que l'étape est passée
+					if(!application.getIdentity().hasDocumentToValidate() && application.getBiometricsDate() != null) {
+						application.setStatut(ApplicationStatus.identity_verified);
+					}
+					applicationRepository.save(application);
+                    return new ResponseEntity<>(HttpStatus.OK);
+				})
+				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+    }
 
 	/**
 	 * PUT /application/validation -> Make an application validated and send a mail

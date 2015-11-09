@@ -58,6 +58,15 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            interview: function (id, report) {
+            	var formData = new FormData();
+		        formData.append('id', id);
+		        formData.append('report', report);
+		        var params = { headers: {'Content-Type': undefined} }
+            	return $http.post('api/application/interview', formData, params).then(function (response) {
+                    return response.data;
+                });
+            },
             validate: function (id) {
             	return $http.put('api/application/validation', id).then(function (response) {
                     return response.data;

@@ -86,8 +86,11 @@ public class Application implements Serializable {
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
-    @Field("documents_date")
-    private DateTime documentsDate;
+    @Field("interview_date")
+    private DateTime interviewDate;
+    
+    @Field("interview_report")
+    private String interviewReport;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -211,12 +214,20 @@ public class Application implements Serializable {
 		this.rdvDate = rdvDate;
 	}
 
-	public DateTime getDocumentsDate() {
-		return documentsDate;
+	public DateTime getInterviewDate() {
+		return interviewDate;
 	}
 
-	public void setDocumentsDate(DateTime documentsDate) {
-		this.documentsDate = documentsDate;
+	public void setInterviewDate(DateTime interviewDate) {
+		this.interviewDate = interviewDate;
+	}
+
+	public String getInterviewReport() {
+		return interviewReport;
+	}
+
+	public void setInterviewReport(String interviewReport) {
+		this.interviewReport = interviewReport;
 	}
 
 	public DateTime getBiometricsDate() {
@@ -273,7 +284,8 @@ public class Application implements Serializable {
                 ", paymentDate='" + getPaymentDate() + "'" +
                 ", admissibilityDate='" + admissibilityDate + "'" +
                 ", rdv='" + rdvDate + "'" +
-                ", documentsDate='" + documentsDate + "'" +
+                ", interviewDate='" + interviewDate + "'" +
+                ", interviewReport='" + interviewReport + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
                 ", decisionDate='" + getDecisionDate() + "'" +
                 '}';

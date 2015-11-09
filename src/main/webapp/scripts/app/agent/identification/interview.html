@@ -1,0 +1,26 @@
+<div ng-cloak>
+    <div class="row title-main title-underline">
+    	<h4 translate="agent.title.{{application.type}}.{{application.nature}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    </div>
+	<br><br>
+	
+	<form name="interviewForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+				<div class="form-group">
+			        <label translate="identification.interview.report" for="field_passportNumber">Report</label>
+			        <textarea class="form-control" name="report" id="field_report" ng-model="application.rdvReport" rows="20" required></textarea>
+			    </div>
+			</div>
+		</div>
+		<br>
+		<div class="row row-center">
+			<button type="submit" class="btn btn-success" translate="identification.interview.button"
+					 ng-disabled="interviewForm.$invalid || interviewForm.$submitted">Submit</button>
+		</div>
+	</form>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

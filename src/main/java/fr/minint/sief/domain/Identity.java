@@ -280,4 +280,31 @@ public class Identity implements Serializable {
                 ", family='" + family + '\'' +
                 '}';
     }
+    
+    public boolean hasDocumentToValidate() {
+    	return documents.stream().anyMatch(doc -> doc.getValidation() == null) || hasFamilyDocumentToValidate();
+    }
+    
+    private boolean hasFamilyDocumentToValidate() {
+    	return family.keySet().stream()
+    		.anyMatch(personType -> {
+    			return family.get(personType).stream().anyMatch(person -> {
+    				return person.getIdentity().getDocuments().stream().anyMatch(doc -> doc.getValidation() == null);
+    			});
+    		});
+    }
+    
+    public void setDocumentsDate(final DateTime date) {
+    	documents.stream()
+    		.filter(doc -> doc.getValidation() == null)
+    		.forEach(doc -> doc.setValidation(date));
+    	
+    	family.keySet().stream()
+        	.forEach(personType -> family.get(personType).stream()
+        				.forEach(person -> person.getIdentity().getDocuments().stream()
+						            		.filter(doc -> doc.getValidation() == null)
+						            		.forEach(doc -> doc.setValidation(date))
+						)
+        	);
+    }
 }

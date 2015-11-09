@@ -8,12 +8,14 @@
 		"applicationType": "Type de demande",
 		"step": "Etape",
 		"documents": "Certification des documents",
-		"biometrics": "Recueil de la biométrie"
+		"biometrics": "Recueil de la biométrie",
+		"interview": "Entretien d'assimilation"
 	},
 	"identification" : {
 		"documents": {
 	    	"passport": "Certification de l'authenticité du passeport",
 	    	"birthAct": "Certification de l'authenticité de l'acte de naissance",
+	    	"civilStatusAct": "Certification de l'authenticité du document d'état-civil",
 	    	"inscriptionCertificate": "Certification de l'authenticité du certificat de (pré)inscription",
 	    	"resourceProof": "Certification de l'authenticité des preuves de ressources",
 	    	
@@ -38,6 +40,10 @@
 	    		"signature.clear": "Effacer",
 	    		"accept": "Certifier les données du demandeur"
 	    	}
+		},
+		"interview": {
+			"report": "Compte-rendu de l'entretien",
+			"button": "Soumettre le compte-rendu de l'entretien"
 		}
 	}
 }

@@ -44,6 +44,8 @@
 		}
 	},
 	"rdv": {
-		"text": "Merci de vous munir de votre passeport et de vos documents d'état-civil originaux lors de votre rendez-vous."
+		"form": {
+			"text": "Merci de vous munir de votre passeport et de vos documents d'état-civil originaux lors de votre rendez-vous."
+		}
 	}
 }

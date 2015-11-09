@@ -8,12 +8,14 @@
 		"applicationType": "Application type",
 		"step": "Step",
 		"documents": "Documents certification",
-		"biometrics": "Biometrics capture"
+		"biometrics": "Biometrics capture",
+		"interview": "Assimilation interview"
 	},
 	"identification" : {
 		"documents": {
 	    	"passport": "Certification of passport authenticity",
 	    	"birthAct": "Certification of birth act authenticity",
+	    	"civilStatusAct": "Certification of the document of civil status act authenticity",
 	    	"inscriptionCertificate": "Certification of inscription certificated authenticity",
 	    	"resourceProof": "Certification of resource proof authenticity",
 	    	
@@ -38,6 +40,10 @@
 	    		"signature.clear": "Clear",
 	    		"accept": "Certify informations"
 	    	}
+		},
+		"interview": {
+			"report": "Interview report",
+			"button": "Submit interview report"
 		}
 	}
 }

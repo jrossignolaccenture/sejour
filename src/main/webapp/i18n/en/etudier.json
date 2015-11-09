@@ -44,6 +44,8 @@
 		}
 	},
 	"rdv": {
-		"text": "Please bring your passport and your original civil status documents at your appointment."
+		"form": {
+			"text": "Please bring your passport and your original civil status documents at your appointment."
+		}
 	}
 }

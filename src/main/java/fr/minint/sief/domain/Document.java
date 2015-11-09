@@ -5,9 +5,15 @@ import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
+import org.joda.time.DateTime;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import fr.minint.sief.domain.enumeration.DocumentType;
+import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
+import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 
 /**
  * A Document.
@@ -28,6 +34,11 @@ public class Document implements Serializable {
     @NotNull
     @Field("file_name")
     private String fileName;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("validation")
+    private DateTime validation;
 
     public DocumentType getType() {
 		return type;
@@ -59,6 +70,14 @@ public class Document implements Serializable {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public DateTime getValidation() {
+		return validation;
+	}
+
+	public void setValidation(DateTime validation) {
+		this.validation = validation;
 	}
 
 	@Override
@@ -98,6 +117,7 @@ public class Document implements Serializable {
                 ", id='" + id + "'" +
                 ", name='" + name + "'" +
                 ", fileName='" + fileName + "'" +
+                ", validation='" + validation + "'" +
                 '}';
     }
 }

@@ -66,7 +66,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="applicationListLine" ng-repeat-start="application in applications" ng-click="goToDocuments(application)" ng-if="!application.documentsDate">
+					<tr class="applicationListLine" ng-repeat-start="application in applications" ng-click="goToDocuments(application)" ng-if="hasDocumentToCertify(application)">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{application.userId}}</td>
@@ -76,7 +76,7 @@
 						</td>
 						<td translate="applicationList.documents"></td>
 					</tr>
-					<tr class="applicationListLine" ng-repeat-end ng-click="goToBiometrics(application)" ng-if="!application.biometricsDate">
+					<tr class="applicationListLine" ng-click="goToBiometrics(application)" ng-if="!application.biometricsDate">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{application.userId}}</td>
@@ -85,6 +85,16 @@
 							<span translate="sejourApp.ApplicationNature.{{application.nature}}"></span>
 						</td>
 						<td translate="applicationList.biometrics"></td>
+					</tr>
+					<tr class="applicationListLine" ng-repeat-end ng-click="goToInterview(application)" ng-if="application.nature === 'naturalisation' && !application.interviewDate">
+						<td>{{application.identity.lastName}}</td>
+						<td>{{application.identity.firstName}}</td>
+						<td>{{application.userId}}</td>
+						<td>
+							<span translate="sejourApp.ApplicationType.{{application.type}}"></span>
+							<span translate="sejourApp.ApplicationNature.{{application.nature}}"></span>
+						</td>
+						<td translate="applicationList.interview"></td>
 					</tr>
 				</tbody>
 			</table>

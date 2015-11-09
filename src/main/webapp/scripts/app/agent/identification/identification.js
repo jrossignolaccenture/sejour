@@ -47,6 +47,7 @@ angular.module('sejourApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     	$translatePartialLoader.addPart('identification');
                     	$translatePartialLoader.addPart('documentType');
+                    	$translatePartialLoader.addPart('personType');
                         return $translate.refresh();
                     }]
                 }
@@ -61,6 +62,28 @@ angular.module('sejourApp')
                     'content@': {
                         templateUrl: 'scripts/app/agent/identification/biometrics.html',
                         controller: 'BiometricsController'
+                    }
+                },
+                resolve: {
+                    currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
+                        return Application.get({id : $stateParams.id});
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    	$translatePartialLoader.addPart('identification');
+                        return $translate.refresh();
+                    }]
+                }
+            })
+            .state('interview', {
+                parent: 'agent',
+                url: '/identification/{id}/interview',
+                data: {
+                    roles: ['ROLE_AGENT']
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'scripts/app/agent/identification/interview.html',
+                        controller: 'InterviewController'
                     }
                 },
                 resolve: {

@@ -53,7 +53,9 @@ public class ApplicationDTO implements Serializable {
     
     private DateTime rdvDate;
     
-    private DateTime documentsDate;
+    private DateTime interviewDate;
+    
+    private String interviewReport;
     
     private DateTime biometricsDate;
     
@@ -171,12 +173,20 @@ public class ApplicationDTO implements Serializable {
 		this.rdvDate = rdvDate;
 	}
 
-	public DateTime getDocumentsDate() {
-		return documentsDate;
+	public DateTime getInterviewDate() {
+		return interviewDate;
 	}
 
-	public void setDocumentsDate(DateTime documentsDate) {
-		this.documentsDate = documentsDate;
+	public void setInterviewDate(DateTime interviewDate) {
+		this.interviewDate = interviewDate;
+	}
+
+	public String getInterviewReport() {
+		return interviewReport;
+	}
+
+	public void setInterviewReport(String interviewReport) {
+		this.interviewReport = interviewReport;
 	}
 
 	public DateTime getBiometricsDate() {
@@ -233,7 +243,8 @@ public class ApplicationDTO implements Serializable {
                 ", paymentDate='" + paymentDate + "'" +
                 ", admissibilityDate='" + admissibilityDate + "'" +
                 ", rdv='" + rdvDate + "'" +
-                ", documentsDate='" + documentsDate + "'" +
+                ", interviewDate='" + interviewDate + "'" +
+                ", interviewReport='" + interviewReport + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
                 ", decisionDate='" + decisionDate + "'" +
                 '}';

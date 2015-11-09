@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
+import org.joda.time.DateTime;
+
 import fr.minint.sief.domain.enumeration.DocumentType;
 
 /**
@@ -22,6 +24,8 @@ public class DocumentDTO implements Serializable {
     
     @NotNull
     private String fileName;
+    
+    private DateTime validation;
 
     public DocumentType getType() {
 		return type;
@@ -53,6 +57,14 @@ public class DocumentDTO implements Serializable {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public DateTime getValidation() {
+		return validation;
+	}
+
+	public void setValidation(DateTime validation) {
+		this.validation = validation;
 	}
 
 	@Override
@@ -92,6 +104,7 @@ public class DocumentDTO implements Serializable {
                 ", id='" + id + "'" +
                 ", name='" + name + "'" +
                 ", fileName='" + fileName + "'" +
+                ", validation='" + validation + "'" +
                 '}';
     }
 }
