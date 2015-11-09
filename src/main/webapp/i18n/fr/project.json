@@ -44,6 +44,18 @@
             	"taxNotice": "Avis d'imposition",
             	"taxNotice.placeholder": "Cliquer ou déposer votre avis ici...",
             	"taxNotice.tooltip": "..."
+            },
+            "consult": {
+            	"investigation": {
+	    			"title": "Résultats d'enquêtes : ",
+	    			"info": "Renseignement intérieur (transmis le {{date}}) : ",
+	    			"security": "Service de police / gendarmerie (transmis le {{date}}) : "
+	    		},
+	    		"criminalRecord": "Casier judiciaire - Bulletin n°2 (transmis par le Ministère de la Justice le {{date}}) : ",
+	    		"taxSituation": "Situation fiscale (données transmises par la DGFIP le {{date}}) : ",
+	    		"resourceProof": "Justificatifs de ressources (données transmises par l'URSSAF le {{date}}) : ",
+	    		"interviewReport": "Compte-rendu de l'entretien d'assimilation (réalisé le {{date}}) : ",
+	    		"button": "Consulter"
             }
 		}
 	}

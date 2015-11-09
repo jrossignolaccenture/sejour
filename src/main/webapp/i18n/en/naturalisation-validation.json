@@ -1,0 +1,10 @@
+{
+	"validation": {
+		"form": {
+			"button": {
+		    	"accept": "Confirm favorable proposal",
+		    	"decline": "Cancel favorable decision"
+	    	}
+	    }
+	}
+}

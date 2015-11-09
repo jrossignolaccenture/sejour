@@ -11,20 +11,15 @@
 	"validation" : {
 		"form": {
 	    	"identity": "User identity",
+	    	"family": "Identity of close parents",
 	    	"preinscription": "(Pre)Inscription confirm on {{confirmationDate}} - {{confirmationAuthor}}",
-	    	"project": "Project",
 	    	"policeControl": "Security control",
 	    	"history": "SIEF History",
 	    	"history.list": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "No history",
 	    	
 	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}",
-	    	"toValidate": "To validate",
-	    	
-	    	"button": {
-	    		"accept": "Accept residence permit",
-	    		"decline": "Decline residence permit"
-	    	}
+	    	"toValidate": "To validate"
 		}
 	}
 }

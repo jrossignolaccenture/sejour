@@ -11,20 +11,15 @@
 	"validation" : {
 		"form": {
 	    	"identity": "Identité de l'usager",
+	    	"family": "Identité des proches parents",
 	    	"preinscription": "(Pré) inscription confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
-	    	"project": "Projet de séjour",
 	    	"policeControl": "Contrôle sécuritaire",
 	    	"history": "Historique SIEF",
 	    	"history.list": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "Pas d'historique",
 	    	
 	    	"validate": "Validé le {{validationDate}} - {{validationAuthor}}",
-	    	"toValidate": "A valider",
-	    	
-	    	"button": {
-	    		"accept": "Accorder le droit au séjour",
-	    		"decline": "Refuser le droit au séjour"
-	    	}
+	    	"toValidate": "A valider"
 		}
 	}
 }

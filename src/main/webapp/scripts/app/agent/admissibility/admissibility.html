@@ -22,7 +22,7 @@
 	</div>
 	<div class="row" ng-show="panel.identity.open">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': panel.identity.open}">
+			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
 			</div>
 		</div>
@@ -72,7 +72,7 @@
 	</div>
 	<div class="row" ng-show="panel.address.open">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': panel.address.open}">
+			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/address/address-view.html'"></ng-include>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 	</div>
 	<div class="row" ng-show="panel.project.open">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': panel.project.open}">
+			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/project/project-'+application.nature+'-view.html'"></ng-include>
 			</div>
 		</div>

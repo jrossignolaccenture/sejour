@@ -47,5 +47,14 @@
 		"form": {
 			"text": "Please bring your passport and your original civil status documents at your appointment."
 		}
+	},
+	"validation": {
+		"form": {
+			"project": "Project",
+			"button": {
+	    		"accept": "Accept residence permit",
+	    		"decline": "Decline residence permit"
+	    	}
+	    }
 	}
 }

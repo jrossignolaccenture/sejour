@@ -48,5 +48,16 @@
 		"form": {
 			"text": "Please bring original civil status documents at your appointment."
 		}
+	},
+	"validation": {
+		"form": {
+			"project": "Project",
+			"button": {
+	    		"accept": "Favorable proposal",
+	    		"decline": "Unfavorable decision",
+		    	"confirm": "Confirm favorable proposal",
+		    	"cancel": "Cancel favorable decision"
+	    	}
+	    }
 	}
 }

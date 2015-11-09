@@ -9,5 +9,6 @@ public enum ApplicationStatus {
     receivable,
     scheduled,
     identity_verified,
+    favorable_proposal,
     validated
 }

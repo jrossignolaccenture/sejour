@@ -18,7 +18,7 @@ angular.module('sejourApp')
 	            },
 	            resolve: {
 	            	applications: ['$stateParams', 'Application', function($stateParams, Application) {
-	                    return Application.getByStatus('identity_verified');
+	                    return Application.getByStatus(['identity_verified', 'favorable_proposal']);
 	                }],
 	                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 	                	$translatePartialLoader.addPart('validation');
@@ -44,13 +44,23 @@ angular.module('sejourApp')
                     currentApplication: ['$stateParams', 'Application', function($stateParams, Application) {
                         return Application.get({id : $stateParams.id});
                     }],
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', 'I18N_APPLICATION', 'currentApplication', 
+                                             function ($translate, $translatePartialLoader, I18N_APPLICATION, currentApplication) {
+                    	// tips to get high priority to the I18N_APPLICATION part
+                    	$translatePartialLoader.deletePart(I18N_APPLICATION[currentApplication.type][currentApplication.nature], true);
+                    	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]);
+                    	if(currentApplication.statut === 'favorable_proposal') {
+                        	$translatePartialLoader.deletePart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]+"-validation", true);
+                        	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]+"-validation");
+                    	}
                     	$translatePartialLoader.addPart('validation');
                     	$translatePartialLoader.addPart('project');
                     	$translatePartialLoader.addPart('identity');
+                    	$translatePartialLoader.addPart('address');
                     	$translatePartialLoader.addPart('sexType');
                     	$translatePartialLoader.addPart('maritalStatus');
                     	$translatePartialLoader.addPart('activityType');
+                    	$translatePartialLoader.addPart('personType');
                     	$translatePartialLoader.addPart('resourceType');
                     	$translatePartialLoader.addPart('documentType');
                         return $translate.refresh();

@@ -4,11 +4,12 @@
     </div>
 	<br><br>
 	
+	<!-- IDENTITY -->
 	<div class="row">
 		<div class="col-xs-6 col-sm-5 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
+			<div class="collapsable-panel" ng-class="{'opened': panel.identity.open}" ng-click="panel.identity.open = !panel.identity.open">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': identityOpened, 'glyphicon-triangle-bottom': !identityOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.identity.open, 'glyphicon-triangle-bottom': !panel.identity.open}"></span>
 					<h5 class="panel-title" translate="validation.form.identity">Identity</h5>
 				</div>
 			</div>
@@ -18,13 +19,38 @@
 			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identityValidationDate)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="identityOpened">
+	<div class="row" ng-show="panel.identity.open">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': identityOpened}">
+			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
 			</div>
 		</div>
 	</div>
+	<!-- FAMILY -->
+	<div ng-if="displayFamily">
+		<div class="row">
+			<div class="col-xs-6 col-sm-5 col-sm-offset-1">
+				<div class="collapsable-panel" ng-class="{'opened': panel.family.open}" ng-click="panel.family.open = !panel.family.open">
+					<div class="panel-heading">
+						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.family.open, 'glyphicon-triangle-bottom': !panel.family.open}"></span>
+						<h5 class="panel-title" translate="validation.form.family">Family</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 validation-form">
+				<img src="assets/images/checkbox_checked.png">
+				<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identityValidationDate)}}', validationAuthor: 'Administration des étrangers en France'}">validate</span>
+			</div>
+		</div>
+		<div class="row" ng-show="panel.family.open">
+			<div class="col-sm-11 col-sm-offset-1">
+				<div class="row validation-visualization-row opened">
+					<family-view ng-model="identity"></family-view>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- POLICE CONTROL -->
 	<div class="row">
 		<div class="col-xs-6 col-sm-5 col-sm-offset-1">
 			<div class="collapsable-panel">
@@ -38,23 +64,24 @@
 			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(application.recevabilityDate)}}', validationAuthor: 'Police / Gendarmerie'}">validate</span>
 		</div>
 	</div>
+	<!-- PROJECT -->
 	<div class="row">
 		<div class="col-xs-6 col-sm-5 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': projectOpened}" ng-click="projectOpened = !projectOpened">
+			<div class="collapsable-panel" ng-class="{'opened': panel.project.open}" ng-click="panel.project.open = !panel.project.open">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': projectOpened, 'glyphicon-triangle-bottom': !projectOpened}"></span>
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.project.open, 'glyphicon-triangle-bottom': !panel.project.open}"></span>
 					<h5 class="panel-title" translate="validation.form.project">Project</h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-6 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!projectValidated" ng-click="projectValidated = !projectValidated; projectOpened = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="projectValidated" ng-click="projectValidated = !projectValidated">
-			<span translate="validation.form.toValidate" ng-show="!projectValidated">To validate</span>
-			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(moment())}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="projectValidated">validate</span>
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.project.valid" ng-click="panel.project.valid = !panel.project.valid; panel.project.open = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.project.valid" ng-click="panel.project.valid = !panel.project.valid">
+			<span translate="validation.form.toValidate" ng-show="!panel.project.valid">To validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(moment())}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="panel.project.valid">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="projectOpened">
+	<div class="row" ng-show="panel.project.open">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div ng-if="application.type == 'Premiere'">
 				<ul>
@@ -95,7 +122,7 @@
     	<button class="btn btn-danger" translate="validation.form.button.decline">Decline</button>
     	<button class="btn btn-success btn-right"
     			translate="validation.form.button.accept"
-    			ng-disabled="!projectValidated" 
+    			ng-disabled="!panel.project.valid" 
     			ng-click="validate()" >Accept</button>
 	</div>
 </div>

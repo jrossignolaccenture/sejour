@@ -1,6 +1,32 @@
 <div ng-cloak>
-	<ul>
+	<ul ng-if="!project.detailMode">
 		<li translate="project.form.resources.yes.done">resources yes</li>
 		<li translate="project.form.taxSituation.yes.done">tax situation yes</li>
 	</ul>
+	<div ng-if="project.detailMode" style="margin-left: 10px">
+		<p translate="project.form.consult.investigation.title">Investigation result :</p>
+		<ul>
+			<li>
+				{{'project.form.consult.investigation.info' | translate: tempDate}}
+				<a href="#" translate="project.form.consult.button"></a>
+			</li>
+			<li>
+				{{'project.form.consult.investigation.security' | translate: tempDate}}
+				<a href="#" translate="project.form.consult.button"></a>
+			</li>
+		</ul>
+		<br>
+		<span translate="project.form.consult.criminalRecord" translate-values="tempDate"></span>
+		<a href="#" translate="project.form.consult.button"></a>
+		<br><br>
+		<span translate="project.form.consult.taxSituation" translate-values="tempDate"></span>
+		<a href="#" translate="project.form.consult.button"></a>
+		<br><br>
+		<span translate="project.form.consult.resourceProof" translate-values="tempDate"></span>
+		<a href="#" translate="project.form.consult.button"></a>
+		<br><br>
+		<span translate="project.form.consult.interviewReport" translate-values="tempDate"></span>
+		<a href="#" translate="project.form.consult.button"></a>
+		<br><br>
+	</div>
 </div>

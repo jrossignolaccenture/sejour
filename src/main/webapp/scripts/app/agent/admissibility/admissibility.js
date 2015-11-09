@@ -18,7 +18,7 @@ angular.module('sejourApp')
 	            },
 	            resolve: {
 	            	applications: ['$stateParams', 'Application', function($stateParams, Application) {
-	                    return Application.getByStatus('paid');
+	                    return Application.getByStatus(['paid']);
 	                }],
 	                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 	                	$translatePartialLoader.addPart('admissibility');

@@ -45,6 +45,18 @@
             	"taxNotice": "Tax notice",
             	"taxNotice.placeholder": "Click or drag your notice here...",
             	"taxNotice.tooltip": "..."
+            },
+            "consult": {
+            	"investigation": {
+	    			"title": "Investigation results : ",
+	    			"info": "Domestic intelligence (transmitted on {{date}}) : ",
+	    			"security": "Police / gendarmerie service (transmitted on {{date}}) : "
+	    		},
+	    		"criminalRecord": "Criminal record - Bulletin n°2 (transmitted by Ministry of Justice on {{date}}) : ",
+	    		"taxSituation": "Tax situation (transmitted by DGFIP on {{date}}) : ",
+	    		"resourceProof": "Resource proofs (transmitted by URSSAF on {{date}}) : ",
+	    		"interviewReport": "Assimilation interview report (realised on {{date}}) : ",
+	    		"button": "Consult"
             }
 		}
 	}

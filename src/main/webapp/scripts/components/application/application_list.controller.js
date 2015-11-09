@@ -46,7 +46,7 @@ angular.module('sejourApp')
     	$scope.goToDetail = function(application) {
     		if(application.statut === 'paid') {
     			$state.go('admissibility', {id: application.id});
-    		} else if(application.statut === 'identity_verified') {
+    		} else if(application.statut === 'identity_verified' || application.statut === 'favorable_proposal') {
     			$state.go('validation', {id: application.id});
     		}
     	}

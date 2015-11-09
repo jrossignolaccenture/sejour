@@ -48,5 +48,16 @@
 		"form": {
 			"text": "Merci de vous munir des documents d'état-civil originaux lors de votre rendez-vous."
 		}
+	},
+	"validation": {
+		"form": {
+			"project": "Projet de naturalisation",
+			"button": {
+	    		"accept": "Proposition favorable",
+		    	"decline": "Décision défavorable",
+		    	"confirm": "Confirmer la proposition favorable",
+		    	"cancel": "Infirmer la proposition favorable"
+	    	}
+	    }
 	}
 }

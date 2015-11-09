@@ -2,10 +2,15 @@ package fr.minint.sief.web.rest;
 
 import static fr.minint.sief.domain.enumeration.ApplicationNature.naturalisation;
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
+import static fr.minint.sief.domain.enumeration.ApplicationStatus.favorable_proposal;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.identity_verified;
+import static fr.minint.sief.domain.enumeration.ApplicationStatus.paid;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.receivable;
+import static fr.minint.sief.domain.enumeration.ApplicationStatus.scheduled;
+import static fr.minint.sief.domain.enumeration.ApplicationStatus.validated;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
 import static fr.minint.sief.domain.enumeration.ApplicationType.renouvellement;
+import static java.util.Arrays.asList;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -150,10 +155,10 @@ public class ApplicationResource {
 					method = RequestMethod.GET, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public List<ApplicationDTO> getByStatus(@RequestParam ApplicationStatus status, String email) {
+	public List<ApplicationDTO> getByStatus(@RequestParam List<ApplicationStatus> status, String email) {
 		log.debug("REST request to get application by statut {} and email {}", status, email);
-		List<Application> applications = email == null ? applicationRepository.findByStatutOrderByCreationDateAsc(status) 
-				: applicationRepository.findByStatutAndEmailOrderByCreationDateAsc(status, email);
+		List<Application> applications = email == null ? applicationRepository.findByStatutInOrderByCreationDateAsc(status) 
+				: applicationRepository.findByStatutInAndEmailOrderByCreationDateAsc(status, email);
 		return applications
 				.stream()
 				.map(applicationMapper::applicationToApplicationDTO)
@@ -174,9 +179,9 @@ public class ApplicationResource {
 		// TODO Tout mettre en une seule requete & accessoirement revoir tout ça pour gérer plus de statut
 		// -> on renvoit une liste de type (?) et on laisse le front gérer le count qu'il veut
 		ApplicationCountDTO count = new ApplicationCountDTO();
-		count.setNbPaid(applicationRepository.countByStatut(ApplicationStatus.paid));
-		count.setNbScheduled(applicationRepository.countByStatut(ApplicationStatus.scheduled));
-		count.setNbIdentityVerified(applicationRepository.countByStatut(ApplicationStatus.identity_verified));
+		count.setNbPaid(applicationRepository.countByStatutIn(asList(paid)));
+		count.setNbScheduled(applicationRepository.countByStatutIn(asList(scheduled)));
+		count.setNbIdentityVerified(applicationRepository.countByStatutIn(asList(identity_verified, favorable_proposal)));
 		return new ResponseEntity<>(count, HttpStatus.OK);
 	}
 	
@@ -392,8 +397,14 @@ public class ApplicationResource {
 		log.debug("REST request to validate application : {}", id);
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
-					application.setStatut(ApplicationStatus.validated);
-					application.setDecisionDate(DateTime.now());
+					if(application.getNature() == naturalisation && application.getStatut() == identity_verified) {
+						application.setStatut(favorable_proposal);
+						// TODO ne pas mettre à jour la date de decision
+						application.setDecisionDate(DateTime.now());
+					} else {
+						application.setStatut(validated);
+						application.setDecisionDate(DateTime.now());
+					}
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));
 					// Send more emails to have to be send by batch in reality

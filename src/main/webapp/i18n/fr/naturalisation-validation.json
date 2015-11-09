@@ -1,0 +1,10 @@
+{
+	"validation": {
+		"form": {
+			"button": {
+		    	"accept": "Confirmer la proposition favorable",
+		    	"decline": "Infirmer la proposition favorable"
+	    	}
+	    }
+	}
+}

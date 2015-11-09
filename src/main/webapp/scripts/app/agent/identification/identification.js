@@ -18,7 +18,7 @@ angular.module('sejourApp')
 	            },
 	            resolve: {
 	            	applications: ['$stateParams', 'Application', function($stateParams, Application) {
-	                    return Application.getByStatus('scheduled');
+	                    return Application.getByStatus(['scheduled']);
 	                }],
 	                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 	                	$translatePartialLoader.addPart('identification');

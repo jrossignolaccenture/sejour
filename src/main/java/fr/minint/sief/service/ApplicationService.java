@@ -4,6 +4,7 @@ import static fr.minint.sief.domain.enumeration.ApplicationNature.naturalisation
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.validated;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
+import static java.util.Arrays.asList;
 
 import java.util.List;
 
@@ -20,7 +21,6 @@ import fr.minint.sief.domain.Identity;
 import fr.minint.sief.domain.Project;
 import fr.minint.sief.domain.User;
 import fr.minint.sief.domain.enumeration.ApplicationNature;
-import fr.minint.sief.domain.enumeration.ApplicationStatus;
 import fr.minint.sief.domain.enumeration.ApplicationType;
 import fr.minint.sief.domain.enumeration.SexType;
 import fr.minint.sief.repository.ApplicationRepository;
@@ -50,16 +50,6 @@ public class ApplicationService {
 	}
 
 	/**
-	 * Get the application with specific status owned by logged user
-	 * @param status Status of the application to look for
-	 * @return An application
-	 */
-	public Application getCurrentApplication(ApplicationStatus status) {
-		User currentUser = userService.getUser();
-		return applicationRepository.findOneByEmailAndStatut(currentUser.getEmail(), status);
-	}
-
-	/**
 	 * Create an application
 	 * 
 	 * @param type
@@ -69,11 +59,6 @@ public class ApplicationService {
 	 * @return the id of the new created application
 	 */
 	public String createApplication(ApplicationType type, ApplicationNature nature) {
-		// Delete old draft application
-		Application oldDraftApplication = getCurrentApplication(ApplicationStatus.draft);
-		if (oldDraftApplication != null) {
-			applicationRepository.delete(oldDraftApplication);
-		}
 
 		// Create new application
 		Application application = new Application();
@@ -98,7 +83,7 @@ public class ApplicationService {
 			application.getIdentity().setFrancisation(false);
 		}
 		
-		List<Application> validatedApps = applicationRepository.findByStatutAndEmailOrderByCreationDateAsc(validated, application.getEmail());
+		List<Application> validatedApps = applicationRepository.findByStatutInAndEmailOrderByCreationDateAsc(asList(validated), application.getEmail());
 		if(validatedApps.size() > 0) {
 			// TODO Potentiellement il y aura d'autre chose à ajouter (admissibilityDate), voir aussi comment faire ça un peu mieux
 			application.setBiometricsDate(validatedApps.get(validatedApps.size()-1).getBiometricsDate());
