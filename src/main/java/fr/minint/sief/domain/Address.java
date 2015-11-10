@@ -7,9 +7,15 @@ import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
+import org.joda.time.DateTime;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import fr.minint.sief.domain.enumeration.ContactType;
+import fr.minint.sief.domain.util.CustomDateTimeDeserializer;
+import fr.minint.sief.domain.util.CustomDateTimeSerializer;
 
 /**
  * A Address.
@@ -53,6 +59,14 @@ public class Address implements Serializable {
     @NotNull        
     @Field("contact_type")
     private List<ContactType> contactType = new ArrayList<>();
+    
+    @Field("admissible")
+    private boolean admissible;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("validate_on")
+    private DateTime validateOn;
 
     public String getOwner() {
         return owner;
@@ -134,6 +148,22 @@ public class Address implements Serializable {
         this.contactType = contactType;
     }
 
+	public boolean isAdmissible() {
+		return admissible;
+	}
+
+	public void setAdmissible(boolean admissible) {
+		this.admissible = admissible;
+	}
+
+	public DateTime getValidateOn() {
+		return validateOn;
+	}
+
+	public void setValidateOn(DateTime validateOn) {
+		this.validateOn = validateOn;
+	}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -145,14 +175,35 @@ public class Address implements Serializable {
 
         Address address = (Address) o;
 
-        if ( ! Objects.equals(phone, address.phone)) return false;
+        if ( !Objects.equals(owner, address.owner)
+        		|| !Objects.equals(number, address.number)
+        		|| !Objects.equals(street, address.street)
+        		|| !Objects.equals(complement, address.complement)
+        		|| !Objects.equals(postalCode, address.postalCode)
+        		|| !Objects.equals(city, address.city)
+        		|| !Objects.equals(country, address.country)
+        		|| !Objects.equals(phone, address.phone)
+        		|| !Objects.equals(email, address.email)
+        		|| !Objects.equals(contactType, address.contactType)) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(phone);
+    	final int prime = 31;
+    	int result = 17;
+    	result = prime * result + Objects.hashCode(owner);
+    	result = prime * result + Objects.hashCode(number);
+    	result = prime * result + Objects.hashCode(street);
+    	result = prime * result + Objects.hashCode(complement);
+    	result = prime * result + Objects.hashCode(postalCode);
+    	result = prime * result + Objects.hashCode(city);
+    	result = prime * result + Objects.hashCode(country);
+    	result = prime * result + Objects.hashCode(phone);
+    	result = prime * result + Objects.hashCode(email);
+    	result = prime * result + Objects.hashCode(contactType);
+    	return result;
     }
 
     @Override
@@ -168,6 +219,8 @@ public class Address implements Serializable {
                 ", phone='" + phone + "'" +
                 ", email='" + email + "'" +
                 ", contactType='" + contactType + "'" +
+                ", admissible='" + admissible + '\'' +
+                ", validateOn='" + validateOn + '\'' +
                 '}';
     }
 }

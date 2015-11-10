@@ -1,6 +1,7 @@
 package fr.minint.sief.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -40,9 +41,9 @@ public class Person implements Serializable {
             return false;
         }
 
-        Person user = (Person) o;
+        Person person = (Person) o;
 
-        if (!identity.equals(user.identity)) {
+        if (!identity.equals(person.identity) || !address.equals(person.address)) {
             return false;
         }
 
@@ -51,7 +52,11 @@ public class Person implements Serializable {
 
     @Override
     public int hashCode() {
-        return identity.hashCode();
+    	final int prime = 31;
+    	int result = 17;
+    	result = prime * result + Objects.hashCode(identity);
+    	result = prime * result + Objects.hashCode(address);
+        return result;
     }
 
     @Override

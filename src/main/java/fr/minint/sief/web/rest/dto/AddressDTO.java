@@ -3,9 +3,10 @@ package fr.minint.sief.web.rest.dto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
+
+import org.joda.time.DateTime;
 
 import fr.minint.sief.domain.enumeration.ContactType;
 
@@ -40,7 +41,11 @@ public class AddressDTO implements Serializable {
     private String email;
 
     @NotNull
-    private List<ContactType> contactType = new ArrayList<>();;
+    private List<ContactType> contactType = new ArrayList<>();
+    
+    private boolean admissible;
+
+    private DateTime validateOn;
 
     public String getOwner() {
         return owner;
@@ -122,26 +127,21 @@ public class AddressDTO implements Serializable {
         this.contactType = contactType;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+	public boolean isAdmissible() {
+		return admissible;
+	}
 
-        AddressDTO addressDTO = (AddressDTO) o;
+	public void setAdmissible(boolean admissible) {
+		this.admissible = admissible;
+	}
 
-        if ( ! Objects.equals(phone, addressDTO.phone)) return false;
+	public DateTime getValidateOn() {
+		return validateOn;
+	}
 
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(phone);
-    }
+	public void setValidateOn(DateTime validateOn) {
+		this.validateOn = validateOn;
+	}
 
     @Override
     public String toString() {
@@ -156,6 +156,8 @@ public class AddressDTO implements Serializable {
                 ", phone='" + phone + "'" +
                 ", email='" + email + "'" +
                 ", contactType='" + contactType + "'" +
+                ", admissible='" + admissible + '\'' +
+                ", validateOn='" + validateOn + '\'' +
                 '}';
     }
 }

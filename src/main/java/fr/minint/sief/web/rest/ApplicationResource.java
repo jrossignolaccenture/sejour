@@ -197,11 +197,14 @@ public class ApplicationResource {
     @Timed
     public ResponseEntity<?> update(@Valid @RequestBody ApplicationDTO applicationDTO) {
         log.debug("REST request to update application : {}", applicationDTO);
-        return Optional.ofNullable(applicationDTO)
+        Application newApplication = applicationMapper.applicationDTOToApplication(applicationDTO);
+        return Optional.ofNullable(applicationRepository.findOne(applicationDTO.getId()))
         		.filter(application -> application.getEmail().equals(SecurityUtils.getCurrentLogin()))
-        		.map(applicationMapper::applicationDTOToApplication)
         		.map(application -> {
         			application.setModificationDate(DateTime.now());
+        			application.setIdentity(newApplication.getIdentity());
+        			application.setAddress(newApplication.getAddress());
+        			application.setProject(newApplication.getProject());
         			applicationRepository.save(application);
         			return new ResponseEntity<>(HttpStatus.OK);
         		})
@@ -226,13 +229,28 @@ public class ApplicationResource {
             	.map(application -> {
             		application.setStatut(ApplicationStatus.paid);
             		application.setPaymentDate(DateTime.now());
+            		
+                    applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(validated, application.getEmail())
+                    	.ifPresent(lastApplication -> {
+                    		if(!application.getIdentity().equals(lastApplication.getIdentity())) {
+                    			application.getIdentity().setAdmissible(false);
+                    			application.getIdentity().setValidateOn(null);
+                    			// TODO Voir pour gérer la famille séparemment du reste de l'identité
+                    			application.getIdentity().setFamilyAdmissible(false);
+                    			application.getIdentity().setFamilyValidateOn(null);
+                    		}
+                    		if(!application.getAddress().equals(lastApplication.getAddress())) {
+                    			application.getAddress().setAdmissible(false);
+                    			application.getAddress().setValidateOn(null);
+                    		}
+                    	});
+                    
                     applicationRepository.save(application);
                     mailService.sendApplicationPaidEmail(application, getBaseUrl(request));
                     
                     // Update user infos
                     return userRepository.findOneByEmail(application.getEmail())
 	                    	.map(user -> {
-	                    		//TODO Pas mal de cloner peut etre...
 	                    		user.setIdentity(application.getIdentity());
                     			user.setComingDate(application.getProject().getComingDate());
                     			user.setAddress(application.getAddress());
@@ -261,8 +279,9 @@ public class ApplicationResource {
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
 					application.setStatut(application.getType() == renouvellement ? identity_verified : receivable);
-					application.setAdmissibilityDate(DateTime.now());
+					application.setAdmissibility(DateTime.now());
 					applicationRepository.save(application);
+					
 					if(application.getStatut() == receivable) {
 						mailService.sendApplicationReceivableEmail(application, getBaseUrl(request));
 					}
@@ -312,18 +331,12 @@ public class ApplicationResource {
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
 					DateTime now = DateTime.now();
-					application.getIdentity().setDocumentsDate(now);
+					application.getIdentity().validateNewDocuments(now);
 					// TODO Revoir moyen de décider que l'étape est passée
 					if(application.getBiometricsDate() != null && (application.getNature() != naturalisation || application.getInterviewDate() != null)) {
 						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
-					
-					// Update User with document's validation date
-					userRepository.findOneByEmail(application.getEmail()).ifPresent(user -> {
-						user.getIdentity().setDocumentsDate(now);
-						userRepository.save(user);
-					});
 					
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
@@ -397,13 +410,13 @@ public class ApplicationResource {
 		log.debug("REST request to validate application : {}", id);
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
+					DateTime now = DateTime.now();
 					if(application.getNature() == naturalisation && application.getStatut() == identity_verified) {
 						application.setStatut(favorable_proposal);
-						// TODO ne pas mettre à jour la date de decision
-						application.setDecisionDate(DateTime.now());
+						application.getProject().setValidateOn(now);
 					} else {
 						application.setStatut(validated);
-						application.setDecisionDate(DateTime.now());
+						application.setDecisionDate(now);
 					}
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));

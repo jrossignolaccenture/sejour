@@ -43,6 +43,10 @@ public class ProjectDTO implements Serializable {
     private Boolean resourcesSearchAuthorized;
     
     private Boolean taxSituationSearchAuthorized;
+    
+    private boolean admissible;
+
+    private DateTime validateOn;
 
     public DateTime getComingDate() {
         return comingDate;
@@ -124,6 +128,22 @@ public class ProjectDTO implements Serializable {
 		this.taxSituationSearchAuthorized = taxSituationSearchAuthorized;
 	}
 
+	public boolean isAdmissible() {
+		return admissible;
+	}
+
+	public void setAdmissible(boolean admissible) {
+		this.admissible = admissible;
+	}
+
+	public DateTime getValidateOn() {
+		return validateOn;
+	}
+
+	public void setValidateOn(DateTime validateOn) {
+		this.validateOn = validateOn;
+	}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -165,6 +185,8 @@ public class ProjectDTO implements Serializable {
                 ", documents='" + documents + "'" +
                 ", resourcesSearchAuthorized='" + resourcesSearchAuthorized + "'" +
                 ", taxSituationSearchAuthorized='" + taxSituationSearchAuthorized + "'" +
+                ", admissible='" + admissible + '\'' +
+                ", validateOn='" + validateOn + '\'' +
                 '}';
     }
 }

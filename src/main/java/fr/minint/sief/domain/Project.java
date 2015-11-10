@@ -62,6 +62,14 @@ public class Project implements Serializable {
     
     @Field("tax_situation_search_authorized")
     private Boolean taxSituationSearchAuthorized;
+    
+    @Field("admissible")
+    private boolean admissible;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("validate_on")
+    private DateTime validateOn;
 
     public DateTime getComingDate() {
         return comingDate;
@@ -143,6 +151,22 @@ public class Project implements Serializable {
 		this.taxSituationSearchAuthorized = taxSituationSearchAuthorized;
 	}
 
+	public boolean isAdmissible() {
+		return admissible;
+	}
+
+	public void setAdmissible(boolean admissible) {
+		this.admissible = admissible;
+	}
+
+	public DateTime getValidateOn() {
+		return validateOn;
+	}
+
+	public void setValidateOn(DateTime validateOn) {
+		this.validateOn = validateOn;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -184,6 +208,8 @@ public class Project implements Serializable {
                 ", documents='" + documents + "'" +
                 ", resourcesSearchAuthorized='" + resourcesSearchAuthorized + "'" +
                 ", taxSituationSearchAuthorized='" + taxSituationSearchAuthorized + "'" +
+                ", admissible='" + admissible + '\'' +
+                ", validateOn='" + validateOn + '\'' +
                 '}';
     }
 }

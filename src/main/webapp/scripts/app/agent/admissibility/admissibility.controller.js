@@ -3,30 +3,25 @@
 angular.module('sejourApp')
     .controller('AdmissibilityController', function ($rootScope, $scope, $state, Application, currentApplication) {
 
+    	// TODO Voir comment faire autrement que ce isAgent
     	$scope.isAgent = true;
     	
-        $scope.displayFamily = currentApplication.nature === 'naturalisation';
-        
-        //TODO Moyen plus générique à trouver pour l'ouverture et la validation par défaut des panels
-        // par exemple => détection d'un changement par rapport à l'état précédent et précédente date de validation (du coup on n'a pas besoin de tester le type)
-        var isRenewal = currentApplication.type === 'renouvellement';
-        var isNat = currentApplication.nature === 'naturalisation';
         $scope.panel = {
         	identity: {
-        		open: isRenewal ? false: true, 
-        		valid: isRenewal ? true : false
+        		open: !currentApplication.identity.admissible, 
+        		valid: currentApplication.identity.admissible
         	},
 	        family: {
-	        	open: true,
-	        	valid: false
+	        	open: !currentApplication.identity.familyAdmissible,
+	        	valid: currentApplication.identity.familyAdmissible
 	        },
 	        address: {
-	        	open: isRenewal || isNat ? false : true,
-	    	    valid: isRenewal || isNat ? true : false
+	        	open: !currentApplication.address.admissible,
+	    	    valid: currentApplication.address.admissible
 	        },
 	        project: {
-	        	open: true,
-	        	valid: false
+	        	open: !currentApplication.project.admissible,
+	        	valid: currentApplication.project.admissible
 	        }
         }
     	

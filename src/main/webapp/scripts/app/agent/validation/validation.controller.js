@@ -11,16 +11,16 @@ angular.module('sejourApp')
         var isNat = currentApplication.nature === 'naturalisation';
         $scope.panel = {
         	identity: {
-        		open: false, 
-        		valid: true
+        		open: currentApplication.identity.validateOn == null, 
+        		valid: currentApplication.identity.validateOn != null
         	},
 	        family: {
-	        	open: false,
-	        	valid: true
+	        	open: currentApplication.identity.familyValidateOn == null,
+	        	valid: currentApplication.identity.familyValidateOn != null
 	        },
 	        project: {
-	        	open: currentApplication.projectValidationDate == null,
-	    	    valid: currentApplication.projectValidationDate != null
+	        	open: currentApplication.project.validateOn == null,
+	    	    valid: currentApplication.project.validateOn != null
 	        }
         }
 
@@ -39,18 +39,10 @@ angular.module('sejourApp')
     	
         $scope.application = currentApplication;
     	
-        // TODO A gérer proprement en back sans avoir besoin de tester le type
-    	if($scope.application.type == 'premiere') {
-    		$scope.identityValidationDate = $scope.application.rdvDate;
-    	}
-    	
     	// TODO Créer API qui renvoit l'historique simplifié => {id, type, nature, date début, date fin}
     	$scope.history = [];
 		Application.getByStatus(['validated'], currentApplication.email).then(function(validatedApplications) {
 			validatedApplications.forEach(function(validatedApplication) {
-				if(validatedApplication.type == 'premiere') {
-					$scope.identityValidationDate = validatedApplication.rdvDate;
-				}
 				$scope.history.push({
 					startDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart)),
 					endDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart).add(validatedApplication.project.trainingLength, 'M').subtract(1, 'd'))

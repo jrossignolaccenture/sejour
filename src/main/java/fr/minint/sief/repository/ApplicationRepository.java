@@ -1,6 +1,7 @@
 package fr.minint.sief.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -15,6 +16,8 @@ public interface ApplicationRepository extends MongoRepository<Application,Strin
 	List<Application> findByStatutInOrderByCreationDateAsc(List<ApplicationStatus> status);
 	
 	List<Application> findByStatutInAndEmailOrderByCreationDateAsc(List<ApplicationStatus> status, String email);
+	
+	Optional<Application> findFirstByStatutInAndEmailOrderByDecisionDateDesc(ApplicationStatus status, String email);
 	
 	List<Application> findByEmailOrderByCreationDateDesc(String email);
 	

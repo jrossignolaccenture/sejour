@@ -91,6 +91,22 @@ public class Identity implements Serializable {
     
     @Field("family")
     private Map<PersonType, List<Person>> family = new HashMap<>();
+    
+    @Field("admissible")
+    private boolean admissible;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("validate_on")
+    private DateTime validateOn;
+    
+    @Field("family_admissible")
+    private boolean familyAdmissible;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("family_validate_on")
+    private DateTime familyValidateOn;
 
     public Boolean isFrancisation() {
 		return francisation;
@@ -236,6 +252,38 @@ public class Identity implements Serializable {
 		this.family = family;
 	}
 
+	public boolean isAdmissible() {
+		return admissible;
+	}
+
+	public void setAdmissible(boolean admissible) {
+		this.admissible = admissible;
+	}
+
+	public DateTime getValidateOn() {
+		return validateOn;
+	}
+
+	public void setValidateOn(DateTime validateOn) {
+		this.validateOn = validateOn;
+	}
+
+	public boolean isFamilyAdmissible() {
+		return familyAdmissible;
+	}
+
+	public void setFamilyAdmissible(boolean familyAdmissible) {
+		this.familyAdmissible = familyAdmissible;
+	}
+
+	public DateTime getFamilyValidateOn() {
+		return familyValidateOn;
+	}
+
+	public void setFamilyValidateOn(DateTime familyValidateOn) {
+		this.familyValidateOn = familyValidateOn;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -247,14 +295,51 @@ public class Identity implements Serializable {
 
         Identity identity = (Identity) o;
 
-        if ( ! Objects.equals(passportNumber, identity.passportNumber)) return false;
+        if ( !Objects.equals(francisation, identity.francisation)
+        		|| !Objects.equals(lastName, identity.lastName)
+        		|| !Objects.equals(lastNameFrancise, identity.lastNameFrancise)
+        		|| !Objects.equals(usedLastName, identity.usedLastName)
+        		|| !Objects.equals(firstName, identity.firstName)
+        		|| !Objects.equals(firstNameFrancise, identity.firstNameFrancise)
+        		|| !Objects.equals(sex, identity.sex)
+        		|| !Objects.equals(birthDate, identity.birthDate)
+        		|| !Objects.equals(birthCity, identity.birthCity)
+        		|| !Objects.equals(birthCountry, identity.birthCountry)
+        		|| !Objects.equals(nationality, identity.nationality)
+        		|| !Objects.equals(passportNumber, identity.passportNumber)
+        		|| !Objects.equals(maritalStatus, identity.maritalStatus)
+        		|| !Objects.equals(childsNumber, identity.childsNumber)
+        		|| !Objects.equals(brothersNumber, identity.brothersNumber)
+        		|| !Objects.equals(activity, identity.activity)
+        		|| !Objects.equals(documents, identity.documents)
+        		|| !Objects.equals(family, identity.family)) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-    	return Objects.hashCode(passportNumber);
+    	final int prime = 31;
+    	int result = 17;
+    	result = prime * result + Objects.hashCode(francisation);
+    	result = prime * result + Objects.hashCode(lastName);
+    	result = prime * result + Objects.hashCode(lastNameFrancise);
+    	result = prime * result + Objects.hashCode(usedLastName);
+    	result = prime * result + Objects.hashCode(firstName);
+    	result = prime * result + Objects.hashCode(firstNameFrancise);
+    	result = prime * result + Objects.hashCode(sex);
+    	result = prime * result + Objects.hashCode(birthDate);
+    	result = prime * result + Objects.hashCode(birthCity);
+    	result = prime * result + Objects.hashCode(birthCountry);
+    	result = prime * result + Objects.hashCode(nationality);
+    	result = prime * result + Objects.hashCode(passportNumber);
+    	result = prime * result + Objects.hashCode(maritalStatus);
+    	result = prime * result + Objects.hashCode(childsNumber);
+    	result = prime * result + Objects.hashCode(brothersNumber);
+    	result = prime * result + Objects.hashCode(activity);
+    	result = prime * result + Objects.hashCode(documents);
+    	result = prime * result + Objects.hashCode(family);
+    	return result;
     }
 
     @Override
@@ -278,6 +363,10 @@ public class Identity implements Serializable {
                 ", activity='" + activity + "'" +
                 ", documents='" + documents + "'" +
                 ", family='" + family + '\'' +
+                ", admissible='" + admissible + '\'' +
+                ", validateOn='" + validateOn + '\'' +
+                ", familyValidateOn='" + familyValidateOn + '\'' +
+                ", familyAdmissible='" + familyAdmissible + '\'' +
                 '}';
     }
     
@@ -294,17 +383,31 @@ public class Identity implements Serializable {
     		});
     }
     
-    public void setDocumentsDate(final DateTime date) {
+    public void validateNewDocuments(final DateTime date) {
     	documents.stream()
     		.filter(doc -> doc.getValidation() == null)
-    		.forEach(doc -> doc.setValidation(date));
+    		.forEach(doc -> {
+    			doc.setValidation(date);
+    			validateOn = date;
+    		});
+    	
+    	if(validateOn == null) {
+    		validateOn = date;
+    	}
     	
     	family.keySet().stream()
         	.forEach(personType -> family.get(personType).stream()
         				.forEach(person -> person.getIdentity().getDocuments().stream()
 						            		.filter(doc -> doc.getValidation() == null)
-						            		.forEach(doc -> doc.setValidation(date))
+						            		.forEach(doc -> {
+						            			doc.setValidation(date);
+						            			familyValidateOn = date;
+						            		})
 						)
         	);
+    	
+    	if(familyValidateOn == null) {
+    		familyValidateOn = date;
+    	}
     }
 }

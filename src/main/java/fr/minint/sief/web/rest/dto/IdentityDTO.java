@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
@@ -66,6 +65,14 @@ public class IdentityDTO implements Serializable {
     private List<DocumentDTO> documents = new ArrayList<>();
     
     private Map<PersonType, List<PersonDTO>> family = new HashMap<>();
+
+    private boolean admissible;
+
+    private DateTime validateOn;
+    
+    private boolean familyAdmissible;
+
+    private DateTime familyValidateOn;
 
     public Boolean isFrancisation() {
 		return francisation;
@@ -211,26 +218,37 @@ public class IdentityDTO implements Serializable {
 		this.family = family;
 	}
 
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+	public boolean isAdmissible() {
+		return admissible;
+	}
 
-        IdentityDTO identityDTO = (IdentityDTO) o;
+	public void setAdmissible(boolean admissible) {
+		this.admissible = admissible;
+	}
 
-        if ( ! Objects.equals(passportNumber, identityDTO.passportNumber)) return false;
+	public DateTime getValidateOn() {
+		return validateOn;
+	}
 
-        return true;
-    }
+	public void setValidateOn(DateTime validateOn) {
+		this.validateOn = validateOn;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(passportNumber);
-    }
+	public boolean isFamilyAdmissible() {
+		return familyAdmissible;
+	}
+
+	public void setFamilyAdmissible(boolean familyAdmissible) {
+		this.familyAdmissible = familyAdmissible;
+	}
+
+	public DateTime getFamilyValidateOn() {
+		return familyValidateOn;
+	}
+
+	public void setFamilyValidateOn(DateTime familyValidateOn) {
+		this.familyValidateOn = familyValidateOn;
+	}
 
     @Override
     public String toString() {
@@ -253,6 +271,10 @@ public class IdentityDTO implements Serializable {
                 ", activity='" + activity + "'" +
                 ", documents='" + documents + "'" +
                 ", family='" + family + '\'' +
+                ", admissible='" + admissible + '\'' +
+                ", validateOn='" + validateOn + '\'' +
+                ", familyValidateOn='" + familyValidateOn + '\'' +
+                ", familyAdmissible='" + familyAdmissible + '\'' +
                 '}';
     }
 }

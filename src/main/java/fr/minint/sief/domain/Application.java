@@ -290,4 +290,15 @@ public class Application implements Serializable {
                 ", decisionDate='" + getDecisionDate() + "'" +
                 '}';
     }
+    
+    public void setAdmissibility(DateTime date) {
+    	admissibilityDate = date;
+    	identity.setAdmissible(true);
+    	identity.setFamilyAdmissible(true);
+    	address.setAdmissible(true);
+    	if(address.getValidateOn() == null) {
+    		address.setValidateOn(date);
+    	}
+    	project.setAdmissible(true);
+    }
 }

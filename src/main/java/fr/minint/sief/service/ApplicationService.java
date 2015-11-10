@@ -4,9 +4,10 @@ import static fr.minint.sief.domain.enumeration.ApplicationNature.naturalisation
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.validated;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
-import static java.util.Arrays.asList;
+import static java.lang.Boolean.FALSE;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -67,27 +68,34 @@ public class ApplicationService {
 		application.setNature(nature);
 		application.setModificationDate(DateTime.now());
 		
+		// Copy data from the last application if exist
+		Optional<Application> lastApplication = applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(validated, application.getEmail());
+		if(lastApplication.isPresent()) {
+			application.setIdentity(lastApplication.get().getIdentity());
+			application.setAddress(lastApplication.get().getAddress());
+			application.setBiometricsDate(lastApplication.get().getBiometricsDate());
+		}
 		
-		// Get identity and address from user infos
+		// Get identity and address from user infos if different of last application
 		User currentUser = userService.getUser();
 		application.setUserId(currentUser.getId()); // This is ugly for now (we don't need a user id reference in the application)
-		application.setIdentity(currentUser.getIdentity());
-		application.setAddress(currentUser.getAddress());
+		if(!lastApplication.isPresent() || ! lastApplication.get().getIdentity().equals(currentUser.getIdentity())) {
+			application.setIdentity(currentUser.getIdentity());
+		}
+		if(!lastApplication.isPresent() || ! lastApplication.get().getAddress().equals(currentUser.getAddress())) {
+			application.setAddress(currentUser.getAddress());
+		}
 		
 		application.setProject(new Project());
 		
 		if (nature == sejour_etudiant) {
 			updateWithCampusInfos(application);
+			application.getIdentity().setFrancisation(null);
 		} else if (nature == naturalisation) {
 			// TODO pas la meilleure manière de gérer l'affichage de la francisation...
-			application.getIdentity().setFrancisation(false);
+			application.getIdentity().setFrancisation(FALSE);
 		}
 		
-		List<Application> validatedApps = applicationRepository.findByStatutInAndEmailOrderByCreationDateAsc(asList(validated), application.getEmail());
-		if(validatedApps.size() > 0) {
-			// TODO Potentiellement il y aura d'autre chose à ajouter (admissibilityDate), voir aussi comment faire ça un peu mieux
-			application.setBiometricsDate(validatedApps.get(validatedApps.size()-1).getBiometricsDate());
-		}
 		application = applicationRepository.save(application);
 
 		return application.getId();
@@ -108,8 +116,8 @@ public class ApplicationService {
 			identity.setPassportNumber("5577997");
 			// ADDRESS
 			Address address = application.getAddress();
-			address.setPhone("+82 51 999999");
-			address.setEmail(application.getEmail());
+			if(address.getPhone() == null) address.setPhone("+82 51 999999");
+			if(address.getEmail() == null) address.setEmail(application.getEmail());
 			// PROJECT
 			Project project = application.getProject();
 			project.setUniversity("Télécom Paris Tech");

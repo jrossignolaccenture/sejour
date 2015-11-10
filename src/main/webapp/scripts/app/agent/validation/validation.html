@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-xs-6 validation-form">
 			<img src="assets/images/checkbox_checked.png">
-			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identityValidationDate)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.validationOn)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="panel.identity.open">
@@ -39,7 +39,7 @@
 			</div>
 			<div class="col-xs-6 validation-form">
 				<img src="assets/images/checkbox_checked.png">
-				<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identityValidationDate)}}', validationAuthor: 'Administration des étrangers en France'}">validate</span>
+				<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.familyValidateOn)}}', validationAuthor: 'Administration des étrangers en France'}">validate</span>
 			</div>
 		</div>
 		<div class="row" ng-show="panel.family.open">
@@ -78,7 +78,7 @@
 			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.project.valid" ng-click="panel.project.valid = !panel.project.valid; panel.project.open = false;">
 			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.project.valid" ng-click="panel.project.valid = !panel.project.valid">
 			<span translate="validation.form.toValidate" ng-show="!panel.project.valid">To validate</span>
-			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(moment())}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="panel.project.valid">validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(project.validateOn)}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="panel.project.valid">validate</span>
 		</div>
 	</div>
 	<div class="row" ng-show="panel.project.open">

@@ -49,8 +49,8 @@
 		}
 	},
 	"validation": {
-		"project": "Projet de séjour",
 		"form": {
+			"project": "Projet de séjour",
 			"button": {
 	    		"accept": "Accorder le droit au séjour",
 		    	"decline": "Refuser le droit au séjour"
