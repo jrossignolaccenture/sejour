@@ -12,6 +12,7 @@ public class ApplicationCountDTO implements Serializable {
 	private Long nbPaid = 0L;
 	private Long nbScheduled = 0L;
     private Long nbIdentityVerified = 0L;
+    private Long nbCivilStateToReconstruct = 0L;
 
 	public Long getNbPaid() {
 		return nbPaid;
@@ -37,12 +38,21 @@ public class ApplicationCountDTO implements Serializable {
 		this.nbIdentityVerified = nbIdentityVerified;
 	}
 
+	public Long getNbCivilStateToReconstruct() {
+		return nbCivilStateToReconstruct;
+	}
+
+	public void setNbCivilStateToReconstruct(Long nbCivilStateToReconstruct) {
+		this.nbCivilStateToReconstruct = nbCivilStateToReconstruct;
+	}
+
 	@Override
     public String toString() {
         return "ApplicationCountDTO{" +
                 "nbPaid='" + nbPaid + "'" +
                 ", nbScheduled='" + nbScheduled + "'" +
                 ", nbIdentityVerified='" + nbIdentityVerified + "'" +
+                ", nbCivilStateToReconstruct='" + nbCivilStateToReconstruct + "'" +
                 '}';
     }
 }

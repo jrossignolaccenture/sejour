@@ -48,6 +48,8 @@ angular.module('sejourApp')
     			$state.go('admissibility', {id: application.id});
     		} else if(application.statut === 'identity_verified' || application.statut === 'favorable_proposal') {
     			$state.go('validation', {id: application.id});
+    		} else if(application.statut === 'validated') {
+    			$state.go('reconstruction', {id: application.id});
     		}
     	}
     	

@@ -8,6 +8,7 @@ angular.module('sejourApp')
         $scope.nbPaid = 0;
         $scope.nbScheduled = 0;
         $scope.nbIdentityVerified = 0;
+        $scope.nbCivilStateToReconstruct = 0;
         
         if(Principal.isAuthenticated) {
         	Principal.identity().then(function(account) {
@@ -19,6 +20,7 @@ angular.module('sejourApp')
 	        		        $scope.nbPaid = applicationCount.nbPaid;
 	        		        $scope.nbScheduled = applicationCount.nbScheduled;
 	        		        $scope.nbIdentityVerified = applicationCount.nbIdentityVerified;
+	        		        $scope.nbCivilStateToReconstruct = applicationCount.nbCivilStateToReconstruct;
         				});
         			}
         		} else {

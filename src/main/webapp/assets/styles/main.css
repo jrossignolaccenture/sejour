@@ -424,6 +424,17 @@ ul#strengthBar {
 	margin-left: 20px;
 }
 
+.reconstructionTable th {
+	text-align: center;
+}
+.reconstructionTable td {
+	vertical-align: middle !important;
+}
+.reconstructionTableFieldTitle {
+	text-align: right;
+	padding-right: 15px !important;
+}
+
 /* LISTE AGENT */
 @media (min-width: 768px) {
 	.list {

@@ -1,0 +1,18 @@
+{
+	"applicationList": {
+		"title": "Liste des demandes pour reconstitution d'état-civil",
+		"noApplication": "Aucun état-civil à reconstituer actuellement.",
+		"firstName": "Prénom",
+		"lastName": "Nom",
+		"id": "Numéro étranger",
+		"nationality": "Nationalité",
+		"applicationType": "Type de demande"
+	},
+	"reconstruction" : {
+		"form": {
+			"collectedIdentity": "Etat-civil recueilli",
+			"proposedIdentity": "Etat-civil proposé par le SCEC",
+			"button": "Reconstituer l'état-civil"
+		}
+	}
+}

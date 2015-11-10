@@ -102,6 +102,11 @@ public class Application implements Serializable {
     @Field("decision_date")
     private DateTime decisionDate;
 
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("reconstruction_date")
+    private DateTime reconstructionDate;
+
     public String getId() {
         return id;
     }
@@ -246,6 +251,14 @@ public class Application implements Serializable {
 		this.decisionDate = decisionDate;
 	}
 
+	public DateTime getReconstructionDate() {
+		return reconstructionDate;
+	}
+
+	public void setReconstructionDate(DateTime reconstructionDate) {
+		this.reconstructionDate = reconstructionDate;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -281,13 +294,14 @@ public class Application implements Serializable {
                 ", identity='" + identity + "'" +
                 ", address='" + address + "'" +
                 ", project='" + project + "'" +
-                ", paymentDate='" + getPaymentDate() + "'" +
+                ", paymentDate='" + paymentDate + "'" +
                 ", admissibilityDate='" + admissibilityDate + "'" +
                 ", rdv='" + rdvDate + "'" +
                 ", interviewDate='" + interviewDate + "'" +
                 ", interviewReport='" + interviewReport + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
-                ", decisionDate='" + getDecisionDate() + "'" +
+                ", decisionDate='" + decisionDate + "'" +
+                ", reconstructionDate='" + reconstructionDate + "'" +
                 '}';
     }
     

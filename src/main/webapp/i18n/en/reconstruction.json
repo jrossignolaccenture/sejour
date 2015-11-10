@@ -1,0 +1,18 @@
+{
+	"applicationList": {
+		"title": "Application list for civil state reconstruction",
+		"noApplication": "There is no civil state to reconstruct at this time.",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"id": "Foreign number",
+		"nationality": "Nationality",
+		"applicationType": "Application type"
+	},
+	"reconstruction" : {
+		"form": {
+			"collectedIdentity": "Collected civil state",
+			"proposedIdentity": "Civil state proposed by SCEC",
+			"button": "Reconstruct civil state"
+		}
+	}
+}

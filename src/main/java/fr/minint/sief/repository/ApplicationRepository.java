@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import fr.minint.sief.domain.Application;
+import fr.minint.sief.domain.enumeration.ApplicationNature;
 import fr.minint.sief.domain.enumeration.ApplicationStatus;
 
 /**
@@ -17,11 +18,15 @@ public interface ApplicationRepository extends MongoRepository<Application,Strin
 	
 	List<Application> findByStatutInAndEmailOrderByCreationDateAsc(List<ApplicationStatus> status, String email);
 	
+	List<Application> findByStatutAndNatureAndReconstructionDateIsNull(ApplicationStatus status, ApplicationNature nature);
+	
 	Optional<Application> findFirstByStatutInAndEmailOrderByDecisionDateDesc(ApplicationStatus status, String email);
 	
 	List<Application> findByEmailOrderByCreationDateDesc(String email);
 	
 	Long countByStatutIn(List<ApplicationStatus> status);
+	
+	Long countByStatutInAndNatureAndReconstructionDateIsNull(ApplicationStatus status, ApplicationNature nature);
 	
 	Long countByEmailAndStatutNot(String email, ApplicationStatus status);
 }

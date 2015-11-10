@@ -12,6 +12,7 @@ import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
 import static fr.minint.sief.domain.enumeration.ApplicationType.renouvellement;
 import static java.util.Arrays.asList;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -182,6 +183,7 @@ public class ApplicationResource {
 		count.setNbPaid(applicationRepository.countByStatutIn(asList(paid)));
 		count.setNbScheduled(applicationRepository.countByStatutIn(asList(scheduled)));
 		count.setNbIdentityVerified(applicationRepository.countByStatutIn(asList(identity_verified, favorable_proposal)));
+		count.setNbCivilStateToReconstruct(applicationRepository.countByStatutInAndNatureAndReconstructionDateIsNull(validated, naturalisation));
 		return new ResponseEntity<>(count, HttpStatus.OK);
 	}
 	
@@ -427,6 +429,44 @@ public class ApplicationResource {
 							mailService.sendArrivalEmail(application, getBaseUrl(request));
 						}
 					}
+                    return new ResponseEntity<>(HttpStatus.OK);
+				})
+				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+	}
+
+	/**
+	 * GET /application/reconstruction -> Get applications that need to be reconstruct
+	 * 
+     * @return List of application that need to be reconstruct
+     */
+	@RequestMapping(value = "/application/reconstruct", 
+					method = RequestMethod.GET, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<ApplicationDTO> getApplicationToReconstruct() {
+		log.debug("REST request to get applications that need to reconstruct civil state");
+		return applicationRepository.findByStatutAndNatureAndReconstructionDateIsNull(validated, naturalisation)
+				.stream()
+				.map(applicationMapper::applicationToApplicationDTO)
+				.collect(Collectors.toCollection(ArrayList::new));
+	}
+
+	/**
+	 * PUT /application/reconstruction -> Reconstruct a civil state
+	 * 
+	 * @param id The id of the application that need to be reconstruct
+     * @return HttpStatus
+     */
+	@RequestMapping(value = "/application/reconstruct", 
+					method = RequestMethod.PUT, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<?> reconstruct(@Valid @RequestBody String id) {
+		log.debug("REST request to application that need to reconstruct civil state : {}", id);
+		return Optional.ofNullable(applicationRepository.findOne(id))
+				.map(application -> {
+					application.setReconstructionDate(DateTime.now());
+					applicationRepository.save(application);
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));

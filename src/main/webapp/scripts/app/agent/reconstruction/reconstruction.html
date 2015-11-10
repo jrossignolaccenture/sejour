@@ -1,0 +1,95 @@
+<div ng-cloak>
+    <div class="row title-main title-underline">
+    	<h4 translate="agent.title.{{application.type}}.{{application.nature}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    </div>
+	<br><br>
+	
+	<table class="table reconstructionTable">
+		<thead>
+			<tr>
+				<th style="width:20%;"></th>
+				<th style="width:35%; text-align: center;" translate="reconstruction.form.collectedIdentity"></th>
+				<th style="width:5%;"></th>
+				<th style="width:35%; text-align: center;" translate="reconstruction.form.proposedIdentity" style="text-align: center;"></th>
+				<th style="width:5%;"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.lastName"></td>
+				<td><input type="text" class="form-control" ng-model="collectedIdentity.lastName" readonly="readonly"></td>
+				<td></td>
+				<td><input type="text" class="form-control" ng-model="proposedIdentity.lastName" readonly="readonly"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.usedLastName"></td>
+				<td><input type="text" class="form-control" ng-model="collectedIdentity.usedLastName" readonly="readonly"></td>
+				<td></td>
+				<td><input type="text" class="form-control" ng-model="proposedIdentity.usedLastName" readonly="readonly"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.firstName"></td>
+				<td><input type="text" class="form-control" ng-model="collectedIdentity.firstName" readonly="readonly"></td>
+				<td><input type="radio" name="finalFirstName" ng-model="finalFirstName" ng-value="collectedIdentity.firstName"></td>
+				<td><input type="text" class="form-control" ng-model="proposedIdentity.firstName" readonly="readonly"></td>
+				<td><input type="radio" name="finalFirstName" ng-model="change" ng-value="proposedIdentity.firstName"></td>
+			</tr>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.sex"></td>
+				<td>
+					<label class="radio-inline"><input type="radio" ng-model="collectedIdentity.sex" value="F" disabled>{{'sejourApp.SexType.F' | translate}}</label>
+					<label class="radio-inline"><input type="radio" ng-model="collectedIdentity.sex" value="M" disabled>{{'sejourApp.SexType.M' | translate}}</label>
+				</td>
+				<td></td>
+				<td>
+					<label class="radio-inline"><input type="radio" ng-model="proposedIdentity.sex" value="F" disabled>{{'sejourApp.SexType.F' | translate}}</label>
+					<label class="radio-inline"><input type="radio" ng-model="proposedIdentity.sex" value="M" disabled>{{'sejourApp.SexType.M' | translate}}</label>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.birthDate"></td>
+				<td><input-birth-date ng-model="collectedIdentity.birthDate" readonly="readonly"></input-birth-date></td>
+				<td></td>
+				<td><input-birth-date ng-model="proposedIdentity.birthDate" readonly="readonly"></input-birth-date></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.birthCity"></td>
+				<td><input type="text" class="form-control" ng-model="collectedIdentity.birthCity" readonly="readonly"></td>
+				<td></td>
+				<td><input type="text" class="form-control" ng-model="proposedIdentity.birthCity" readonly="readonly"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.birthCountry"></td>
+				<td><select-country ng-model="collectedIdentity.birthCountry" disabled="disabled"></select-country></td>
+				<td></td>
+				<td><select-country ng-model="proposedIdentity.birthCountry" disabled="disabled"></select-country></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="reconstructionTableFieldTitle" translate="identity.form.nationality"></td>
+				<td><select-country ng-model="collectedIdentity.birthCountry" disabled="disabled"></select-country></td>
+				<td></td>
+				<td><select-country ng-model="proposedIdentity.birthCountry" disabled="disabled"></select-country></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br>
+	<br>
+	<div class="row row-center">
+    	<button class="btn btn-success"
+    			translate="reconstruction.form.button"
+    			ng-disabled="!finalFirstName" 
+    			ng-click="validate()" >Accept</button>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

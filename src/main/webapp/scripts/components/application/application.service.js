@@ -28,6 +28,11 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            getApplicationsToReconstruct: function () {
+            	return $http.get('api/application/reconstruct').then(function (response) {
+                    return response.data;
+                });
+            },
         	count: function() {
             	return $http.get('api/application/count').then(function (response) {
                     return response.data;
@@ -69,6 +74,11 @@ angular.module('sejourApp')
             },
             validate: function (id) {
             	return $http.put('api/application/validation', id).then(function (response) {
+                    return response.data;
+                });
+            },
+            reconstruct: function (id) {
+            	return $http.put('api/application/reconstruct', id).then(function (response) {
                     return response.data;
                 });
             }
