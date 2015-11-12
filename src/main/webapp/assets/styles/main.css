@@ -382,6 +382,49 @@ ul#strengthBar {
 	border-radius: 5px;
 }
 
+.photo-viewer-zoom-logo {
+	position: absolute;
+	z-index: 10;
+}
+.photo-viewer-zoom-logo div {
+	float: left;
+	margin-left: 5px;
+	width: 30px;
+	height: 30px;
+	opacity: 0.5;
+	background-color: grey;
+	border-radius: 15px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.photo-viewer-zoom-logo div:hover {
+	opacity: 0.8;
+}
+.photo-viewer-zoom-logo span {
+	margin-top: 3px;
+	margin-left: 1px;
+	font-size: 20px;
+}
+.photo-viewer-img {
+	height: 300px;
+}
+@media (min-width: 768px) {
+	.photo-viewer-img {
+		height: 400px;
+	}
+}
+@media (min-width: 992px) {
+	.photo-viewer-img {
+		height: 450px;
+	}
+}
+@media (min-width: 1200px) {
+	.photo-viewer-img {
+		height: 550px;
+	}
+}
+
 .img-disabled {
 	opacity:0.2;
 }

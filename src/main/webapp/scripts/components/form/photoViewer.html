@@ -4,7 +4,18 @@
 		<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="documents.length > 1" ng-click="currentIndex = currentIndex == 0 ? documents.length - 1 : currentIndex-1"></span>
 		<span translate="sejourApp.DocumentType.{{documents[currentIndex].type}}"></span><span> ({{currentIndex + 1}}/{{documents.length}})</span>
 	</div>
+		
 	<div class="panel-body">
-		<img ng-src="{{documents[currentIndex].fileName}}" class="img-responsive">
+		<div class="photo-viewer-zoom-logo">
+			<div ng-click="zoomButtonClick(false)">
+				<span id="zoomInButton{{::documents[0].id}}" class="fa fa-search-plus"></span>
+			</div>
+			<div ng-click="zoomButtonClick(true)">
+			    <span id="zoomOutButton{{::documents[0].id}}" class="fa fa-search-minus"></span>
+			</div>
+		</div>
+		<div>
+			<img id="img{{::documents[0].id}}" class="photo-viewer-img" ng-src="{{documents[currentIndex].fileName}}">
+		</div>
 	</div>
 </div>
