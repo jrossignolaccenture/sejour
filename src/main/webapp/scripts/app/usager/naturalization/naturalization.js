@@ -7,7 +7,6 @@ angular.module('sejourApp')
                 parent: 'usager',
                 url: '/naturalisation',
                 data: {
-                    pageTitle: 'naturalization.page.title',
                     type: 'naturalisation',
                     nature: 'naturalisation'
                 },

@@ -30,7 +30,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label translate="project.form.resourceAmount">ResourceAmount</label>
+            <label translate="project.form.resourceAmount.total" ng-if="project.resourceType === 'capital'">ResourceAmount</label>
+            <label translate="project.form.resourceAmount.monthly" ng-if="project.resourceType !== 'capital'">ResourceAmount</label>
             <input type="number" class="form-control" ng-model="project.resourceAmount" readonly="readonly">
         </div>
 	</div>

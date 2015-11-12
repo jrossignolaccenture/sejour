@@ -6,9 +6,6 @@ angular.module('sejourApp')
             .state('home', {
                 parent: 'site',
                 url: '/',
-                data: {
-                    pageTitle: 'main.page.title'
-                },
                 views: {
                     'content@': {
                         templateUrl: 'scripts/app/main/main.html',

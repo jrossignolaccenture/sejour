@@ -6,9 +6,6 @@ angular.module('sejourApp')
 	        .state('usager/renouveler', {
 	            parent: 'usager',
 	            url: '/renouveler',
-	            data: {
-	                pageTitle: 'renouveler.page.title'
-	            },
 	            views: {
 	                'content@': {
 	                    templateUrl: 'scripts/app/usager/renouveler/renouveler.html',
@@ -26,7 +23,6 @@ angular.module('sejourApp')
                 parent: 'usager',
                 url: '/renouveler/etudes',
                 data: {
-                    pageTitle: 'renouveler.page.title',
                     type: 'renouvellement',
                     nature: 'sejour_etudiant'
                 },

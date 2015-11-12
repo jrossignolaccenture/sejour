@@ -62,6 +62,9 @@ angular.module('sejourApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalp
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('site', {
             'abstract': true,
+            data: {
+                pageTitle: 'global.page.title'
+            },
             views: {
                 'navbar@': {
                     templateUrl: 'scripts/components/navbar/navbar.html',

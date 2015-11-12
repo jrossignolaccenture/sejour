@@ -7,7 +7,6 @@ angular.module('sejourApp')
                 parent: 'usager',
                 url: '/etudier',
                 data: {
-                    pageTitle: 'etudier.page.title',
                     type: 'premiere',
                     nature: 'sejour_etudiant'
                 },

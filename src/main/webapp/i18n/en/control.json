@@ -1,6 +1,6 @@
 {
     "control": {
-        "title": "Dashboard - {{userName}}",
+        "title": "Dashboard",
         "page.title": "Data analysis and control",
         "button": {
         	"back": "Back"

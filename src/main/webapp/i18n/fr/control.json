@@ -1,6 +1,6 @@
 {
     "control": {
-        "title": "Tableau de bord - {{userName}}",
+        "title": "Tableau de bord",
         "page.title": "Analyse des données et pilotage",
         "button": {
         	"back": "Retour"
