@@ -30,7 +30,7 @@ angular.module('sejourApp')
         $scope.identity = currentApplication.identity;
     	$scope.address = currentApplication.address;
         $scope.project = currentApplication.project;
-    	
+        
     	$scope.application = currentApplication;
         
         $scope.verify = function () {

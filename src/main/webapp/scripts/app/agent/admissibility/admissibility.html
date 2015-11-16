@@ -20,7 +20,7 @@
 			<span translate="admissibility.form.verified" ng-show="panel.identity.valid">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="panel.identity.open">
+	<div class="row" ng-if="panel.identity.open">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
@@ -28,7 +28,8 @@
 		</div>
 	</div>
 	<!-- FAMILY -->
-	<div ng-if="identity.family.length > 0">
+	<!-- // TODO Changer cette condition evidemment -->
+	<div ng-if="identity.family.parents">
 		<div class="row">
 			<div class="col-xs-9 col-sm-8 col-sm-offset-1">
 				<div class="collapsable-panel" ng-class="{'opened': panel.family.open}" ng-click="panel.family.open = !panel.family.open">
@@ -45,7 +46,7 @@
 				<span translate="admissibility.form.verified" ng-show="panel.family.valid">validate</span>
 			</div>
 		</div>
-		<div class="row" ng-show="panel.family.open">
+		<div class="row" ng-if="panel.family.open">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="row validation-visualization-row opened">
 					<family-view ng-model="identity"></family-view>
@@ -94,7 +95,7 @@
 			<span translate="admissibility.form.verified" ng-show="panel.project.valid">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="panel.project.open">
+	<div class="row" ng-if="panel.project.open">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/project/project-'+application.nature+'-view.html'"></ng-include>

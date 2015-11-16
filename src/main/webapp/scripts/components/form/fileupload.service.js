@@ -55,7 +55,6 @@ angular.module('sejourApp')
         				        .error(function() {
         				        	scope.fileUploadFail = true;
         				        });
-                        	
                         }
         			});
                 }

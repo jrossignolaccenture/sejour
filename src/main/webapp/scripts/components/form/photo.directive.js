@@ -35,8 +35,8 @@ angular.module('sejourApp')
                 scope.$watch("model",function(newValue,oldValue) {
                 	if(oldValue != newValue) {
                 		$timeout(function() {
-                		scope.model = newValue;
-                		scope.refresh();
+	                		scope.model = newValue;
+	                		scope.refresh();
                 		});
                 	}
                 });

@@ -19,7 +19,7 @@
 			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.validationOn)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="panel.identity.open">
+	<div class="row" ng-if="panel.identity.open">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
@@ -42,7 +42,7 @@
 				<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.familyValidateOn)}}', validationAuthor: 'Administration des étrangers en France'}">validate</span>
 			</div>
 		</div>
-		<div class="row" ng-show="panel.family.open">
+		<div class="row" ng-if="panel.family.open">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="row validation-visualization-row opened">
 					<family-view ng-model="identity"></family-view>
@@ -81,7 +81,7 @@
 			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(project.validateOn)}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="panel.project.valid">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="panel.project.open">
+	<div class="row" ng-if="panel.project.open">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div ng-if="application.type == 'Premiere'">
 				<ul>
