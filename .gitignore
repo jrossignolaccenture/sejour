@@ -117,6 +117,7 @@ Desktop.ini
 *.*~
 *~
 .merge_file*
+.tern-project
 
 ######################
 # Gradle Wrapper

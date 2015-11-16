@@ -9,9 +9,11 @@ spring:
         active: prod
     data:
         mongodb:
-            host: localhost
-            port: 27017
-            database: sejour
+            host: ds053964.mongolab.com
+            port: 53964
+            database: CloudFoundry_t4127tg6_n987taeb
+            username: sief
+            password: sief
     thymeleaf:
         mode: XHTML
         cache: true

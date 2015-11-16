@@ -5,7 +5,7 @@
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>1.2.5.RELEASE</version>
+        <version>1.2.7.RELEASE</version>
         <relativePath />
     </parent>
 
@@ -55,6 +55,7 @@
         <sonar.surefire.reportsPath>${project.testresult.directory}/surefire-reports</sonar.surefire.reportsPath>
         <sonar.tests>${project.basedir}/src/test/</sonar.tests>
         <spring-security.version>4.0.2.RELEASE</spring-security.version>
+        <spring-data-releasetrain.version>Fowler-SR2</spring-data-releasetrain.version>
         <springfox.version>2.0.3</springfox.version>
         <usertype-core.version>4.0.0.GA</usertype-core.version>
 
@@ -316,6 +317,12 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-data</artifactId>
         </dependency>
+        <!-- mongo -->
+        <dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.1.1</version>
+		</dependency>
     </dependencies>
     <build>
         <resources>

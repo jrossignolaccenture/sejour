@@ -12,6 +12,8 @@ spring:
             host: localhost
             port: 27017
             database: sejour
+            username: sief
+            password: sief
     messages:
         cache-seconds: 1
     thymeleaf:
