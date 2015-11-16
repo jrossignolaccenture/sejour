@@ -36,9 +36,7 @@ angular.module('sejourApp')
             templateUrl: 'scripts/components/form/fileUpload.html',
             controller: ['$scope', 'File', function($scope, File) {
             	
-            	$scope.docs = $scope.model.filter(function(doc) {
-            		return doc.type === $scope.docType;
-            	});
+            	$scope.docs = $scope.model.filter(doc => doc.type === $scope.docType);
             	if($scope.docs.length == 0) {
             		$scope.docs.push({});
             	}
@@ -48,13 +46,11 @@ angular.module('sejourApp')
                 		scope.fileUploadFail = false;
                         if(element.files.length > 0) {
                         	File.upload(element.files[0], scope.docType)
-        				        .success(function(doc) {
+        				        .success( doc => {
         				        	scope.model.push(doc);
         	                    	scope.docs[scope.docs.length-1] = doc;
         				        })
-        				        .error(function() {
-        				        	scope.fileUploadFail = true;
-        				        });
+        				        .error( () => scope.fileUploadFail = true);
                         }
         			});
                 }
