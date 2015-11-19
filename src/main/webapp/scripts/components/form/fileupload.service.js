@@ -31,7 +31,7 @@ angular.module('sejourApp')
             scope: {
             	model: "=ngModel",
             	docType: "@",
-            	translateKey: "@"
+            	placeholderKey: "@"
             },
             templateUrl: 'scripts/components/form/fileUpload.html',
             controller: ['$scope', 'File', function($scope, File) {

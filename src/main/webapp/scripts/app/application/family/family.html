@@ -39,7 +39,11 @@
 						<p translate="identity.form.document.title">Identity documents</p>
 				    </div>
 				    <br>
-					<file-upload ng-model="parent.identity.documents" doc-type="civilStatusAct" translate-key="identity.form.civilStatusAct"></file-upload>
+				    <div class="form-group">
+					    <label translate="identity.form.civilStatusAct" translate-values="{ index: '{{$index+1}}'}"></label>
+						<tooltip tooltip-text="identity.form.civilStatusAct.tooltip"></tooltip>
+						<file-upload ng-model="parent.identity.documents" doc-type="civilStatusAct" placeholder-key="identity.form.civilStatusAct.placeholder"></file-upload>
+					</div>
 					<br>
 				</div>
 			</div>

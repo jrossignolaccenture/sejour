@@ -27,7 +27,7 @@
             "birthAct": "Document(s) d'état-civil",
             "birthAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici...",
             "birthAct.tooltip": "Merci de joindre un extrait de votre acte de naissance avec filiation ou une copie intégrale de votre acte de naissance",
-            "civilStatusAct": "Document(s) d'état-civil",
+            "civilStatusAct": "Document(s) d'état-civil du parent {{index}}",
             "civilStatusAct.placeholder": "Cliquer ou déposer vos documents d'état-civil ici...",
             "civilStatusAct.tooltip": "Merci de joindre un extrait de l'acte d'état-civil avec filiation ou une copie intégrale de l'acte d'état-civil"
 		}

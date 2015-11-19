@@ -27,7 +27,7 @@
             "birthAct": "Id document(s)",
             "birthAct.placeholder": "Click or drag your id documents here...",
             "birthAct.tooltip": "Thank you to attach an excerpt from your birth certificate with filiation or a full copy of your birth certificate",
-            "civilStatusAct": "Id document(s)",
+            "civilStatusAct": "Id document(s) of parent {{index}}",
             "civilStatusAct.placeholder": "Click or drag your id documents here...",
             "civilStatusAct.tooltip": "Thank you to attach an excerpt from the id certificate with filiation or a full copy of the id certificate"
 		}
