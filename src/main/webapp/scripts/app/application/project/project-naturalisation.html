@@ -31,13 +31,18 @@
 				        <label>
 				        	<input type="radio" id="field_resources" name="resources" ng-model="project.resourcesSearchAuthorized" ng-value="true" required>
 				        	{{'project.form.resources.yes' | translate}}
+					    	<tooltip tooltip-text="project.form.resources.yes.tooltip"></tooltip>
 				    	</label>
 				    	<br><br>
 						<label>
 							<input type="radio" id="field_resources" name="resources" ng-model="project.resourcesSearchAuthorized" ng-value="false"required>
 							{{'project.form.resources.no' | translate}}
-							<tooltip tooltip-text='project.form.resources.no.tooltip'></tooltip>
 						</label>
+				    	<ul ng-if="project.resourcesSearchAuthorized !== false" style="margin: 5px 0px 0px 15px;">
+				    		<li translate="project.form.resources.workContract"></li>
+				    		<li translate="project.form.resources.workCertificate"></li>
+				    		<li translate="project.form.resources.paySlip"></li>
+				    	</ul>
 	                </div>
 			        <div ng-show="projectForm.resources.$dirty && projectForm.resources.$invalid">
 			            <p class="help-block" ng-show="projectForm.resources.$error.required" translate="entity.validation.required">
@@ -78,13 +83,17 @@
 				        <label>
 				        	<input type="radio" id="field_taxSituation" name="taxSituation" ng-model="project.taxSituationSearchAuthorized" ng-value="true" required>
 				        	{{'project.form.taxSituation.yes' | translate}}
+							<tooltip tooltip-text='project.form.taxSituation.yes.tooltip'></tooltip>
 				    	</label>
 				    	<br><br>
 						<label>
 							<input type="radio" id="field_taxSituation" name="taxSituation" ng-model="project.taxSituationSearchAuthorized" ng-value="false" required>
 							{{'project.form.taxSituation.no' | translate}}
-							<tooltip tooltip-text='project.form.taxSituation.no.tooltip'></tooltip>
 						</label>
+				    	<ul ng-if="project.taxSituationSearchAuthorized !== false" style="margin: 5px 0px 0px 15px;">
+				    		<li translate="project.form.taxSituation.taxSlip"></li>
+				    		<li translate="project.form.taxSituation.taxNotice"></li>
+				    	</ul>
 	                </div>
 			        <div ng-show="projectForm.taxSituation.$dirty && projectForm.taxSituation.$invalid">
 			            <p class="help-block" ng-show="projectForm.taxSituation.$error.required" translate="entity.validation.required">

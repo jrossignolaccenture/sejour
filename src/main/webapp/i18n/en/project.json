@@ -21,9 +21,9 @@
             "resources": {
             	"title": "Profesional situation",
             	"yes": "Yes, I authorize the administration of foreigners in France to get my supporting resource directly from URSSAF. I have then no supporting piece to attach to my request.",
+            	"yes.tooltip": "...",
             	"yes.done": "Data exchange with URSSAF authorized",
             	"no": "No, I want to justify myself by my resources. Then I have to join my request supporting documents requested of me.",
-            	"no.tooltip" : "If applicable, attach: employment contract, certificate of past employment, employment certificate pole, the last 3 payslips, November and December payslips of the last three years.",
             	"workContract": "Employment contract",
             	"workContract.placeholder": "Click or drag your contract here...",
             	"workContract.tooltip": "...",
@@ -37,15 +37,15 @@
             "taxSituation": {
             	"title": "Tax situation",
             	"yes": "Yes, I authorize the administration of foreigners in France to recover my tax receipts directly from the Public Finance. I have then no supporting piece to attach to my request.",
+            	"yes.tooltip": "...",
             	"yes.done": "Data exchange with Public Finance authorized",
             	"no": "No, I want to justify my tax situation without allowing sharing my information with the Ministry of Finance. Then I have to join my request supporting documents requested of me.",
-            	"no.tooltip": "If applicable, attach: recent P237 tax situation slip on the imposition of the past three years and tax notice last 3 years.",
             	"taxSlip": "Tax situation slip",
             	"taxSlip.placeholder": "Click or drag your slip here...",
-            	"taxSlip.tooltip": "...",
+            	"taxSlip.tooltip": "recent P237 tax situation slip on the imposition of the past three years",
             	"taxNotice": "Tax notice",
             	"taxNotice.placeholder": "Click or drag your notice here...",
-            	"taxNotice.tooltip": "..."
+            	"taxNotice.tooltip": "tax notice last 3 years"
             },
             "consult": {
             	"investigation": {

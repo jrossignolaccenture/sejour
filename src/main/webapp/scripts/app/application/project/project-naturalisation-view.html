@@ -1,8 +1,29 @@
 <div ng-cloak>
-	<ul ng-if="!project.detailMode">
-		<li translate="project.form.resources.yes.done">resources yes</li>
-		<li translate="project.form.taxSituation.yes.done">tax situation yes</li>
-	</ul>
+	<div ng-if="!project.detailMode" ng-init="panelResourceOpen = true;  panelTaxOpen = true">
+		<div class="collapsable-panel" id="panelResource" ng-class="{'opened': panelResourceOpen}" ng-click="panelResourceOpen = !panelResourceOpen">
+			<div class="panel-heading">
+				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelResourceOpen, 'glyphicon-triangle-bottom': panelResourceOpen}"></span>
+				<h5 class="panel-title" translate="project.form.resources.title">Resources</h5>
+			</div>
+		</div>
+		<div ng-if="panelResourceOpen">
+			<ul>
+				<li translate="project.form.resources.yes.done">resources yes</li>
+			</ul>
+		</div>
+		
+		<div class="collapsable-panel" id="panelTax" ng-class="{'opened': panelTaxOpen}" ng-click="panelTaxOpen = !panelTaxOpen">
+			<div class="panel-heading">
+				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelTaxOpen, 'glyphicon-triangle-bottom': panelTaxOpen}"></span>
+				<h5 class="panel-title" translate="project.form.taxSituation.title">Resources</h5>
+			</div>
+		</div>
+		<div ng-if="panelTaxOpen">
+			<ul>
+				<li translate="project.form.taxSituation.yes.done">tax situation yes</li>
+			</ul>
+		</div>
+	</div>
 	<div ng-if="project.detailMode" style="margin-left: 10px">
 		<p translate="project.form.consult.investigation.title">Investigation result :</p>
 		<ul>
