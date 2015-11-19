@@ -18,10 +18,10 @@
             "inscriptionCertificate.tooltip": "Merci de joindre un justificatif d'inscription ou de pré-inscription auprès d'un établissement d'enseignement",
             
             "resources": {
-            	"title": "Ressources",
-            	"yes": "Oui, j'autorise l'administration des étrangers en France à récupérer mes justificatifs de ressources directement auprès de l'URSSAF. Je n'ai alors pas de pièce justificatives à joindre à ma demande.",
-            	"yes.done": "Echange de données autorisée avec l'URSSAF",
-            	"no": "Non, je souhaite justifier par moi même de mes ressources. Je dois alors joindre à ma demande les pièces justificatives qui me sont demandées.",
+            	"title": "Situation professionnelle",
+            	"yes": "Oui, j'autorise l'administration des étrangers en France à récupérer mes données directement auprès de l'URSSAF. Je n'ai alors pas de pièce justificatives à joindre à ma demande.",
+            	"yes.done": "Echange de données autorisé avec l'URSSAF",
+            	"no": "Non, je souhaite justifier par moi même de ma situation. Je dois alors joindre à ma demande les pièces justificatives qui me sont demandées.",
             	"no.tooltip": "Le cas échéant, joindre : contrat de travail, attestations d'emplois antérieurs, attestation pôle emploi, 3 derniers bulletins de salaire, bulletins de salaire de novembre et décembre des 3 dernières années.",
             	"workContract": "Contrat de travail",
             	"workContract.placeholder": "Cliquer ou déposer votre contrat ici...",
@@ -36,7 +36,7 @@
             "taxSituation": {
             	"title": "Situation fiscale",
             	"yes": "Oui, j'autorise l'administration des étrangers en France à récupérer mes justificatifs fiscaux directement auprès des Finances Publiques. Je n'ai alors pas de pièce justificatives à joindre à ma demande.",
-            	"yes.done": "Echange de données autorisée avec les Finances Publiques",
+            	"yes.done": "Echange de données autorisé avec les Finances Publiques",
             	"no": "Non, je souhaite justifier de ma situation fiscale sans autoriser l'échange de mes informations avec le Ministère des Finances. Je dois alors joindre à ma demande les pièces justificatives qui me sont demandées.",
             	"no.tooltip": "Le cas échéant, joindre : bordereau de situation fiscale P237 récent portant sur l'imposition des 3 dernières années et avis d'imposition des 3 derniers exercices.",
             	"taxSlip": "Bordereau de situation fiscale",
