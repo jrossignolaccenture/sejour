@@ -19,10 +19,8 @@
 	    	"inscriptionCertificate": "Certification of inscription certificated authenticity",
 	    	"resourceProof": "Certification of resource proof authenticity",
 	    	
-	    	"toCertify": "To certify",
-	    	"certified": "Certified",
-	    	
 	    	"button": {
+	    		"missing": "Declare missing document",
 	    		"accept": "Certify documents authenticity"
 	    	}
 		},

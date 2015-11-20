@@ -16,10 +16,11 @@
 				</div>
 			</div>
 			<div class="col-xs-3 validation-form">
-				<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.validated" ng-click="updatePanel(panel, true)">
-				<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.validated" ng-click="updatePanel(panel, false)">
-				<span translate="identification.documents.toCertify" ng-show="!panel.validated">To validate</span>
-				<span translate="identification.documents.certified" ng-show="panel.validated">validate</span>
+				<i class="fa hand" ng-class="{'fa-times-circle-o': panel.validated !== false, 'fa-times-circle': panel.validated === false, 'inactive': panel.validated === true}" 
+								   ng-click="updatePanel(panel, false)"></i>
+				<span style="margin-left: 10px"></span>
+				<i class="fa hand" ng-class="{'fa-check-circle-o': panel.validated !== true, 'fa-check-circle': panel.validated === true, 'inactive': panel.validated === false}" 
+								   ng-click="updatePanel(panel, true)"></i>
 			</div>
 		</div>
 		<div class="row" ng-show="panel.opened">
@@ -33,8 +34,11 @@
 	<br>
 	<br>
 	<div class="row row-center">
+    	<button class="btn btn-primary" translate="identification.documents.button.missing" 
+    			 ng-if="docError > 0">Missing</button>
     	<button class="btn btn-success" 
     			translate="identification.documents.button.accept"
+    			ng-if="docError === 0"
     			ng-disabled="docToValidate > 0"
     			ng-click="certify()" >Accept</button>
 	</div>

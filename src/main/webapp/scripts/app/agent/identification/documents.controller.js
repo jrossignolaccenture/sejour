@@ -7,6 +7,7 @@ angular.module('sejourApp')
     	$scope.application = currentApplication;
     	
     	$scope.docToValidate = 0;
+    	$scope.docError = 0;
     	
     	$scope.panels = {};
     	currentApplication.identity.documents.forEach(function(document) {
@@ -29,13 +30,11 @@ angular.module('sejourApp')
     	});
     	
     	$scope.updatePanel = function(panel, validated) {
-    		panel.validated = validated;
-    		if(validated) {
-    			panel.opened = false;
-    			$scope.docToValidate--;
-    		} else {
-    			$scope.docToValidate++;
-    		}
+    		panel.validated === false ? $scope.docError-- : validated ? null : $scope.docError++;
+    		panel.validated === true ? $scope.docToValidate++ : validated ? $scope.docToValidate-- : null;
+    		
+    		panel.opened = validated ? false : panel.opened;
+    		panel.validated = panel.validated === validated ? null : validated;
     	}
         
     	$scope.certify = function() {
