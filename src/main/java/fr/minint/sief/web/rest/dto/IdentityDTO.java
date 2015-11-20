@@ -66,11 +66,11 @@ public class IdentityDTO implements Serializable {
     
     private Map<PersonType, List<PersonDTO>> family = new HashMap<>();
 
-    private boolean admissible;
+    private Boolean admissible;
 
     private DateTime validateOn;
     
-    private boolean familyAdmissible;
+    private Boolean familyAdmissible;
 
     private DateTime familyValidateOn;
 
@@ -218,11 +218,11 @@ public class IdentityDTO implements Serializable {
 		this.family = family;
 	}
 
-	public boolean isAdmissible() {
+	public Boolean isAdmissible() {
 		return admissible;
 	}
 
-	public void setAdmissible(boolean admissible) {
+	public void setAdmissible(Boolean admissible) {
 		this.admissible = admissible;
 	}
 
@@ -234,11 +234,11 @@ public class IdentityDTO implements Serializable {
 		this.validateOn = validateOn;
 	}
 
-	public boolean isFamilyAdmissible() {
+	public Boolean isFamilyAdmissible() {
 		return familyAdmissible;
 	}
 
-	public void setFamilyAdmissible(boolean familyAdmissible) {
+	public void setFamilyAdmissible(Boolean familyAdmissible) {
 		this.familyAdmissible = familyAdmissible;
 	}
 

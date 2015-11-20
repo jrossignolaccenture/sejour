@@ -61,7 +61,7 @@ public class Address implements Serializable {
     private List<ContactType> contactType = new ArrayList<>();
     
     @Field("admissible")
-    private boolean admissible;
+    private Boolean admissible;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -148,11 +148,11 @@ public class Address implements Serializable {
         this.contactType = contactType;
     }
 
-	public boolean isAdmissible() {
+	public Boolean isAdmissible() {
 		return admissible;
 	}
 
-	public void setAdmissible(boolean admissible) {
+	public void setAdmissible(Boolean admissible) {
 		this.admissible = admissible;
 	}
 

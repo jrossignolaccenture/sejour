@@ -64,7 +64,7 @@ public class Project implements Serializable {
     private Boolean taxSituationSearchAuthorized;
     
     @Field("admissible")
-    private boolean admissible;
+    private Boolean admissible;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -151,11 +151,11 @@ public class Project implements Serializable {
 		this.taxSituationSearchAuthorized = taxSituationSearchAuthorized;
 	}
 
-	public boolean isAdmissible() {
+	public Boolean isAdmissible() {
 		return admissible;
 	}
 
-	public void setAdmissible(boolean admissible) {
+	public void setAdmissible(Boolean admissible) {
 		this.admissible = admissible;
 	}
 

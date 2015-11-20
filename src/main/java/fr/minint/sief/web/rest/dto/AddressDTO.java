@@ -43,7 +43,7 @@ public class AddressDTO implements Serializable {
     @NotNull
     private List<ContactType> contactType = new ArrayList<>();
     
-    private boolean admissible;
+    private Boolean admissible;
 
     private DateTime validateOn;
 
@@ -127,11 +127,11 @@ public class AddressDTO implements Serializable {
         this.contactType = contactType;
     }
 
-	public boolean isAdmissible() {
+	public Boolean isAdmissible() {
 		return admissible;
 	}
 
-	public void setAdmissible(boolean admissible) {
+	public void setAdmissible(Boolean admissible) {
 		this.admissible = admissible;
 	}
 

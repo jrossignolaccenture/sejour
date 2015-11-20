@@ -14,10 +14,11 @@
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.identity.valid" ng-click="panel.identity.valid = !panel.identity.valid; panel.identity.open = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.identity.valid" ng-click="panel.identity.valid = !panel.identity.valid">
-			<span translate="admissibility.form.toVerify" ng-show="!panel.identity.valid">To validate</span>
-			<span translate="admissibility.form.verified" ng-show="panel.identity.valid">validate</span>
+			<i class="fa hand" ng-class="{'fa-times-circle-o': panel.identity.valid !== false, 'fa-times-circle': panel.identity.valid === false, 'inactive': panel.identity.valid === true}" 
+							   ng-click="panel.identity.valid === false ? panel.identity.valid = null :  panel.identity.valid = false;"></i>
+			<span style="margin-left: 10px"></span>
+			<i class="fa hand" ng-class="{'fa-check-circle-o': panel.identity.valid !== true, 'fa-check-circle': panel.identity.valid === true, 'inactive': panel.identity.valid === false}" 
+							   ng-click="panel.identity.valid === true ? panel.identity.valid = null : panel.identity.valid = true; panel.identity.open = false;"></i>
 		</div>
 	</div>
 	<div class="row" ng-if="panel.identity.open">
@@ -40,10 +41,11 @@
 				</div>
 			</div>
 			<div class="col-xs-3 validation-form">
-				<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.family.valid" ng-click="panel.family.valid = !panel.family.valid; panel.family.open = false;">
-				<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.family.valid" ng-click="panel.family.valid = !panel.family.valid">
-				<span translate="admissibility.form.toVerify" ng-show="!panel.family.valid">To validate</span>
-				<span translate="admissibility.form.verified" ng-show="panel.family.valid">validate</span>
+				<i class="fa hand" ng-class="{'fa-times-circle-o': panel.family.valid !== false, 'fa-times-circle': panel.family.valid === false, 'inactive': panel.family.valid === true}" 
+								   ng-click="panel.family.valid === false ? panel.family.valid = null :  panel.family.valid = false;"></i>
+				<span style="margin-left: 10px"></span>
+				<i class="fa hand" ng-class="{'fa-check-circle-o': panel.family.valid !== true, 'fa-check-circle': panel.family.valid === true, 'inactive': panel.family.valid === false}" 
+								   ng-click="panel.family.valid === true ? panel.family.valid = null : panel.family.valid = true; panel.family.open = false;"></i>
 			</div>
 		</div>
 		<div class="row" ng-if="panel.family.open">
@@ -65,10 +67,11 @@
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.address.valid" ng-click="panel.address.valid = !panel.address.valid; panel.address.open = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.address.valid" ng-click="panel.address.valid = !panel.address.valid">
-			<span translate="admissibility.form.toVerify" ng-show="!panel.address.valid">To validate</span>
-			<span translate="admissibility.form.verified" ng-show="panel.address.valid">validate</span>
+			<i class="fa hand" ng-class="{'fa-times-circle-o': panel.address.valid !== false, 'fa-times-circle': panel.address.valid === false, 'inactive': panel.address.valid === true}" 
+							   ng-click="panel.address.valid === false ? panel.address.valid = null :  panel.address.valid = false;"></i>
+			<span style="margin-left: 10px"></span>
+			<i class="fa hand" ng-class="{'fa-check-circle-o': panel.address.valid !== true, 'fa-check-circle': panel.address.valid === true, 'inactive': panel.address.valid === false}" 
+							   ng-click="panel.address.valid === true ? panel.address.valid = null : panel.address.valid = true; panel.address.open = false;"></i>
 		</div>
 	</div>
 	<div class="row" ng-show="panel.address.open">
@@ -89,10 +92,11 @@
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!panel.project.valid" ng-click="panel.project.valid = !panel.project.valid; panel.project.open = false;">
-			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="panel.project.valid" ng-click="panel.project.valid = !panel.project.valid">
-			<span translate="admissibility.form.toVerify" ng-show="!panel.project.valid">To validate</span>
-			<span translate="admissibility.form.verified" ng-show="panel.project.valid">validate</span>
+			<i class="fa hand" ng-class="{'fa-times-circle-o': panel.project.valid !== false, 'fa-times-circle': panel.project.valid === false, 'inactive': panel.project.valid === true}" 
+							   ng-click="panel.project.valid === false ? panel.project.valid = null :  panel.project.valid = false;"></i>
+			<span style="margin-left: 10px"></span>
+			<i class="fa hand" ng-class="{'fa-check-circle-o': panel.project.valid !== true, 'fa-check-circle': panel.project.valid === true, 'inactive': panel.project.valid === false}" 
+							   ng-click="panel.project.valid === true ? panel.project.valid = null : panel.project.valid = true; panel.project.open = false;"></i>
 		</div>
 	</div>
 	<div class="row" ng-if="panel.project.open">
@@ -106,7 +110,10 @@
 	<br>
 	<div class="row row-center">
     	<button class="btn btn-danger" translate="admissibility.form.button.decline">Decline</button>
+    	<button class="btn btn-primary btn-right" translate="admissibility.form.button.complement" 
+    			 ng-if="panel.identity.valid === false || panel.family.valid === false || panel.address.valid === false || panel.project.valid === false">Complement</button>
     	<button class="btn btn-success btn-right" translate="admissibility.form.button.accept"
+    			 ng-if="panel.identity.valid !== false && panel.family.valid !== false && panel.address.valid !== false && panel.project.valid !== false"
     			 ng-disabled="!panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid"
     			 ng-click="verify()">Accept</button>
 	</div>

@@ -15,12 +15,10 @@
 	    	"address": "Vérification des coordonnées du demandeur",
 	    	"project": "Vérification du projet",
 	    	
-	    	"toVerify": "A vérifier",
-	    	"verified": "Vérifié",
-	    	
 	    	"button": {
 	    		"accept": "Valider la recevabilité de la demande",
-	    		"decline": "Demander un complément"
+	    		"complement": "Demande de complément",
+	    		"decline": "Proposer une décision d'irrecevabilité"
 	    	}
 		}
 	}

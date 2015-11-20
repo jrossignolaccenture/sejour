@@ -93,7 +93,7 @@ public class Identity implements Serializable {
     private Map<PersonType, List<Person>> family = new HashMap<>();
     
     @Field("admissible")
-    private boolean admissible;
+    private Boolean admissible;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -101,7 +101,7 @@ public class Identity implements Serializable {
     private DateTime validateOn;
     
     @Field("family_admissible")
-    private boolean familyAdmissible;
+    private Boolean familyAdmissible;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -252,11 +252,11 @@ public class Identity implements Serializable {
 		this.family = family;
 	}
 
-	public boolean isAdmissible() {
+	public Boolean isAdmissible() {
 		return admissible;
 	}
 
-	public void setAdmissible(boolean admissible) {
+	public void setAdmissible(Boolean admissible) {
 		this.admissible = admissible;
 	}
 
@@ -268,11 +268,11 @@ public class Identity implements Serializable {
 		this.validateOn = validateOn;
 	}
 
-	public boolean isFamilyAdmissible() {
+	public Boolean isFamilyAdmissible() {
 		return familyAdmissible;
 	}
 
-	public void setFamilyAdmissible(boolean familyAdmissible) {
+	public void setFamilyAdmissible(Boolean familyAdmissible) {
 		this.familyAdmissible = familyAdmissible;
 	}
 

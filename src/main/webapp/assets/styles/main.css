@@ -366,6 +366,19 @@ ul#strengthBar {
 	padding-right: 6px;
 }
 
+.validation-form i {
+	font-size: 40px;
+}
+.validation-form i.fa-times-circle-o, .validation-form i.fa-times-circle {
+	color: #d43f3a;
+}
+.validation-form i.fa-check-circle-o, .validation-form i.fa-check-circle {
+	color: #4cae4c;
+}
+.validation-form i.inactive {
+	color: #ddd;
+}
+
 .validation-visualization-row {
 	margin: 0px 15px 0px 4px;
 	padding: 15px 5px 0px 5px;

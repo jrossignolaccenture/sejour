@@ -44,7 +44,7 @@ public class ProjectDTO implements Serializable {
     
     private Boolean taxSituationSearchAuthorized;
     
-    private boolean admissible;
+    private Boolean admissible;
 
     private DateTime validateOn;
 
@@ -128,11 +128,11 @@ public class ProjectDTO implements Serializable {
 		this.taxSituationSearchAuthorized = taxSituationSearchAuthorized;
 	}
 
-	public boolean isAdmissible() {
+	public Boolean isAdmissible() {
 		return admissible;
 	}
 
-	public void setAdmissible(boolean admissible) {
+	public void setAdmissible(Boolean admissible) {
 		this.admissible = admissible;
 	}
 

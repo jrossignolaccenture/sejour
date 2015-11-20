@@ -15,12 +15,10 @@
 	    	"address": "Verification of address",
 	    	"project": "Verification of project",
 	    	
-	    	"toVerify": "To verify",
-	    	"verified": "Verified",
-	    	
 	    	"button": {
-	    		"accept": "Validate application recevability",
-	    		"decline": "Ask for complement"
+	    		"accept": "Validate application admissibility",
+	    		"complement": "Ask for complement",
+	    		"decline": "Proposal for inadmissibility decision"
 	    	}
 		}
 	}

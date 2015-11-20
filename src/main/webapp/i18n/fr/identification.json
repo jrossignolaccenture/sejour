@@ -43,7 +43,7 @@
 		},
 		"interview": {
 			"report": "Compte-rendu de l'entretien",
-			"button": "Soumettre le compte-rendu de l'entretien"
+			"button": "Enregistrer le compte-rendu de l'entretien"
 		}
 	}
 }
