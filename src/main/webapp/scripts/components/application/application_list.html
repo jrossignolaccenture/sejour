@@ -76,7 +76,7 @@
 						</td>
 						<td translate="applicationList.documents"></td>
 					</tr>
-					<tr class="applicationListLine" ng-click="goToBiometrics(application)" ng-if="!application.biometricsDate">
+					<tr class="applicationListLine" ng-click="goToBiometrics(application)" ng-if="!application.biometricsDate && application.nature !== 'naturalisation'">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{application.userId}}</td>

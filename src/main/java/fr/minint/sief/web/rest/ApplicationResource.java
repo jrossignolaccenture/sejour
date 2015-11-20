@@ -335,7 +335,7 @@ public class ApplicationResource {
 					DateTime now = DateTime.now();
 					application.getIdentity().validateNewDocuments(now);
 					// TODO Revoir moyen de décider que l'étape est passée
-					if(application.getBiometricsDate() != null && (application.getNature() != naturalisation || application.getInterviewDate() != null)) {
+					if(application.getBiometricsDate() != null || application.getInterviewDate() != null) {
 						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
@@ -361,7 +361,7 @@ public class ApplicationResource {
 				.map(application -> {
 					application.setBiometricsDate(DateTime.now());
 					// TODO Revoir moyen de décider que l'étape est passée
-					if(!application.getIdentity().hasDocumentToValidate() && (application.getNature() != naturalisation || application.getInterviewDate() != null)) {
+					if(!application.getIdentity().hasDocumentToValidate()) {
 						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
@@ -388,7 +388,7 @@ public class ApplicationResource {
         			application.setInterviewDate(DateTime.now());
         			application.setInterviewReport(report);
         			// TODO Revoir moyen de décider que l'étape est passée
-					if(!application.getIdentity().hasDocumentToValidate() && application.getBiometricsDate() != null) {
+					if(!application.getIdentity().hasDocumentToValidate()) {
 						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);
