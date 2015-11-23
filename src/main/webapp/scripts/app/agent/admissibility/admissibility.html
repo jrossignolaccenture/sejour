@@ -109,10 +109,12 @@
 	<br>
 	<br>
 	<div class="row row-center">
-    	<button class="btn btn-danger" translate="admissibility.form.button.decline">Decline</button>
+    	<button class="btn btn-danger" translate="admissibility.form.button.decline"
+    			 ng-if="!panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid">Decline</button>
     	<button class="btn btn-primary btn-right" translate="admissibility.form.button.complement" 
     			 ng-if="panel.identity.valid === false || panel.family.valid === false || panel.address.valid === false || panel.project.valid === false">Complement</button>
-    	<button class="btn btn-success btn-right" translate="admissibility.form.button.accept"
+    	<button class="btn btn-success" translate="admissibility.form.button.accept"
+    			 ng-class="{'btn-right': !panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid}"
     			 ng-if="panel.identity.valid !== false && panel.family.valid !== false && panel.address.valid !== false && panel.project.valid !== false"
     			 ng-disabled="!panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid"
     			 ng-click="verify()">Accept</button>
