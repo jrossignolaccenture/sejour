@@ -368,6 +368,7 @@ ul#strengthBar {
 
 .validation-form i {
 	font-size: 40px;
+	vertical-align: middle;
 }
 .validation-form i.fa-times-circle-o, .validation-form i.fa-times-circle {
 	color: #d43f3a;

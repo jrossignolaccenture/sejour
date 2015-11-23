@@ -5,10 +5,6 @@ angular.module('sejourApp')
 
         $scope.displayFamily = currentApplication.nature === 'naturalisation';
     	
-    	//TODO Moyen plus générique à trouver pour l'ouverture et la validation par défaut des panels
-        // par exemple => détection d'un changement par rapport à l'état précédent et précédente date de validation (du coup on n'a pas besoin de tester le type)
-        var isRenewal = currentApplication.type === 'renouvellement';
-        var isNat = currentApplication.nature === 'naturalisation';
         $scope.panel = {
         	identity: {
         		open: currentApplication.identity.validateOn == null, 
@@ -20,8 +16,13 @@ angular.module('sejourApp')
 	        },
 	        project: {
 	        	open: currentApplication.project.validateOn == null,
-	    	    valid: currentApplication.project.validateOn != null
+	    	    valid: currentApplication.project.validateOn != null ? true : null
 	        }
+        }
+        
+        // TODO en attendant de savoir s'il y a la double instruction on s'embete pas et on fait un truc moche
+        if(currentApplication.project.validateOn != null) {
+        	$scope.previousValidation = true;
         }
 
     	$scope.getFormattedDate = function(date) {

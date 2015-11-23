@@ -16,11 +16,11 @@
 				</div>
 			</div>
 			<div class="col-xs-3 validation-form">
-				<i class="fa hand" ng-class="{'fa-times-circle-o': panel.validated !== false, 'fa-times-circle': panel.validated === false, 'inactive': panel.validated === true}" 
-								   ng-click="updatePanel(panel, false)"></i>
-				<span style="margin-left: 10px"></span>
 				<i class="fa hand" ng-class="{'fa-check-circle-o': panel.validated !== true, 'fa-check-circle': panel.validated === true, 'inactive': panel.validated === false}" 
 								   ng-click="updatePanel(panel, true)"></i>
+				<span style="margin-left: 10px"></span>
+				<i class="fa hand" ng-class="{'fa-times-circle-o': panel.validated !== false, 'fa-times-circle': panel.validated === false, 'inactive': panel.validated === true}" 
+								   ng-click="updatePanel(panel, false)"></i>
 			</div>
 		</div>
 		<div class="row" ng-show="panel.opened">
