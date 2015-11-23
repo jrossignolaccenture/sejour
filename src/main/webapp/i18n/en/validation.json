@@ -18,8 +18,7 @@
 	    	"history.list": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "No history",
 	    	
-	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}",
-	    	"toValidate": "To validate"
+	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}"
 		}
 	}
 }

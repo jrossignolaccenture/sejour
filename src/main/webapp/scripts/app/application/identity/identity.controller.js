@@ -7,9 +7,7 @@ angular.module('sejourApp')
 			return doc.type === 'passport' || doc.type === 'birthAct';
 		});
         		
-    	$scope.documentsToDisplay = docs.filter(function(doc) {
-			return !doc.validation;
-		});
+    	$scope.needDocuments = docs.length == 0 || docs.filter(function(doc) {return !doc.validation}).length > 0;
     	
         $scope.identity = currentApplication.identity;
         

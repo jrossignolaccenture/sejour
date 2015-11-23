@@ -18,8 +18,7 @@
 	    	"history.list": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "Pas d'historique",
 	    	
-	    	"validate": "Validé le {{validationDate}} - {{validationAuthor}}",
-	    	"toValidate": "A valider"
+	    	"validate": "Validé le {{validationDate}} - {{validationAuthor}}"
 		}
 	}
 }
