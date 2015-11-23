@@ -235,14 +235,14 @@ public class ApplicationResource {
                     applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(validated, application.getEmail())
                     	.ifPresent(lastApplication -> {
                     		if(!application.getIdentity().equals(lastApplication.getIdentity())) {
-                    			application.getIdentity().setAdmissible(false);
+                    			application.getIdentity().setAdmissible(null);
                     			application.getIdentity().setValidateOn(null);
                     			// TODO Voir pour gérer la famille séparemment du reste de l'identité
-                    			application.getIdentity().setFamilyAdmissible(false);
+                    			application.getIdentity().setFamilyAdmissible(null);
                     			application.getIdentity().setFamilyValidateOn(null);
                     		}
                     		if(!application.getAddress().equals(lastApplication.getAddress())) {
-                    			application.getAddress().setAdmissible(false);
+                    			application.getAddress().setAdmissible(null);
                     			application.getAddress().setValidateOn(null);
                     		}
                     	});
@@ -335,7 +335,8 @@ public class ApplicationResource {
 					DateTime now = DateTime.now();
 					application.getIdentity().validateNewDocuments(now);
 					// TODO Revoir moyen de décider que l'étape est passée
-					if(application.getBiometricsDate() != null || application.getInterviewDate() != null) {
+					if((application.getNature() != naturalisation && application.getBiometricsDate() != null)
+							|| (application.getNature() == naturalisation && application.getInterviewDate() != null)) {
 						application.setStatut(ApplicationStatus.identity_verified);
 					}
 					applicationRepository.save(application);

@@ -24,6 +24,7 @@ angular.module('sejourApp')
 	        	valid: currentApplication.project.admissible
 	        }
         }
+        console.log($scope.panel);
     	
         $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
         
