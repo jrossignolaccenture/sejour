@@ -3,8 +3,13 @@
 angular.module('sejourApp')
     .controller('IdentityController', function ($scope, $state, $stateParams, Application, currentApplication) {
         
-        var docs = currentApplication.identity.documents.filter(doc => doc.type === 'passport' || doc.type === 'birthAct');
-    	$scope.needDocuments = docs.length === 0 || docs.filter(doc => !doc.validation);
+        var docs = currentApplication.identity.documents.filter(function(doc) {
+			return doc.type === 'passport' || doc.type === 'birthAct';
+		});
+        		
+    	$scope.needDocuments = docs.length === 0 || docs.filter(function(doc) {
+			return !doc.validation;
+		});
     	
         $scope.identity = currentApplication.identity;
         

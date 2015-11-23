@@ -13,7 +13,9 @@ angular.module('sejourApp')
             controller: ['$scope', function($scope) {
             	$scope.refresh = function() {
             		if($scope.typeFilter) {
-            			$scope.documents = $scope.model.filter(doc => doc.type === $scope.typeFilter);
+            			$scope.documents = $scope.model.filter(function(doc) {
+            				return doc.type === $scope.typeFilter;
+            			});
             		} else {
             			$scope.documents = $scope.model;
             		}
