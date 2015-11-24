@@ -44,9 +44,11 @@ angular.module('sejourApp')
     	$scope.history = [];
 		Application.getByStatus(['validated'], currentApplication.email).then(function(validatedApplications) {
 			validatedApplications.forEach(function(validatedApplication) {
+				console.log(validatedApplication.project.trainingStart);
 				$scope.history.push({
+					nature: validatedApplication.nature,
 					startDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart)),
-					endDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart).add(validatedApplication.project.trainingLength, 'M').subtract(1, 'd'))
+					endDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart).add(1, 'Y').subtract(1, 'd'))
 				});
 			});
         });

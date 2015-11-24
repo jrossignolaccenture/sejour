@@ -18,11 +18,10 @@
             "inscriptionCertificate.tooltip": "Merci de joindre un justificatif d'inscription ou de pré-inscription auprès d'un établissement d'enseignement",
             
             "resources": {
-            	"title": "Situation professionnelle",
-            	"yes": "Oui, j'autorise l'administration des étrangers en France à récupérer mes données directement auprès de l'administration compétente. Je n'ai alors pas de pièce justificatives à joindre à ma demande.",
-            	"yes.tooltip": "Les données échangées sont les suivantes : contrat de travail en cours, certificats de travail sur les trois dernières années, trois derniers bulletins de salaire",
+            	"title": "Ressources et activité professionnelle",
+            	"yes": "J'autorise l'administration des étrangers en France à récupérer mes données directement auprès de l'administration compétente. Je n'ai alors pas de pièce justificatives à joindre à ma demande (les données échangées sont les suivantes : contrat de travail en cours, certificats de travail sur les trois dernières années, trois derniers bulletins de salaire).",
             	"yes.done": "Echange de données autorisé avec l'administration compétente",
-            	"no": "Non, je souhaite justifier par moi-même de ma situation. Je dois alors joindre à ma demande les pièces justificatives suivantes : ",
+            	"no": "Je souhaite justifier par moi-même de ma situation. Je dois alors joindre à ma demande les pièces justificatives suivantes : ",
             	"workContract": "Contrat de travail en cours",
             	"workContract.placeholder": "Cliquer ou déposer votre contrat ici...",
             	"workContract.tooltip": "...",
@@ -35,10 +34,9 @@
             },
             "taxSituation": {
             	"title": "Situation fiscale",
-            	"yes": "Oui, j'autorise l'administration des étrangers en France à récupérer mes données directement auprès de l'administration compétente. Je n'ai alors pas de pièces justificatives à joindre à ma demande.",
-            	"yes.tooltip": "Les données échangées sont les suivantes : revenus fiscaux de référence des trois derniers exercices, nombre de part(s) fiscale(s), revenus salarié, bordereau de situation fiscale",
+            	"yes": "J'autorise l'administration des étrangers en France à récupérer mes données directement auprès de l'administration compétente. Je n'ai alors pas de pièces justificatives à joindre à ma demande (les données échangées sont les suivantes : revenus fiscaux de référence des trois derniers exercices, nombre de part(s) fiscale(s), revenus salarié, bordereau de situation fiscale).",
             	"yes.done": "Echange de données autorisé avec l'administration compétente",
-            	"no": "Non, je souhaite justifier par moi-même de ma situation. Je dois alors joindre à ma demande les pièces justificatives suivantes : ",
+            	"no": "Je souhaite justifier par moi-même de ma situation. Je dois alors joindre à ma demande les pièces justificatives suivantes : ",
             	"taxSlip": "Bordereau de situation fiscale",
             	"taxSlip.placeholder": "Cliquer ou déposer votre bordereau ici...",
             	"taxSlip.tooltip": "bordereau de situation fiscale P237 récent portant sur l'imposition des 3 dernières années",

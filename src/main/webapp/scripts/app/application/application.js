@@ -11,11 +11,11 @@ angular.module('sejourApp')
 	.constant('I18N_APPLICATION', {
 		premiere: {
 			sejour_etudiant: "etudier",
-			sejour_salarie: ""
+			sejour_salarie: "etudier"
 		},
 		renouvellement: {
 			sejour_etudiant: "renouveler",
-			sejour_salarie: ""
+			sejour_salarie: "renouveler"
 		},
 		naturalisation: {
 			naturalisation: "naturalisation"

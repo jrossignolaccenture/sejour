@@ -23,7 +23,6 @@ mail:
     auth: true
     from: sejour.sief@gmail.com
 
-
 swagger:
     title: sejour API
     description: sejour applications and beyond!

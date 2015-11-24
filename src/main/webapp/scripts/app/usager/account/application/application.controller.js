@@ -5,7 +5,7 @@ angular.module('sejourApp')
 
     	$scope.userApplications = userApplications;
     	
-    	openFirstApplication()
+    	openFirstApplication();
     	
     	$scope.getFormattedDate = function(date){
     		return moment(date).format("DD/MM/YYYY");

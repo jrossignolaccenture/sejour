@@ -1,7 +1,7 @@
-<div class="panel panel-default">
+<div class="panel panel-default" ng-if="documents.length > 0">
 	<div class="panel-heading" style="text-align: center">
-		<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="documents.length > 1" ng-click="currentIndex = currentIndex == documents.length - 1 ? 0 : currentIndex+1"></span>
-		<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="documents.length > 1" ng-click="currentIndex = currentIndex == 0 ? documents.length - 1 : currentIndex-1"></span>
+		<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="documents.length > 1" ng-click="nextPhoto(true)"></span>
+		<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="documents.length > 1" ng-click="nextPhoto(false)"></span>
 		<span translate="sejourApp.DocumentType.{{documents[currentIndex].type}}"></span><span> ({{currentIndex + 1}}/{{documents.length}})</span>
 	</div>
 		

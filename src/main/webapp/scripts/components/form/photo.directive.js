@@ -32,6 +32,14 @@ angular.module('sejourApp')
              	      scaleToAdd = -scaleToAdd;
              	   $("#img"+scope.documents[0].id).smartZoom("zoom", scaleToAdd);
              	}
+            	scope.nextPhoto = function(previous) {
+            		if(previous) {
+            			scope.currentIndex = scope.currentIndex == scope.documents.length - 1 ? 0 : scope.currentIndex+1;
+            		} else {
+            			scope.currentIndex = scope.currentIndex == 0 ? scope.documents.length - 1 : scope.currentIndex-1;
+            		}
+            		$("#img"+scope.documents[0].id).smartZoom("zoom", -3);
+            	}
                 scope.$watch("model",function(newValue,oldValue) {
                 	if(oldValue != newValue) {
                 		$timeout(function() {
@@ -40,17 +48,14 @@ angular.module('sejourApp')
                 		});
                 	}
                 });
-                scope.$watch("currentIndex",function(newValue,oldValue) {
-                	if(oldValue != newValue) {
-                		$("#img"+scope.documents[0].id).smartZoom("zoom", -3);
-                	}
-                });
-                $timeout(function() {
-                	$("#img"+scope.documents[0].id).smartZoom({
-                		'scrollEnabled': false,
-                		'dblClickEnabled' : false
+                if(scope.documents.length > 0) {
+                	$timeout(function() {
+	                	$("#img"+scope.documents[0].id).smartZoom({
+	                		'scrollEnabled': false,
+	                		'dblClickEnabled' : false
+	                	});
                 	});
-                });
+	            }
              }
         };
     });

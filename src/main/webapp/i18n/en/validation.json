@@ -14,8 +14,9 @@
 	    	"family": "Identity of close parents",
 	    	"preinscription": "(Pre)Inscription confirm on {{confirmationDate}} - {{confirmationAuthor}}",
 	    	"policeControl": "Security control",
-	    	"history": "SIEF History",
-	    	"history.list": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
+	    	"history": "SI EF History",
+	    	"history.list.sejour_etudiant": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
+	    	"history.list.sejour_salarie": "\"Salaried\" residency permit - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "No history",
 	    	
 	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}"

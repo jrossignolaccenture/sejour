@@ -7,11 +7,13 @@
 				"created": {
 					"premiere.sejour_etudiant": "First application of student residency - created on {{creationDate}}",
 					"renouvellement.sejour_etudiant": "Student residency renewal application - created on {{creationDate}}",
+					"renouvellement.sejour_salarie": "Salary residency renewal application - created on {{creationDate}}",
 					"naturalisation.naturalisation": "Application for naturalization by decree - created on {{creationDate}}"
 				},
 				"validated": {
 					"premiere.sejour_etudiant": "First application of student residency - validated on {{decisionDate}}",
 					"renouvellement.sejour_etudiant": "Student residency renewal application - validated on {{decisionDate}}",
+					"renouvellement.sejour_salarie": "Salary residency renewal application - validated on {{decisionDate}}",
 					"naturalisation.naturalisation": "Application for naturalization by decree - validated on {{decisionDate}}"
 				}
 			},
