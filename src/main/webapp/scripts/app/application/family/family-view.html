@@ -9,7 +9,7 @@
 					</div>
 				</div>
 			</div>
-			<div ng-if="panelOpen===$index" ng-init="identity=parent.identity; address=parent.address">
+			<div ng-if="panelOpen===$index" ng-init="identity=parent.identity; address=parent.address;">
 				<ng-include src="'scripts/app/application/identity/identity-light-view.html'"></ng-include>
 				<ng-include src="'scripts/app/application/address/address-light-view.html'"></ng-include>
 				<br>
@@ -17,6 +17,6 @@
 		</div>
 	</div>
 	<div class="col-sm-7">
-		<photo-viewer ng-if="currentDocuments.length > 0" ng-model="currentDocuments"></photo-viewer>
+		<photo-viewer ng-model="currentDocuments"></photo-viewer>
 	</div>
 </div>

@@ -39,7 +39,7 @@ angular.module('sejourApp')
             	identity: "=ngModel"
             },
             templateUrl: 'scripts/app/application/family/family-view.html',
-            controller: ['$scope', '$timeout', function($scope, $timeout) {
+            controller: ['$rootScope', '$scope', '$timeout', function($rootScope, $scope, $timeout) {
             	
             	$scope.parents = $scope.identity.family['parents'];
             	$scope.currentDocuments = $scope.parents[0].identity.documents;

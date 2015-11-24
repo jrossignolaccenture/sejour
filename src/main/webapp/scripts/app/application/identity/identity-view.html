@@ -2,24 +2,19 @@
 	<div class="col-sm-5">
 		<ng-include src="'scripts/app/application/identity/identity-light-view.html'"></ng-include>
 	    <div class="form-group">
-	        <label translate="identity.form.passportNumber">PassportNumber</label>
-	        <input type="text" class="form-control" ng-model="identity.passportNumber" readonly="readonly">
+	        <label translate="identity.form.passportNumber">PassportNumber</label> : <span>{{::identity.passportNumber}}</span>
 	    </div>
 	    <div class="form-group">
-	        <label translate="identity.form.maritalStatus">Marital status</label>
-	        <select-marital-status ng-model="identity.maritalStatus" disabled="disabled"></select-marital-status>
+	        <label translate="identity.form.maritalStatus">Marital status</label> : <span>{{::'sejourApp.MaritalStatus.' + identity.maritalStatus | translate}}</span>
 	    </div>
 	    <div class="form-group">
-	        <label translate="identity.form.childsNumber">ChildsNumber</label>
-	        <input type="number" min="0" class="form-control" ng-model="identity.childsNumber" readonly="readonly">
+	        <label translate="identity.form.childsNumber">ChildsNumber</label> : <span>{{::identity.childsNumber}}</span>
 	    </div>
 	    <div class="form-group">
-	        <label translate="identity.form.brothersNumber">BrothersNumber</label>
-	        <input type="number" min="0" class="form-control" ng-model="identity.brothersNumber" readonly="readonly">
+	        <label translate="identity.form.brothersNumber">BrothersNumber</label> : <span>{{::identity.brothersNumber}}</span>
 	    </div>
 		<div class="form-group">
-	        <label translate="identity.form.activity">Activity</label>
-	        <select-activity-type ng-model="identity.activity" disabled="disabled"></select-activity-type>
+	        <label translate="identity.form.activity">Activity</label> : <span>{{::'sejourApp.ActivityType.' + identity.activity | translate}}</span>
 	    </div>
 	</div>
 	<div class="col-sm-7">

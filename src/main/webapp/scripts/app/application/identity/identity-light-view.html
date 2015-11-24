@@ -1,54 +1,37 @@
 <div ng-cloak>
 	<div class="form-group">
-        <label translate="identity.form.lastName">LastName</label>
-        <input type="text" class="form-control" ng-model="identity.lastName" readonly="readonly">
+        <label translate="identity.form.lastName">LastName</label> : <span>{{::identity.lastName}}</span>
     </div>
     <div class="form-group">
-        <label translate="identity.form.usedLastName">UsedLastName</label>
-        <input type="text" class="form-control" ng-model="identity.usedLastName" readonly="readonly">
+        <label translate="identity.form.usedLastName">UsedLastName</label> : <span>{{::identity.usedLastName}}</span>
     </div>
     <div class="form-group">
-        <label translate="identity.form.firstName">FirstName</label>
-        <input type="text" class="form-control" ng-model="identity.firstName" readonly="readonly">
+        <label translate="identity.form.firstName">FirstName</label> : <span>{{::identity.firstName}}</span>
     </div>
     <div ng-if="identity.francisation != undefined">
 	    <div class="form-group">
-	        <label translate="identity.form.francisation">Francisation</label>
-	        <div>
-		        <label class="radio-inline"><input type="radio" ng-model="identity.francisation" ng-value="true" disabled>{{'identity.form.francisation.true' | translate}}</label>
-				<label class="radio-inline"><input type="radio" ng-model="identity.francisation" ng-value="false" disabled>{{'identity.form.francisation.false' | translate}}</label>
-	        </div>
+	        <label translate="identity.form.francisation">Francisation</label> : <span>{{::'identity.form.francisation.' + identity.francisation | translate}}</span>
 	    </div>
 	    <div class="form-group" ng-if="identity.francisation">
-	        <label translate="identity.form.lastNameFrancise">LastNameFrancise</label>
-	        <input type="text" class="form-control" ng-model="identity.lastNameFrancise" readonly="readonly">
+	        <label translate="identity.form.lastNameFrancise">LastNameFrancise</label> : <span>{{::identity.lastNameFrancise}}</span>
 	    </div>
 	    <div class="form-group" ng-if="identity.francisation">
-	        <label translate="identity.form.firstNameFrancise">FirstNameFrancise</label>
-	        <input type="text" class="form-control" ng-model="identity.firstNameFrancise" readonly="readonly">
+	        <label translate="identity.form.firstNameFrancise">FirstNameFrancise</label> : <span>{{::identity.firstNameFrancise}}</span>
 	    </div>
 	</div>
     <div class="form-group">
-        <label translate="identity.form.sex">Sex</label>
-        <div>
-	        <label class="radio-inline"><input type="radio" ng-model="identity.sex" value="F" disabled>{{'sejourApp.SexType.F' | translate}}</label>
-			<label class="radio-inline"><input type="radio" ng-model="identity.sex" value="M" disabled>{{'sejourApp.SexType.M' | translate}}</label>
-        </div>
+        <label translate="identity.form.sex">Sex</label> : <span>{{::'sejourApp.SexType.' + identity.sex | translate}}</span>
     </div>
     <div class="form-group">
-        <label translate="identity.form.birthDate">BirthDate</label>
-        <input-birth-date ng-model="identity.birthDate" readonly="readonly"></input-birth-date>
+        <label translate="identity.form.birthDate">BirthDate</label> : <span>{{::$root.getFormattedDate(identity.birthDate)}}</span>
     </div>
     <div class="form-group">
-        <label translate="identity.form.birthCity">BirthCity</label>
-        <input type="text" class="form-control" ng-model="identity.birthCity" readonly="readonly">
+        <label translate="identity.form.birthCity">BirthCity</label> : <span>{{::identity.birthCity}}</span>
     </div>
     <div class="form-group">
-        <label translate="identity.form.birthCountry">BirthCountry</label>
-        <select-country ng-model="identity.birthCountry" disabled="disabled"></select-country>
+        <label translate="identity.form.birthCountry">BirthCountry</label> : <span>{{::$root.countries[identity.birthCountry]}}</span>
     </div>
     <div class="form-group">
-        <label translate="identity.form.nationality">Nationality</label>
-        <select-country ng-model="identity.nationality" disabled="disabled"></select-country>
+        <label translate="identity.form.nationality">Nationality</label> : <span>{{::$root.countries[identity.nationality]}}</span>
     </div>
 </div>

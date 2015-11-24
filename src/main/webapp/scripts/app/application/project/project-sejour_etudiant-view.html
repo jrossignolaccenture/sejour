@@ -1,38 +1,26 @@
 <div ng-cloak>
     <div class="col-sm-5">
 		<div class="form-group" ng-if="project.comingDate">
-            <label translate="project.form.comingDate">ComingDate</label>
-            <input-date ng-model="project.comingDate" readonly="readonly"></input-date>
+            <label translate="project.form.comingDate">ComingDate</label> : <span>{{::$root.getFormattedDate(project.comingDate)}}</span>
         </div>
         <div class="form-group">
-            <label translate="project.form.university">University</label>
-            <input type="text" class="form-control" ng-model="project.university" readonly="readonly">
+            <label translate="project.form.university">University</label> : <span>{{::project.university}}</span>
         </div>
         <div class="form-group">
-            <label translate="project.form.training">Training</label>
-            <input type="text" class="form-control"ng-model="project.training" readonly="readonly">
+            <label translate="project.form.training">Training</label> : <span>{{::project.training}}</span>
         </div>
         <div class="form-group">
-            <label translate="project.form.trainingStart">TrainingStart</label>
-            <input-date ng-model="project.trainingStart" readonly="readonly"></input-date>
+            <label translate="project.form.trainingStart">TrainingStart</label> : <span>{{::$root.getFormattedDate(project.trainingStart)}}</span>
         </div>
         <div class="form-group">
-            <label translate="project.form.trainingLength">TrainingLength</label>
-            <input type="number" class="form-control" ng-model="project.trainingLength" readonly="readonly">
+            <label translate="project.form.trainingLength">TrainingLength</label> : <span>{{::project.trainingLength}}</span>
         </div>
         <div class="form-group">
-            <label translate="project.form.resourceType">ResourceType</label>
-            <select class="form-control" ng-model="project.resourceType" disabled>
-                <option value="bourse" translate="sejourApp.ResourceType.bourse">bourse</option>
-                <option value="capital" translate="sejourApp.ResourceType.capital">capital</option>
-                <option value="garant" translate="sejourApp.ResourceType.garant">garant</option>
-                <option value="month" translate="sejourApp.ResourceType.month">month</option>
-            </select>
+            <label translate="project.form.resourceType">ResourceType</label> : <span>{{::'sejourApp.ResourceType.' + project.resourceType | translate}}</span>
         </div>
         <div class="form-group">
             <label translate="project.form.resourceAmount.total" ng-if="project.resourceType === 'capital'">ResourceAmount</label>
-            <label translate="project.form.resourceAmount.monthly" ng-if="project.resourceType !== 'capital'">ResourceAmount</label>
-            <input type="number" class="form-control" ng-model="project.resourceAmount" readonly="readonly">
+            <label translate="project.form.resourceAmount.monthly" ng-if="project.resourceType !== 'capital'">ResourceAmount</label> : <span>{{::project.resourceAmount}}</span>
         </div>
 	</div>
 	<div class="col-sm-7">

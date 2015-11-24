@@ -5,7 +5,7 @@ angular.module('sejourApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalp
     'ngResource', 'ui.router', 'ngCookies', 'ngCacheBuster', 'ngFileUpload', 
     'infinite-scroll', 'datetimepicker', 'ngAnimate', 'camera'])
 
-    .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
+    .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, Country, ENV, VERSION) {
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
@@ -49,6 +49,17 @@ angular.module('sejourApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalp
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
+        
+        $rootScope.getFormattedDate = function(date) {
+    		return moment(date).format("DD/MM/YYYY");
+    	};
+    	
+    	$rootScope.countries = [];
+        Country.get().then(function(countries) {
+        	countries.forEach(function(country) {
+        		$rootScope.countries[country.key] = country.name;
+        	});
+        });
     })
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider) {
 

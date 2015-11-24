@@ -1,30 +1,23 @@
 <div ng-cloak>
 	<div class="form-group">
-		<label translate="address.form.owner">Owner</label>
-		<input type="text" class="form-control" ng-model="address.owner" readonly="readonly">
+		<label translate="address.form.owner">Owner</label> : <span>{{::address.owner}}</span>
 	</div>
 	<div class="form-group">
-		<label translate="address.form.number">Number</label>
-		<input type="text" class="form-control" ng-model="address.number" readonly="readonly">
+		<label translate="address.form.number">Number</label> : <span>{{::address.number}}</span>
 	</div>
 	<div class="form-group">
-		<label translate="address.form.street">Street</label>
-		<input type="text" class="form-control" ng-model="address.street" readonly="readonly">
+		<label translate="address.form.street">Street</label> : <span>{{::address.street}}</span>
 	</div>
 	<div class="form-group">
-		<label translate="address.form.complement">Complement</label>
-		<input type="text" class="form-control" ng-model="address.complement" readonly="readonly">
+		<label translate="address.form.complement">Complement</label> : <span>{{::address.complement}}</span>
 	</div>
 	<div class="form-group">
-		<label translate="address.form.postalCode">PostalCode</label>
-		<input type="text" class="form-control" ng-model="address.postalCode" readonly="readonly">
+		<label translate="address.form.postalCode">PostalCode</label> : <span>{{::address.postalCode}}</span>
 	</div>
 	<div class="form-group">
-		<label translate="address.form.city">City</label>
-		<input type="text" class="form-control" ng-model="address.city" readonly="readonly">
+		<label translate="address.form.city">City</label> : <span>{{::address.city}}</span>
 	</div>
 	<div class="form-group">
-		<label translate="address.form.country">Country</label>
-		<select-country ng-model="address.country" disabled="disabled"></select-country>
+		<label translate="address.form.country">Country</label> : <span>{{::$root.countries[address.country]}}</span>
 	</div>
 </div>
