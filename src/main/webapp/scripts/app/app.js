@@ -53,6 +53,9 @@ angular.module('sejourApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalp
         $rootScope.getFormattedDate = function(date) {
     		return moment(date).format("DD/MM/YYYY");
     	};
+    	$rootScope.getFormattedHour = function(date){
+    		return moment(date).format("HH:mm");
+    	}
     	
     	$rootScope.countries = [];
         Country.get().then(function(countries) {

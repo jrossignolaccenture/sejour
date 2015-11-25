@@ -5,28 +5,6 @@ angular.module('sejourApp')
 
     	$scope.userApplications = userApplications;
     	
-    	openFirstApplication();
-    	
-    	$scope.getFormattedDate = function(date){
-    		return moment(date).format("DD/MM/YYYY");
-    	}
-    	
-    	$scope.getFormattedHour = function(date){
-    		return moment(date).format("HH:mm");
-    	}
-    	
-    	$scope.goToDetail = function(type, id){
-    		$state.go('summary', {id: id});
-    	}
-    	
-    	$scope.goToDraft = function(type, id){
-    		$state.go('identity', {id: id});
-    	}
-    	
-    	$scope.goToRdv = function(type, id){
-    		$state.go('rdv', {id: id});
-    	}
-    	
     	$scope.delete = function(id) {
     		Application.delete(id).then(function() {
     			for(var i=0; i<$scope.userApplications.length; i++) {
@@ -35,13 +13,6 @@ angular.module('sejourApp')
     					break;
     				}
             	}
-    			openFirstApplication();
     		});
-    	}
-    	
-    	function openFirstApplication(){
-    		if($scope.userApplications.length > 0) {
-				$scope.userApplications[0].opened = true;
-			}
     	}
     });
