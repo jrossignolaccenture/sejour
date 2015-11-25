@@ -11,8 +11,10 @@
 	"admissibility" : {
 		"form": {
 	    	"identity": "Vérification de l'état-civil et des informations personnelles",
+	    	"identity.validated" : "Etat-civil et informations personnelles",
 	    	"family": "Vérification des informations des proches parents",
 	    	"address": "Vérification des coordonnées du demandeur",
+	    	"address.validated": "Coordonnées du demandeur",
 	    	"project": "Vérification du projet",
 	    	
 	    	"button": {

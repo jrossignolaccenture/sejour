@@ -253,6 +253,12 @@ public class Identity implements Serializable {
 
 	@Override
     public boolean equals(Object o) {
+        if (equalsWithoutFamily(o) && ! Objects.equals(family, ((Identity) o).family)) return false;
+
+        return true;
+    }
+	
+    public boolean equalsWithoutFamily(Object o) {
         if (this == o) {
             return true;
         }
@@ -275,8 +281,22 @@ public class Identity implements Serializable {
         		|| !Objects.equals(childsNumber, identity.childsNumber)
         		|| !Objects.equals(brothersNumber, identity.brothersNumber)
         		|| !Objects.equals(activity, identity.activity)
-        		|| !Objects.equals(documents, identity.documents)
-        		|| !Objects.equals(family, identity.family)) return false;
+        		|| !Objects.equals(documents, identity.documents)) return false;
+
+        return true;
+    }
+	
+    public boolean equalsOnlyFamily(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Identity identity = (Identity) o;
+
+        if ( !Objects.equals(family, identity.family)) return false;
 
         return true;
     }

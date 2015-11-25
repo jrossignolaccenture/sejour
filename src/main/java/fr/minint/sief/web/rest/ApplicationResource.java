@@ -234,14 +234,15 @@ public class ApplicationResource {
             		
                     applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(validated, application.getEmail())
                     	.ifPresent(lastApplication -> {
-                    		if(!application.getIdentity().equals(lastApplication.getIdentity())) {
+                    		if( ! application.getIdentity().equalsWithoutFamily(lastApplication.getIdentity())) {
                     			application.getIdentity().setAdmissible(null);
                     			application.getIdentity().setValidateOn(null);
-                    			// TODO Voir pour gérer la famille séparemment du reste de l'identité
+                    		}
+                    		if( ! application.getIdentity().equalsOnlyFamily(lastApplication.getIdentity())) {
                     			application.getIdentity().setFamilyAdmissible(null);
                     			application.getIdentity().setFamilyValidateOn(null);
                     		}
-                    		if(!application.getAddress().equals(lastApplication.getAddress())) {
+                    		if( ! application.getAddress().equals(lastApplication.getAddress())) {
                     			application.getAddress().setAdmissible(null);
                     			application.getAddress().setValidateOn(null);
                     		}

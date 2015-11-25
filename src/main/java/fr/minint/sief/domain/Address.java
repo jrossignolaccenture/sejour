@@ -183,8 +183,7 @@ public class Address implements Serializable {
         		|| !Objects.equals(city, address.city)
         		|| !Objects.equals(country, address.country)
         		|| !Objects.equals(phone, address.phone)
-        		|| !Objects.equals(email, address.email)
-        		|| !Objects.equals(contactType, address.contactType)) return false;
+        		|| !Objects.equals(email, address.email)) return false;
 
         return true;
     }
@@ -202,7 +201,6 @@ public class Address implements Serializable {
     	result = prime * result + Objects.hashCode(country);
     	result = prime * result + Objects.hashCode(phone);
     	result = prime * result + Objects.hashCode(email);
-    	result = prime * result + Objects.hashCode(contactType);
     	return result;
     }
 

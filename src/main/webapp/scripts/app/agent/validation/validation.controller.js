@@ -19,11 +19,6 @@ angular.module('sejourApp')
 	    	    valid: currentApplication.project.validateOn != null ? true : null
 	        }
         }
-        
-        // TODO en attendant de savoir s'il y a la double instruction on s'embete pas et on fait un truc moche
-        if(currentApplication.project.validateOn != null) {
-        	$scope.previousValidation = true;
-        }
 
     	$scope.getFormattedDate = function(date) {
     		return moment(date).format("DD/MM/YYYY");

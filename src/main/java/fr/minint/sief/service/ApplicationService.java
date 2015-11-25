@@ -1,10 +1,8 @@
 package fr.minint.sief.service;
 
-import static fr.minint.sief.domain.enumeration.ApplicationNature.naturalisation;
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.validated;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
-import static java.lang.Boolean.FALSE;
 
 import java.util.List;
 import java.util.Optional;
@@ -90,10 +88,6 @@ public class ApplicationService {
 		
 		if (nature == sejour_etudiant) {
 			updateWithCampusInfos(application);
-			application.getProject().setFrancisation(null);
-		} else if (nature == naturalisation) {
-			// TODO pas la meilleure manière de gérer l'affichage de la francisation...
-			application.getProject().setFrancisation(FALSE);
 		}
 		
 		application = applicationRepository.save(application);

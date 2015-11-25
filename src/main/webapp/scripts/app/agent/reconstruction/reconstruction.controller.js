@@ -6,7 +6,7 @@ angular.module('sejourApp')
         $scope.application = currentApplication;
         $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
 
-        //TODO Ecran en mode POC total donc tout est à revoir évidemment...
+        // TODO Ecran en mode POC total donc tout est à revoir évidemment...
         $scope.collectedIdentity = {
         	lastName: currentApplication.project.francisation ? currentApplication.project.lastNameFrancise : currentApplication.identity.lastName,
         	usedLastName: currentApplication.identity.usedLastName,

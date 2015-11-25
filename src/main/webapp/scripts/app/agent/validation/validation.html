@@ -77,12 +77,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6 validation-form" ng-if="previousValidation">
-			<i class="fa fa-check-circle"></i>
-			<span style="margin-left: 10px"></span>
-			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(project.validateOn)}}', validationAuthor: 'Administration des étrangers en France'}" ng-show="panel.project.valid">validate</span>
-		</div>
-		<div class="col-xs-6 validation-form" ng-if="!previousValidation">
+		<div class="col-xs-6 validation-form">
 			<i class="fa hand" ng-class="{'fa-check-circle-o': panel.project.valid !== true, 'fa-check-circle': panel.project.valid === true, 'inactive': panel.project.valid === false}" 
 							   ng-click="panel.project.valid === true ? panel.project.valid = null : panel.project.valid = true; panel.project.open = false;"></i>
 			<span style="margin-left: 10px"></span>

@@ -19,7 +19,7 @@
 		    </div>
 		</div>
 		<br>
-	    <div class="row" ng-if="nature !== 'naturalisation'">
+	    <div class="row" ng-if="!address.validateOn">
 			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
 		        
 		        <address-form-light ng-model="address" with-tooltip="true"></address-form-light>
@@ -60,7 +60,7 @@
 		        </div>
 		    </div>
 		</div>
-		<div class="row" ng-if="nature === 'naturalisation'">
+		<div class="row" ng-if="address.validateOn">
 			<div class="col-xs-8 col-xs-offset-3 col-sm-6 col-sm-offset-5">
 				<ng-include src="'scripts/app/application/address/address-light-view.html'"></ng-include>
 			    <div class="form-group">
@@ -90,7 +90,7 @@
 		<br>
 	    <div class="row row-center">
         	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
-       		<button ng-if="nature === 'naturalisation'" type="button" class="btn btn-danger btn-right" translate="global.button.report">Report</button>
+       		<button ng-if="address.validateOn" type="button" class="btn btn-danger btn-right" translate="global.button.report">Report</button>
         	<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"
         			 ng-disabled="addressForm.$invalid || addressForm.$submitted">Continue</button>
         </div>
