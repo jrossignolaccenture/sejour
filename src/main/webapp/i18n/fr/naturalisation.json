@@ -53,10 +53,8 @@
 		"form": {
 			"project": "Projet de naturalisation",
 			"button": {
-	    		"accept": "Proposition favorable",
-		    	"decline": "Décision défavorable",
-		    	"confirm": "Confirmer la proposition favorable",
-		    	"cancel": "Infirmer la proposition favorable"
+	    		"accept": "Décision favorable",
+		    	"decline": "Décision défavorable"
 	    	}
 	    }
 	}

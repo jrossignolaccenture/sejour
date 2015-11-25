@@ -8,6 +8,10 @@ angular.module('sejourApp')
     			$scope.payment.cardNumber = '4970 1012 3456 7890';
     			$scope.payment.cardExpiringDate = '08 / 16';
     			$scope.payment.cardCV = '123';
+    		} else if($scope.payment.cardOwner === 'Zayat') {
+    			$scope.payment.cardNumber = '4970 1012 3456 7890';
+    			$scope.payment.cardExpiringDate = '08 / 16';
+    			$scope.payment.cardCV = '123';
     		}
         };
         

@@ -49,10 +49,6 @@ angular.module('sejourApp')
                     	// tips to get high priority to the I18N_APPLICATION part
                     	$translatePartialLoader.deletePart(I18N_APPLICATION[currentApplication.type][currentApplication.nature], true);
                     	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]);
-                    	if(currentApplication.statut === 'favorable_proposal') {
-                        	$translatePartialLoader.deletePart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]+"-validation", true);
-                        	$translatePartialLoader.addPart(I18N_APPLICATION[currentApplication.type][currentApplication.nature]+"-validation");
-                    	}
                     	$translatePartialLoader.addPart('validation');
                     	$translatePartialLoader.addPart('project');
                     	$translatePartialLoader.addPart('identity');

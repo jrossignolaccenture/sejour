@@ -295,8 +295,7 @@ public class Identity implements Serializable {
 
         Identity identity = (Identity) o;
 
-        if ( !Objects.equals(francisation, identity.francisation)
-        		|| !Objects.equals(lastName, identity.lastName)
+        if ( !Objects.equals(lastName, identity.lastName)
         		|| !Objects.equals(lastNameFrancise, identity.lastNameFrancise)
         		|| !Objects.equals(usedLastName, identity.usedLastName)
         		|| !Objects.equals(firstName, identity.firstName)
@@ -321,7 +320,6 @@ public class Identity implements Serializable {
     public int hashCode() {
     	final int prime = 31;
     	int result = 17;
-    	result = prime * result + Objects.hashCode(francisation);
     	result = prime * result + Objects.hashCode(lastName);
     	result = prime * result + Objects.hashCode(lastNameFrancise);
     	result = prime * result + Objects.hashCode(usedLastName);

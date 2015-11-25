@@ -31,7 +31,7 @@ angular.module('sejourApp')
             /** génération de dates aléatoires avec 1ere date sélectionnée par défaut (currentDay) **/
             getRandomDates: function() {
             	var dates = [];
-            	var current = moment().millisecond(0).second(0).minute(0).hour(0).add(5, 'd');
+            	var current = moment().millisecond(0).second(0).minute(0).hour(0).add(2, 'd');
             	for(var i=0; i<15; i++) {
             		current.add(Math.floor((Math.random() * 4) + 1), 'd');
             		if(current.days() == 0) {

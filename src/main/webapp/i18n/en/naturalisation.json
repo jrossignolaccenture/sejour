@@ -53,10 +53,8 @@
 		"form": {
 			"project": "Project",
 			"button": {
-	    		"accept": "Favorable proposal",
-	    		"decline": "Unfavorable decision",
-		    	"confirm": "Confirm favorable proposal",
-		    	"cancel": "Cancel favorable decision"
+	    		"accept": "Favorable decision",
+	    		"decline": "Unfavorable decision"
 	    	}
 	    }
 	}

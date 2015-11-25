@@ -78,7 +78,7 @@ public class ApplicationService {
 		
 		// Get identity and address from user infos if different of last application
 		User currentUser = userService.getUser();
-		application.setUserId(currentUser.getId()); // This is ugly for now (we don't need a user id reference in the application)
+		application.setUserId(currentUser.getId()); // Utilisé temporairement pour simuler un numéro étranger de l'usager (et non pas pour faire un lien entre 2 documents)
 		if(!lastApplication.isPresent() || ! lastApplication.get().getIdentity().equals(currentUser.getIdentity())) {
 			application.setIdentity(currentUser.getIdentity());
 		}

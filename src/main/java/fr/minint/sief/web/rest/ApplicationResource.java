@@ -414,13 +414,9 @@ public class ApplicationResource {
 		return Optional.ofNullable(applicationRepository.findOne(id))
 				.map(application -> {
 					DateTime now = DateTime.now();
-					if(application.getNature() == naturalisation && application.getStatut() == identity_verified) {
-						application.setStatut(favorable_proposal);
-						application.getProject().setValidateOn(now);
-					} else {
-						application.setStatut(validated);
-						application.setDecisionDate(now);
-					}
+					application.getProject().setValidateOn(now);
+					application.setDecisionDate(now);
+					application.setStatut(validated);
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));
 					// Send more emails to have to be send by batch in reality
