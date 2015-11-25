@@ -9,30 +9,36 @@
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.rdv.text(${rdvDate}, ${rdvHour})}">
-            rdv
+        <p th:text="#{email.rdv.confirmed(${rdvDate}, ${rdvHour})}">
+            rdv confirmed
         </p>
         <p>
-            <span th:text="#{email.rdv.ambassy}">ambassy</span>
+            <span th:text="#{${emailRdvName}}">name</span>
             <br/>
-            <span th:text="#{email.rdv.street}">street</span>
+            <span th:text="#{${emailRdvStreet}}">street</span>
             <br/>
-            <span th:text="#{email.rdv.complement}">complement</span>
+            <span th:text="#{${emailRdvCity}}">city</span>
             <br/>
-            <span th:text="#{email.rdv.city}">city</span>
+            <span th:text="#{${emailRdvPhone}}">phone</span>
             <br/>
-            <span th:text="#{email.rdv.phone}">phone</span>
-            <br/>
-            <span th:text="#{email.rdv.access}">access</span>
-            <br/>
+        </p>
+        <p th:text="#{email.rdv.delay}">
+        	rdv modifiable
+        </p>
+        <p th:text="#{email.rdv.modifiable}">
+        	rdv modifiable
+        </p>
+        <p>
+            <a th:href="@{|${baseUrl}/#/${applicationId}/rdv|}"
+               th:text="#{email.rdv.link}">rdv</a>
         </p>
         <br/>
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

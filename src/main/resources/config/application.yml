@@ -21,7 +21,7 @@ mail:
     protocol: smtp
     tls: true
     auth: true
-    from: sejour.sief@gmail.com
+    from: portail@sief.fr
 
 swagger:
     title: sejour API

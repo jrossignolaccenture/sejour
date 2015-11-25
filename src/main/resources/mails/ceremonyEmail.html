@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="#{email.admissibility.title}">admissibility</title>
+        <title th:text="#{email.ceremony.title}">permit</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <p th:text="#{email.admissibility.greeting(${user.firstName}, ${user.lastName})}">
+        <p th:text="#{email.ceremony.greeting(${user.firstName}, ${user.lastName})}">
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.admissibility.ok.renewal}">
-            admissibility success
+        <p th:text="#{email.ceremony.dispo(${ceremonyDate}, ${ceremonyHour})}">
+            permit success
+        </p>
+        <p th:text="#{email.ceremony.address}">
+            address
+        </p>
+        <p th:text="#{email.ceremony.act}">
+            act
         </p>
         <br/>
         <p>

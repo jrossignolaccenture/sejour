@@ -9,19 +9,21 @@
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.payment.done(${paymentDate}, ${paymentHour})}">
+        <p th:text="#{${emailPaymentDone}(${applicationId}, ${paymentDate}, ${paymentHour})}">
             payment
         </p>
         <p>
-            <span th:text="#{email.payment.next}">next</span>
+            <span th:text="#{email.payment.admissible}">admissible</span>
+            <br/>
+            <span th:text="#{email.payment.inadmissible}">inadmissible</span>
         </p>
         <br/>
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

@@ -9,11 +9,10 @@
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.arrival.text1}">
-            arrival success
-        </p>
-        <p th:text="#{email.arrival.text2}">
-            address
+        <p>
+            <span th:text="#{email.arrival.ok}">arrival success</span>
+            <br/>
+            <span th:text="#{email.arrival.service}">service</span>
         </p>
         <p>
             <a th:href="@{|${baseUrl}/#/account/infos|}"
@@ -23,9 +22,9 @@
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">sejour</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

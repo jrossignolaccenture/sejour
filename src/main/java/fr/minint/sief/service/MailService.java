@@ -23,6 +23,7 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import fr.minint.sief.domain.Application;
 import fr.minint.sief.domain.User;
+import fr.minint.sief.domain.enumeration.ApplicationNature;
 import fr.minint.sief.repository.UserRepository;
 
 /**
@@ -113,6 +114,9 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable("user", application.getIdentity());
         context.setVariable("baseUrl", baseUrl);
+        context.setVariable("applicationId", application.getId());
+        context.setVariable("emailPaymentDone", "email.payment.done."+application.getNature());
+        context.setVariable("emailSignature", "email.signature."+application.getNature());
         context.setVariable("paymentDate", DateTimeFormat.forPattern("dd/MM/yyyy").print(application.getPaymentDate()));
         context.setVariable("paymentHour", DateTimeFormat.forPattern("HH:mm").print(application.getPaymentDate()));
         String content = templateEngine.process("paymentEmail", context);
@@ -128,6 +132,8 @@ public class MailService {
         context.setVariable("user", application.getIdentity());
         context.setVariable("applicationId", application.getId());
         context.setVariable("baseUrl", baseUrl);
+        context.setVariable("emailAdmissibilityOk", "email.admissibility.ok."+application.getNature());
+        context.setVariable("emailSignature", "email.signature."+application.getNature());
         String content = templateEngine.process(application.getType() == renouvellement ? "admissibilityRenewalEmail" : "admissibilityEmail", context);
         String subject = messageSource.getMessage("email.admissibility.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
@@ -142,6 +148,12 @@ public class MailService {
         context.setVariable("baseUrl", baseUrl);
         context.setVariable("rdvDate", DateTimeFormat.forPattern("dd/MM/yyyy").print(application.getRdvDate()));
         context.setVariable("rdvHour", DateTimeFormat.forPattern("HH:mm").print(application.getRdvDate()));
+        context.setVariable("applicationId", application.getId());
+        context.setVariable("emailRdvName", "email.rdv.name."+application.getNature());
+        context.setVariable("emailRdvStreet", "email.rdv.street."+application.getNature());
+        context.setVariable("emailRdvCity", "email.rdv.city."+application.getNature());
+        context.setVariable("emailRdvPhone", "email.rdv.phone."+application.getNature());
+        context.setVariable("emailSignature", "email.signature."+application.getNature());
         String content = templateEngine.process("rdvEmail", context);
         String subject = messageSource.getMessage("email.rdv.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
@@ -154,7 +166,10 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable("user", application.getIdentity());
         context.setVariable("baseUrl", baseUrl);
-        String content = templateEngine.process(application.getType() == renouvellement ? "decisionRenewalEmail" : "decisionEmail", context);
+        context.setVariable("applicationId", application.getId());
+        context.setVariable("emailDecisionOk", "email.decision.ok."+application.getNature());
+        context.setVariable("emailSignature", "email.signature."+application.getNature());
+        String content = templateEngine.process("decisionEmail", context);
         String subject = messageSource.getMessage("email.decision.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
     }
@@ -166,8 +181,24 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable("user", application.getIdentity());
         context.setVariable("baseUrl", baseUrl);
+        context.setVariable("emailSignature", "email.signature."+application.getNature());
         String content = templateEngine.process(application.getType() == renouvellement ? "permitRenewalEmail" : "permitEmail", context);
         String subject = messageSource.getMessage("email.permit.title", null, locale);
+        sendEmail(application.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendCeremonyEmail(Application application, String baseUrl) {
+        log.debug("Sending ceremony e-mail to '{}'", application.getEmail());
+        Locale locale = Locale.forLanguageTag(userRepository.findOneByEmail(application.getEmail()).get().getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", application.getIdentity());
+        context.setVariable("baseUrl", baseUrl);
+        context.setVariable("ceremonyDate", DateTimeFormat.forPattern("dd/MM/yyyy").print(application.getDecisionDate()));
+        context.setVariable("ceremonyHour", DateTimeFormat.forPattern("HH:mm").print(application.getDecisionDate()));
+        context.setVariable("emailSignature", "email.signature."+application.getNature());
+        String content = templateEngine.process("ceremonyEmail", context);
+        String subject = messageSource.getMessage("email.ceremony.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
     }
 
@@ -178,6 +209,7 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable("user", application.getIdentity());
         context.setVariable("baseUrl", baseUrl);
+        context.setVariable("emailSignature", "email.signature."+application.getNature());
         String content = templateEngine.process("arrivalEmail", context);
         String subject = messageSource.getMessage("email.arrival.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
@@ -190,6 +222,7 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable("user", user.getIdentity());
         context.setVariable("baseUrl", baseUrl);
+        context.setVariable("emailSignature", "email.signature." + ApplicationNature.sejour_etudiant);
         String content = templateEngine.process("renewalEmail", context);
         String subject = messageSource.getMessage("email.renewal.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);

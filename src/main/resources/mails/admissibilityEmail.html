@@ -9,10 +9,10 @@
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.admissibility.text1}">
+        <p th:text="#{${emailAdmissibilityOk}(${applicationId})}">
             admissibility success
         </p>
-        <p th:text="#{email.admissibility.text2}">
+        <p th:text="#{email.admissibility.rdv}">
             Get appointment here :
         </p>
         <p>
@@ -23,9 +23,9 @@
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

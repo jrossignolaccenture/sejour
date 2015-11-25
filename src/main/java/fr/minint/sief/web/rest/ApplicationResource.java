@@ -425,6 +425,8 @@ public class ApplicationResource {
 						if(application.getType() == premiere) {
 							mailService.sendArrivalEmail(application, getBaseUrl(request));
 						}
+					} else if(application.getNature() == naturalisation) {
+						mailService.sendCeremonyEmail(application, getBaseUrl(request));
 					}
                     return new ResponseEntity<>(HttpStatus.OK);
 				})

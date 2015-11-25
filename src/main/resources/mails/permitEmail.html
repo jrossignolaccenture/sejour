@@ -9,13 +9,13 @@
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.permit.text1}">
+        <p th:text="#{email.permit.dispo}">
             permit success
         </p>
-        <p th:text="#{email.permit.text2}">
+        <p th:text="#{email.permit.address}">
             address
         </p>
-        <p th:text="#{email.permit.text3}">
+        <p th:text="#{email.permit.arrival}">
             french address
         </p>
         <p>
@@ -26,9 +26,9 @@
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

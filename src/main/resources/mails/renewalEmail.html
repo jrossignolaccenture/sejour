@@ -16,13 +16,16 @@
             <a th:href="@{|${baseUrl}/#/renouveler|}"
                th:text="#{email.renewal.link}">link</a>
         </p>
+        <p th:text="#{email.renewal.end}">
+            end
+        </p>
         <br/>
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

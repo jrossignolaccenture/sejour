@@ -9,16 +9,19 @@
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.decision.text}">
+        <p th:text="#{${emailDecisionOk}(${applicationId})}">
             Decision success
+        </p>
+        <p th:text="#{email.decision.permit}">
+            Decision permit
         </p>
         <br/>
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

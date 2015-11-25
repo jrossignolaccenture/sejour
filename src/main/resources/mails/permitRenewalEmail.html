@@ -9,16 +9,19 @@
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.permit.renewal.text}">
+        <p th:text="#{email.permit.dispo}">
             permit success
+        </p>
+        <p th:text="#{email.permit.address.renewal}">
+            address
         </p>
         <br/>
         <p>
             <span th:text="#{email.regards}">Regards,</span>
             <br/><br/>
-            <em th:text="#{email.signature}">sejour</em>
+            <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <em th:text="#{email.signature.administration}">administration</em>
+            <b><em th:text="#{email.signature.administration}">administration</em></b>
         </p>
     </body>
 </html>

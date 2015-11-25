@@ -120,6 +120,7 @@ angular.module('sejourApp')
             controller: ['$scope', function($scope) {
             	$scope.datePickerOptions = {
         			format: 'DD/MM/YYYY',
+        			minDate: 'moment', 
         			viewMode: 'years', 
         			locale: 'fr',
         			allowInputToggle: true
