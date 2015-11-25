@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('AddressController', function ($scope, $state, $stateParams, Application, currentApplication) {
         
     	$scope.address = currentApplication.address;
+    	$scope.nature = currentApplication.nature; //TODO temporaire pour faire suite à un retour pour la démo (à virer après)
     	
         $scope.contactTypeValues = [ { value: 'email', checked: $scope.address.contactType.indexOf('email') != -1 },
                                      { value: 'sms', checked: $scope.address.contactType.indexOf('sms') != -1 },
