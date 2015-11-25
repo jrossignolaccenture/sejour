@@ -19,19 +19,13 @@ import fr.minint.sief.domain.enumeration.SexType;
  * A DTO for the Identity entity.
  */
 public class IdentityDTO implements Serializable {
-	
-	private Boolean francisation;
 
     @NotNull
     private String lastName;
-    
-    private String lastNameFrancise;
 
     private String usedLastName;
 
     private String firstName;
-
-    private String firstNameFrancise;
 
     @NotNull
     private SexType sex;
@@ -74,14 +68,6 @@ public class IdentityDTO implements Serializable {
 
     private DateTime familyValidateOn;
 
-    public Boolean isFrancisation() {
-		return francisation;
-	}
-
-	public void setFrancisation(Boolean francisation) {
-		this.francisation = francisation;
-	}
-
     public String getLastName() {
         return lastName;
     }
@@ -89,14 +75,6 @@ public class IdentityDTO implements Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public String getLastNameFrancise() {
-		return lastNameFrancise;
-	}
-
-	public void setLastNameFrancise(String lastNameFrancise) {
-		this.lastNameFrancise = lastNameFrancise;
-	}
 
     public String getUsedLastName() {
         return usedLastName;
@@ -113,14 +91,6 @@ public class IdentityDTO implements Serializable {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
-    public String getFirstNameFrancise() {
-		return firstNameFrancise;
-	}
-
-	public void setFirstNameFrancise(String firstNameFrancise) {
-		this.firstNameFrancise = firstNameFrancise;
-	}
 
     public SexType getSex() {
         return sex;
@@ -253,12 +223,9 @@ public class IdentityDTO implements Serializable {
     @Override
     public String toString() {
         return "IdentityDTO{" +
-                "francisation='" + francisation + "'" +
-                ", lastName='" + lastName + "'" +
-                ", lastNameFrancise='" + lastNameFrancise + "'" +
+                "lastName='" + lastName + "'" +
                 ", usedLastName='" + usedLastName + "'" +
                 ", firstName='" + firstName + "'" +
-                ", firstNameFrancise='" + firstNameFrancise + "'" +
                 ", sex='" + sex + "'" +
                 ", birthDate='" + birthDate + "'" +
                 ", birthCity='" + birthCity + "'" +

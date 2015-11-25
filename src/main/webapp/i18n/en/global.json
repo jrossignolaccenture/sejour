@@ -52,6 +52,7 @@
         	"start": "Start",
         	"continue": "Continue",
         	"back": "Back",
+	    	"report": "Report a change",
         	"validate": "Validate my application",
         	"payment": "Confirm payment",
         	"end": "End"

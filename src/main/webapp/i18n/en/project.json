@@ -18,6 +18,13 @@
             "inscriptionCertificate.placeholder": "Click or drag your certificate here...",
             "inscriptionCertificate.tooltip": "Thank you to attach proof of registration or pre- registration with an educational institution",
             
+            "francisation.title": "Francisation",
+			"francisation": "Francisation needed for last name and/or first name",
+			"francisation.true": "Yes",
+			"francisation.false": "No",
+            "lastNameFrancise": "Francise Last Name",
+            "firstNameFrancise": "Francise First Name",
+            
             "resources": {
             	"title": "Profesional situation",
             	"yes": "I authorize the administration of foreigners in France to get my supporting resource directly from URSSAF. I have then no supporting piece to attach to my request.",

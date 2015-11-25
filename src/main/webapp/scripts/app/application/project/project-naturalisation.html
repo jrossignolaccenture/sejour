@@ -21,6 +21,36 @@
 		<br>
 		<div class="row">
 		    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-2 form-title-text title-underline">
+				<h4 translate="project.form.francisation.title">Francisation</h4>
+		    </div>
+		</div>
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+			    <div class="form-group">
+			        <label translate="project.form.francisation" for="field_francisation">Francisation</label>
+			        <div>
+				        <label class="radio-inline"><input type="radio" id="field_francisation" name="francisation_{{$id}}" ng-model="project.francisation" ng-value="true" required>{{'project.form.francisation.true' | translate}}</label>
+						<label class="radio-inline"><input type="radio" id="field_francisation" name="francisation_{{$id}}" ng-model="project.francisation" ng-value="false" ng-click="resetFrancisation()" required>{{'project.form.francisation.false' | translate}}</label>
+			        </div>
+			    </div>
+			    <div class="form-group" ng-if="project.francisation">
+			        <label translate="project.form.lastNameFrancise" for="field_lastNameFrancise">LastNameFrancise</label>
+			        <input type="text" class="form-control" name="lastNameFrancise" id="field_lastNameFrancise" ng-model="project.lastNameFrancise" required>
+			        <div ng-show="projectForm.lastNameFrancise.$dirty && projectForm.lastNameFrancise.$invalid">
+			            <p class="help-block" ng-show="projectForm.lastNameFrancise.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+			    </div>
+			    <div class="form-group" ng-if="project.francisation">
+			        <label translate="project.form.firstNameFrancise" for="field_firstNameFrancise">FirstNameFrancise</label>
+			        <input type="text" class="form-control" name="firstNameFrancise" id="field_firstNameFrancise" ng-model="project.firstNameFrancise" >
+			    </div>
+		    </div>
+		</div>
+		<br/>
+		<div class="row">
+		    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-2 form-title-text title-underline">
 				<h4 translate="project.form.resources.title">Resources</h4>
 		    </div>
 		</div>

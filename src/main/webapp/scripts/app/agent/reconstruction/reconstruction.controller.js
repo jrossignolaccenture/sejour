@@ -8,9 +8,9 @@ angular.module('sejourApp')
 
         //TODO Ecran en mode POC total donc tout est à revoir évidemment...
         $scope.collectedIdentity = {
-        	lastName: currentApplication.identity.francisation ? currentApplication.identity.lastNameFrancise : currentApplication.identity.lastName,
+        	lastName: currentApplication.project.francisation ? currentApplication.project.lastNameFrancise : currentApplication.identity.lastName,
         	usedLastName: currentApplication.identity.usedLastName,
-        	firstName: currentApplication.identity.francisation ? currentApplication.identity.firstNameFrancise : currentApplication.identity.firstName,
+        	firstName: currentApplication.project.francisation ? currentApplication.project.firstNameFrancise : currentApplication.identity.firstName,
         	sex: currentApplication.identity.sex,
         	birthDate: currentApplication.identity.birthDate,
         	birthCity: currentApplication.identity.birthCity,

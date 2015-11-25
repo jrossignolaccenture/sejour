@@ -40,12 +40,6 @@ angular.module('sejourApp')
             	withTooltip: "="
             },
             templateUrl: 'scripts/app/application/identity/identity-light.html',
-            controller: ['$scope', function($scope) {
-            	$scope.resetFrancisation = function() {
-            		$scope.identity.lastNameFrancise = null;
-            		$scope.identity.firstNameFrancise = null;
-            	}
-            }],
             link: function postLink(scope, iElement, iAttrs, ctrl) {
             	$('[id=field_lastName]').popover(scope.withTooltip === true ? undefined : 'disable');
             }

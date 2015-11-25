@@ -1,8 +1,25 @@
 <div ng-cloak>
-	<div ng-if="!project.detailMode" ng-init="panelResourceOpen = true;  panelTaxOpen = true">
+	<div ng-if="!project.detailMode" ng-init="panelFrancisationOpen = true; panelResourceOpen = true;  panelTaxOpen = true;">
+		<div class="collapsable-panel" id="panelFrancisation" ng-class="{'opened': panelFrancisationOpen}" ng-click="panelFrancisationOpen = !panelFrancisationOpen">
+			<div class="panel-heading">
+				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelFrancisationOpen, 'glyphicon-triangle-bottom': !panelFrancisationOpen}"></span>
+				<h5 class="panel-title" translate="project.form.francisation.title">Resources</h5>
+			</div>
+		</div>
+		<div ng-if="panelFrancisationOpen" style="margin-left: 25px">
+			<div class="form-group">
+		        <label translate="project.form.francisation">Francisation</label> : <span>{{::'project.form.francisation.' + project.francisation | translate}}</span>
+		    </div>
+		    <div class="form-group" ng-if="project.francisation">
+		        <label translate="project.form.lastNameFrancise">LastNameFrancise</label> : <span>{{::project.lastNameFrancise}}</span>
+		    </div>
+		    <div class="form-group" ng-if="project.francisation">
+		        <label translate="project.form.firstNameFrancise">FirstNameFrancise</label> : <span>{{::project.firstNameFrancise}}</span>
+		    </div>
+		</div>
 		<div class="collapsable-panel" id="panelResource" ng-class="{'opened': panelResourceOpen}" ng-click="panelResourceOpen = !panelResourceOpen">
 			<div class="panel-heading">
-				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelResourceOpen, 'glyphicon-triangle-bottom': panelResourceOpen}"></span>
+				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelResourceOpen, 'glyphicon-triangle-bottom': !panelResourceOpen}"></span>
 				<h5 class="panel-title" translate="project.form.resources.title">Resources</h5>
 			</div>
 		</div>
@@ -14,7 +31,7 @@
 		
 		<div class="collapsable-panel" id="panelTax" ng-class="{'opened': panelTaxOpen}" ng-click="panelTaxOpen = !panelTaxOpen">
 			<div class="panel-heading">
-				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelTaxOpen, 'glyphicon-triangle-bottom': panelTaxOpen}"></span>
+				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelTaxOpen, 'glyphicon-triangle-bottom': !panelTaxOpen}"></span>
 				<h5 class="panel-title" translate="project.form.taxSituation.title">Resources</h5>
 			</div>
 		</div>

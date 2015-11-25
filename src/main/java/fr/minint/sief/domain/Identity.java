@@ -26,25 +26,16 @@ import fr.minint.sief.domain.util.CustomDateTimeSerializer;
  * A Identity.
  */
 public class Identity implements Serializable {
-	
-	@Field("francisation")
-	private Boolean francisation;
 
     @NotNull        
     @Field("last_name")
     private String lastName;
-
-    @Field("last_name_francise")
-    private String lastNameFrancise;
     
     @Field("used_last_name")
     private String usedLastName;
     
     @Field("first_name")
     private String firstName;
-    
-    @Field("first_name_francise")
-    private String firstNameFrancise;
 
     @NotNull        
     @Field("sex")
@@ -108,14 +99,6 @@ public class Identity implements Serializable {
     @Field("family_validate_on")
     private DateTime familyValidateOn;
 
-    public Boolean isFrancisation() {
-		return francisation;
-	}
-
-	public void setFrancisation(Boolean francisation) {
-		this.francisation = francisation;
-	}
-
 	public String getLastName() {
         return lastName;
     }
@@ -123,14 +106,6 @@ public class Identity implements Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public String getLastNameFrancise() {
-		return lastNameFrancise;
-	}
-
-	public void setLastNameFrancise(String lastNameFrancise) {
-		this.lastNameFrancise = lastNameFrancise;
-	}
 
 	public String getUsedLastName() {
         return usedLastName;
@@ -147,14 +122,6 @@ public class Identity implements Serializable {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
-    public String getFirstNameFrancise() {
-		return firstNameFrancise;
-	}
-
-	public void setFirstNameFrancise(String firstNameFrancise) {
-		this.firstNameFrancise = firstNameFrancise;
-	}
 
 	public SexType getSex() {
         return sex;
@@ -296,10 +263,8 @@ public class Identity implements Serializable {
         Identity identity = (Identity) o;
 
         if ( !Objects.equals(lastName, identity.lastName)
-        		|| !Objects.equals(lastNameFrancise, identity.lastNameFrancise)
         		|| !Objects.equals(usedLastName, identity.usedLastName)
         		|| !Objects.equals(firstName, identity.firstName)
-        		|| !Objects.equals(firstNameFrancise, identity.firstNameFrancise)
         		|| !Objects.equals(sex, identity.sex)
         		|| !Objects.equals(birthDate, identity.birthDate)
         		|| !Objects.equals(birthCity, identity.birthCity)
@@ -321,10 +286,8 @@ public class Identity implements Serializable {
     	final int prime = 31;
     	int result = 17;
     	result = prime * result + Objects.hashCode(lastName);
-    	result = prime * result + Objects.hashCode(lastNameFrancise);
     	result = prime * result + Objects.hashCode(usedLastName);
     	result = prime * result + Objects.hashCode(firstName);
-    	result = prime * result + Objects.hashCode(firstNameFrancise);
     	result = prime * result + Objects.hashCode(sex);
     	result = prime * result + Objects.hashCode(birthDate);
     	result = prime * result + Objects.hashCode(birthCity);
@@ -343,12 +306,9 @@ public class Identity implements Serializable {
     @Override
     public String toString() {
         return "Identity{" +
-                "francisation='" + francisation + "'" +
-                ", lastName='" + lastName + "'" +
-                ", lastNameFrancise='" + lastNameFrancise + "'" +
+                "lastName='" + lastName + "'" +
                 ", usedLastName='" + usedLastName + "'" +
                 ", firstName='" + firstName + "'" +
-                ", firstNameFrancise='" + firstNameFrancise + "'" +
                 ", sex='" + sex + "'" +
                 ", birthDate='" + birthDate + "'" +
                 ", birthCity='" + birthCity + "'" +

@@ -90,6 +90,7 @@
 		<br>
 	    <div class="row row-center">
         	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+       		<button ng-if="nature === 'naturalisation'" type="button" class="btn btn-danger btn-right" translate="global.button.report">Report</button>
         	<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"
         			 ng-disabled="addressForm.$invalid || addressForm.$submitted">Continue</button>
         </div>

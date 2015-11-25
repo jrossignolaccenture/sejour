@@ -90,10 +90,10 @@ public class ApplicationService {
 		
 		if (nature == sejour_etudiant) {
 			updateWithCampusInfos(application);
-			application.getIdentity().setFrancisation(null);
+			application.getProject().setFrancisation(null);
 		} else if (nature == naturalisation) {
 			// TODO pas la meilleure manière de gérer l'affichage de la francisation...
-			application.getIdentity().setFrancisation(FALSE);
+			application.getProject().setFrancisation(FALSE);
 		}
 		
 		application = applicationRepository.save(application);

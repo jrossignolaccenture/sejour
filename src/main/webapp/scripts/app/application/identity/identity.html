@@ -131,7 +131,8 @@
 		</div>
 		<br>
 	    <div class="row row-center">
-       		<button type="submit" class="btn btn-primary" translate="global.button.continue"
+       		<button ng-if="nature === 'naturalisation'" type="button" class="btn btn-danger" translate="global.button.report">Report</button>
+       		<button type="submit" class="btn btn-primary" ng-class="{'btn-right': nature === 'naturalisation'}" translate="global.button.continue"
        				 ng-disabled="identityForm.$invalid || identityForm.$submitted">Continue</button>
         </div>
 	</form>

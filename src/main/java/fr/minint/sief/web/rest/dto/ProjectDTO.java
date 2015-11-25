@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import javax.validation.constraints.NotNull;
-
 import org.joda.time.DateTime;
 
 import fr.minint.sief.domain.enumeration.ResourceType;
@@ -16,29 +14,27 @@ import fr.minint.sief.domain.enumeration.ResourceType;
  */
 public class ProjectDTO implements Serializable {
 
-    @NotNull
     private DateTime comingDate;
 
-    @NotNull
     private String university;
 
-    @NotNull
     private String training;
 
-    @NotNull
     private DateTime trainingStart;
 
-    @NotNull
     private Integer trainingLength;
 
-    @NotNull
     private ResourceType resourceType;
 
-    @NotNull
     private Integer resourceAmount;
 
-    @NotNull
     private List<DocumentDTO> documents = new ArrayList<>();
+    
+    private Boolean francisation;
+    
+    private String lastNameFrancise;
+    
+    private String firstNameFrancise;
     
     private Boolean resourcesSearchAuthorized;
     
@@ -112,6 +108,30 @@ public class ProjectDTO implements Serializable {
 		this.documents = documents;
 	}
 
+    public Boolean isFrancisation() {
+		return francisation;
+	}
+
+	public void setFrancisation(Boolean francisation) {
+		this.francisation = francisation;
+	}
+
+    public String getLastNameFrancise() {
+		return lastNameFrancise;
+	}
+
+	public void setLastNameFrancise(String lastNameFrancise) {
+		this.lastNameFrancise = lastNameFrancise;
+	}
+
+    public String getFirstNameFrancise() {
+		return firstNameFrancise;
+	}
+
+	public void setFirstNameFrancise(String firstNameFrancise) {
+		this.firstNameFrancise = firstNameFrancise;
+	}
+
     public Boolean isResourcesSearchAuthorized() {
 		return resourcesSearchAuthorized;
 	}
@@ -183,6 +203,9 @@ public class ProjectDTO implements Serializable {
                 ", resourceType='" + resourceType + "'" +
                 ", resourceAmount='" + resourceAmount + "'" +
                 ", documents='" + documents + "'" +
+                ", francisation='" + francisation + "'" +
+                ", lastNameFrancise='" + lastNameFrancise + "'" +
+                ", firstNameFrancise='" + firstNameFrancise + "'" +
                 ", resourcesSearchAuthorized='" + resourcesSearchAuthorized + "'" +
                 ", taxSituationSearchAuthorized='" + taxSituationSearchAuthorized + "'" +
                 ", admissible='" + admissible + '\'' +

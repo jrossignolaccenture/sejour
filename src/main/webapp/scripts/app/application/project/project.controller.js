@@ -9,6 +9,11 @@ angular.module('sejourApp')
 
         $scope.project = currentApplication.project;
 
+        $scope.resetFrancisation = function() {
+        	$scope.project.lastNameFrancise = null;
+        	$scope.project.firstNameFrancise = null;
+    	};
+        
         $scope.back = function () {
         	$state.go('address', $stateParams);
         };

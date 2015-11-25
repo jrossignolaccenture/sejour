@@ -52,6 +52,7 @@
         	"start": "Démarrer",
         	"continue": "Continuer",
         	"back": "Retour",
+	    	"report": "Signaler un changement",
         	"validate": "Valider ma demande",
         	"payment": "Valider le paiement",
         	"end": "Terminer"

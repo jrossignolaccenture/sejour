@@ -17,6 +17,13 @@
             "inscriptionCertificate.placeholder": "Cliquer ou déposer votre certificat ici...",
             "inscriptionCertificate.tooltip": "Merci de joindre un justificatif d'inscription ou de pré-inscription auprès d'un établissement d'enseignement",
             
+            "francisation.title": "Francisation",
+			"francisation": "Francisation souhaitée du nom et/ou du prénom",
+			"francisation.true": "Oui",
+			"francisation.false": "Non",
+            "lastNameFrancise": "Nom francisé",
+            "firstNameFrancise": "Prénom(s) francisé(s)",
+            
             "resources": {
             	"title": "Ressources et activité professionnelle",
             	"yes": "J'autorise l'administration des étrangers en France à récupérer mes données directement auprès de l'administration compétente. Je n'ai alors pas de pièce justificatives à joindre à ma demande (les données échangées sont les suivantes : contrat de travail en cours, certificats de travail sur les trois dernières années, trois derniers bulletins de salaire).",

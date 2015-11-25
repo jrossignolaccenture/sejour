@@ -8,17 +8,6 @@
     <div class="form-group">
         <label translate="identity.form.firstName">FirstName</label> : <span>{{::identity.firstName}}</span>
     </div>
-    <div ng-if="identity.francisation != undefined">
-	    <div class="form-group">
-	        <label translate="identity.form.francisation">Francisation</label> : <span>{{::'identity.form.francisation.' + identity.francisation | translate}}</span>
-	    </div>
-	    <div class="form-group" ng-if="identity.francisation">
-	        <label translate="identity.form.lastNameFrancise">LastNameFrancise</label> : <span>{{::identity.lastNameFrancise}}</span>
-	    </div>
-	    <div class="form-group" ng-if="identity.francisation">
-	        <label translate="identity.form.firstNameFrancise">FirstNameFrancise</label> : <span>{{::identity.firstNameFrancise}}</span>
-	    </div>
-	</div>
     <div class="form-group">
         <label translate="identity.form.sex">Sex</label> : <span>{{::'sejourApp.SexType.' + identity.sex | translate}}</span>
     </div>
