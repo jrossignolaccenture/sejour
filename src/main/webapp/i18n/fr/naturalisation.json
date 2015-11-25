@@ -13,11 +13,11 @@
         },
         "project": {
         	"step.short": "Projet",
-        	"step.long": "Complétez les détails de votre projet de naturalisation"
+        	"step.long": "Complétez les détails de votre projet"
         },
         "summary": {
         	"step.short": "Récapitulatif",
-        	"step.long": "Vérifiez le récapitulatif de votre demande"
+        	"step.long": "Vérifiez les informations de votre demande"
         },
         "payment": {
         	"step.short": "Paiement",

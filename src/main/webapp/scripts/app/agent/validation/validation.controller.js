@@ -20,10 +20,6 @@ angular.module('sejourApp')
 	        }
         }
 
-    	$scope.getFormattedDate = function(date) {
-    		return moment(date).format("DD/MM/YYYY");
-    	}
-
         // TODO date temporaire pour gérer toutes les dates de l'écran de validation de naturalisation (demo only)
         $scope.tempDate = {date: $scope.getFormattedDate(moment())};
         
@@ -39,7 +35,6 @@ angular.module('sejourApp')
     	$scope.history = [];
 		Application.getByStatus(['validated'], currentApplication.email).then(function(validatedApplications) {
 			validatedApplications.forEach(function(validatedApplication) {
-				console.log(validatedApplication.project.trainingStart);
 				$scope.history.push({
 					nature: validatedApplication.nature,
 					startDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart)),
