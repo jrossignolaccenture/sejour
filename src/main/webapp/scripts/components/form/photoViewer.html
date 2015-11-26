@@ -1,17 +1,17 @@
 <div class="panel panel-default" ng-if="documents.length > 0">
 	<div class="panel-heading" style="text-align: center">
-		<span class="glyphicon glyphicon-arrow-right hand pull-right" ng-show="documents.length > 1" ng-click="nextPhoto(true)"></span>
-		<span class="glyphicon glyphicon-arrow-left hand pull-left" ng-show="documents.length > 1" ng-click="nextPhoto(false)"></span>
+		<span class="glyphicon glyphicon-chevron-right hand pull-right" ng-if="documents.length > 1" ng-click="previousPhoto()"></span>
+		<span class="glyphicon glyphicon-chevron-left hand pull-left" ng-if="documents.length > 1" ng-click="nextPhoto()"></span>
 		<span translate="sejourApp.DocumentType.{{documents[currentIndex].type}}"></span><span> ({{currentIndex + 1}}/{{documents.length}})</span>
 	</div>
 		
 	<div class="panel-body">
 		<div class="photo-viewer-zoom-logo">
-			<div ng-click="zoomButtonClick(false)">
-				<span id="zoomInButton{{::documents[0].id}}" class="fa fa-search-plus"></span>
+			<div>
+				<a id="zoomInButton{{::documents[0].id}}" class="fa fa-search-plus"></a>
 			</div>
-			<div ng-click="zoomButtonClick(true)">
-			    <span id="zoomOutButton{{::documents[0].id}}" class="fa fa-search-minus"></span>
+			<div>
+			    <a id="zoomOutButton{{::documents[0].id}}" class="fa fa-search-minus"></a>
 			</div>
 		</div>
 		<div>

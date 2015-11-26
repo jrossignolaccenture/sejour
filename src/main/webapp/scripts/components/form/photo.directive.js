@@ -26,23 +26,18 @@ angular.module('sejourApp')
             	$scope.refresh();
             }],
             link: function(scope, element, attrs) {
-            	scope.zoomButtonClick = function(zoomOut) {
-             	   var scaleToAdd = 0.4;
-             	   if(zoomOut)
-             	      scaleToAdd = -scaleToAdd;
-             	   $("#img"+scope.documents[0].id).smartZoom("zoom", scaleToAdd);
-             	}
+            	scope.previousPhoto = function() {
+            		scope.currentIndex = scope.currentIndex == scope.documents.length - 1 ? 0 : scope.currentIndex+1;
+               		$("#img"+scope.documents[0].id).panzoom('reset');
+            	}
             	scope.nextPhoto = function(previous) {
-            		if(previous) {
-            			scope.currentIndex = scope.currentIndex == scope.documents.length - 1 ? 0 : scope.currentIndex+1;
-            		} else {
-            			scope.currentIndex = scope.currentIndex == 0 ? scope.documents.length - 1 : scope.currentIndex-1;
-            		}
-            		$("#img"+scope.documents[0].id).smartZoom("zoom", -3);
+            		scope.currentIndex = scope.currentIndex == 0 ? scope.documents.length - 1 : scope.currentIndex-1;
+               		$("#img"+scope.documents[0].id).panzoom('reset');
             	}
                 scope.$watch("model",function(newValue,oldValue) {
                 	if(oldValue != newValue) {
                 		$timeout(function() {
+                			$("#img"+scope.documents[0].id).panzoom('reset');
 	                		scope.model = newValue;
 	                		scope.refresh();
                 		});
@@ -50,10 +45,15 @@ angular.module('sejourApp')
                 });
                 if(scope.documents.length > 0) {
                 	$timeout(function() {
-	                	$("#img"+scope.documents[0].id).smartZoom({
-	                		'scrollEnabled': false,
-	                		'dblClickEnabled' : false
-	                	});
+                		$("#img"+scope.documents[0].id).panzoom({
+                			eventNamespace: ".panzoom"+scope.documents[0].id,
+                			$zoomIn: $("#zoomInButton"+scope.documents[0].id),
+                			$zoomOut: $("#zoomOutButton"+scope.documents[0].id),
+                			minScale: 1,
+                			maxScale: 3,
+                			increment: 0.5,
+                			duration: 500
+                		});
                 	});
 	            }
              }

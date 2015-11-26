@@ -415,10 +415,14 @@ ul#strengthBar {
 .photo-viewer-zoom-logo div:hover {
 	opacity: 0.8;
 }
-.photo-viewer-zoom-logo span {
+.photo-viewer-zoom-logo a {
+	color: black;
 	margin-top: 3px;
 	margin-left: 1px;
 	font-size: 20px;
+}
+.photo-viewer-zoom-logo a:hover {
+	text-decoration: none;
 }
 .photo-viewer-img {
 	height: 300px;
