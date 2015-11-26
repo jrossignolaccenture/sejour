@@ -11,13 +11,6 @@ angular.module('sejourApp')
         $scope.identity = currentApplication.identity;
         $scope.address = currentApplication.address;
         $scope.project = currentApplication.project;
-    	
-    	$scope.updatePanelOpen = function (view) {
-    		$scope.panelOpen = $scope.panelOpen===view ? '' : view;
-    		$timeout(function() {
-    			$('html, body').animate({ scrollTop: $("#Panel"+view).offset().top }, "slow");
-    	    }, 50);
-    	}
 
         $scope.back = function () {
         	var stateToGo = currentApplication.statut === 'draft' ? 'project' : 'account/application';

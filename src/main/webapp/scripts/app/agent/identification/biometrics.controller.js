@@ -7,11 +7,8 @@ angular.module('sejourApp')
     	$scope.application = currentApplication;
     	
     	$scope.photoValidated = false;
-    	$scope.photoOpened = true;
     	$scope.fingerprintsValidated = false;
-    	$scope.fingerprintsOpened = true;
     	$scope.signatureValidated = false;
-    	$scope.signatureOpened = true;
     	
     	$scope.photoButtonText = $translate.instant('identification.biometrics.button.photo');
     	$scope.signature = "assets/fileUpload/signature_kim.soon.jeen@gmail.com.png";

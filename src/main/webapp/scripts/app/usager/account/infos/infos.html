@@ -12,15 +12,15 @@
 	<form name="infosForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
 		<div class="row">
 			<div class="col-sm-11 col-sm-offset-1">
-				<div class="collapsable-panel" ng-class="{'opened': identityOpened}" ng-click="identityOpened = !identityOpened">
+				<div class="collapsable-panel" data-toggle="collapse" data-target="#panelIdentity">
 					<div class="panel-heading">
-						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': identityOpened, 'glyphicon-triangle-bottom': !identityOpened}"></span>
+						<span class="glyphicon glyphicon-triangle-bottom"></span>
 						<h5 class="panel-title" translate="infos.form.identity">Personal</h5>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row" ng-show="identityOpened">
+		<div id="panelIdentity" class="row collapse">
 			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
 				<div class="form-group">
 		            <label translate="infos.form.id" for="field_id">Id</label>
@@ -130,15 +130,15 @@
 		
 		<div class="row">
 			<div class="col-sm-11 col-sm-offset-1">
-				<div class="collapsable-panel" ng-class="{'opened': addressOpened}" ng-click="addressOpened = !addressOpened">
+				<div class="collapsable-panel" data-toggle="collapse" data-target="#panelAddress">
 					<div class="panel-heading">
-						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': addressOpened, 'glyphicon-triangle-bottom': !addressOpened}"></span>
+						<span class="glyphicon glyphicon-triangle-bottom"></span>
 						<h5 class="panel-title" translate="infos.form.address">Address</h5>
 					</div>
 				</div>
 			</div>
 		</div>
-	    <div class="row" ng-show="addressOpened">
+	    <div id="panelAddress" class="row collapse">
 			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
 		        <div class="form-group">
 		            <label translate="address.form.comingDate" for="field_comingDate">ComingDate</label>

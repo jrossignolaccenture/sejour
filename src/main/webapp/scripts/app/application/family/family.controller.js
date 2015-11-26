@@ -7,13 +7,6 @@ angular.module('sejourApp')
     	if(!$scope.parents || $scope.parents.length == 0) {
     		$scope.parents = [{identity: {documents: []}, address: {}}, {identity: {documents: []}, address: {}}];
     	}
-    	
-    	$scope.updatePanelOpen = function (view) {
-    		$scope.panelOpen = $scope.panelOpen===view ? '' : view;
-    		$timeout(function() {
-    			$('html, body').animate({ scrollTop: $("#Panel"+view).offset().top }, "slow");
-    	    }, 50);
-    	}
 
         $scope.back = function () {
         	$state.go('identity', $stateParams);

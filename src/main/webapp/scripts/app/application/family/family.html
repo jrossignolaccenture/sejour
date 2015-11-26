@@ -21,15 +21,15 @@
 		<div ng-repeat="parent in parents">
 			<div class="row">
 				<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-2">
-					<div class="collapsable-panel" id="Panel{{::$index}}" ng-class="{'opened': panelOpen===$index}" ng-click="updatePanelOpen($index)">
+					<div class="collapsable-panel" data-toggle="collapse" data-target="#panelFamily{{::$index}}" ng-click="$parent.currentIndex == $index ? $parent.currentIndex = null : $parent.currentIndex = $index">
 						<div class="panel-heading">
-							<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen===$index, 'glyphicon-triangle-bottom': panelOpen!==$index}"></span>
+							<span class="glyphicon glyphicon-triangle-bottom"></span>
 							<h5 class="panel-title" translate="sejourApp.PersonType.parents" translate-values="{ index: '{{$index+1}}'}">Parent</h5>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row" ng-show="panelOpen===$index">
+			<div id="panelFamily{{::$index}}" class="collapse" ng-class="{'in': $parent.currentIndex == $index}">
 				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
 					<identity-form-light ng-model="parent.identity"></identity-form-light>
 					<address-form-light ng-model="parent.address"></address-form-light>
@@ -51,9 +51,11 @@
 		
 		<br>
 	    <div class="row row-center">
-        	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
-       		<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"
-       				 ng-disabled="identityForm.$invalid || identityForm.$submitted">Continue</button>
+	    	<div class="col-sm-12">
+	        	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
+	       		<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"
+	       				 ng-disabled="identityForm.$invalid || identityForm.$submitted">Continue</button>
+       		</div>
         </div>
 	</form>
 </div>

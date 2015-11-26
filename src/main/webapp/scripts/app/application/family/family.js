@@ -30,28 +30,4 @@ angular.module('sejourApp')
                     }]
                 }
             });
-    })
-    .directive('familyView', function() {
-        return {
-            restrict: 'E',
-            required: '^ngModel',
-            scope: {
-            	identity: "=ngModel"
-            },
-            templateUrl: 'scripts/app/application/family/family-view.html',
-            controller: ['$rootScope', '$scope', '$timeout', function($rootScope, $scope, $timeout) {
-            	
-            	$scope.parents = $scope.identity.family['parents'];
-            	$scope.currentDocuments = $scope.parents[0].identity.documents;
-            	$scope.panelOpen = 0;
-            	
-            	$scope.updatePanelOpen = function (index) {
-            		$scope.currentDocuments = $scope.panelOpen===index ? [] : $scope.parents[index].identity.documents;
-            		$scope.panelOpen = $scope.panelOpen===index ? '' : index;
-            		$timeout(function() {
-            			$('html, body').animate({ scrollTop: $("#Panel"+index).offset().top }, "slow");
-            	    }, 50);
-            	}
-            }]
-        };
     });

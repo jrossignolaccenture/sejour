@@ -47,7 +47,7 @@
 		<div id="panelFamily" class="row collapse" ng-class="{'in': !family.validateOn}">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="row validation-visualization-row opened">
-					<family-view ng-model="identity"></family-view>
+					<ng-include src="'scripts/app/application/family/family-view.html'"></ng-include>
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@ angular.module('sejourApp')
     	$scope.panels = {};
     	currentApplication.identity.documents.forEach(function(document) {
     		if(!document.validation) {
-    			$scope.panels[document.type] = {documentType: document.type, documents: currentApplication.identity.documents, opened: true};
+    			$scope.panels[document.type] = {documentType: document.type, documents: currentApplication.identity.documents};
     			$scope.docToValidate++;
     		}
     	});
@@ -22,7 +22,7 @@ angular.module('sejourApp')
 	    	for(var i=0; i<person.length; i++) {
 	    		person[i].identity.documents.forEach(function(document) {
 	        		if(!document.validation) {
-	        			$scope.panels[personType + i] = {documentType: document.type, documents: person[i].identity.documents, personType: personType, index: i+1, opened: true};
+	        			$scope.panels[personType + i] = {documentType: document.type, documents: person[i].identity.documents, personType: personType, index: i+1};
 	        			$scope.docToValidate++;
 	        		}
 	        	});
@@ -33,7 +33,6 @@ angular.module('sejourApp')
     		panel.validated === false ? $scope.docError-- : validated ? null : $scope.docError++;
     		panel.validated === true ? $scope.docToValidate++ : validated ? $scope.docToValidate-- : null;
     		
-    		panel.opened = validated ? false : panel.opened;
     		panel.validated = panel.validated === validated ? null : validated;
     	}
         

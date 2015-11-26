@@ -30,15 +30,15 @@
     <!-- IDENTITY -->
 	<div class="row">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="collapsable-panel" id="PanelIdentity" ng-class="{'opened': panelOpen==='Identity'}" ng-click="updatePanelOpen('Identity')">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelIdentity">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Identity', 'glyphicon-triangle-bottom': panelOpen!=='Identity'}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="summary.form.identity">Identity</h5>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-if="panelOpen==='Identity'">
+	<div id="panelIdentity" class="row collapse">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
@@ -49,18 +49,18 @@
 	<div ng-if="displayFamily">
 		<div class="row">
 			<div class="col-sm-11 col-sm-offset-1">
-				<div class="collapsable-panel" id="PanelFamily" ng-class="{'opened': panelOpen==='Family'}" ng-click="updatePanelOpen('Family')">
+				<div class="collapsable-panel" data-toggle="collapse" data-target="#panelFamily">
 					<div class="panel-heading">
-						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Family', 'glyphicon-triangle-bottom': panelOpen!=='Family'}"></span>
+						<span class="glyphicon glyphicon-triangle-bottom"></span>
 						<h5 class="panel-title" translate="summary.form.family">Family</h5>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row" ng-if="panelOpen==='Family'">
+		<div id="panelFamily" class="row collapse">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="row validation-visualization-row opened">
-					<family-view ng-model="identity"></family-view>
+					<ng-include src="'scripts/app/application/family/family-view.html'"></ng-include>
 				</div>
 			</div>
 		</div>
@@ -68,15 +68,15 @@
     <!-- ADDRESS -->
 	<div class="row">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="collapsable-panel" id="PanelAddress" ng-class="{'opened': panelOpen==='Address'}" ng-click="updatePanelOpen('Address')">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelAddress">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Address', 'glyphicon-triangle-bottom': panelOpen!=='Address'}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="summary.form.address">Address</h5>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-if="panelOpen==='Address'">
+	<div id="panelAddress" class="row collapse">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/address/address-view.html'"></ng-include>
@@ -86,15 +86,15 @@
     <!-- PROJECT -->
 	<div class="row">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="collapsable-panel" id="PanelProject" ng-class="{'opened': panelOpen==='Project'}" ng-click="updatePanelOpen('Project')">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelProject">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelOpen==='Project', 'glyphicon-triangle-bottom': panelOpen!=='Project'}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="summary.form.project">Project</h5>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-if="panelOpen==='Project'">
+	<div id="panelProject" class="row collapse">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/project/project-'+nature+'-view.html'"></ng-include>
@@ -107,7 +107,6 @@
        	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
        	<button class="btn btn-success btn-right" translate="global.button.validate"
        			 ng-if="isInDraftMode"
-       			 ng-disabled="projectForm.$invalid || projectForm.$submitted"
        			 ng-click="next()">Validate</button>
     </div>
 </div>

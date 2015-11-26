@@ -7,9 +7,9 @@
 	<div ng-repeat="panel in panels">
 		<div class="row">
 			<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-				<div class="collapsable-panel" ng-class="{'opened': panel.opened}" ng-click="panel.opened = !panel.opened">
+				<div class="collapsable-panel" data-toggle="collapse" data-target="#panelDoc{{::$index}}">
 					<div class="panel-heading">
-						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.opened, 'glyphicon-triangle-bottom': !panel.opened}"></span>
+						<span class="glyphicon glyphicon-triangle-bottom"></span>
 						<h5 class="panel-title" ng-if="!panel.personType">{{'identification.documents.'+panel.documentType | translate}}</h5>
 						<h5 class="panel-title" ng-if="panel.personType">{{'identification.documents.'+panel.documentType | translate}} - {{'sejourApp.PersonType.'+panel.personType | translate: panel}}</h5>
 					</div>
@@ -23,7 +23,7 @@
 								   ng-click="updatePanel(panel, false)"></i>
 			</div>
 		</div>
-		<div class="row" ng-show="panel.opened">
+		<div id="panelDoc{{::$index}}" class="row collapse" ng-class="{'in': panel.validated == null}">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="row validation-visualization-row opened">
 					<photo-viewer ng-model="panel.documents" type-filter="{{::panel.documentType}}"></photo-viewer>

@@ -6,9 +6,9 @@
 	
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': photoOpened}" ng-click="photoOpened = !photoOpened">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelPhoto">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': photoOpened, 'glyphicon-triangle-bottom': !photoOpened}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="identification.biometrics.photo">photo</h5>
 				</div>
 			</div>
@@ -20,9 +20,9 @@
 			<span translate="identification.biometrics.validated" ng-show="photoValidated">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="photoOpened">
+	<div id="panelPhoto" class="row collapse in">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': photoOpened}">
+			<div class="row validation-visualization-row opened">
 				<div class="col-xs-12 col-sm-6" ng-show="!photoValidated">
 					<ng-camera
 					    viewer-height="400"
@@ -43,9 +43,9 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': fingerprintsOpened}" ng-click="fingerprintsOpened = !fingerprintsOpened">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelFingerprints">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': fingerprintsOpened, 'glyphicon-triangle-bottom': !fingerprintsOpened}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="identification.biometrics.fingerprints">fingerprints</h5>
 				</div>
 			</div>
@@ -57,9 +57,9 @@
 			<span translate="identification.biometrics.validated" ng-show="fingerprintsValidated">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="fingerprintsOpened">
+	<div id="panelFingerprints" class="row collapse in">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': fingerprintsOpened}">
+			<div class="row validation-visualization-row opened">
 				<div class="col-xs-12">
 					<div ng-show="!fingerprints">
 						<button class="btn btn-primary" translate="identification.biometrics.button.fingerprints" style="width:311px;" ng-click="activateFingerprints()">Fingerprints</button>
@@ -71,9 +71,9 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': signatureOpened}" ng-click="signatureOpened = !signatureOpened">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelSignature">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': signatureOpened, 'glyphicon-triangle-bottom': !signatureOpened}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="identification.biometrics.signature">signature</h5>
 				</div>
 			</div>
@@ -85,9 +85,9 @@
 			<span translate="identification.biometrics.validated" ng-show="signatureValidated">validate</span>
 		</div>
 	</div>
-	<div class="row" ng-show="signatureOpened">
+	<div id="panelSignature" class="row collapse in">
 		<div class="col-sm-11 col-sm-offset-1">
-			<div class="row validation-visualization-row" ng-class="{'opened': signatureOpened}">
+			<div class="row validation-visualization-row opened">
 				<div class="col-xs-12 col-sm-6" ng-show="!signatureValidated">
 					<canvas class="thumbnail" id="signature-pad" width="400" height="200"></canvas>
 					<button class="btn btn-primary btn-signature" 

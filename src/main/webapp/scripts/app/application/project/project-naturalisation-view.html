@@ -1,12 +1,12 @@
 <div ng-cloak>
-	<div ng-if="!project.detailMode" ng-init="panelFrancisationOpen = true; panelResourceOpen = true;  panelTaxOpen = true;">
-		<div class="collapsable-panel" id="panelFrancisation" ng-class="{'opened': panelFrancisationOpen}" ng-click="panelFrancisationOpen = !panelFrancisationOpen">
+	<div ng-if="!project.detailMode">
+		<div class="collapsable-panel" data-toggle="collapse" data-target="#panelFrancisation">
 			<div class="panel-heading">
-				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelFrancisationOpen, 'glyphicon-triangle-bottom': !panelFrancisationOpen}"></span>
+				<span class="glyphicon glyphicon-triangle-bottom"></span>
 				<h5 class="panel-title" translate="project.form.francisation.title">Resources</h5>
 			</div>
 		</div>
-		<div ng-if="panelFrancisationOpen" style="margin-left: 25px">
+		<div id="panelFrancisation" class="row collapse in" style="margin-left: 25px">
 			<div class="form-group">
 		        <label translate="project.form.francisation">Francisation</label> : <span>{{::'project.form.francisation.' + project.francisation | translate}}</span>
 		    </div>
@@ -17,25 +17,25 @@
 		        <label translate="project.form.firstNameFrancise">FirstNameFrancise</label> : <span>{{::project.firstNameFrancise}}</span>
 		    </div>
 		</div>
-		<div class="collapsable-panel" id="panelResource" ng-class="{'opened': panelResourceOpen}" ng-click="panelResourceOpen = !panelResourceOpen">
+		<div class="collapsable-panel" data-toggle="collapse" data-target="#panelResource">
 			<div class="panel-heading">
-				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelResourceOpen, 'glyphicon-triangle-bottom': !panelResourceOpen}"></span>
+				<span class="glyphicon glyphicon-triangle-bottom"></span>
 				<h5 class="panel-title" translate="project.form.resources.title">Resources</h5>
 			</div>
 		</div>
-		<div ng-if="panelResourceOpen">
+		<div id="panelResource" class="row collapse in">
 			<ul>
 				<li translate="project.form.resources.yes.done">resources yes</li>
 			</ul>
 		</div>
 		
-		<div class="collapsable-panel" id="panelTax" ng-class="{'opened': panelTaxOpen}" ng-click="panelTaxOpen = !panelTaxOpen">
+		<div class="collapsable-panel" data-toggle="collapse" data-target="#panelTax">
 			<div class="panel-heading">
-				<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panelTaxOpen, 'glyphicon-triangle-bottom': !panelTaxOpen}"></span>
+				<span class="glyphicon glyphicon-triangle-bottom"></span>
 				<h5 class="panel-title" translate="project.form.taxSituation.title">Resources</h5>
 			</div>
 		</div>
-		<div ng-if="panelTaxOpen">
+		<div id="panelTax" class="row collapse in">
 			<ul>
 				<li translate="project.form.taxSituation.yes.done">tax situation yes</li>
 			</ul>

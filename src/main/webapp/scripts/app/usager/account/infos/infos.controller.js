@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('AccountInfosController', function ($scope, $state, Principal, Auth) {
     	$scope.error = null;
 
+    	// TODO REVOIR ENTIEREMENT CE CONTROLLER (ET HTML) CAR DUPLICATION CODE AVEC IDENTITY ET ADDRESS
         $scope.birthDatePickerOptions = {
 			format: 'DD/MM/YYYY',
 			maxDate: 'moment', 
@@ -31,7 +32,6 @@ angular.module('sejourApp')
             if($scope.account.address == null) {
             	$scope.account.address = { contactType: [] };
             }
-            // TODO  A factoriser avec le code de address et peut etre summary
             $scope.contactTypeValues = [ { value: 'email', checked: $scope.account.address.contactType.indexOf('email') != -1 },
                                          { value: 'sms', checked: $scope.account.address.contactType.indexOf('sms') != -1 },
                                          { value: 'postal', checked: $scope.account.address.contactType.indexOf('postal') != -1 },

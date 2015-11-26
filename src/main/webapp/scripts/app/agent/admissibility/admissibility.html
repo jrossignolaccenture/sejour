@@ -6,9 +6,9 @@
 	<!-- IDENTITY -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': panel.identity.open}" ng-click="panel.identity.open = !panel.identity.open">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelIdentity">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.identity.open, 'glyphicon-triangle-bottom': !panel.identity.open}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="admissibility.form.identity{{identity.validateOn ? '.validated' : ''}}">Identity</h5>
 				</div>
 			</div>
@@ -17,14 +17,14 @@
 			<i class="fa fa-check-circle"></i>
 		</div>
 		<div class="col-xs-3 validation-form" ng-if="!identity.validateOn">
-			<i class="fa hand" ng-class="{'fa-check-circle-o': panel.identity.valid !== true, 'fa-check-circle': panel.identity.valid === true, 'inactive': panel.identity.valid === false}" 
-							   ng-click="panel.identity.valid === true ? panel.identity.valid = null : panel.identity.valid = true; panel.identity.open = false;"></i>
+			<i class="fa hand" ng-class="{'fa-check-circle-o': identity.valid !== true, 'fa-check-circle': identity.valid === true, 'inactive': identity.valid === false}" 
+							   ng-click="identity.valid === true ? identity.valid = null : identity.valid = true;"></i>
 			<span style="margin-left: 10px"></span>
-			<i class="fa hand" ng-class="{'fa-times-circle-o': panel.identity.valid !== false, 'fa-times-circle': panel.identity.valid === false, 'inactive': panel.identity.valid === true}" 
-							   ng-click="panel.identity.valid === false ? panel.identity.valid = null :  panel.identity.valid = false;"></i>
+			<i class="fa hand" ng-class="{'fa-times-circle-o': identity.valid !== false, 'fa-times-circle': identity.valid === false, 'inactive': identity.valid === true}" 
+							   ng-click="identity.valid === false ? identity.valid = null :  identity.valid = false;"></i>
 		</div>
 	</div>
-	<div class="row" ng-if="panel.identity.open">
+	<div id="panelIdentity" class="row collapse" ng-class="{'in': identity.valid == null}">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
@@ -36,25 +36,25 @@
 	<div ng-if="identity.family.parents">
 		<div class="row">
 			<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-				<div class="collapsable-panel" ng-class="{'opened': panel.family.open}" ng-click="panel.family.open = !panel.family.open">
+				<div class="collapsable-panel" data-toggle="collapse" data-target="#panelFamily">
 					<div class="panel-heading">
-						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.family.open, 'glyphicon-triangle-bottom': !panel.family.open}"></span>
+						<span class="glyphicon glyphicon-triangle-bottom"></span>
 						<h5 class="panel-title" translate="admissibility.form.family">Family</h5>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-3 validation-form">
-				<i class="fa hand" ng-class="{'fa-check-circle-o': panel.family.valid !== true, 'fa-check-circle': panel.family.valid === true, 'inactive': panel.family.valid === false}" 
-								   ng-click="panel.family.valid === true ? panel.family.valid = null : panel.family.valid = true; panel.family.open = false;"></i>
+				<i class="fa hand" ng-class="{'fa-check-circle-o': family.valid !== true, 'fa-check-circle': family.valid === true, 'inactive': family.valid === false}" 
+								   ng-click="family.valid === true ? family.valid = null : family.valid = true;"></i>
 				<span style="margin-left: 10px"></span>
-				<i class="fa hand" ng-class="{'fa-times-circle-o': panel.family.valid !== false, 'fa-times-circle': panel.family.valid === false, 'inactive': panel.family.valid === true}" 
-								   ng-click="panel.family.valid === false ? panel.family.valid = null :  panel.family.valid = false;"></i>
+				<i class="fa hand" ng-class="{'fa-times-circle-o': family.valid !== false, 'fa-times-circle': family.valid === false, 'inactive': family.valid === true}" 
+								   ng-click="family.valid === false ? family.valid = null :  family.valid = false;"></i>
 			</div>
 		</div>
-		<div class="row" ng-if="panel.family.open">
+		<div id="panelFamily" class="row collapse" ng-class="{'in': family.valid == null}">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="row validation-visualization-row opened">
-					<family-view ng-model="identity"></family-view>
+					<ng-include src="'scripts/app/application/family/family-view.html'"></ng-include>
 				</div>
 			</div>
 		</div>
@@ -62,9 +62,9 @@
 	<!-- ADDRESS -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': panel.address.open}" ng-click="panel.address.open = !panel.address.open">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelAddress">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.address.open, 'glyphicon-triangle-bottom': !panel.address.open}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="admissibility.form.address{{address.validateOn ? '.validated' : ''}}">Address</h5>
 				</div>
 			</div>
@@ -73,14 +73,14 @@
 			<i class="fa fa-check-circle"></i>
 		</div>
 		<div class="col-xs-3 validation-form" ng-if="!address.validateOn">
-			<i class="fa hand" ng-class="{'fa-check-circle-o': panel.address.valid !== true, 'fa-check-circle': panel.address.valid === true, 'inactive': panel.address.valid === false}" 
-							   ng-click="panel.address.valid === true ? panel.address.valid = null : panel.address.valid = true; panel.address.open = false;"></i>
+			<i class="fa hand" ng-class="{'fa-check-circle-o': address.valid !== true, 'fa-check-circle': address.valid === true, 'inactive': address.valid === false}" 
+							   ng-click="address.valid === true ? address.valid = null : address.valid = true;"></i>
 			<span style="margin-left: 10px"></span>
-			<i class="fa hand" ng-class="{'fa-times-circle-o': panel.address.valid !== false, 'fa-times-circle': panel.address.valid === false, 'inactive': panel.address.valid === true}" 
-							   ng-click="panel.address.valid === false ? panel.address.valid = null :  panel.address.valid = false;"></i>
+			<i class="fa hand" ng-class="{'fa-times-circle-o': address.valid !== false, 'fa-times-circle': address.valid === false, 'inactive': address.valid === true}" 
+							   ng-click="address.valid === false ? address.valid = null :  address.valid = false;"></i>
 		</div>
 	</div>
-	<div class="row" ng-show="panel.address.open">
+	<div id="panelAddress" class="row collapse" ng-class="{'in': address.valid == null}">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/address/address-view.html'"></ng-include>
@@ -90,22 +90,22 @@
 	<!-- PROJECT -->
 	<div class="row">
 		<div class="col-xs-9 col-sm-8 col-sm-offset-1">
-			<div class="collapsable-panel" ng-class="{'opened': panel.project.open}" ng-click="panel.project.open = !panel.project.open">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelProject">
 				<div class="panel-heading">
-					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': panel.project.open, 'glyphicon-triangle-bottom': !panel.project.open}"></span>
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="admissibility.form.project">Project</h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-3 validation-form">
-			<i class="fa hand" ng-class="{'fa-check-circle-o': panel.project.valid !== true, 'fa-check-circle': panel.project.valid === true, 'inactive': panel.project.valid === false}" 
-							   ng-click="panel.project.valid === true ? panel.project.valid = null : panel.project.valid = true; panel.project.open = false;"></i>
+			<i class="fa hand" ng-class="{'fa-check-circle-o': project.valid !== true, 'fa-check-circle': project.valid === true, 'inactive': project.valid === false}" 
+							   ng-click="project.valid === true ? project.valid = null : project.valid = true; project.open = false;"></i>
 			<span style="margin-left: 10px"></span>
-			<i class="fa hand" ng-class="{'fa-times-circle-o': panel.project.valid !== false, 'fa-times-circle': panel.project.valid === false, 'inactive': panel.project.valid === true}" 
-							   ng-click="panel.project.valid === false ? panel.project.valid = null :  panel.project.valid = false;"></i>
+			<i class="fa hand" ng-class="{'fa-times-circle-o': project.valid !== false, 'fa-times-circle': project.valid === false, 'inactive': project.valid === true}" 
+							   ng-click="project.valid === false ? project.valid = null :  project.valid = false;"></i>
 		</div>
 	</div>
-	<div class="row" ng-if="panel.project.open">
+	<div id="panelProject" class="row collapse" ng-class="{'in': project.valid == null}">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
 				<ng-include src="'scripts/app/application/project/project-'+application.nature+'-view.html'"></ng-include>
@@ -116,13 +116,13 @@
 	<br>
 	<div class="row row-center">
     	<button class="btn btn-danger" translate="admissibility.form.button.decline"
-    			 ng-if="!panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid">Decline</button>
+    			 ng-if="!identity.valid || (displayFamily && !family.valid) || !address.valid || !project.valid">Decline</button>
     	<button class="btn btn-primary btn-right" translate="admissibility.form.button.complement" 
-    			 ng-if="panel.identity.valid === false || panel.family.valid === false || panel.address.valid === false || panel.project.valid === false">Complement</button>
+    			 ng-if="identity.valid === false || family.valid === false || address.valid === false || project.valid === false">Complement</button>
     	<button class="btn btn-success" translate="admissibility.form.button.accept"
-    			 ng-class="{'btn-right': !panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid}"
-    			 ng-if="panel.identity.valid !== false && panel.family.valid !== false && panel.address.valid !== false && panel.project.valid !== false"
-    			 ng-disabled="!panel.identity.valid || (displayFamily && !panel.family.valid) || !panel.address.valid || !panel.project.valid"
+    			 ng-class="{'btn-right': !identity.valid || (displayFamily && !family.valid) || !address.valid || !project.valid}"
+    			 ng-if="identity.valid !== false && family.valid !== false && address.valid !== false && project.valid !== false"
+    			 ng-disabled="!identity.valid || (displayFamily && !family.valid) || !address.valid || !project.valid"
     			 ng-click="verify()">Accept</button>
 	</div>
 </div>
