@@ -4,21 +4,6 @@ angular.module('sejourApp')
     .controller('ValidationController', function ($scope, $state, Application, currentApplication) {
 
         $scope.displayFamily = currentApplication.nature === 'naturalisation';
-    	
-        $scope.panel = {
-        	identity: {
-        		open: currentApplication.identity.validateOn == null, 
-        		valid: currentApplication.identity.validateOn != null
-        	},
-	        family: {
-	        	open: currentApplication.identity.familyValidateOn == null,
-	        	valid: currentApplication.identity.familyValidateOn != null
-	        },
-	        project: {
-	        	open: currentApplication.project.validateOn == null,
-	    	    valid: currentApplication.project.validateOn != null ? true : null
-	        }
-        }
 
         // TODO date temporaire pour gérer toutes les dates de l'écran de validation de naturalisation (demo only)
         $scope.tempDate = {date: $scope.getFormattedDate(moment())};
@@ -27,6 +12,7 @@ angular.module('sejourApp')
         
         $scope.identity = currentApplication.identity;
         $scope.project = currentApplication.project;
+        $scope.project.valid = currentApplication.project.validateOn ? true : null;
         $scope.project.detailMode = true;
     	
         $scope.application = currentApplication;
