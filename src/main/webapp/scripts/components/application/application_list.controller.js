@@ -1,17 +1,10 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('ApplicationListController', function ($scope, $state, Country, applications) {
+    .controller('ApplicationListController', function ($scope, $state, applications) {
 
         $scope.listType = $state.current.data.listType;
     	$scope.applications = applications;
-    	
-    	$scope.countries = [];
-        Country.get().then(function(countries) {
-        	countries.forEach(function(country){
-        		$scope.countries[country.key] = country.name;
-        	});
-        });
         
         /** Verify if at least one document is not validated **/
         var hasFamilyDocumentToCertify = function(application) {
@@ -36,10 +29,6 @@ angular.module('sejourApp')
     	
     	$scope.getNationality = function(key){
     		return $scope.countries[key];
-    	}
-    	
-    	$scope.getFormattedDate = function(date){
-    		return moment(date).format("DD/MM/YYYY");
     	}
     	
     	// TODO revoir toutes les function goTo
