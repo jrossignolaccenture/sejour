@@ -90,7 +90,7 @@ angular.module('sejourApp')
             	readonly: "@"
             },
             templateUrl: 'scripts/components/form/inputDate.html',
-            controller: ['$scope', function($scope) {
+            controller: ['$rootScope', '$scope', function($rootScope, $scope) {
             	$scope.datePickerOptions = {
         			format: 'DD/MM/YYYY',
         			maxDate: 'moment', 
@@ -98,12 +98,14 @@ angular.module('sejourApp')
         			locale: 'fr',
         			allowInputToggle: true
                 }
-            	if($scope.ngModel) {
-                	$scope.dateTxt = moment($scope.ngModel).format("DD/MM/YYYY");
-                }
+            	
             	$scope.updateDate = function(){
             		$scope.ngModel = moment($scope.dateTxt, "DD/MM/YYYY").toDate();
             	}
+            	
+            	$scope.$watch("ngModel",function(newValue,oldValue) {
+            		$scope.dateTxt = newValue ? $rootScope.getFormattedDate(newValue) : null;
+                });
             }]
         };
     })
@@ -117,7 +119,7 @@ angular.module('sejourApp')
             	fieldId: "@"
             },
             templateUrl: 'scripts/components/form/inputDate.html',
-            controller: ['$scope', function($scope) {
+            controller: ['$rootScope', '$scope', function($rootScope, $scope) {
             	$scope.datePickerOptions = {
         			format: 'DD/MM/YYYY',
         			minDate: 'moment', 
@@ -125,11 +127,35 @@ angular.module('sejourApp')
         			locale: 'fr',
         			allowInputToggle: true
                 }
-            	if($scope.ngModel) {
-                	$scope.dateTxt = moment($scope.ngModel).format("DD/MM/YYYY");
-                }
+            	
             	$scope.updateDate = function(){
             		$scope.ngModel = moment($scope.dateTxt, "DD/MM/YYYY").toDate();
+            	}
+            	
+            	$scope.$watch("ngModel",function(newValue,oldValue) {
+                	$scope.dateTxt = newValue ? $rootScope.getFormattedDate(newValue) : null;
+                });
+            }]
+        };
+    })
+    .directive('checkboxContactType', function() {
+        return {
+            restrict: 'E',
+            scope: {
+            	ngModel: "="
+            },
+            templateUrl: 'scripts/components/form/checkboxContactType.html',
+            controller: ['$scope', function($scope) {
+            	
+            	$scope.contactTypeValues = ['email', 'sms', 'postal'];
+            	
+            	$scope.updateContactType = function(contactType) {
+            		var index = $scope.ngModel.indexOf(contactType);
+            		if(index == -1) {
+            			$scope.ngModel.push(contactType);
+                    } else {
+                    	$scope.ngModel.splice(index, 1);
+                    }
             	}
             }]
         };

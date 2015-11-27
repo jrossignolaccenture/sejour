@@ -1,0 +1,8 @@
+<div class="checkbox" ng-repeat="contactType in contactTypeValues">
+	<label><input type="checkbox"
+					id="field_contactType_{{contactType}}"
+					name="contactType_{{contactType}}"
+					ng-checked="ngModel.indexOf(contactType) != -1" value="{{contactType}}"
+					ng-click="updateContactType(contactType)"
+					ng-required="ngModel.length==0">{{'sejourApp.ContactType.'+contactType | translate}}</label>
+</div>

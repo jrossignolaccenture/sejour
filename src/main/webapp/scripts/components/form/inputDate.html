@@ -8,6 +8,6 @@
 			id="{{::fieldId}}" 
 			placeholder="{{'global.form.date.format' | translate}}" 
 			ng-model="dateTxt" 
-			ng-change="updateDate()" 
+			ng-blur="updateDate()"
 			ng-readonly="readonly!==undefined">
 </div>

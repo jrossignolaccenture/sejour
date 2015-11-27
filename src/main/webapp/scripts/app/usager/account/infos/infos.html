@@ -10,12 +10,13 @@
     <br>
 
 	<form name="infosForm" role="form" class="form-horizontal" novalidate ng-submit="save()" show-validation>
+		<!-- IDENTITY -->
 		<div class="row">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="collapsable-panel" data-toggle="collapse" data-target="#panelIdentity">
 					<div class="panel-heading">
 						<span class="glyphicon glyphicon-triangle-bottom"></span>
-						<h5 class="panel-title" translate="infos.form.identity">Personal</h5>
+						<h5 class="panel-title" translate="infos.form.identity">Identity</h5>
 					</div>
 				</div>
 			</div>
@@ -27,107 +28,69 @@
 		            <input type="text" class="form-control" name="id" id="field_id"
 		                    ng-model="account.id" readonly="readonly">
 		        </div>
-				<div class="form-group">
-			        <label translate="identity.form.lastName" for="field_lastName">LastName</label>
-			        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName"
-			        		tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'identity.form.tooltip' | translate}}"
-			        		autofocus required>
-			
-			        <div ng-show="identityForm.lastName.$dirty && identityForm.lastName.$invalid">
-			            <p class="help-block" ng-show="identityForm.lastName.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
-			        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="identity.usedLastName" >
-			
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
-			        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="identity.firstName" >
-			
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.sex" for="field_sex">Sex</label>
-			        <div>
-				        <label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="F" required>{{'sejourApp.SexType.F' | translate}}</label>
-						<label class="radio-inline"><input type="radio" id="field_sex" name="sex" ng-model="identity.sex" value="M" required>{{'sejourApp.SexType.M' | translate}}</label>
-	                </div>
-			        <div ng-show="identityForm.sex.$dirty && identityForm.sex.$invalid">
-			            <p class="help-block" ng-show="identityForm.sex.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
-			        <div class="input-group date">
-				        <span class="input-group-addon">
-	                        <span class="fa fa-calendar"></span>
-	                    </span>
-	                    <input type="text" class="form-control"
-					           datetimepicker
-					           datetimepicker-options="{{birthDatePickerOptions}}"
-					           name="birthDateTxt" id="field_birthDateTxt"
-					           ng-model="identity.birthDateTxt"
-					           placeholder="{{'global.form.date.format' | translate}}">
-					</div>
-					
-			        <div ng-show="identityForm.birthDateTxt.$dirty && identityForm.birthDateTxt.$invalid">
-			            <p class="help-block" ng-show="identityForm.birthDateTxt.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			            <p class="help-block" ng-show="identityForm.birthDateTxt.$error.date" translate="entity.validation.date">
-			                This field should be a date.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
-			        <input type="text" class="form-control" name="birthCity" id="field_birthCity"
-			                ng-model="identity.birthCity" required>
-			
-			        <div ng-show="identityForm.birthCity.$dirty && identityForm.birthCity.$invalid">
-			            <p class="help-block" ng-show="identityForm.birthCity.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
-			        <select-country name="birthCountry" id="field_birthCountry" ng-model="identity.birthCountry" required></select-country>
-			
-			        <div ng-show="identityForm.birthCountry.$dirty && identityForm.birthCountry.$invalid">
-			            <p class="help-block" ng-show="identityForm.birthCountry.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
-			    <div class="form-group">
-			        <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
-			        <select-country name="nationality" id="field_nationality" ng-model="identity.nationality" required></select-country>
-			        
-			        <div ng-show="identityForm.nationality.$dirty && identityForm.nationality.$invalid">
-			            <p class="help-block" ng-show="identityForm.nationality.$error.required" translate="entity.validation.required">
-			                This field is required.
-			            </p>
-			        </div>
-			    </div>
+		        
+				<identity-form-light ng-model="identity" with-tooltip="true"></identity-form-light>
+				
 			    <div class="form-group">
 			        <label translate="identity.form.passportNumber" for="field_passportNumber">PassportNumber</label>
 			        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="identity.passportNumber" required>
-			
-			        <div ng-show="identityForm.passportNumber.$dirty && identityForm.passportNumber.$invalid">
-			            <p class="help-block" ng-show="identityForm.passportNumber.$error.required" translate="entity.validation.required">
+			        <div ng-show="infosForm.passportNumber.$dirty && infosForm.passportNumber.$invalid">
+			            <p class="help-block" ng-show="infosForm.passportNumber.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+			    </div>
+				<div class="form-group">
+			        <label translate="identity.form.maritalStatus" for="field_maritalStatus">Marital status</label>
+			        <select-marital-status field-name="maritalStatus" field-id="field_maritalStatus" ng-model="identity.maritalStatus" required></select-marital-status>
+			        <div ng-show="infosForm.maritalStatus.$dirty && infosForm.maritalStatus.$invalid">
+			            <p class="help-block" ng-show="infosForm.maritalStatus.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+			        </div>
+			    </div>
+			    <div class="form-group">
+			        <label translate="identity.form.childsNumber" for="field_childsNumber">ChildsNumber</label>
+			        <input type="number" min="0" class="form-control" name="childsNumber" id="field_childsNumber" ng-model="identity.childsNumber" required>
+			        <div ng-show="infosForm.chidlsNumber.$dirty && infosForm.childsNumber.$invalid">
+			            <p class="help-block" ng-show="infosForm.childsNumber.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+		                <p class="help-block" ng-show="infosForm.childsNumber.$error.number" translate="entity.validation.number">
+		                    This field should be a number.
+		                </p>
+		                <p class="help-block" ng-show="infosForm.childsNumber.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
+		                </p>
+			        </div>
+			    </div>
+			    <div class="form-group">
+			        <label translate="identity.form.brothersNumber" for="field_brothersNumber">BrothersNumber</label>
+			        <input type="number" min="0" class="form-control" name="brothersNumber" id="field_brothersNumber" ng-model="identity.brothersNumber" required>
+			        <div ng-show="infosForm.brothersNumber.$dirty && infosForm.brothersNumber.$invalid">
+			            <p class="help-block" ng-show="infosForm.brothersNumber.$error.required" translate="entity.validation.required">
+			                This field is required.
+			            </p>
+		                <p class="help-block" ng-show="infosForm.brothersNumber.$error.number" translate="entity.validation.number">
+		                    This field should be a number.
+		                </p>
+		                <p class="help-block" ng-show="infosForm.brothersNumber.$error.min" translate="entity.validation.max" translate-values="{max: '0'}">
+		                    This field should be a positive.
+		                </p>
+			        </div>
+			    </div>
+				<div class="form-group">
+			        <label translate="identity.form.activity" for="field_activity">Activity</label>
+			        <select-activity-type field-name="activity" field-id="field_activity" ng-model="identity.activity" required></select-activity-type>
+			        <div ng-show="infosForm.activity.$dirty && infosForm.activity.$invalid">
+			            <p class="help-block" ng-show="infosForm.activity.$error.required" translate="entity.validation.required">
 			                This field is required.
 			            </p>
 			        </div>
 			    </div>
 			</div>
 		</div>
-		
+		<!-- ADDRESS -->
 		<div class="row">
 			<div class="col-sm-11 col-sm-offset-1">
 				<div class="collapsable-panel" data-toggle="collapse" data-target="#panelAddress">
@@ -140,20 +103,10 @@
 		</div>
 	    <div id="panelAddress" class="row collapse">
 			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
-		        <div class="form-group">
-		            <label translate="address.form.comingDate" for="field_comingDate">ComingDate</label>
-			        <div class="input-group date">
-				        <span class="input-group-addon">
-	                        <span class="fa fa-calendar"></span>
-	                    </span>
-	                    <input type="text" class="form-control"
-					           datetimepicker
-					           datetimepicker-options="{{datePickerOptions}}"
-					           name="comingDateTxt" id="field_comingDateTxt"
-					           ng-model="account.comingDateTxt"
-					           placeholder="{{'global.form.date.format' | translate}}">
-					</div>
-		
+		        
+		        <div class="form-group" ng-if="needComingDate">
+		            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
+		            <input-date field-name="comingDate" field-id="field_comingDate" ng-model="account.comingDate"></input-date>
 		            <div ng-show="infosForm.comingDateTxt.$dirty && infosForm.comingDateTxt.$invalid">
 		                <p class="help-block" ng-show="infosForm.comingDate.$error.required" translate="entity.validation.required">
 		                    This field is required.
@@ -163,81 +116,12 @@
 		                </p>
 		            </div>
 		        </div>
-		        <div class="form-group">
-		            <label translate="address.form.owner" for="field_owner">Owner</label>
-		            <input type="text" class="form-control" name="owner" id="field_owner"
-		                    ng-model="account.address.owner">
-		
-		            <div ng-show="infosForm.owner.$dirty && infosForm.owner.$invalid">
-		                <p class="help-block" ng-show="infosForm.owner.$error.required" translate="entity.validation.required">
-		                    This field is required.
-		                </p>
-		            </div>
-		        </div>
-		        <div class="form-group">
-		            <label translate="address.form.number" for="field_number">Number</label>
-		            <input type="text" class="form-control" name="number" id="field_number" ng-model="account.address.number" required>
-		
-		            <div ng-show="infosForm.number.$dirty && infosForm.number.$invalid">
-		                <p class="help-block" ng-show="infosForm.number.$error.required" translate="entity.validation.required">
-		                    This field is required.
-		                </p>
-		            </div>
-		        </div>
-		        <div class="form-group">
-		            <label translate="address.form.street" for="field_street">Street</label>
-		            <input type="text" class="form-control" name="street" id="field_street"
-		                    ng-model="account.address.street" required>
-		
-		            <div ng-show="infosForm.street.$dirty && infosForm.street.$invalid">
-		                <p class="help-block" ng-show="infosForm.street.$error.required" translate="entity.validation.required">
-		                    This field is required.
-		                </p>
-		            </div>
-		        </div>
-		        <div class="form-group">
-		            <label translate="address.form.complement" for="field_complement">Complement</label>
-		            <input type="text" class="form-control" name="complement" id="field_complement"
-		                    ng-model="account.address.complement" >
-		
-		        </div>
-		        <div class="form-group">
-		            <label translate="address.form.postalCode" for="field_postalCode">PostalCode</label>
-		            <input type="text" class="form-control" name="postalCode" id="field_postalCode"
-		                    ng-model="account.address.postalCode" required>
-		
-		            <div ng-show="infosForm.postalCode.$dirty && infosForm.postalCode.$invalid">
-		                <p class="help-block" ng-show="infosForm.postalCode.$error.required" translate="entity.validation.required">
-		                    This field is required.
-		                </p>
-		            </div>
-		        </div>
-		        <div class="form-group">
-		            <label translate="address.form.city" for="field_city">City</label>
-		            <input type="text" class="form-control" name="city" id="field_city"
-		                    ng-model="account.address.city" required>
-		
-		            <div ng-show="infosForm.city.$dirty && infosForm.city.$invalid">
-		                <p class="help-block" ng-show="infosForm.city.$error.required" translate="entity.validation.required">
-		                    This field is required.
-		                </p>
-		            </div>
-		        </div>
-		        <div class="form-group">
-		            <label translate="address.form.country" for="field_country">Country</label>
-		            <select-country name="country" id="field_country" ng-model="account.address.country" required></select-country>
-		
-		            <div ng-show="infosForm.country.$dirty && infosForm.country.$invalid">
-		                <p class="help-block" ng-show="infosForm.country.$error.required" translate="entity.validation.required">
-		                    This field is required.
-		                </p>
-		            </div>
-		        </div>
+		        
+		        <address-form-light ng-model="address" with-tooltip="true"></address-form-light>
+		        
 		        <div class="form-group">
 		            <label translate="address.form.phone" for="field_phone">Phone</label>
-		            <input type="text" class="form-control" name="phone" id="field_phone"
-		                    ng-model="account.address.phone" required>
-		
+		            <input type="text" class="form-control" name="phone" id="field_phone" ng-model="address.phone" required>
 		            <div ng-show="infosForm.phone.$dirty && infosForm.phone.$invalid">
 		                <p class="help-block" ng-show="infosForm.phone.$error.required" translate="entity.validation.required">
 		                    This field is required.
@@ -245,18 +129,18 @@
 		            </div>
 		        </div>
 		        <div class="form-group">
+		            <label translate="address.form.email" for="field_email">Email</label>
+		            <input type="text" class="form-control" name="email" id="field_email" ng-model="address.email" required>
+		            <div ng-show="infosForm.email.$dirty && infosForm.email.$invalid">
+		                <p class="help-block" ng-show="infosForm.email.$error.required" translate="entity.validation.required">
+		                    This field is required.
+		                </p>
+		            </div>
+		        </div>
+		        <div class="form-group">
 		            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
-		            <span class="glyphicon glyphicon-info-sign form-info" id="contactType-info"
-				    			tabindex="0" data-placement="right" data-toggle="popover" data-trigger="hover" data-content="{{'address.form.contactType.tooltip' | translate}}"></span>
-		            
-		            <div class="checkbox" ng-repeat="contactType in contactTypeValues">
-				        <label><input type="checkbox" id="field_contactType_{{contactType.value}}" name="contactType_{{contactType.value}}" 
-				        				ng-model="contactType.checked" 
-				        				value="{{contactType.value}}" 
-				        				ng-click="updateContactType(contactType)"  
-				        				ng-required="contactTypes.length==0">{{'sejourApp.ContactType.'+contactType.value | translate}}</label>
-					</div>
-		
+		            <tooltip tooltip-text='address.form.contactType.tooltip'></tooltip>
+			        <checkbox-contact-type ng-model="address.contactType"></checkbox-contact-type>
 		            <div ng-show="infosForm.contactType.$dirty && infosForm.contactType.$invalid">
 		                <p class="help-block" ng-show="infosForm.contactType.$error.required" translate="entity.validation.required">
 		                    This field is required.

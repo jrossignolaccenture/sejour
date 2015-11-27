@@ -22,6 +22,8 @@ angular.module('sejourApp')
                         $translatePartialLoader.addPart('sexType');
                         $translatePartialLoader.addPart('address');
                         $translatePartialLoader.addPart('contactType');
+                        $translatePartialLoader.addPart('maritalStatus');
+                        $translatePartialLoader.addPart('activityType');
                         return $translate.refresh();
                     }]
                 }

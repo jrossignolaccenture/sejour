@@ -45,13 +45,7 @@
 		        <div class="form-group">
 		            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
 		            <tooltip tooltip-text='address.form.contactType.tooltip'></tooltip>
-			        <div class="checkbox" ng-repeat="contactType in contactTypeValues">
-				        <label><input type="checkbox" id="field_contactType_{{contactType.value}}" name="contactType_{{contactType.value}}" 
-				        				ng-model="contactType.checked" 
-				        				value="{{contactType.value}}" 
-				        				ng-click="updateContactType(contactType)"  
-				        				ng-required="address.contactType.length==0">{{'sejourApp.ContactType.'+contactType.value | translate}}</label>
-					</div>
+			        <checkbox-contact-type ng-model="address.contactType"></checkbox-contact-type>
 		            <div ng-show="addressForm.contactType.$dirty && addressForm.contactType.$invalid">
 		                <p class="help-block" ng-show="addressForm.contactType.$error.required" translate="entity.validation.required">
 		                    This field is required.
@@ -72,13 +66,7 @@
 				<div class="form-group">
 		            <label translate="address.form.contactType" for="field_contactType">ContactType</label>
 		            <tooltip tooltip-text='address.form.contactType.tooltip'></tooltip>
-			        <div class="checkbox" ng-repeat="contactType in contactTypeValues">
-				        <label><input type="checkbox" id="field_contactType_{{contactType.value}}" name="contactType_{{contactType.value}}" 
-				        				ng-model="contactType.checked" 
-				        				value="{{contactType.value}}" 
-				        				ng-click="updateContactType(contactType)"  
-				        				ng-required="address.contactType.length==0">{{'sejourApp.ContactType.'+contactType.value | translate}}</label>
-					</div>
+			        <checkbox-contact-type ng-model="address.contactType"></checkbox-contact-type>
 		            <div ng-show="addressForm.contactType.$dirty && addressForm.contactType.$invalid">
 		                <p class="help-block" ng-show="addressForm.contactType.$error.required" translate="entity.validation.required">
 		                    This field is required.
