@@ -15,6 +15,8 @@ angular.module('sejourApp')
                 rememberMe: $scope.rememberMe
             }).then(function () {
                 $scope.authenticationError = false;
+                $rootScope.previousStateName = null;
+                $rootScope.previousStateParams = null;
                 if ($rootScope.previousStateName === 'register') {
                     $state.go('home');
                 } else if($rootScope.returnToState && $rootScope.returnToState.name !== 'login') {
