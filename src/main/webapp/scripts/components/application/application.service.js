@@ -28,6 +28,11 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            getHistory: function (email) {
+            	return $http.get('api/application/history', {params: {email: email}}).then(function (response) {
+                    return response.data;
+                });
+            },
             getApplicationsToReconstruct: function () {
             	return $http.get('api/application/reconstruct').then(function (response) {
                     return response.data;

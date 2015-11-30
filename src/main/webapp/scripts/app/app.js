@@ -58,6 +58,7 @@ angular.module('sejourApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalp
     	}
     	
     	$rootScope.countries = [];
+    	// TODO A déplacer car ne prend pas en compre le changement de langue
         Country.get().then(function(countries) {
         	countries.forEach(function(country) {
         		$rootScope.countries[country.key] = country.name;

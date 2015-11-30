@@ -17,16 +17,8 @@ angular.module('sejourApp')
     	
         $scope.application = currentApplication;
     	
-    	// TODO Créer API qui renvoit l'historique simplifié => {id, type, nature, date début, date fin}
-    	$scope.history = [];
-		Application.getByStatus(['validated'], currentApplication.email).then(function(validatedApplications) {
-			validatedApplications.forEach(function(validatedApplication) {
-				$scope.history.push({
-					nature: validatedApplication.nature,
-					startDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart)),
-					endDate: $scope.getFormattedDate(moment(validatedApplication.project.trainingStart).add(1, 'Y').subtract(1, 'd'))
-				});
-			});
+		Application.getHistory(currentApplication.email).then(function(applicationsHistory) {
+			$scope.history = applicationsHistory;
         });
         
         $scope.validate = function () {

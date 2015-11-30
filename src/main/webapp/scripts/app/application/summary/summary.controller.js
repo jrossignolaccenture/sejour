@@ -13,9 +13,9 @@ angular.module('sejourApp')
         $scope.project = currentApplication.project;
 
         $scope.back = function () {
-        	var stateToGo = currentApplication.statut === 'draft' ? 'project' : 'account/application';
-        	$state.go(stateToGo, $stateParams);
+        	window.history.back();
         };
+        
         $scope.next = function () {
             $state.go('payment', $stateParams);
         };

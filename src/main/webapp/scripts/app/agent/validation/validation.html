@@ -17,7 +17,7 @@
 		<div class="col-xs-6 validation-form">
 			<i class="fa fa-check-circle"></i>
 			<span style="margin-left: 10px"></span>
-			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.validationOn)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.validateOn)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
 		</div>
 	</div>
 	<div id="panelIdentity" class="row collapse" ng-class="{'in': !identity.validateOn}">
@@ -99,22 +99,26 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-6 col-sm-5 col-sm-offset-1">
-			<div class="collapsable-panel">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelHistory">
 				<div class="panel-heading">
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
 					<h5 class="panel-title" translate="validation.form.history">History</h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-6 validation-form">
-			<span translate="validation.form.noHistory" ng-if="history.length == 0">No history</span>
+			
 		</div>
 	</div>
-	<div class="row" ng-if="history.length != 0">
+	<div id="panelHistory" class="row collapse in">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div>
 				<ul>
+					<li translate="validation.form.noHistory" ng-if="history.length == 0"></li>
 					<li ng-repeat="app in history">
-						<a href="#" translate="validation.form.history.list.{{app.nature}}" translate-values="{startDate: '{{app.startDate}}', endDate: '{{app.endDate}}'}">validate</a>
+						<a ui-sref="summary({id: app.id})" 
+							translate="validation.form.history.list.{{app.nature}}" 
+							translate-values="{startDate: '{{getFormattedDate(app.startDate)}}', endDate: '{{getFormattedDate(app.endDate)}}'}">validate</a>
 					</li>
 				</ul>
 			</div>

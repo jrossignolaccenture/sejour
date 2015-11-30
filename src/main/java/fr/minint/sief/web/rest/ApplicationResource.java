@@ -48,6 +48,7 @@ import fr.minint.sief.service.ApplicationService;
 import fr.minint.sief.service.MailService;
 import fr.minint.sief.web.rest.dto.ApplicationCountDTO;
 import fr.minint.sief.web.rest.dto.ApplicationDTO;
+import fr.minint.sief.web.rest.dto.ApplicationHistoryDTO;
 import fr.minint.sief.web.rest.mapper.ApplicationMapper;
 
 /**
@@ -163,6 +164,33 @@ public class ApplicationResource {
 		return applications
 				.stream()
 				.map(applicationMapper::applicationToApplicationDTO)
+				.collect(Collectors.toCollection(LinkedList::new));
+	}
+	
+	/**
+	 * Get /application/history -> Get history of application validated corresponding to the specified email
+	 * 
+	 * @param email The email of the user to look for application history
+	 * @return All application known in history
+	 */
+	@RequestMapping(value = "/application/history", 
+					method = RequestMethod.GET, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<ApplicationHistoryDTO> getHistory(@RequestParam String email) {
+		log.debug("REST request to get application history by email {}", email);
+		List<Application> applications = applicationRepository.findByStatutInAndEmailOrderByCreationDateAsc(asList(validated), email);
+		return applications
+				.stream()
+				.map(app -> {
+					return new ApplicationHistoryDTO(
+									app.getId(), 
+									app.getNature(), 
+									app.getType(), 
+									// TODO Besoin de gérer date de début et fin du séjour d'une meilleur façon (pas forcément un an)
+									app.getProject().getTrainingStart(), 
+									app.getProject().getTrainingStart().plusYears(1).minusDays(1));
+				})
 				.collect(Collectors.toCollection(LinkedList::new));
 	}
     
