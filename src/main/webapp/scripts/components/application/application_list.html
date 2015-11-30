@@ -20,7 +20,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="applicationListLine" ng-repeat="application in applications" ng-click="goToDetail(application)">
+					<tr class="applicationListLine" ng-repeat="application in applications" ui-sref="admissibility({id: application.id})">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{getNationality(application.identity.nationality)}}</td>
@@ -43,7 +43,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="applicationListLine" ng-repeat="application in applications" ng-click="goToDetail(application)">
+					<tr class="applicationListLine" ng-repeat="application in applications" ng-click="goToValidationDetail(application)">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{application.userId}}</td>
@@ -66,7 +66,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="applicationListLine" ng-repeat-start="application in applications" ng-click="goToDocuments(application)" ng-if="hasDocumentToCertify(application)">
+					<tr class="applicationListLine" ng-repeat-start="application in applications" ui-sref="documents({id: application.id})" ng-if="hasDocumentToCertify(application)">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{application.userId}}</td>
@@ -76,7 +76,7 @@
 						</td>
 						<td translate="applicationList.documents"></td>
 					</tr>
-					<tr class="applicationListLine" ng-click="goToBiometrics(application)" ng-if="!application.biometricsDate && application.nature !== 'naturalisation'">
+					<tr class="applicationListLine" ui-sref="biometrics({id: application.id})" ng-if="!application.biometricsDate && application.nature !== 'naturalisation'">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{application.userId}}</td>
@@ -86,7 +86,7 @@
 						</td>
 						<td translate="applicationList.biometrics"></td>
 					</tr>
-					<tr class="applicationListLine" ng-repeat-end ng-click="goToInterview(application)" ng-if="application.nature === 'naturalisation' && !application.interviewDate">
+					<tr class="applicationListLine" ng-repeat-end ui-sref="interview({id: application.id})" ng-if="application.nature === 'naturalisation' && !application.interviewDate">
 						<td>{{application.identity.lastName}}</td>
 						<td>{{application.identity.firstName}}</td>
 						<td>{{application.userId}}</td>

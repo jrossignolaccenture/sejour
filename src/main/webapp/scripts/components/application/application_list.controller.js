@@ -17,8 +17,12 @@ angular.module('sejourApp')
     	    	});
         	});
         }
-        // TODO un peu violent si la liste d'application contient beaucoup d'élément non ??
         $scope.hasDocumentToCertify = function(application) {
+        	if(application.identity.validateOn && application.identity.familyValidateOn) {
+        		// Identity already certified so no documents to validate
+        		return false;
+        	}
+        	
         	var hasDocToCertify = application.identity.documents.find(function(document) {
         		return !document.validation;
         	});
@@ -31,26 +35,11 @@ angular.module('sejourApp')
     		return $scope.countries[key];
     	}
     	
-    	// TODO revoir toutes les function goTo
-    	$scope.goToDetail = function(application) {
-    		if(application.statut === 'paid') {
-    			$state.go('admissibility', {id: application.id});
-    		} else if(application.statut === 'identity_verified' || application.statut === 'favorable_proposal') {
-    			$state.go('validation', {id: application.id});
-    		} else if(application.statut === 'validated') {
+    	$scope.goToValidationDetail = function(application) {
+    		if(application.statut === 'validated') {
     			$state.go('reconstruction', {id: application.id});
+    		} else {
+    			$state.go('validation', {id: application.id});
     		}
-    	}
-    	
-    	$scope.goToDocuments = function(application) {
-    		$state.go('documents', {id: application.id});
-    	}
-    	
-    	$scope.goToBiometrics = function(application) {
-    		$state.go('biometrics', {id: application.id});
-    	}
-    	
-    	$scope.goToInterview = function(application) {
-    		$state.go('interview', {id: application.id});
     	}
     });
