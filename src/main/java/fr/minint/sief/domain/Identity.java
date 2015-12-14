@@ -64,6 +64,10 @@ public class Identity implements Serializable {
     private String passportNumber;
 
     @NotNull        
+    @Field("residency_country")
+    private String residencyCountry;
+
+    @NotNull        
     @Field("marital_status")
     private MaritalStatus maritalStatus;
 
@@ -171,7 +175,15 @@ public class Identity implements Serializable {
         this.passportNumber = passportNumber;
     }
 
-    public MaritalStatus getMaritalStatus() {
+    public String getResidencyCountry() {
+		return residencyCountry;
+	}
+
+	public void setResidencyCountry(String residencyCountry) {
+		this.residencyCountry = residencyCountry;
+	}
+
+	public MaritalStatus getMaritalStatus() {
 		return maritalStatus;
 	}
 
@@ -277,6 +289,7 @@ public class Identity implements Serializable {
         		|| !Objects.equals(birthCountry, identity.birthCountry)
         		|| !Objects.equals(nationality, identity.nationality)
         		|| !Objects.equals(passportNumber, identity.passportNumber)
+        		|| !Objects.equals(residencyCountry, identity.residencyCountry)
         		|| !Objects.equals(maritalStatus, identity.maritalStatus)
         		|| !Objects.equals(childsNumber, identity.childsNumber)
         		|| !Objects.equals(brothersNumber, identity.brothersNumber)
@@ -314,6 +327,7 @@ public class Identity implements Serializable {
     	result = prime * result + Objects.hashCode(birthCountry);
     	result = prime * result + Objects.hashCode(nationality);
     	result = prime * result + Objects.hashCode(passportNumber);
+    	result = prime * result + Objects.hashCode(residencyCountry);
     	result = prime * result + Objects.hashCode(maritalStatus);
     	result = prime * result + Objects.hashCode(childsNumber);
     	result = prime * result + Objects.hashCode(brothersNumber);
@@ -335,6 +349,7 @@ public class Identity implements Serializable {
                 ", birthCountry='" + birthCountry + "'" +
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
+                ", residencyCountry='" + residencyCountry + "'" +
                 ", maritalStatus='" + maritalStatus + "'" +
                 ", childsNumber='" + childsNumber + "'" +
                 ", brothersNumber='" + brothersNumber + "'" +

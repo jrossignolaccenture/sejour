@@ -45,6 +45,9 @@ public class IdentityDTO implements Serializable {
     @NotNull
     private String passportNumber;
 
+    @NotNull
+    private String residencyCountry;
+
     @NotNull        
     private MaritalStatus maritalStatus;
 
@@ -140,7 +143,15 @@ public class IdentityDTO implements Serializable {
         this.passportNumber = passportNumber;
     }
 
-    public MaritalStatus getMaritalStatus() {
+    public String getResidencyCountry() {
+		return residencyCountry;
+	}
+
+	public void setResidencyCountry(String residencyCountry) {
+		this.residencyCountry = residencyCountry;
+	}
+
+	public MaritalStatus getMaritalStatus() {
 		return maritalStatus;
 	}
 
@@ -232,6 +243,7 @@ public class IdentityDTO implements Serializable {
                 ", birthCountry='" + birthCountry + "'" +
                 ", nationality='" + nationality + "'" +
                 ", passportNumber='" + passportNumber + "'" +
+                ", residencyCountry='" + residencyCountry + "'" +
                 ", maritalStatus='" + maritalStatus + "'" +
                 ", childsNumber='" + childsNumber + "'" +
                 ", brothersNumber='" + brothersNumber + "'" +

@@ -16,6 +16,9 @@ angular.module('sejourApp')
         $scope.project.detailMode = true;
     	
         $scope.application = currentApplication;
+        
+        // indicateur fumeux
+        $scope.needResidencyCountry = currentApplication.type === 'premiere';
     	
 		Application.getHistory(currentApplication.email).then(function(applicationsHistory) {
 			$scope.history = applicationsHistory;

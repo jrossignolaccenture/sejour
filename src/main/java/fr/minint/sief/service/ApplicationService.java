@@ -108,6 +108,7 @@ public class ApplicationService {
 			identity.setBirthCountry("KR");
 			identity.setNationality("KR");
 			identity.setPassportNumber("5577997");
+			identity.setResidencyCountry("KR");
 			// ADDRESS
 			Address address = application.getAddress();
 			if(address.getPhone() == null) address.setPhone("+82 51 999999");

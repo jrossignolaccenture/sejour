@@ -16,6 +16,9 @@ angular.module('sejourApp')
         
     	$scope.application = currentApplication;
         
+        // indicateur fumeux
+        $scope.needResidencyCountry = currentApplication.type === 'premiere';
+        
         $scope.verify = function () {
             Application.admissibility(currentApplication.id).then(function(result) {
             	$state.go('admissibility/list');

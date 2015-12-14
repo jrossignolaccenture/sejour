@@ -11,6 +11,7 @@
             "birthCountry": "Pays de naissance",
             "nationality": "Nationalité",
             "passportNumber": "Numéro de passeport",
+            "residencyCountry": "Pays de résidence",
             "maritalStatus": "Situation familiale",
             "childsNumber": "Nombre d'enfants",
             "brothersNumber": "Nombre de frères et soeurs",

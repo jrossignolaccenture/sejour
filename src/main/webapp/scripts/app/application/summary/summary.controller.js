@@ -6,6 +6,9 @@ angular.module('sejourApp')
     	$scope.isInDraftMode = currentApplication.statut === 'draft';
         $scope.displayFamily = currentApplication.nature === 'naturalisation';
         
+        // indicateur fumeux
+        $scope.needResidencyCountry = currentApplication.type === 'premiere';
+        
         $scope.nature = currentApplication.nature;
         
         $scope.identity = currentApplication.identity;

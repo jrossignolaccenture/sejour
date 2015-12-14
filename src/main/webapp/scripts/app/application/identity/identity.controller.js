@@ -11,6 +11,9 @@ angular.module('sejourApp')
     	
         $scope.identity = currentApplication.identity;
         
+        // indicateur fumeux
+        $scope.needResidencyCountry = currentApplication.type === 'premiere';
+        
         $scope.save = function () {
             Application.update(currentApplication).then(function() {
             	if(currentApplication.nature === 'naturalisation') {
