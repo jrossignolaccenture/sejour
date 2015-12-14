@@ -9,7 +9,7 @@
         },
         "address": {
         	"step.short": "Coordonnées",
-        	"step.long": "Complétez vos coordonnées"
+        	"step.long": "Complétez vos coordonnées en France"
         },
         "project": {
         	"step.short": "Projet",

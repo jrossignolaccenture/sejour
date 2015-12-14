@@ -112,6 +112,7 @@ public class ApplicationService {
 			Address address = application.getAddress();
 			if(address.getPhone() == null) address.setPhone("+82 51 999999");
 			if(address.getEmail() == null) address.setEmail(application.getEmail());
+			address.setCountry("FR");
 			// PROJECT
 			Project project = application.getProject();
 			project.setUniversity("Télécom Paris Tech");
