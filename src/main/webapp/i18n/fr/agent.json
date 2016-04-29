@@ -1,7 +1,9 @@
 {
     "agent": {
         "title.premiere.sejour_etudiant": "{{studentName}} - Première demande de séjour étudiant",
+        "title.premiere.sejour_tmp_etudiant": "{{studentName}} - Première demande de carte de séjour temporaire étudiant",
         "title.renouvellement.sejour_etudiant": "{{studentName}} - Renouvellement de séjour étudiant",
+        "title.renouvellement.sejour_tmp_etudiant": "{{studentName}} - Renouvellement de carte de séjour temporaire étudiant",
         "title.naturalisation.naturalisation": "{{studentName}} - Demande de naturalisation par décret"
     }
 }

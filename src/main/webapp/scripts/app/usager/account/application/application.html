@@ -46,9 +46,9 @@
 							translate="application.list.payment"
 							translate-values="{ paymentDate: '{{getFormattedDate(application.paymentDate)}}', userName: '{{application.identity.firstName}} {{application.identity.lastName}}'}"></li>
 						<li ng-if="application.statut === 'paid'"
-							translate="application.list.admissibility.wait"></li>
+							translate="application.list.admissibility.wait.{{application.nature}}"></li>
 						<li ng-if="application.admissibilityDate"
-							translate="application.list.admissibility" 
+							translate="application.list.admissibility.{{application.nature}}" 
 							translate-values="{ admissibilityDate: '{{getFormattedDate(application.admissibilityDate)}}'}"></li>
 						<li ng-if="application.statut === 'scheduled'"
 							translate="application.list.rdv.future"
@@ -57,9 +57,9 @@
 							translate="application.list.rdv.passed" 
 							translate-values="{ rdvDate: '{{getFormattedDate(application.rdvDate)}}', userName: '{{application.identity.firstName}} {{application.identity.lastName}}'}"></li>
 						<li ng-if="application.statut === 'identity_verified'"
-							translate="application.list.decision.wait"></li>
+							translate="application.list.decision.wait.{{application.nature}}"></li>
 						<li ng-if="application.statut === 'validated'"
-							translate="application.list.decision" 
+							translate="application.list.decision.{{application.nature}}" 
 							translate-values="{ decisionDate: '{{getFormattedDate(application.decisionDate)}}'}"></li>
 					</ul>
 				</div>

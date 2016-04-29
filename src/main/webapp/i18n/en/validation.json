@@ -16,6 +16,7 @@
 	    	"policeControl": "Security control",
 	    	"history": "SI EF History",
 	    	"history.list.sejour_etudiant": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
+	    	"history.list.sejour_tmp_etudiant": "\"Student\" residency permit - du {{startDate}} au {{endDate}}",
 	    	"history.list.sejour_salarie": "\"Salaried\" residency permit - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "No history",
 	    	

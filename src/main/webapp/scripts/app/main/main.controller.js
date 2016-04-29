@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('MainController', function ($rootScope, $scope, $state, Principal, Application) {
     	
         $scope.isAuthenticated = Principal.isAuthenticated;
+        $scope.userLocation = undefined;
         
         $scope.nbPaid = 0;
         $scope.nbScheduled = 0;
@@ -33,5 +34,9 @@ angular.module('sejourApp')
         
         $scope.choose = function(userType) {
         	$rootScope.userType = userType;
+        }
+        
+        $scope.chooseLocation = function(userLocation) {
+        	$scope.userLocation = userLocation;
         }
     });

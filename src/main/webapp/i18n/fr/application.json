@@ -6,13 +6,17 @@
 			"title": {
 				"created": {
 					"premiere.sejour_etudiant": "Première demande de séjour étudiant - créée le {{creationDate}}",
+					"premiere.sejour_tmp_etudiant": "Première demande de carte de séjour temporaire étudiant - créée le {{creationDate}}",
 					"renouvellement.sejour_etudiant": "Demande de renouvellement de séjour étudiant - créée le {{creationDate}}",
+					"renouvellement.sejour_tmp_etudiant": "Demande de  renouvellement de carte de séjour temporaire étudiant - créée le {{creationDate}}",
 					"renouvellement.sejour_salarie": "Demande de renouvellement de séjour salarié - créée le {{creationDate}}",
 					"naturalisation.naturalisation": "Demande de naturalisation par décret - créée le {{creationDate}}"
 				},
 				"validated": {
 					"premiere.sejour_etudiant": "Première demande de séjour étudiant - validée le {{decisionDate}}",
+					"premiere.sejour_tmp_etudiant": "Première demande de carte de séjour temporaire étudiant - validée le {{decisionDate}}",
 					"renouvellement.sejour_etudiant": "Demande de renouvellement de séjour étudiant - validée le {{decisionDate}}",
+					"renouvellement.sejour_tmp_etudiant": "Demande de renouvellement de carte de séjour temporaire étudiant - validée le {{decisionDate}}",
 					"renouvellement.sejour_salarie": "Demande de renouvellement de séjour salarié - validée le {{decisionDate}}",
 					"naturalisation.naturalisation": "Demande de naturalisation par décret - validée le {{decisionDate}}"
 				}
@@ -22,12 +26,32 @@
 			"modified": "Demande modifiée le {{modificationDate}} - {{userName}}",
 			"submit": "Demande déposée le {{submitDate}} - {{userName}}",
 			"payment": "Paiement effectué le {{paymentDate}} - {{userName}}",
-			"admissibility.wait": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
-			"admissibility": "Recevabilité de la demande vérifiée le {{admissibilityDate}} - Administration des étrangers en France",
+			"admissibility.wait": {
+				"sejour_etudiant": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "En attente de vérification de la recevabilité par la Préfecture de police de Paris",
+				"sejour_salarie": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
+				"naturalisation": "En attente de vérification de la recevabilité par l'administration des étrangers en France"
+			},
+			"admissibility": {
+				"sejour_etudiant": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par la Préfecture de police de Paris",
+				"sejour_salarie": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France",
+				"naturalisation": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France"
+			},
 			"rdv.future": "Rendez-vous confirmé le {{rdvDate}} à {{rdvHour}} - {{userName}}",
 			"rdv.passed": "Rendez-vous réalisé le {{rdvDate}} - {{userName}}",
-			"decision.wait": "En attente d'instruction et décision par l'administration des étrangers en France",
-			"decision": "Instruction et décision validée le {{decisionDate}} - Administration des étrangers en France"
+			"decision.wait": {
+				"sejour_etudiant": "En attente d'instruction et décision par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "En attente d'instruction et décision par la Préfecture de police de Paris",
+				"sejour_salarie": "En attente d'instruction et décision par l'administration des étrangers en France",
+				"naturalisation": "En attente d'instruction et décision par l'administration des étrangers en France"
+			},
+			"decision": {
+				"sejour_etudiant": "Instruction et décision validée le {{decisionDate}} par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "Instruction et décision validée le {{decisionDate}} par la Préfecture de police de Paris",
+				"sejour_salarie": "Instruction et décision validée le {{decisionDate}} par l'administration des étrangers en France",
+				"naturalisation": "Instruction et décision validée le {{decisionDate}} par l'administration des étrangers en France"
+			}
 		},
 	    	
 	    "button": {

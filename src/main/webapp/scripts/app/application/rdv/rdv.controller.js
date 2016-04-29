@@ -11,8 +11,8 @@ angular.module('sejourApp')
 			enabledDates: Rdv.getRandomDates()
         }
     	
-    	$scope.isRdvInFrance = currentApplication.nature === 'naturalisation';
-    	
+    	$scope.isRdvInFrance = currentApplication.nature === 'naturalisation' || currentApplication.nature === 'sejour_tmp_etudiant';
+
     	$scope.days = [];
     	$scope.hours = [];
     	$scope.datePickerOptions.enabledDates.forEach(function(date) {

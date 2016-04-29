@@ -132,10 +132,16 @@ public class DatabaseConfiguration extends AbstractMongoConfiguration  {
 				+ "identity : {last_name: 'Dupuis', first_name: 'Kitty'},"
 				+ "address : {},"
 				+ "authorities : [{_id : 'ROLE_AGENT'}], activated : true, lang_key : 'fr', created_by : 'kitty.dupuis@sief.com', created_date : ISODate('2015-09-23T09:22:39.031Z'), last_modified_by : 'kitty.dupuis@sief.com', last_modified_date : ISODate('2015-11-12T09:42:10.211Z')}"));
-		db.getCollection("JHI_USER").insertOne(Document.parse("{_id : ObjectId('56026f5fd4c6d4a17b866d88'), _class : 'fr.minint.sief.domain.User', password : '$2a$10$zIrzNzyxPJFiMEQFUUGDcepj/qDuKUYGf0oMjz/W/UILGHxnu5sw6',"
+//		db.getCollection("JHI_USER").insertOne(Document.parse("{_id : ObjectId('56026f5fd4c6d4a17b866d88'), _class : 'fr.minint.sief.domain.User', password : '$2a$10$zIrzNzyxPJFiMEQFUUGDcepj/qDuKUYGf0oMjz/W/UILGHxnu5sw6',"
+//				+ "email : 'kim.soon.jeen@gmail.com', type : 'individual',"
+//				+ "identity : {last_name: 'Kim', first_name: 'Soon-Jeen', documents: [], family: {}},"
+//				+ "'address' : {}, "
+//				+ "project: {},"
+//				+ "authorities : [{_id : 'ROLE_USAGER'}], activated : true, lang_key : 'fr', created_by : 'kim.soon.jeen@gmail.com', created_date : ISODate('2015-09-23T09:22:39.031Z'), last_modified_by : 'kim.soon.jeen@gmail.com', last_modified_date : ISODate('2015-11-12T09:42:10.211Z')}"));
+		db.getCollection("JHI_USER").insertOne(Document.parse("{_id : 'user-soon-jeen', _class : 'fr.minint.sief.domain.User', password : '$2a$10$zIrzNzyxPJFiMEQFUUGDcepj/qDuKUYGf0oMjz/W/UILGHxnu5sw6',"
 				+ "email : 'kim.soon.jeen@gmail.com', type : 'individual',"
-				+ "identity : {last_name: 'Kim', first_name: 'Soon-Jeen', documents: [], family: {}},"
-				+ "'address' : {}, "
+				+ "'identity' : { 'last_name' : 'Kim', 'first_name' : 'Soon-Jeen', 'sex' : 'F', 'birth_date' : ISODate('1992-12-10T23:00:00Z'), 'birth_city' : 'Séoul', 'birth_country' : 'KR', 'nationality' : 'KR', 'passport_number' : '5577997', 'residency_country': 'FR', 'marital_status' : 'single', 'childs_number' : 0, 'brothers_number' : 0, 'activity' : 'student', 'family' : {  } }, "
+				+ "'address' : { 'number' : '4', 'street' : 'rue campagne première', 'complement' : '', 'postal_code' : '75014', 'city' : 'Paris', 'country' : 'FR', 'phone' : '0601020304', 'email' : 'kim.soon.jeen@gmail.com', 'contact_type' : [ 'email' ], 'admissible' : true, 'validate_on' : ISODate('2015-03-10T10:00:19.669Z') }, "
 				+ "project: {},"
 				+ "authorities : [{_id : 'ROLE_USAGER'}], activated : true, lang_key : 'fr', created_by : 'kim.soon.jeen@gmail.com', created_date : ISODate('2015-09-23T09:22:39.031Z'), last_modified_by : 'kim.soon.jeen@gmail.com', last_modified_date : ISODate('2015-11-12T09:42:10.211Z')}"));
 		db.getCollection("JHI_USER").insertOne(Document.parse("{_id : ObjectId('56533ccb151b140ad77274b2'), _class : 'fr.minint.sief.domain.User', password : '$2a$10$COriMCcvbLQXpE9XgeueEe2HF57kyd8Xo/al6moBZCHyMcIPdwgOq',"

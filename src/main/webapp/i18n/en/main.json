@@ -12,6 +12,11 @@
     		}
     	},
     	"usager": {
+    		"button": {
+    			"france": "I am in France",
+    			"other": "I am abroad"
+    		},
+    		"choice": "What is your location ?",
 	        "title": {
 		        "study": "I want to <strong>study</strong> in France",
 		        "work": "I want to <strong>work</strong> in France",

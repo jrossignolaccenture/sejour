@@ -6,13 +6,17 @@
 			"title": {
 				"created": {
 					"premiere.sejour_etudiant": "First application of student residency - created on {{creationDate}}",
+					"premiere.sejour_tmp_etudiant": "First application of temporary student residency card - created on {{creationDate}}",
 					"renouvellement.sejour_etudiant": "Student residency renewal application - created on {{creationDate}}",
+					"renouvellement.sejour_tmp_etudiant": "Temporary student residency card renewal application - created on {{creationDate}}",
 					"renouvellement.sejour_salarie": "Salary residency renewal application - created on {{creationDate}}",
 					"naturalisation.naturalisation": "Application for naturalization by decree - created on {{creationDate}}"
 				},
 				"validated": {
 					"premiere.sejour_etudiant": "First application of student residency - validated on {{decisionDate}}",
+					"premiere.sejour_tmp_etudiant": "First application of temporary student residency card - validated on {{decisionDate}}",
 					"renouvellement.sejour_etudiant": "Student residency renewal application - validated on {{decisionDate}}",
+					"renouvellement.sejour_tmp_etudiant": "Temporary student residency card renewal application - validated on {{decisionDate}}",
 					"renouvellement.sejour_salarie": "Salary residency renewal application - validated on {{decisionDate}}",
 					"naturalisation.naturalisation": "Application for naturalization by decree - validated on {{decisionDate}}"
 				}
@@ -22,12 +26,32 @@
 			"modified": "Application modified on {{modificationDate}} - {{userName}}",
 			"submit": "Application submitted on {{submitDate}} - {{userName}}",
 			"payment": "Payment done on {{paymentDate}} - {{userName}}",
-			"admissibility.wait": "Waiting for admissibility verification by the french administration of foreigners",
-			"admissibility": "Application admissibility verified on {{admissibilityDate}} - French administration of foreigners",
+			"admissibility.wait": {
+				"sejour_etudiant": "Waiting for admissibility verification by the french administration of foreigners",
+				"sejour_tmp_etudiant": "Waiting for admissibility verification by the Préfecture de police de Paris",
+				"sejour_salarie": "Waiting for admissibility verification by the french administration of foreigners",
+				"naturalisation": "Waiting for admissibility verification by the french administration of foreigners"
+			},
+			"admissibility": {
+				"sejour_etudiant": "Application admissibility verified on {{admissibilityDate}} by the french administration of foreigners",
+				"sejour_tmp_etudiant": "Application admissibility verified on {{admissibilityDate}} by the Préfecture de police de Paris",
+				"sejour_salarie": "Application admissibility verified on {{admissibilityDate}} by the french administration of foreigners",
+				"naturalisation": "Application admissibility verified on {{admissibilityDate}} by the french administration of foreigners"
+			},
 			"rdv.future": "Appointment confirmed for {{rdvDate}} at {{rdvHour}} - {{userName}}",
 			"rdv.passed": "Appointment taken on {{rdvDate}} - {{userName}}",
-			"decision.wait": "Waiting for instruction and decision by the french administration of foreigners",
-			"decision": "Instruction and decision validated on {{decisionDate}} - French administration of foreigners"
+			"decision.wait": {
+				"sejour_etudiant": "Waiting for instruction and decision by the french administration of foreigners",
+				"sejour_tmp_etudiant": "Waiting for instruction and decision by the Préfecture de police de Paris",
+				"sejour_salarie": "Waiting for instruction and decision by the french administration of foreigners",
+				"naturalisation": "Waiting for instruction and decision by the french administration of foreigners"
+			},
+			"decision": {
+				"sejour_etudiant": "Instruction and decision validated on {{decisionDate}} by the french administration of foreigners",
+				"sejour_tmp_etudiant": "Instruction and decision validated on {{decisionDate}} by the Préfecture de police de Paris",
+				"sejour_salarie": "Instruction and decision validated on {{decisionDate}} by the french administration of foreigners",
+				"naturalisation": "Instruction and decision validated on {{decisionDate}} by the french administration of foreigners"
+			}
 		},
 	    	
 	    "button": {

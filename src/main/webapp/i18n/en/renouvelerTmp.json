@@ -1,0 +1,61 @@
+{
+	"renouveler": {
+		"title": "Residency renewal application",
+		"choice": "Choose your approach",
+		"stateUnchange": "I want to extend my residency without status change<br><br><span style='font-size: 17px'>(For instance : I extend my study)</span>",
+		"stateChange": "I want to extend my residency and change my status<br><br><span style='font-size: 17px'>(For instance :  I change from student status to worker status)</span>"
+	},
+    "procedure": {
+        "title": "Temporary student residency card renewal application",
+        "page.title": "Temporary student residency card renewal application",
+        "step.title": "5 steps for your application",
+        "identity": {
+        	"step.short": "Identity",
+        	"step.long": "Verify your civil status and personal information"
+        },
+        "address": {
+        	"step.short": "Address",
+        	"step.long": "Verify your address"
+        },
+        "project": {
+        	"step.short": "Project",
+        	"step.long": "Complete your project details"
+        },
+        "summary": {
+        	"step.short": "Summary",
+        	"step.long": "Verify your application informations"
+        },
+        "payment": {
+        	"step.short": "Payment",
+        	"step.long": "Pre-pay your residency taxes"
+        },
+        "preparationText": "<p>To complete your application, you must be in possession :</p><ul><li>a certificate of registration or pre-enrollment in a French school,</li><li>proof of sufficient financial resources, or greater than or equal to 615 € monthly (grant certificate, bank statement, pay stubs or proof of support by a guarantor),</li><li>in case of change of civil status , a valid passport and an extract of your birth certificate with filiation or a full copy of your birth certificate,</li><li>in case of change of address, proof of address,</li></ul><p>All supporting documents must be accompanied, where appropriate, a translation into French by a certified translator interpreter.</p><p><a href='#'>Find a certified translator interpreter</a></p>"
+    },
+    "summary": {
+    	"form": {
+	    	"subtitle": "You are about to make a temporary student residency card renewal application. Before paying, make sure that the information below are correct.",
+	    	"identity": "My personal information",
+	    	"address": "My address",
+	    	"project": "My project"
+    	}
+    },
+    "payment" : {
+		"form": {
+			"informations": "<p>Your residency taxes amount to 49.00 euros. They will not be debited in case of a favorable decision.</p>"
+		}
+	},
+	"final" : {
+		"form": {
+    		"informations": "<p>The admissibility of your application will be verified by the Administration of foreigners in France.<br>If your application is not admissible, we will tell you and you will specify the reason(s) element(s) missing(s) the if any.</p><p>If your application is admissible, your case will be heard and you will be notified of the decision.<br>If the decision is favorable and after flow of tourist taxes, you will be prompted to come pick up your residence permit when available.<br>If the decision is unfavorable, you will be informed of the remedies you have.</p>"
+		}
+	},
+	"validation": {
+		"form": {
+			"project": "Project",
+			"button": {
+	    		"accept": "Accept residence permit",
+	    		"decline": "Decline residence permit"
+	    	}
+	    }
+	}
+}

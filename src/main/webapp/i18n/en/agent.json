@@ -1,7 +1,9 @@
 {
     "agent": {
         "title.premiere.sejour_etudiant": "{{studentName}} - First application for a student stay",
+        "title.premiere.sejour_tmp_etudiant": "{{studentName}} - First application for a temporary student stay card",
         "title.renouvellement.sejour_etudiant": "{{studentName}} - Renewal for a student stay",
+        "title.renouvellement.sejour_tmp_etudiant": "{{studentName}} - Renewal for a temporary student stay card",
         "title.naturalisation.naturalisation": "{{studentName}} - Application for naturalization by decree"
     }
 }
