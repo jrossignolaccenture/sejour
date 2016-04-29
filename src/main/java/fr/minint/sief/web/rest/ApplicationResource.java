@@ -2,6 +2,7 @@ package fr.minint.sief.web.rest;
 
 import static fr.minint.sief.domain.enumeration.ApplicationNature.naturalisation;
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
+import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_tmp_etudiant;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.favorable_proposal;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.identity_verified;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.paid;
@@ -212,6 +213,7 @@ public class ApplicationResource {
 		count.setNbScheduled(applicationRepository.countByStatutIn(asList(scheduled)));
 		count.setNbIdentityVerified(applicationRepository.countByStatutIn(asList(identity_verified, favorable_proposal)));
 		count.setNbCivilStateToReconstruct(applicationRepository.countByStatutInAndNatureAndReconstructionDateIsNull(validated, naturalisation));
+		count.setNbPermitToIssue(applicationRepository.countByStatutInAndNatureAndIssuingDateIsNull(validated, ApplicationNature.sejour_tmp_etudiant));
 		return new ResponseEntity<>(count, HttpStatus.OK);
 	}
 	
@@ -260,7 +262,7 @@ public class ApplicationResource {
             		application.setStatut(ApplicationStatus.paid);
             		application.setPaymentDate(DateTime.now());
             		
-                    applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(validated, application.getEmail())
+                    applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(asList(validated), application.getEmail())
                     	.ifPresent(lastApplication -> {
                     		if( ! application.getIdentity().equalsWithoutFamily(lastApplication.getIdentity())) {
                     			application.getIdentity().setAdmissible(null);
@@ -457,6 +459,44 @@ public class ApplicationResource {
 					} else if(application.getNature() == naturalisation) {
 						mailService.sendCeremonyEmail(application, getBaseUrl(request));
 					}
+                    return new ResponseEntity<>(HttpStatus.OK);
+				})
+				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+	}
+
+	/**
+	 * GET /application/issuing -> Get applications that need to be issued
+	 * 
+     * @return List of application that need to be issued
+     */
+	@RequestMapping(value = "/application/issuing", 
+					method = RequestMethod.GET, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<ApplicationDTO> getApplicationToIssued() {
+		log.debug("REST request to get applications that need to be issued");
+		return applicationRepository.findByStatutAndNatureAndIssuingDateIsNull(validated, sejour_tmp_etudiant)
+				.stream()
+				.map(applicationMapper::applicationToApplicationDTO)
+				.collect(Collectors.toCollection(ArrayList::new));
+	}
+
+	/**
+	 * PUT /application/issuing -> Permit issuing
+	 * 
+	 * @param id The id of the application that have permit issued
+     * @return HttpStatus
+     */
+	@RequestMapping(value = "/application/issuing", 
+					method = RequestMethod.PUT, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<?> permitIssuing(@Valid @RequestBody String id) {
+		log.debug("REST request to application that have permit issuing : {}", id);
+		return Optional.ofNullable(applicationRepository.findOne(id))
+				.map(application -> {
+					application.setIssuingDate(DateTime.now());
+					applicationRepository.save(application);
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));

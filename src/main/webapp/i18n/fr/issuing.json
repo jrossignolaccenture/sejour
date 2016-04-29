@@ -1,0 +1,20 @@
+{
+	"applicationList": {
+		"title": "Liste des demandes en attente de remise de titre",
+		"noApplication": "Aucun titre à délivrer",
+		"firstName": "Prénom",
+		"lastName": "Nom",
+		"id": "Numéro étranger",
+		"nationality": "Nationalité",
+		"applicationType": "Type de demande"
+	},
+	"issuing" : {
+		"form": {
+	    	"identity": "Identité de l'usager",
+	    	"fingerprints": "Vérification des empreintes digitales",
+	    	"fingerprints.button": "Démarrer la capture d'empreintes",
+	    	"button.accept": "Confirmer la remise du titre",
+	    	"validate": "Validé le {{validationDate}} - {{validationAuthor}}"
+		}
+	}
+}

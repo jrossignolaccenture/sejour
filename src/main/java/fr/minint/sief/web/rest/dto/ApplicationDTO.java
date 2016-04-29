@@ -61,6 +61,8 @@ public class ApplicationDTO implements Serializable {
     
     private DateTime decisionDate;
     
+    private DateTime issuingDate;
+    
     private DateTime reconstructionDate;
 
     public String getId() {
@@ -207,6 +209,14 @@ public class ApplicationDTO implements Serializable {
 		this.decisionDate = decisionDate;
 	}
 
+	public DateTime getIssuingDate() {
+		return issuingDate;
+	}
+
+	public void setIssuingDate(DateTime issuingDate) {
+		this.issuingDate = issuingDate;
+	}
+
 	public DateTime getReconstructionDate() {
 		return reconstructionDate;
 	}
@@ -257,6 +267,7 @@ public class ApplicationDTO implements Serializable {
                 ", interviewReport='" + interviewReport + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
                 ", decisionDate='" + decisionDate + "'" +
+                ", issuingDate='" + issuingDate + "'" +
                 ", reconstructionDate='" + reconstructionDate + "'" +
                 '}';
     }

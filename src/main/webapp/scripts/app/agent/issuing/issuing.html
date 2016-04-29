@@ -1,0 +1,70 @@
+<div ng-cloak>
+    <div class="row title-main title-underline">
+    	<h4 translate="agent.title.{{application.type}}.{{application.nature}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    </div>
+	<br><br>
+	
+	<!-- IDENTITY -->
+	<div class="row">
+		<div class="col-xs-6 col-sm-5 col-sm-offset-1">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelIdentity">
+				<div class="panel-heading">
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
+					<h5 class="panel-title" translate="issuing.form.identity">Identity</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6 validation-form">
+			<i class="fa fa-check-circle"></i>
+			<span style="margin-left: 10px"></span>
+			<span translate="issuing.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.validateOn)}}', validationAuthor: identityInFrance ? 'Préfecture de police de Paris' : 'Ambassade de France à Séoul'}">validate</span>
+		</div>
+	</div>
+	<div id="panelIdentity" class="row collapse in">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row opened">
+				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
+			</div>
+		</div>
+	</div>
+	
+	<!-- BIOMETRICS -->
+	<div class="row">
+		<div class="col-xs-6 col-sm-5 col-sm-offset-1">
+			<div class="collapsable-panel" data-toggle="collapse" data-target="#panelFingerprints">
+				<div class="panel-heading">
+					<span class="glyphicon glyphicon-triangle-bottom"></span>
+					<h5 class="panel-title" translate="issuing.form.fingerprints">fingerprints</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6 validation-form">
+			<i ng-show="fingerprintsMatched" class="fa fa-check-circle"></i>
+		</div>
+	</div>
+	<div id="panelFingerprints" class="row collapse in">
+		<div class="col-sm-11 col-sm-offset-1">
+			<div class="row validation-visualization-row opened">
+				<div class="col-xs-12">
+					<div ng-show="!fingerprints">
+						<button class="btn btn-primary" translate="issuing.form.fingerprints.button" style="width:311px;" ng-click="activateFingerprints()">Fingerprints</button>
+					</div>
+					<img class="img-responsive thumbnail" src="assets/images/Handprints.gif" ng-if="fingerprints" width="800px" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row row-center">
+    	<button class="btn btn-success"
+    			ng-class="{'btn-right': project.valid == null}"
+    			translate="issuing.form.button.accept"
+    			ng-disabled="!fingerprintsMatched" 
+    			ng-click="issue()" >Accept</button>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

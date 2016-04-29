@@ -17,7 +17,7 @@
 		<div class="col-xs-6 validation-form">
 			<i class="fa fa-check-circle"></i>
 			<span style="margin-left: 10px"></span>
-			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.validateOn)}}', validationAuthor: 'Ambassade de France à Séoul'}">validate</span>
+			<span translate="validation.form.validate" translate-values="{validationDate: '{{getFormattedDate(identity.validateOn)}}', validationAuthor: identityInFrance ? 'Préfecture de police de Paris' : 'Ambassade de France à Séoul'}">validate</span>
 		</div>
 	</div>
 	<div id="panelIdentity" class="row collapse" ng-class="{'in': !identity.validateOn}">

@@ -1,0 +1,20 @@
+{
+	"applicationList": {
+		"title": "Application list for permit issuing",
+		"noApplication": "There is no permit issuing to do at this time.",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"id": "Foreign number",
+		"nationality": "Nationality",
+		"applicationType": "Application type"
+	},
+	"issuing" : {
+		"form": {
+	    	"identity": "User identity",
+	    	"fingerprints": "Verificationof fingerprints",
+	    	"fingerprints.button": "Start fingerprints",
+	    	"button.accept": "Confirm permit issuing",
+	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}"
+		}
+	}
+}

@@ -2,6 +2,7 @@
     "sejourApp": {
         "ApplicationNature" : {
             "sejour_etudiant": "Séjour étudiant",
+            "sejour_tmp_etudiant": "Carte de séjour temporaire étudiant",
             "sejour_salarie": "Séjour salarie",
             "sejour_competences_talents": "Séjour competences talents",
             "naturalisation": ""

@@ -16,6 +16,7 @@
 	    	"policeControl": "Contrôle sécuritaire",
 	    	"history": "Historique SI EF",
 	    	"history.list.sejour_etudiant": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
+	    	"history.list.sejour_tmp_etudiant": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"history.list.sejour_salarie": "Droit au séjour \"salarié\" - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "Pas d'historique",
 	    	

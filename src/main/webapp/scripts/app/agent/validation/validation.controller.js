@@ -4,6 +4,7 @@ angular.module('sejourApp')
     .controller('ValidationController', function ($scope, $state, Application, currentApplication) {
 
         $scope.displayFamily = currentApplication.nature === 'naturalisation';
+        $scope.identityInFrance = currentApplication.nature === 'sejour_tmp_etudiant';
 
         // TODO date temporaire pour gérer toutes les dates de l'écran de validation de naturalisation (demo only)
         $scope.tempDate = {date: $scope.getFormattedDate(moment())};

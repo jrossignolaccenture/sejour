@@ -12,12 +12,25 @@
     		}
     	},
     	"usager": {
+    		"button": {
+    			"france": "I am in France",
+    			"other": "I am abroad"
+    		},
+    		"choice": "What is your location ?",
 	        "title": {
 		        "study": "I want to <strong>study</strong> in France",
 		        "work": "I want to <strong>work</strong> in France",
 		        "family": "I want to <strong>get my family</strong> in France",
 		        "extend": "I want to <strong>extend my stay</strong> in France",
-		        "nationality": "I want to <strong>acquire French nationality</strong>"
+		        "nationality": "I want to <strong>acquire French nationality</strong>",
+		        "france": {
+		        	"study": "I want to  <strong>ask a first stay</strong> in France",
+		        	"change": "I want to  <strong>declare a status change</strong>",
+		        	"family": "I want to  <strong>get my family</strong> in France",
+		        	"extend": "I want to  <strong>extend my stay</strong> in France",
+		        	"sick": "I want to  <strong>benefit from a patients foreigners</strong> application",
+		        	"child": "I want to  <strong>request a document for my child</strong>"
+		        }
 	        }
        	},
        	"company": {
@@ -37,7 +50,8 @@
 		        "application": "Application management",
 		        "rdv.setting": "Appointments calendar",
 		        "question": "Messages",
-		        "analyse": "Data analysis and control"
+		        "analyse": "Data analysis and control",
+		        "issuing": "Resident permit delivery"
 	        }
        	}
     }

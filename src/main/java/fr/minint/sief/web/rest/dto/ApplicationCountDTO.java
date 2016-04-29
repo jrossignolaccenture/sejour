@@ -13,6 +13,7 @@ public class ApplicationCountDTO implements Serializable {
 	private Long nbScheduled = 0L;
     private Long nbIdentityVerified = 0L;
     private Long nbCivilStateToReconstruct = 0L;
+    private Long nbPermitToIssue = 0L;
 
 	public Long getNbPaid() {
 		return nbPaid;
@@ -46,6 +47,14 @@ public class ApplicationCountDTO implements Serializable {
 		this.nbCivilStateToReconstruct = nbCivilStateToReconstruct;
 	}
 
+	public Long getNbPermitToIssue() {
+		return nbPermitToIssue;
+	}
+
+	public void setNbPermitToIssue(Long nbPermitToIssue) {
+		this.nbPermitToIssue = nbPermitToIssue;
+	}
+
 	@Override
     public String toString() {
         return "ApplicationCountDTO{" +
@@ -53,6 +62,7 @@ public class ApplicationCountDTO implements Serializable {
                 ", nbScheduled='" + nbScheduled + "'" +
                 ", nbIdentityVerified='" + nbIdentityVerified + "'" +
                 ", nbCivilStateToReconstruct='" + nbCivilStateToReconstruct + "'" +
+                ", nbPermitToIssue='" + nbPermitToIssue + "'" +
                 '}';
     }
 }

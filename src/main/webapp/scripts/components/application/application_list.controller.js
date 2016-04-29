@@ -37,7 +37,11 @@ angular.module('sejourApp')
     	
     	$scope.goToValidationDetail = function(application) {
     		if(application.statut === 'validated') {
-    			$state.go('reconstruction', {id: application.id});
+    			if(application.nature === 'sejour_tmp_etudiant') {
+    				$state.go('issuing', {id: application.id});
+    			} else {
+    				$state.go('reconstruction', {id: application.id});
+    			}
     		} else {
     			$state.go('validation', {id: application.id});
     		}

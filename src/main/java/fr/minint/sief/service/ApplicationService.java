@@ -3,6 +3,7 @@ package fr.minint.sief.service;
 import static fr.minint.sief.domain.enumeration.ApplicationNature.sejour_etudiant;
 import static fr.minint.sief.domain.enumeration.ApplicationStatus.validated;
 import static fr.minint.sief.domain.enumeration.ApplicationType.premiere;
+import static java.util.Arrays.asList;
 
 import java.util.List;
 import java.util.Optional;
@@ -67,7 +68,7 @@ public class ApplicationService {
 		application.setModificationDate(DateTime.now());
 		
 		// Copy data from the last application if exist
-		Optional<Application> lastApplication = applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(validated, application.getEmail());
+		Optional<Application> lastApplication = applicationRepository.findFirstByStatutInAndEmailOrderByDecisionDateDesc(asList(validated), application.getEmail());
 		if(lastApplication.isPresent()) {
 			application.setIdentity(lastApplication.get().getIdentity());
 			application.setAddress(lastApplication.get().getAddress());

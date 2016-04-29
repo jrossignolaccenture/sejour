@@ -22,21 +22,64 @@
 	    </div>
     </div>
     <div class="row" ng-switch-when="individual">
-    	<div class="col-sm-6 col-md-4">
-        	<box-menu boxtitle="main.usager.title.study" boxlogo="graduation-cap" ui-sref="usager/etudier"></box-menu>
-        </div>
-        <div class="col-sm-6 col-md-4">
-	        <box-menu boxtitle="main.usager.title.work" boxlogo="briefcase" disabled="true"></box-menu>
-        </div>
-        <div class="col-sm-6 col-md-4">
-	     	<box-menu boxtitle="main.usager.title.family" boxlogo="users" disabled="true"></box-menu>
-        </div>
-        <div class="col-sm-6 col-md-4">
-	        <box-menu boxtitle="main.usager.title.extend" boxlogo="repeat" ui-sref="usager/renouveler"></box-menu>
-        </div>
-        <div class="col-sm-6 col-md-4">
-	        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" ui-sref="usager/naturalization"></box-menu>
-        </div>
+	    <div ng-switch="userLocation">
+	    	<div ng-switch-when="undefined">
+			    <div class="row row-center">
+			    	<h1 translate="main.unknown.title"></h1>
+			    </div>
+			    <br>
+			   	<br>
+			   	<br>
+			   	<div class="row row-center">
+			   		<h3 translate="main.usager.choice">location</h3>
+			   	</div>
+			   	<br>
+			   	<br>
+	    		<div class="col-sm-6 col-lg-5 col-lg-offset-1">
+		        	<box-menu class="box-home" boxtitle="main.usager.button.france" boxlogo="user" ng-click="chooseLocation('france')"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-lg-5">
+			        <box-menu class="box-home" boxtitle="main.usager.button.other" boxlogo="industry" ng-click="chooseLocation('abroad')"></box-menu>
+		        </div>
+	    	</div>
+	    	<div ng-switch-when="france">
+		    	<div class="col-sm-6 col-md-4">
+		        	<box-menu boxtitle="main.usager.title.france.study" boxlogo="newspaper-o" ui-sref="usager/etudierTmp"></box-menu>
+		        </div>
+		    	<div class="col-sm-6 col-md-4">
+		        	<box-menu boxtitle="main.usager.title.france.change" boxlogo="angle-double-right" disabled="true"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			        <box-menu boxtitle="main.usager.title.france.family" boxlogo="users" disabled="true"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			        <box-menu boxtitle="main.usager.title.france.extend" boxlogo="repeat" ui-sref="usager/renouvelerTmp/etudes"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			        <box-menu boxtitle="main.usager.title.france.sick" boxlogo="heartbeat" disabled="true"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			        <box-menu boxtitle="main.usager.title.france.child" boxlogo="child" disabled="true"></box-menu>
+		        </div>
+	    	</div>
+	    	<div ng-switch-when="abroad">
+		    	<div class="col-sm-6 col-md-4">
+		        	<box-menu boxtitle="main.usager.title.study" boxlogo="graduation-cap" ui-sref="usager/etudier"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			        <box-menu boxtitle="main.usager.title.work" boxlogo="briefcase" disabled="true"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			     	<box-menu boxtitle="main.usager.title.family" boxlogo="users" disabled="true"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			        <box-menu boxtitle="main.usager.title.extend" boxlogo="repeat" ui-sref="usager/renouveler"></box-menu>
+		        </div>
+		        <div class="col-sm-6 col-md-4">
+			        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" ui-sref="usager/naturalization"></box-menu>
+		        </div>
+	       	</div>
+       	</div>
     </div>
     <div class="row" ng-switch-when="company">
     	<div class="col-sm-6 col-md-4">
@@ -59,6 +102,9 @@
 	        </div>
 		    <div class="row">
 		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbIdentityVerified}}" ui-sref="validation/list"></box-menu>
+	        </div>
+		    <div class="row">
+		        <box-menu class="box-badge" boxtitle="main.agent.title.issuing" boxlogo="newspaper-o" boxbadge="{{nbPermitToIssue}}" ui-sref="issuing/list"></box-menu>
 	        </div>
 		    <div class="row">
 		        <box-menu class="box-badge" boxtitle="main.agent.title.reconstruction" boxlogo="compress" boxbadge="{{nbCivilStateToReconstruct}}" ui-sref="reconstruction/list"></box-menu>

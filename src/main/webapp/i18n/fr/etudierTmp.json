@@ -1,0 +1,60 @@
+{
+    "procedure": {
+        "title": "Première demande de carte de séjour temporaire étudiant",
+        "page.title": "Première demande de carte de séjour temporaire étudiant",
+        "step.title": "5 étapes pour déposer votre demande",
+        "identity": {
+        	"step.short": "Etat-civil",
+        	"step.long": "Complétez votre état-civil et vos informations personnelles"
+        },
+        "address": {
+        	"step.short": "Coordonnées",
+        	"step.long": "Complétez vos coordonnées en France"
+        },
+        "project": {
+        	"step.short": "Projet",
+        	"step.long": "Complétez les détails de votre projet"
+        },
+        "summary": {
+        	"step.short": "Récapitulatif",
+        	"step.long": "Vérifiez les informations de votre demande"
+        },
+        "payment": {
+        	"step.short": "Paiement",
+        	"step.long": "Payez vos frais de dossier et pré-payez vos taxes de séjour"
+        },
+        "preparationText": "<p>Pour pouvoir compléter votre dépôt de demande, vous devez impérativement être en possession :</p><ul><li>d'un passeport valide,</li><li>d'un extrait de votre acte de naissance avec filiation ou d'une copie intégrale de votre acte de naissance,</li><li>d'un certificat d’inscription ou pré-inscription dans un établissement d'enseignement français,</li><li>de justificatifs de ressources financières suffisantes, soit supérieures ou égales à 615 € mensuels (attestation de bourse, attestation bancaire, fiches de paye ou attestation de prise en charge par un garant).</li></ul><p>Tous les justificatifs doivent être accompagnés, le cas échéant, de leur traduction en français par un traducteur interprète agréé.</p><p>Vous devrez apporter les originaux de ces documents lors du rendez-vous.</p><p><a href='#'>Trouver un interprète traducteur agréé</a></p>"
+    },
+    "summary": {
+    	"form": {
+			"subtitle": "Vous êtes sur le point de déposer une demande de carte de séjour temporaire étudiant. Avant de procéder au paiement, assurez-vous que les informations ci-dessous soient correctes.",
+	    	"identity": "Mes informations personnelles",
+	    	"address": "Mes coordonnées",
+	    	"project": "Mon projet"
+	    }
+    },
+    "payment" : {
+		"form": {
+			"informations": "<p>Vos frais de dossier s'élèvent à 50,00 euros. Ils seront débités quelle que soit l'issue de votre demande.</p><p>Vos taxes de séjour s'élèvent à 77,00 euros. Elles ne seront débitées qu'en cas d'issue favorable à votre demande.</p>"
+		}
+	},
+	"final" : {
+		"form": {
+    		"informations": "<p>La recevabilité de votre dossier va être vérifiée par l'Administration des étrangers en France.<br>Si votre dossier est recevable, nous vous enverrons une notification de confirmation vous invitant à finaliser le dépôt de votre demande.<br>Si votre dossier n'est pas recevable, nous vous indiquerons les raisons et vous préciserons le(s) élément(s) manquant(s) le cas échéant.</p><p>Lors du rendez-vous à la Préfecture de police de Paris, l'authenticité de votre passeport et de vos documents d'état civil sera vérifiée, et vos données biométriques enregistrées.</p><p>A l'issue du rendez-vous, votre dossier sera instruit et vous recevrez une notification de la décision.<br>Si la décision est favorable et après débit des taxes de séjour, vous serez invité(e) à venir récupérer votre titre de séjour lorsqu'il sera disponible. <br>Si la décision est défavorable, vous serez informé(e) sur les voies de recours dont vous disposez.</p>"
+		}
+	},
+	"rdv": {
+		"form": {
+			"text": "Merci de vous munir de votre passeport et de vos documents d'état-civil originaux lors de votre rendez-vous."
+		}
+	},
+	"validation": {
+		"form": {
+			"project": "Projet de séjour",
+			"button": {
+	    		"accept": "Accorder le droit au séjour",
+		    	"decline": "Refuser le droit au séjour"
+	    	}
+	    }
+	}
+}
