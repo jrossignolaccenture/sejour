@@ -140,14 +140,14 @@ public class DatabaseConfiguration extends AbstractMongoConfiguration  {
 //				+ "authorities : [{_id : 'ROLE_USAGER'}], activated : true, lang_key : 'fr', created_by : 'kim.soon.jeen@gmail.com', created_date : ISODate('2015-09-23T09:22:39.031Z'), last_modified_by : 'kim.soon.jeen@gmail.com', last_modified_date : ISODate('2015-11-12T09:42:10.211Z')}"));
 		db.getCollection("JHI_USER").insertOne(Document.parse("{_id : ObjectId('56026f5fd4c6d4a17b866d89'), _class : 'fr.minint.sief.domain.User', password : '$2a$10$zIrzNzyxPJFiMEQFUUGDcepj/qDuKUYGf0oMjz/W/UILGHxnu5sw6',"
 				+ "email : 'kim.soon.jeen@gmail.com', type : 'individual',"
-				+ "'identity' : { 'last_name' : 'Kim', 'first_name' : 'Soon-Jeen', 'sex' : 'F', 'birth_date' : ISODate('1992-12-10T23:00:00Z'), 'birth_city' : 'Séoul', 'birth_country' : 'KR', 'nationality' : 'KR', 'passport_number' : '5577997', 'residency_country': 'FR', 'marital_status' : 'single', 'childs_number' : 0, 'brothers_number' : 0, 'activity' : 'student', 'family' : {  } }, "
-				+ "'address' : { 'number' : '4', 'street' : 'rue campagne première', 'complement' : '', 'postal_code' : '75014', 'city' : 'Paris', 'country' : 'FR', 'phone' : '0601020304', 'email' : 'kim.soon.jeen@gmail.com', 'contact_type' : [ 'email' ], 'admissible' : true, 'validate_on' : ISODate('2015-03-10T10:00:19.669Z') }, "
+				+ "'identity' : { 'last_name' : 'Kim', 'first_name' : 'Soon-Jeen', 'sex' : 'F', 'birth_date' : ISODate('1992-12-10T23:00:00Z'), 'birth_city' : 'Séoul', 'birth_country' : 'KR', 'nationality' : 'KR', 'passport_number' : '5577997', 'residency_country': 'FR', 'marital_status' : 'single', 'childs_number' : 0, 'brothers_number' : 0, 'activity' : 'student', 'documents' : [ { 'type' : 'passport', 'id' : '-1p55gnq7olyyy', 'name' : 'Soon-jeen KIM_Passeport.png', 'file_name' : 'assets/fileUpload/passport_kim.soon.jeen@gmail.com-1p55gnq7olyyy.png', 'validation' : ISODate('20015-02-10T09:11:19.669Z') }, { 'type' : 'birthAct', 'id' : '-11vbnn40z1j44', 'name' : 'Soon-jeen KIM_Acte de naissance.png', 'file_name' : 'assets/fileUpload/birthAct_kim.soon.jeen@gmail.com-11vbnn40z1j44.png', 'validation' : ISODate('2015-02-10T09:11:19.669Z') } ], 'family' : {  }, 'admissible' : true, 'validate_on' : ISODate('2015-02-10T09:11:19.669Z'), 'family' : {  } }, "
+				+ "'address' : { 'number' : '4', 'street' : 'rue campagne première', 'complement' : '', 'postal_code' : '75014', 'city' : 'Paris', 'country' : 'FR', 'phone' : '0601020304', 'email' : 'kim.soon.jeen@gmail.com', 'contact_type' : [ 'email' ], 'documents' : [], 'admissible' : true, 'validate_on' : ISODate('2015-03-10T10:00:19.669Z') }, "
 				+ "project: {},"
 				+ "authorities : [{_id : 'ROLE_USAGER'}], activated : true, lang_key : 'fr', created_by : 'kim.soon.jeen@gmail.com', created_date : ISODate('2015-09-23T09:22:39.031Z'), last_modified_by : 'kim.soon.jeen@gmail.com', last_modified_date : ISODate('2015-11-12T09:42:10.211Z')}"));
 		db.getCollection("JHI_USER").insertOne(Document.parse("{_id : ObjectId('56533ccb151b140ad77274b2'), _class : 'fr.minint.sief.domain.User', password : '$2a$10$zIrzNzyxPJFiMEQFUUGDcepj/qDuKUYGf0oMjz/W/UILGHxnu5sw6',"
 				+ "email : 'zayat.noura@gmail.com', type : 'individual',"
 				+ "'identity' : { 'last_name' : 'Zayat', 'first_name' : 'Noura', 'sex' : 'F', 'birth_date' : ISODate('1984-12-09T23:00:00Z'), 'birth_city' : 'Beyrouth', 'birth_country' : 'LB', 'nationality' : 'LB', 'passport_number' : '0554477', 'marital_status' : 'single', 'childs_number' : 0, 'brothers_number' : 0, 'activity' : 'salaried', 'documents' : [ { 'type' : 'passport', 'id' : '-1lux0x4ynub15', 'name' : 'Noura ZAYAT_Passeport.png', 'file_name' : 'assets/fileUpload/passport_zayat.noura@gmail.com-1lux0x4ynub15.png', 'validation' : ISODate('2005-02-10T09:11:19.669Z') }, { 'type' : 'birthAct', 'id' : '-105u8gaot3u61', 'name' : 'Noura ZAYAT_Acte de naissance.png', 'file_name' : 'assets/fileUpload/birthAct_zayat.noura@gmail.com-105u8gaot3u61.png', 'validation' : ISODate('2005-02-10T09:11:19.669Z') } ], 'family' : {  }, 'admissible' : true, 'validate_on' : ISODate('2005-02-10T09:11:19.669Z'), 'family_admissible' : true, 'family_validate_on' : ISODate('2005-02-10T09:11:19.669Z') }, "
-				+ "'address' : { 'number' : '4', 'street' : 'rue campagne première', 'complement' : '', 'postal_code' : '75014', 'city' : 'Paris', 'country' : 'FR', 'phone' : '0601020304', 'email' : 'zayat.noura@gmail.com', 'contact_type' : [ 'email' ], 'admissible' : true, 'validate_on' : ISODate('2005-12-10T10:00:19.669Z') }, "
+				+ "'address' : { 'number' : '4', 'street' : 'rue campagne première', 'complement' : '', 'postal_code' : '75014', 'city' : 'Paris', 'country' : 'FR', 'phone' : '0601020304', 'email' : 'zayat.noura@gmail.com', 'contact_type' : [ 'email' ], 'documents' : [], 'admissible' : true, 'validate_on' : ISODate('2005-12-10T10:00:19.669Z') }, "
 				+ "project: {},"
 				+ "authorities : [{_id : 'ROLE_USAGER'}], activated : true, lang_key : 'fr', created_by : 'zayat.noura@gmail.com', created_date : ISODate('2055-01-02T09:22:39.031Z'), last_modified_by : 'zayat.noura@gmail.com', last_modified_date : ISODate('2015-11-12T09:42:10.211Z')}"));
 		
@@ -224,10 +224,13 @@ public class DatabaseConfiguration extends AbstractMongoConfiguration  {
 				+ "'project' : { 'training_start' : ISODate('2014-05-31T23:00:00Z'), 'admissible' : true }, "
 				+ "'payment_date' : ISODate('2014-02-02T11:50:38.197Z'), 'admissibility_date' : ISODate('2014-02-03T09:30:19.669Z'), 'biometrics_date' : ISODate('2005-02-08T14:00:19.669Z'), 'decision_date' : ISODate('2014-02-05T09:11:19.669Z') }"));
         
-		FileUtils.forceMkdir(new File("src/main/webapp/assets/fileUpload"));
-		FileUtils.cleanDirectory(new File("src/main/webapp/assets/fileUpload"));
-		FileUtils.copyFileToDirectory(new File(this.getClass().getResource("/data/passport_zayat.noura@gmail.com-1lux0x4ynub15.png").getFile()), new File("src/main/webapp/assets/fileUpload"));
-		FileUtils.copyFileToDirectory(new File(this.getClass().getResource("/data/birthAct_zayat.noura@gmail.com-105u8gaot3u61.png").getFile()), new File("src/main/webapp/assets/fileUpload"));
+		File targetDir = new File("src/main/webapp/assets/fileUpload");
+		FileUtils.forceMkdir(targetDir);
+		FileUtils.cleanDirectory(targetDir);
+		FileUtils.copyFileToDirectory(new File(this.getClass().getResource("/data/passport_zayat.noura@gmail.com-1lux0x4ynub15.png").getFile()), targetDir);
+		FileUtils.copyFileToDirectory(new File(this.getClass().getResource("/data/birthAct_zayat.noura@gmail.com-105u8gaot3u61.png").getFile()), targetDir);
+		FileUtils.copyFileToDirectory(new File(this.getClass().getResource("/data/passport_kim.soon.jeen@gmail.com-1p55gnq7olyyy.png").getFile()), targetDir);
+		FileUtils.copyFileToDirectory(new File(this.getClass().getResource("/data/birthAct_kim.soon.jeen@gmail.com-11vbnn40z1j44.png").getFile()), targetDir);
         
         return "initDB";
     }

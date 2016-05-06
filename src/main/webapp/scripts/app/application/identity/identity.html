@@ -140,7 +140,7 @@
 		</div>
 		<br>
 	    <div class="row row-center">
-       		<button ng-if="identity.validateOn" type="button" class="btn btn-danger" translate="global.button.report">Report</button>
+       		<button ng-if="identity.validateOn" type="button" class="btn btn-danger" translate="global.button.report" ng-click="report()">Report</button>
        		<button type="submit" class="btn btn-primary" ng-class="{'btn-right': identity.validateOn}" translate="global.button.continue"
        				 ng-disabled="identityForm.$invalid || identityForm.$submitted">Continue</button>
         </div>

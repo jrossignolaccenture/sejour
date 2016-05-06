@@ -2,6 +2,7 @@
 	"identity" : {
 		"form": {
 			"tooltip": "The civil status must match the information on your passport",
+			"foreignerNumber": "Foreigner number",
             "lastName": "Last Name",
             "usedLastName": "Use Last Name",
             "firstName": "First Name",

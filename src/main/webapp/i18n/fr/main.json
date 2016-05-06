@@ -13,8 +13,8 @@
     	},
     	"usager": {
     		"button": {
-    			"france": "Je suis en France",
-    			"other": "Je suis à l'étranger"
+    			"france": "J'ai un compte",
+    			"other": "Je n'ai pas de compte"
     		},
     		"choice": "Où êtes-vous ?",
 	        "title": {

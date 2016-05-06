@@ -1,5 +1,5 @@
 <div ng-cloak>
-	<div class="col-sm-11">
+	<div class="col-sm-5">
 		<ng-include src="'scripts/app/application/address/address-light-view.html'"></ng-include>
 	    <div class="form-group">
 	        <label translate="address.form.phone">Phone</label> : <span>{{::address.phone}}</span>
@@ -11,4 +11,7 @@
 	        <label translate="address.form.contactType">ContactType</label> : <span ng-repeat-start="contactType in address.contactType">{{::'sejourApp.ContactType.' + contactType | translate}}</span><span ng-if="$index < address.contactType.length - 1" ng-repeat-end>, </span>
 	    </div>
     </div>
+	<div class="col-sm-7">
+		<photo-viewer ng-model="address.documents"></photo-viewer>
+	</div>
 </div>

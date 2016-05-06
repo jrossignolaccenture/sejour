@@ -1,14 +1,14 @@
 package fr.minint.sief.web.rest.mapper;
 
-import fr.minint.sief.domain.*;
-import fr.minint.sief.web.rest.dto.AddressDTO;
+import org.mapstruct.Mapper;
 
-import org.mapstruct.*;
+import fr.minint.sief.domain.Address;
+import fr.minint.sief.web.rest.dto.AddressDTO;
 
 /**
  * Mapper for the entity Address and its DTO AddressDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {DocumentMapper.class})
 public interface AddressMapper {
 
     AddressDTO addressToAddressDTO(Address address);

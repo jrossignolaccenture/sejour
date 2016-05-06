@@ -8,5 +8,6 @@ public enum DocumentType {
     birthAct,
     civilStatusAct,
     inscriptionCertificate,
-    resourceProof
+    resourceProof,
+    residency
 }

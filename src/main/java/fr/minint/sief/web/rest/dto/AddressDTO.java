@@ -42,6 +42,9 @@ public class AddressDTO implements Serializable {
 
     @NotNull
     private List<ContactType> contactType = new ArrayList<>();
+
+    @NotNull
+    private List<DocumentDTO> documents = new ArrayList<>();
     
     private Boolean admissible;
 
@@ -127,6 +130,14 @@ public class AddressDTO implements Serializable {
         this.contactType = contactType;
     }
 
+    public List<DocumentDTO> getDocuments() {
+		return documents;
+	}
+
+	public void setDocuments(List<DocumentDTO> documents) {
+		this.documents = documents;
+	}
+
 	public Boolean isAdmissible() {
 		return admissible;
 	}
@@ -156,6 +167,7 @@ public class AddressDTO implements Serializable {
                 ", phone='" + phone + "'" +
                 ", email='" + email + "'" +
                 ", contactType='" + contactType + "'" +
+                ", documents='" + documents + "'" +
                 ", admissible='" + admissible + '\'' +
                 ", validateOn='" + validateOn + '\'' +
                 '}';

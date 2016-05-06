@@ -60,6 +60,9 @@ public class Address implements Serializable {
     @Field("contact_type")
     private List<ContactType> contactType = new ArrayList<>();
     
+    @Field("documents")
+    private List<Document> documents = new ArrayList<>();
+    
     @Field("admissible")
     private Boolean admissible;
 
@@ -148,6 +151,14 @@ public class Address implements Serializable {
         this.contactType = contactType;
     }
 
+	public List<Document> getDocuments() {
+		return documents;
+	}
+
+	public void setDocuments(List<Document> documents) {
+		this.documents = documents;
+	}
+
 	public Boolean isAdmissible() {
 		return admissible;
 	}
@@ -183,7 +194,8 @@ public class Address implements Serializable {
         		|| !Objects.equals(city, address.city)
         		|| !Objects.equals(country, address.country)
         		|| !Objects.equals(phone, address.phone)
-        		|| !Objects.equals(email, address.email)) return false;
+        		|| !Objects.equals(email, address.email)
+        		|| !Objects.equals(documents, address.documents)) return false;
 
         return true;
     }
@@ -201,6 +213,7 @@ public class Address implements Serializable {
     	result = prime * result + Objects.hashCode(country);
     	result = prime * result + Objects.hashCode(phone);
     	result = prime * result + Objects.hashCode(email);
+    	result = prime * result + Objects.hashCode(documents);
     	return result;
     }
 
@@ -217,6 +230,7 @@ public class Address implements Serializable {
                 ", phone='" + phone + "'" +
                 ", email='" + email + "'" +
                 ", contactType='" + contactType + "'" +
+                ", documents='" + documents + "'" +
                 ", admissible='" + admissible + '\'' +
                 ", validateOn='" + validateOn + '\'' +
                 '}';

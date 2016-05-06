@@ -54,6 +54,27 @@
 		        </div>
 		    </div>
 		</div>
+		<div ng-if="needDocuments && !address.validateOn">
+			<br>
+			<div class="row">
+				<div class="col-xs-1 col-xs-offset-1">
+			    	
+			    </div>
+			    <div class="col-xs-10 form-title-text">
+					<p translate="address.form.document.title">Address documents</p>
+			    </div>
+			</div>
+		    <br>
+		    <div class="row">
+				<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+				    <div class="form-group">
+					    <label translate="address.form.residency"></label>
+						<tooltip tooltip-text="address.form.residency.tooltip"></tooltip>
+					    <file-upload ng-model="address.documents" doc-type="residency" placeholder-key="address.form.residency.placeholder"></file-upload>
+					</div>
+			   	</div>
+			</div>
+		</div>
 		<div class="row" ng-if="address.validateOn">
 			<div class="col-xs-8 col-xs-offset-3 col-sm-6 col-sm-offset-5">
 				<ng-include src="'scripts/app/application/address/address-light-view.html'"></ng-include>
@@ -78,7 +99,7 @@
 		<br>
 	    <div class="row row-center">
         	<button type="button" class="btn btn-default" translate="global.button.back" ng-click="back()">Back</button>
-       		<button ng-if="address.validateOn" type="button" class="btn btn-danger btn-right" translate="global.button.report">Report</button>
+       		<button ng-if="address.validateOn" type="button" class="btn btn-danger btn-right" translate="global.button.report" ng-click="report()">Report</button>
         	<button type="submit" class="btn btn-primary btn-right" translate="global.button.continue"
         			 ng-disabled="addressForm.$invalid || addressForm.$submitted">Continue</button>
         </div>

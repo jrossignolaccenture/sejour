@@ -18,6 +18,7 @@
 	    	"civilStatusAct": "Certification of the document of civil status act authenticity",
 	    	"inscriptionCertificate": "Certification of inscription certificated authenticity",
 	    	"resourceProof": "Certification of resource proof authenticity",
+	    	"residency": "Certification of residency proof",
 	    	
 	    	"button": {
 	    		"missing": "Declare missing document",

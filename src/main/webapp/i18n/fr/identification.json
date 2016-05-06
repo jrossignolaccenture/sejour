@@ -18,6 +18,7 @@
 	    	"civilStatusAct": "Certification de l'authenticité du document d'état-civil",
 	    	"inscriptionCertificate": "Certification de l'authenticité du certificat de (pré)inscription",
 	    	"resourceProof": "Certification de l'authenticité des preuves de ressources",
+	    	"residency": "Certification du justificatif de domicile",
 	    	
 	    	"button": {
 	    		"missing": "Déclarer un document manquant",

@@ -5,7 +5,8 @@
             "birthAct": "Birth act",
             "civilStatusAct": "Id act",
             "inscriptionCertificate": "Inscription certificate",
-            "resourceProof": "Resource proof"
+            "resourceProof": "Resource proof",
+            "residency" : "Proof of residency"
         }
     }
 }
