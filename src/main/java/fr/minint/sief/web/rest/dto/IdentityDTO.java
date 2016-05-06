@@ -19,6 +19,8 @@ import fr.minint.sief.domain.enumeration.SexType;
  * A DTO for the Identity entity.
  */
 public class IdentityDTO implements Serializable {
+	
+	private String foreignerNumber;
 
     @NotNull
     private String lastName;
@@ -71,7 +73,15 @@ public class IdentityDTO implements Serializable {
 
     private DateTime familyValidateOn;
 
-    public String getLastName() {
+    public String getForeignerNumber() {
+		return foreignerNumber;
+	}
+
+	public void setForeignerNumber(String foreignerNumber) {
+		this.foreignerNumber = foreignerNumber;
+	}
+
+	public String getLastName() {
         return lastName;
     }
 
@@ -234,7 +244,8 @@ public class IdentityDTO implements Serializable {
     @Override
     public String toString() {
         return "IdentityDTO{" +
-                "lastName='" + lastName + "'" +
+                "foreignerNumber='" + foreignerNumber + "'" +
+                ", lastName='" + lastName + "'" +
                 ", usedLastName='" + usedLastName + "'" +
                 ", firstName='" + firstName + "'" +
                 ", sex='" + sex + "'" +

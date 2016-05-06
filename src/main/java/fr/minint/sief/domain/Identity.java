@@ -26,8 +26,11 @@ import fr.minint.sief.domain.util.CustomDateTimeSerializer;
  * A Identity.
  */
 public class Identity implements Serializable {
+	
+	@Field("foreigner_number")
+	private String foreignerNumber;
 
-    @NotNull        
+	@NotNull        
     @Field("last_name")
     private String lastName;
     
@@ -102,6 +105,14 @@ public class Identity implements Serializable {
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
     @Field("family_validate_on")
     private DateTime familyValidateOn;
+
+    public String getForeignerNumber() {
+		return foreignerNumber;
+	}
+
+	public void setForeignerNumber(String foreignerNumber) {
+		this.foreignerNumber = foreignerNumber;
+	}
 
 	public String getLastName() {
         return lastName;
@@ -280,7 +291,8 @@ public class Identity implements Serializable {
 
         Identity identity = (Identity) o;
 
-        if ( !Objects.equals(lastName, identity.lastName)
+        if ( !Objects.equals(foreignerNumber, identity.foreignerNumber)
+        		|| !Objects.equals(lastName, identity.lastName)
         		|| !Objects.equals(usedLastName, identity.usedLastName)
         		|| !Objects.equals(firstName, identity.firstName)
         		|| !Objects.equals(sex, identity.sex)
@@ -318,6 +330,7 @@ public class Identity implements Serializable {
     public int hashCode() {
     	final int prime = 31;
     	int result = 17;
+    	result = prime * result + Objects.hashCode(foreignerNumber);
     	result = prime * result + Objects.hashCode(lastName);
     	result = prime * result + Objects.hashCode(usedLastName);
     	result = prime * result + Objects.hashCode(firstName);
@@ -340,7 +353,8 @@ public class Identity implements Serializable {
     @Override
     public String toString() {
         return "Identity{" +
-                "lastName='" + lastName + "'" +
+                "foreignerNumber='" + foreignerNumber + "'" +
+                ", lastName='" + lastName + "'" +
                 ", usedLastName='" + usedLastName + "'" +
                 ", firstName='" + firstName + "'" +
                 ", sex='" + sex + "'" +

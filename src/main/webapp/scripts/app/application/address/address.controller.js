@@ -9,7 +9,7 @@ angular.module('sejourApp')
 			return doc.type === 'residency';
 		});
         		
-    	$scope.needDocuments = docs.length == 0 || docs.filter(function(doc) {return !doc.validation}).length > 0;
+    	$scope.needDocuments = currentApplication.nature === 'sejour_tmp_etudiant' && (docs.length == 0 || docs.filter(function(doc) {return !doc.validation}).length > 0);
 
         $scope.back = function () {
         	if(currentApplication.nature === 'naturalisation') {
