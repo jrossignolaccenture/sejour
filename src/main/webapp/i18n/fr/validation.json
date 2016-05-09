@@ -14,7 +14,7 @@
 	    	"family": "Identité des proches parents",
 	    	"preinscription": "(Pré) inscription confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
 	    	"policeControl": "Contrôle sécuritaire",
-	    	"history": "Historique SI EF",
+	    	"history": "Historique des demandes",
 	    	"history.list.sejour_etudiant": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"history.list.sejour_tmp_etudiant": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"history.list.sejour_salarie": "Droit au séjour \"salarié\" - du {{startDate}} au {{endDate}}",

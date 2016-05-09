@@ -29,6 +29,8 @@ angular.module('sejourApp')
 
             logout: function () {
             	$rootScope.account = null;
+                $rootScope.returnToState = null;
+                $rootScope.returnToStateParams = null;
                 AuthServerProvider.logout();
                 Principal.authenticate(null);
             },

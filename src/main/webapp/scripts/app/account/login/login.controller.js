@@ -17,10 +17,14 @@ angular.module('sejourApp')
                 $scope.authenticationError = false;
                 $rootScope.previousStateName = null;
                 $rootScope.previousStateParams = null;
+                var returnToState = $rootScope.returnToState;
+                var returnToStateParams = $rootScope.returnToStateParams;
+                $rootScope.returnToState = null;
+                $rootScope.returnToStateParams = null;
                 if ($rootScope.previousStateName === 'register') {
                     $state.go('home');
-                } else if($rootScope.returnToState && $rootScope.returnToState.name !== 'login') {
-                	$state.go($rootScope.returnToState.name);
+                } else if(returnToState && returnToState.name !== 'login') {
+                	$state.go(returnToState.name, returnToStateParams);
                 } else {
                     $rootScope.back();
                 }

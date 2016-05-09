@@ -19,17 +19,12 @@
     <div class="row" ng-switch-when="individual">
 	    <div ng-switch="userLocation">
 	    	<div ng-switch-when="undefined">
-			   	<br>
-			   	<br>
-			   	<br>
-			   	<br>
-			   	<br>
-			   	<br>
+			   	<br><br><br><br><br><br>
 	    		<div class="col-sm-6 col-lg-5 col-lg-offset-1">
-		        	<box-menu class="box-home" boxtitle="main.usager.button.france" boxlogo="user" ng-click="chooseLocation('france')"></box-menu>
+		        	<box-menu class="box-home" boxtitle="main.usager.button.france" boxlogo="key" ng-click="chooseLocation('france')"></box-menu>
 		        </div>
 		        <div class="col-sm-6 col-lg-5">
-			        <box-menu class="box-home" boxtitle="main.usager.button.other" boxlogo="industry" ng-click="chooseLocation('abroad')"></box-menu>
+			        <box-menu class="box-home" boxtitle="main.usager.button.other" boxlogo="lock" ng-click="chooseLocation('abroad')"></box-menu>
 		        </div>
 	    	</div>
 	    	<div ng-switch-when="france">

@@ -2,7 +2,7 @@
 	"identity" : {
 		"form": {
 			"tooltip": "L'état-civil doit correspondre aux informations figurant sur votre passeport",
-			"foreignerNumber": "Numéro d'étranger",
+			"foreignerNumber": "Numéro étranger",
             "lastName": "Nom",
             "usedLastName": "Nom d'usage",
             "firstName": "Prénom(s)",

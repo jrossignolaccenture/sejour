@@ -12,8 +12,10 @@ angular.module('sejourApp')
                     var to = $rootScope.toState;
                     var params = $rootScope.toStateParams;
                     Auth.logout();
-                    $rootScope.returnToState = to;
-                    $rootScope.returnToStateParams = params;
+                    if(!$rootScope.returnToState){
+                    	$rootScope.returnToState = to;
+                    	$rootScope.returnToStateParams = params;
+                    }
                     $state.go('login');
                 }
                 return $q.reject(response);

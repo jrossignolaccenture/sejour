@@ -29,12 +29,13 @@ angular.module('sejourApp')
 	    	}
     	});
     	
-    	currentApplication.address.documents.forEach(function(document) {
-    		if(!document.validation) {
-    			$scope.panels[document.type] = {documentType: document.type, documents: currentApplication.address.documents};
-    			$scope.docToValidate++;
-    		}
-    	});
+    	// Proof of residency
+//    	currentApplication.address.documents.forEach(function(document) {
+//    		if(!document.validation) {
+//    			$scope.panels[document.type] = {documentType: document.type, documents: currentApplication.address.documents};
+//    			$scope.docToValidate++;
+//    		}
+//    	});
     	
     	$scope.updatePanel = function(panel, validated) {
     		panel.validated === false ? $scope.docError-- : validated ? null : $scope.docError++;

@@ -129,12 +129,16 @@ angular.module('sejourApp')
                 }
             	
             	$scope.updateDate = function(){
-            		$scope.ngModel = moment($scope.dateTxt, "DD/MM/YYYY").toDate();
+//            		$scope.ngModel = moment($scope.dateTxt, "DD/MM/YYYY").toDate();
             	}
             	
-            	$scope.$watch("ngModel",function(newValue,oldValue) {
-                	$scope.dateTxt = newValue ? $rootScope.getFormattedDate(newValue) : null;
+            	$scope.$watch("dateTxt",function(newValue,oldValue) {
+            		$scope.ngModel = newValue ? moment($scope.dateTxt, "DD/MM/YYYY").toDate() : null;
                 });
+            	
+//            	$scope.$watch("ngModel",function(newValue,oldValue) {
+//                	$scope.dateTxt = newValue ? $rootScope.getFormattedDate(newValue) : null;
+//                });
             }]
         };
     })

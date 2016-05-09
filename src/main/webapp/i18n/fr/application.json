@@ -28,13 +28,13 @@
 			"payment": "Paiement effectué le {{paymentDate}} - {{userName}}",
 			"admissibility.wait": {
 				"sejour_etudiant": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
-				"sejour_tmp_etudiant": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "En attente de vérification de la recevabilité",
 				"sejour_salarie": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
 				"naturalisation": "En attente de vérification de la recevabilité par l'administration des étrangers en France"
 			},
 			"admissibility": {
 				"sejour_etudiant": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France",
-				"sejour_tmp_etudiant": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "Recevabilité de la demande vérifiée le {{admissibilityDate}}",
 				"sejour_salarie": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France",
 				"naturalisation": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France"
 			},
@@ -42,13 +42,13 @@
 			"rdv.passed": "Rendez-vous réalisé le {{rdvDate}} - {{userName}}",
 			"decision.wait": {
 				"sejour_etudiant": "En attente d'instruction et décision par l'administration des étrangers en France",
-				"sejour_tmp_etudiant": "En attente d'instruction et décision par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "En attente d'instruction et décision",
 				"sejour_salarie": "En attente d'instruction et décision par l'administration des étrangers en France",
 				"naturalisation": "En attente d'instruction et décision par l'administration des étrangers en France"
 			},
 			"decision": {
 				"sejour_etudiant": "Instruction et décision validée le {{decisionDate}} par l'administration des étrangers en France",
-				"sejour_tmp_etudiant": "Instruction et décision validée le {{decisionDate}} par l'administration des étrangers en France",
+				"sejour_tmp_etudiant": "Instruction et décision validée le {{decisionDate}}",
 				"sejour_salarie": "Instruction et décision validée le {{decisionDate}} par l'administration des étrangers en France",
 				"naturalisation": "Instruction et décision validée le {{decisionDate}} par l'administration des étrangers en France"
 			},
