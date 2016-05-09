@@ -46,7 +46,7 @@
 	},
 	"final" : {
 		"form": {
-    		"informations": "<p>La recevabilité de votre dossier va être vérifiée par l'Administration des étrangers en France.<br>Si votre dossier n'est pas recevable, nous vous indiquerons les raisons et vous préciserons le(s) élément(s) manquant(s) le cas échéant.</p><p>Si votre dossier est recevable, votre dossier sera instruit et vous recevrez une notification de la décision.<br>Si la décision est favorable et après débit des taxes de séjour, vous serez invité(e) à venir récupérer votre titre de séjour lorsqu'il sera disponible. <br>Si la décision est défavorable, vous serez informé(e) sur les voies de recours dont vous disposez.</p>"
+    		"informations": "<p>La recevabilité de votre dossier va être vérifiée.<br>Si votre dossier n'est pas recevable, nous vous indiquerons les raisons et vous préciserons le(s) élément(s) manquant(s) le cas échéant.</p><p>Si votre dossier est recevable, votre dossier sera instruit et vous recevrez une notification de la décision.<br>Si la décision est favorable et après débit des taxes de séjour, vous serez invité(e) à venir récupérer votre titre de séjour lorsqu'il sera disponible. <br>Si la décision est défavorable, vous serez informé(e) sur les voies de recours dont vous disposez.</p>"
 		}
 	},
 	"validation": {

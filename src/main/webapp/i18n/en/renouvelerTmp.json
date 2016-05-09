@@ -46,7 +46,7 @@
 	},
 	"final" : {
 		"form": {
-    		"informations": "<p>The admissibility of your application will be verified by the Administration of foreigners in France.<br>If your application is not admissible, we will tell you and you will specify the reason(s) element(s) missing(s) the if any.</p><p>If your application is admissible, your case will be heard and you will be notified of the decision.<br>If the decision is favorable and after flow of tourist taxes, you will be prompted to come pick up your residence permit when available.<br>If the decision is unfavorable, you will be informed of the remedies you have.</p>"
+    		"informations": "<p>The admissibility of your application will be verified.<br>If your application is not admissible, we will tell you and you will specify the reason(s) element(s) missing(s) the if any.</p><p>If your application is admissible, your case will be heard and you will be notified of the decision.<br>If the decision is favorable and after flow of tourist taxes, you will be prompted to come pick up your residence permit when available.<br>If the decision is unfavorable, you will be informed of the remedies you have.</p>"
 		}
 	},
 	"validation": {

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="#{email.rdv.title}">rdv</title>
+        <title th:text="#{email.permit.title}">permit</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <p th:text="#{email.rdv.greeting(${user.firstName}, ${user.lastName})}">
+        <p th:text="#{email.permit.greeting(${user.firstName}, ${user.lastName})}">
             Hello,
         </p>
         <br/>
-        <p th:text="#{email.rdv.confirmed(${rdvDate}, ${rdvHour})}">
-            rdv confirmed
+        <p th:text="#{email.permit.dispo}">
+            permit success
         </p>
         <p>
             <span th:text="#{${emailRdvName}}">name</span>
@@ -19,18 +19,14 @@
             <br/>
             <span th:text="#{${emailRdvCity}}">city</span>
             <br/>
-            <span th:text="#{${emailRdvPhone}}">phone</span>
-            <br/>
-        </p>
-        <p th:text="#{email.rdv.delay}">
-        	rdv modifiable
-        </p>
-        <p th:text="#{email.rdv.modifiable}">
-        	rdv modifiable
         </p>
         <p>
-            <a th:href="@{|${baseUrl}/#/${applicationId}/rdv|}"
-               th:text="#{email.rdv.link}">rdv</a>
+            <span th:text="#{email.rdv.schedule}">schedule</span>
+            <br/>
+            <span th:text="#{email.rdv.schedule.week}">schedule</span>
+            <br/>
+            <span th:text="#{email.rdv.schedule.weekend}">schedule</span>
+            <br/>
         </p>
         <br/>
         <p>

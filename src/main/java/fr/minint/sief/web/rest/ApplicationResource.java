@@ -451,9 +451,9 @@ public class ApplicationResource {
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));
 					// Send more emails to have to be send by batch in reality
-					if(application.getNature() == sejour_etudiant) {
+					if(application.getNature() == sejour_etudiant || application.getNature() == sejour_tmp_etudiant) {
 						mailService.sendPermitEmail(application, getBaseUrl(request));
-						if(application.getType() == premiere) {
+						if(application.getType() == premiere && application.getNature() == sejour_etudiant) {
 							mailService.sendArrivalEmail(application, getBaseUrl(request));
 						}
 					} else if(application.getNature() == naturalisation) {

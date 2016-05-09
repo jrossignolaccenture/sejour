@@ -13,7 +13,7 @@
             payment
         </p>
         <p>
-            <span th:text="#{email.payment.admissible}">admissible</span>
+            <span th:text="#{${emailPaymentAdmissible}}">admissible</span>
             <br/>
             <span th:text="#{email.payment.inadmissible}">inadmissible</span>
         </p>
@@ -23,7 +23,7 @@
             <br/><br/>
             <em th:text="#{${emailSignature}}">portail</em>
             <br/><br/>
-            <b><em th:text="#{email.signature.administration}">administration</em></b>
+            <b><em th:text="#{${emailSignatureEnd}}">administration</em></b>
         </p>
     </body>
 </html>

@@ -116,7 +116,9 @@ public class MailService {
         context.setVariable("baseUrl", baseUrl);
         context.setVariable("applicationId", application.getId());
         context.setVariable("emailPaymentDone", "email.payment.done."+application.getNature());
+        context.setVariable("emailPaymentAdmissible", "email.payment.admissible."+application.getNature());
         context.setVariable("emailSignature", "email.signature."+application.getNature());
+        context.setVariable("emailSignatureEnd", "email.signature.administration."+application.getNature());
         context.setVariable("paymentDate", DateTimeFormat.forPattern("dd/MM/yyyy").print(application.getPaymentDate()));
         context.setVariable("paymentHour", DateTimeFormat.forPattern("HH:mm").print(application.getPaymentDate()));
         String content = templateEngine.process("paymentEmail", context);
@@ -134,6 +136,7 @@ public class MailService {
         context.setVariable("baseUrl", baseUrl);
         context.setVariable("emailAdmissibilityOk", "email.admissibility.ok."+application.getNature());
         context.setVariable("emailSignature", "email.signature."+application.getNature());
+        context.setVariable("emailSignatureEnd", "email.signature.administration."+application.getNature());
         String content = templateEngine.process(application.getType() == renouvellement ? "admissibilityRenewalEmail" : "admissibilityEmail", context);
         String subject = messageSource.getMessage("email.admissibility.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
@@ -154,6 +157,7 @@ public class MailService {
         context.setVariable("emailRdvCity", "email.rdv.city."+application.getNature());
         context.setVariable("emailRdvPhone", "email.rdv.phone."+application.getNature());
         context.setVariable("emailSignature", "email.signature."+application.getNature());
+        context.setVariable("emailSignatureEnd", "email.signature.administration."+application.getNature());
         String content = templateEngine.process("rdvEmail", context);
         String subject = messageSource.getMessage("email.rdv.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
@@ -169,6 +173,7 @@ public class MailService {
         context.setVariable("applicationId", application.getId());
         context.setVariable("emailDecisionOk", "email.decision.ok."+application.getNature());
         context.setVariable("emailSignature", "email.signature."+application.getNature());
+        context.setVariable("emailSignatureEnd", "email.signature.administration."+application.getNature());
         String content = templateEngine.process("decisionEmail", context);
         String subject = messageSource.getMessage("email.decision.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
@@ -182,7 +187,16 @@ public class MailService {
         context.setVariable("user", application.getIdentity());
         context.setVariable("baseUrl", baseUrl);
         context.setVariable("emailSignature", "email.signature."+application.getNature());
-        String content = templateEngine.process(application.getType() == renouvellement ? "permitRenewalEmail" : "permitEmail", context);
+        context.setVariable("emailSignatureEnd", "email.signature.administration."+application.getNature());
+        String content = null;
+        if(application.getNature() == ApplicationNature.sejour_tmp_etudiant) {
+            context.setVariable("emailRdvName", "email.rdv.name."+application.getNature());
+            context.setVariable("emailRdvStreet", "email.rdv.street."+application.getNature());
+            context.setVariable("emailRdvCity", "email.rdv.city."+application.getNature());
+        	content = templateEngine.process("permitTmpEmail", context);
+        } else {
+        	content = templateEngine.process(application.getType() == renouvellement ? "permitRenewalEmail" : "permitEmail", context);
+        }
         String subject = messageSource.getMessage("email.permit.title", null, locale);
         sendEmail(application.getEmail(), subject, content, false, true);
     }
