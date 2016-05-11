@@ -13,7 +13,7 @@
 	    	"identity": "Identité de l'usager",
 	    	"family": "Identité des proches parents",
 	    	"preinscription": "(Pré) inscription confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
-	    	"policeControl": "Contrôle sécuritaire",
+	    	"policeControl": "Contrôles sécuritaires",
 	    	"history": "Historique des demandes",
 	    	"history.list.sejour_etudiant": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"history.list.sejour_tmp_etudiant": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
@@ -21,6 +21,11 @@
 	    	"noHistory": "Pas d'historique",
 	    	
 	    	"validate": "Validé le {{validationDate}} - {{validationAuthor}}"
+		},
+		"modal": {
+			"title": "Validation du droit au séjour",
+			"text": "La production de la carte de séjour étudiant de {{studentName}} a été lancée !",
+			"button": "OK"
 		}
 	}
 }

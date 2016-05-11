@@ -2,7 +2,7 @@
     "sejourApp": {
         "ApplicationNature" : {
             "sejour_etudiant": "Student residency",
-            "sejour_tmp_etudiant: "Temporary student residency card",
+            "sejour_tmp_etudiant": "Temporary student residency card",
             "sejour_salarie": "Salary residency",
             "sejour_competences_talents": "Talent residency",
             "naturalisation": ""

@@ -33,8 +33,18 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            getApplicationsForPermitReceipt: function () {
+            	return $http.get('api/application/receipt').then(function (response) {
+                    return response.data;
+                });
+            },
             getApplicationsForPermitIssuing: function () {
             	return $http.get('api/application/issuing').then(function (response) {
+                    return response.data;
+                });
+            },
+            getApplicationsForFollow: function () {
+            	return $http.get('api/application/follow').then(function (response) {
                     return response.data;
                 });
             },
@@ -84,6 +94,11 @@ angular.module('sejourApp')
             },
             validate: function (id) {
             	return $http.put('api/application/validation', id).then(function (response) {
+                    return response.data;
+                });
+            },
+            receipt: function (ids) {
+            	return $http.put('api/application/receipt', ids).then(function (response) {
                     return response.data;
                 });
             },

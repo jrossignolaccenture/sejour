@@ -5,11 +5,15 @@
         "step.title": "5 steps for your application",
         "identity": {
         	"step.short": "Identity",
-        	"step.long": "Complete your civil status and personal information"
+        	"step.long": "Verify your civil status and personal information",
+        	"step.long.true": "Verify your civil status and personal information",
+        	"step.long.false": "Complete your civil status and personal information"
         },
         "address": {
         	"step.short": "Address",
-        	"step.long": "Complete your address"
+        	"step.long": "Verify your address",
+        	"step.long.true": "Verify your address",
+        	"step.long.false": "Complete your address"
         },
         "project": {
         	"step.short": "Project",
@@ -35,7 +39,7 @@
     },
     "payment" : {
 		"form": {
-			"informations": "<p>Your application fee amounts to 50.00 euros. They will be charged regardless of the outcome of your application.</p><p>Your residency taxes amount to 77.00 euros. They will not be debited in case of a favorable decision.</p>"
+			"informations": "<p>Your application fee amounts to 58.00 euros. They will be charged regardless of the outcome of your application.</p><p>Your residency taxes amount to 19.00 euros. They will not be debited in case of a favorable decision.</p>"
 		}
 	},
 	"final" : {

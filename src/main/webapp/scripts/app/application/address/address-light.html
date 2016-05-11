@@ -52,7 +52,7 @@
 	        </p>
 	    </div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" ng-if="!address.modeV2">
 	    <label translate="address.form.country" for="field_country">Country</label>
 	    <select-country name="country" id="field_country" ng-model="address.country" required></select-country>
 	    <div ng-show="addressLightForm.country.$dirty && addressLightForm.country.$invalid">

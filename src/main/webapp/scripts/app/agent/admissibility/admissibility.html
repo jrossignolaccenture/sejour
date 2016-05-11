@@ -27,6 +27,7 @@
 	<div id="panelIdentity" class="row collapse" ng-class="{'in': identity.valid == null}">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
+				<div ng-if="identity.changed" style="font-style: italic; color: red; padding: 0px 15px 15px 15px" translate="global.form.haveChanged">modification !</div>
 				<ng-include src="'scripts/app/application/identity/identity-view.html'"></ng-include>
 			</div>
 		</div>
@@ -83,6 +84,7 @@
 	<div id="panelAddress" class="row collapse" ng-class="{'in': address.valid == null}">
 		<div class="col-sm-11 col-sm-offset-1">
 			<div class="row validation-visualization-row opened">
+				<div ng-if="address.changed" style="font-style: italic; color: red; padding: 0px 15px 15px 15px" translate="global.form.haveChanged">modification !</div>
 				<ng-include src="'scripts/app/application/address/address-view.html'"></ng-include>
 			</div>
 		</div>

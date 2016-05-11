@@ -43,6 +43,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
 	/** ENUM = COMPANY, PERSON, UNIVERSITY */
 	@NotNull
 	private UserType type;
+	
+	@Field("profil")
+	private String profil;
     
     @Field("identity")
     private Identity identity = new Identity();
@@ -110,7 +113,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.type = type;
     }
 
-    public Identity getIdentity() {
+    public String getProfil() {
+		return profil;
+	}
+
+	public void setProfil(String profil) {
+		this.profil = profil;
+	}
+
+	public Identity getIdentity() {
 		return identity;
 	}
 
@@ -210,6 +221,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return "User{" +
                 "email='" + email + '\'' +
                 ", type='" + type + '\'' +
+                ", profil='" + profil + '\'' +
                 ", identity='" + identity + '\'' +
                 ", comingDate='" + comingDate + '\'' +
                 ", address='" + address + '\'' +

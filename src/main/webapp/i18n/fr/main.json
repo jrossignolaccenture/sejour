@@ -24,12 +24,12 @@
 		        "extend": "Je veux <strong>prolonger mon séjour</strong> en France",
 		        "nationality": "Je veux <strong>acquérir la nationalité</strong> française",
 		        "france": {
-		        	"study": "Je veux <strong>demander un premier titre</strong> de séjour",
+		        	"study": "Je veux <strong>demander une première carte</strong> de séjour",
 		        	"change": "Je veux <strong>déclarer un changement</strong> de situation",
 		        	"family": "Je veux <strong>faire venir ma famille</strong> en France",
-		        	"extend": "Je veux <strong>prolonger mon séjour</strong> en France",
+		        	"extend": "Je veux <strong>renouveler ma carte de séjour</strong> en France",
 		        	"sick": "Je veux <strong>bénéficier d'une procédure pour les étrangers malades</strong>",
-		        	"child": "Je veux <strong>demander un document pour mon enfant</strong>"
+		        	"movement": "Je veux <strong>demander un document de circulation</strong>"
 		        }
 	        }
 	    },
@@ -51,7 +51,9 @@
 		        "rdv.setting": "Calendrier des rendez-vous",
 		        "question": "Messages",
 		        "analyse": "Analyse des données et pilotage",
-		        "issuing": "Remise de titre"
+		        "receipt": "Réception de titre",
+		        "issuing": "Remise de titre",
+		        "follow": "Suivi des titres"
 	        }
        	}
     }

@@ -26,8 +26,10 @@ angular.module('sejourApp')
         });
         
         $scope.validate = function () {
-    		Application.validate(currentApplication.id).then(function(result) {
-            	$state.go('validation/list')
-            });
+    		Application.validate(currentApplication.id);
+        }
+        
+        $scope.endValidation = function () {
+        	$state.go('validation/list')
         }
     });

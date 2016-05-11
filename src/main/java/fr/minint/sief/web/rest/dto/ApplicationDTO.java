@@ -61,6 +61,8 @@ public class ApplicationDTO implements Serializable {
     
     private DateTime decisionDate;
     
+    private DateTime receiptDate;
+    
     private DateTime issuingDate;
     
     private DateTime reconstructionDate;
@@ -209,6 +211,14 @@ public class ApplicationDTO implements Serializable {
 		this.decisionDate = decisionDate;
 	}
 
+	public DateTime getReceiptDate() {
+		return receiptDate;
+	}
+
+	public void setReceiptDate(DateTime receiptDate) {
+		this.receiptDate = receiptDate;
+	}
+
 	public DateTime getIssuingDate() {
 		return issuingDate;
 	}
@@ -267,6 +277,7 @@ public class ApplicationDTO implements Serializable {
                 ", interviewReport='" + interviewReport + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
                 ", decisionDate='" + decisionDate + "'" +
+                ", receiptDate='" + receiptDate + "'" +
                 ", issuingDate='" + issuingDate + "'" +
                 ", reconstructionDate='" + reconstructionDate + "'" +
                 '}';

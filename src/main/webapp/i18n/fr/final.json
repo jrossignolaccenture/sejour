@@ -1,7 +1,7 @@
 {
 	"final" : {
 		"form": {
-    		"success": "Votre paiement s'est déroulé avec succès"
+    		"success": "Le paiement s'est déroulé avec succès"
 		}
 	}
 }

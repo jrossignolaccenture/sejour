@@ -1,7 +1,7 @@
 <ng-form name="identityLightForm">
     <div class="form-group">
         <label translate="identity.form.lastName" for="field_lastName">LastName</label>
-        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName"
+        <input type="text" class="form-control" name="lastName" id="field_lastName" ng-model="identity.lastName" ng-disabled="identity.changed"
         		tabindex="0" data-placement="right" data-toggle="popover" data-trigger="focus" data-content="{{'identity.form.tooltip' | translate}}"
         		autofocus required>
         <div ng-show="identityLightForm.lastName.$dirty && identityLightForm.lastName.$invalid">
@@ -12,23 +12,23 @@
     </div>
     <div class="form-group">
         <label translate="identity.form.usedLastName" for="field_usedLastName">UsedLastName</label>
-        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="identity.usedLastName" >
+        <input type="text" class="form-control" name="usedLastName" id="field_usedLastName" ng-model="identity.usedLastName" ng-disabled="identity.changed" >
 
     </div>
     <div class="form-group">
         <label translate="identity.form.firstName" for="field_firstName">FirstName</label>
-        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="identity.firstName" >
+        <input type="text" class="form-control" name="firstName" id="field_firstName" ng-model="identity.firstName" ng-disabled="identity.changed" >
     </div>
     <div class="form-group">
         <label translate="identity.form.sex" for="field_sex">Sex</label>
         <div>
-	        <label class="radio-inline"><input type="radio" id="field_sex" name="sex_{{$id}}" ng-model="identity.sex" value="F" required>{{'sejourApp.SexType.F' | translate}}</label>
-			<label class="radio-inline"><input type="radio" id="field_sex" name="sex_{{$id}}" ng-model="identity.sex" value="M" required>{{'sejourApp.SexType.M' | translate}}</label>
+	        <label class="radio-inline"><input type="radio" id="field_sex" name="sex_{{$id}}" ng-model="identity.sex" ng-disabled="identity.changed" value="F" required>{{'sejourApp.SexType.F' | translate}}</label>
+			<label class="radio-inline"><input type="radio" id="field_sex" name="sex_{{$id}}" ng-model="identity.sex" ng-disabled="identity.changed" value="M" required>{{'sejourApp.SexType.M' | translate}}</label>
         </div>
     </div>
     <div class="form-group">
         <label translate="identity.form.birthDate" for="field_birthDate">BirthDate</label>
-        <input-birth-date field-name="birthDate" field-id="field_birthDate" ng-model="identity.birthDate"></input-birth-date>
+        <input-birth-date field-name="birthDate" field-id="field_birthDate" ng-model="identity.birthDate" readonly="identity.changed"></input-birth-date>
         <div ng-show="identityLightForm.birthDate.$dirty && identityLightForm.birthDate.$invalid">
             <p class="help-block" ng-show="identityLightForm.birthDate.$error.required" translate="entity.validation.required">
                 This field is required.
@@ -41,7 +41,7 @@
     <div class="form-group">
         <label translate="identity.form.birthCity" for="field_birthCity">BirthCity</label>
         <input type="text" class="form-control" name="birthCity" id="field_birthCity"
-                ng-model="identity.birthCity" required>
+                ng-model="identity.birthCity" ng-disabled="identity.changed" required>
 
         <div ng-show="identityLightForm.birthCity.$dirty && identityLightForm.birthCity.$invalid">
             <p class="help-block" ng-show="identityLightForm.birthCity.$error.required" translate="entity.validation.required">
@@ -51,7 +51,7 @@
     </div>
     <div class="form-group">
         <label translate="identity.form.birthCountry" for="field_birthCountry">BirthCountry</label>
-        <select-country name="birthCountry" id="field_birthCountry" ng-model="identity.birthCountry" required></select-country>
+        <select-country name="birthCountry" id="field_birthCountry" ng-model="identity.birthCountry" ng-disabled="identity.changed" required></select-country>
 
         <div ng-show="identityLightForm.birthCountry.$dirty && identityLightForm.birthCountry.$invalid">
             <p class="help-block" ng-show="identityLightForm.birthCountry.$error.required" translate="entity.validation.required">
@@ -61,7 +61,7 @@
     </div>
     <div class="form-group">
         <label translate="identity.form.nationality" for="field_nationality">Nationality</label>
-        <select-country name="nationality" id="field_nationality" ng-model="identity.nationality" required></select-country>
+        <select-country name="nationality" id="field_nationality" ng-model="identity.nationality" ng-disabled="identity.changed" required></select-country>
         
         <div ng-show="identityLightForm.nationality.$dirty && identityLightForm.nationality.$invalid">
             <p class="help-block" ng-show="identityLightForm.nationality.$error.required" translate="entity.validation.required">

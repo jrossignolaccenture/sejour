@@ -9,12 +9,13 @@ angular.module('sejourApp')
         $scope.studentName = currentApplication.identity.firstName + " " + currentApplication.identity.lastName;
         
         $scope.identity = currentApplication.identity;
-        $scope.identity.valid = currentApplication.identity.validateOn ? true : null;
     	$scope.address = currentApplication.address;
-    	$scope.address.valid = currentApplication.address.validateOn ? true : null;
         $scope.project = currentApplication.project;
         
     	$scope.application = currentApplication;
+    	
+    	$scope.identity.valid = currentApplication.identity.validateOn ? true : null;
+    	$scope.address.valid = currentApplication.address.validateOn ? true : null;
         
         // indicateur fumeux
         $scope.needResidencyCountry = currentApplication.type === 'premiere';

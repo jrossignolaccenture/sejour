@@ -8,11 +8,22 @@
 		"nationality": "Nationality",
 		"applicationType": "Application type"
 	},
-	"issuing" : {
+	"issuing": {
+		"search": {
+			"title": "User search for permit issuing",
+			"tabs" : {
+				"fingerprint": "By fingerprint",
+				"foreignerNumber": "By foreigner number",
+				"foreignerName": "By name"
+			},
+	    	"fingerprints.button": "Start fingerprints",
+			"foreignerNumber": "Foreign number",
+			"foreignerNumber.button": "Search by foreign number"
+		},
 		"form": {
 	    	"identity": "User identity",
-	    	"fingerprints": "Verificationof fingerprints",
-	    	"fingerprints.button": "Start fingerprints",
+	    	"signature": "Signature",
+	    	"signature.button.clear": "Clean",
 	    	"button.accept": "Confirm permit issuing",
 	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}"
 		}

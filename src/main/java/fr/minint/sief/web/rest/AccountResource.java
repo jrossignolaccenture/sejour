@@ -129,6 +129,7 @@ public class AccountResource {
                         user.getEmail(),
                         null,
                         user.getType(),
+                        user.getProfil(),
                         identityMapper.identityToIdentityDTO(user.getIdentity()),
                         user.getComingDate(),
                         addressMapper.addressToAddressDTO(user.getAddress()),

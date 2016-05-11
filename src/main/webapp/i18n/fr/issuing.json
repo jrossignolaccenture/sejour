@@ -8,11 +8,22 @@
 		"nationality": "Nationalité",
 		"applicationType": "Type de demande"
 	},
-	"issuing" : {
+	"issuing": {
+		"search": {
+			"title": "Recherche d'usager en attente de remise de titre",
+			"tabs" : {
+				"fingerprint": "Par empreinte",
+				"foreignerNumber": "Par numéro étranger",
+				"foreignerName": "Par nom"
+			},
+	    	"fingerprints.button": "Démarrer la capture d'empreintes",
+			"foreignerNumber": "Numéro étranger",
+			"foreignerNumber.button": "Rechercher par numéro étranger"
+		},
 		"form": {
 	    	"identity": "Identité de l'usager",
-	    	"fingerprints": "Vérification des empreintes digitales",
-	    	"fingerprints.button": "Démarrer la capture d'empreintes",
+	    	"signature": "Signature",
+	    	"signature.button.clear": "Effacer",
 	    	"button.accept": "Confirmer la remise du titre",
 	    	"validate": "Validé le {{validationDate}} - {{validationAuthor}}"
 		}

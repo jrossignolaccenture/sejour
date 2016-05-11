@@ -46,7 +46,11 @@ public class AddressDTO implements Serializable {
     @NotNull
     private List<DocumentDTO> documents = new ArrayList<>();
     
+    private boolean changed = false;
+    
     private Boolean admissible;
+    
+    private boolean valid;
 
     private DateTime validateOn;
 
@@ -138,12 +142,28 @@ public class AddressDTO implements Serializable {
 		this.documents = documents;
 	}
 
+	public boolean isChanged() {
+		return changed;
+	}
+
+	public void setChanged(boolean changed) {
+		this.changed = changed;
+	}
+
 	public Boolean isAdmissible() {
 		return admissible;
 	}
 
 	public void setAdmissible(Boolean admissible) {
 		this.admissible = admissible;
+	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
 	}
 
 	public DateTime getValidateOn() {
@@ -168,7 +188,9 @@ public class AddressDTO implements Serializable {
                 ", email='" + email + "'" +
                 ", contactType='" + contactType + "'" +
                 ", documents='" + documents + "'" +
+                ", changed='" + changed + '\'' +
                 ", admissible='" + admissible + '\'' +
+                ", valid='" + valid + '\'' +
                 ", validateOn='" + validateOn + '\'' +
                 '}';
     }

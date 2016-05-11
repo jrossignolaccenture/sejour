@@ -1,0 +1,51 @@
+<div ng-cloak>
+    <div class="row title-main title-underline">
+    	<h4 translate="receipt.title"></h4>
+    </div>
+	<br><br>
+	
+	<div class="row row-center">
+		<div class="col-xs-12">
+			<button class="btn btn-primary" translate="receipt.scan.button" style="width:311px;" ng-click="launchScan()">Scan</button>
+		</div>
+	</div>
+	<br><br><br><br>
+	<div class="row row-center" ng-if="scan">
+		<div class="col-xs-12" ng-if="!scanMatched">
+			<center><img class="img-responsive thumbnail" src="assets/images/scan.gif" ng-if="scan" width="300px" /></center>
+		</div>
+		<div class="col-xs-12" ng-if="scanMatched">
+			<h5 translate="applicationList.noApplication" ng-if="randomApplications.length == 0">No application</h5>
+			<div ng-if="randomApplications.length > 0">
+				<table class="table">
+					<thead>
+						<tr>
+							<th style="width:17%;" translate="applicationList.lastName"></th>
+							<th style="width:17%;" translate="applicationList.firstName"></th>
+							<th style="width:24%;" translate="applicationList.id"></th>
+							<th style="width:42%;" translate="applicationList.applicationType"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="application in randomApplications" style="text-align: left;" >
+							<td>{{application.identity.lastName}}</td>
+							<td>{{application.identity.firstName}}</td>
+							<td ng-if="application.identity.foreignerNumber">{{application.identity.foreignerNumber}}</td>
+							<td ng-if="!application.identity.foreignerNumber">{{application.userId}}</td>
+							<td>
+								<span translate="sejourApp.ApplicationType.{{application.type}}"></span>
+								<span translate="sejourApp.ApplicationNature.{{application.nature}}"></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<br/><br/><br/>
+				<button class="btn btn-primary" translate="receipt.button" style="width:311px;" ng-click="receipt()">Scan</button>
+			</div>
+		</div>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

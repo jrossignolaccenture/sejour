@@ -15,11 +15,12 @@
 		    	</div>
 		    </div>
 		    <div class="col-xs-10 form-title-text">
-		    	<p translate="procedure.identity.step.long">Identity</p>
+		    	<p translate="procedure.identity.step.long" ng-if="!identity.modeV2">Identity</p>
+		    	<p translate="procedure.identity.step.long.{{identity.valid}}" ng-if="identity.modeV2">Identity</p>
 		    </div>
 		</div>
 		<br>
-		<div class="row" ng-if="!identity.validateOn">
+		<div class="row" ng-if="!readOnlyMode">
 			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
 			    
 				<identity-form-light ng-model="identity" with-tooltip="true"></identity-form-light>
@@ -35,7 +36,7 @@
 			    </div>
 			    <div class="form-group" ng-if="needResidencyCountry">
 			        <label translate="identity.form.residencyCountry" for="field_residencyCountry">ResidencyCountry</label>
-			        <select-country name="residencyCountry" id="field_residencyCountry" ng-model="identity.residencyCountry" required></select-country>
+			        <select-country name="residencyCountry" id="field_residencyCountry" ng-model="identity.residencyCountry" ng-disabled="identity.changed" required></select-country>
 			        <div ng-show="identityLightForm.residencyCountry.$dirty && identityLightForm.residencyCountry.$invalid">
 			            <p class="help-block" ng-show="identityLightForm.residencyCountry.$error.required" translate="entity.validation.required">
 			                This field is required.
@@ -66,7 +67,7 @@
 		                </p>
 			        </div>
 			    </div>
-			    <div class="form-group">
+			    <div class="form-group" ng-if="needBrothers">
 			        <label translate="identity.form.brothersNumber" for="field_brothersNumber">BrothersNumber</label>
 			        <input type="number" min="0" class="form-control" name="brothersNumber" id="field_brothersNumber" ng-model="identity.brothersNumber" required>
 			        <div ng-show="identityForm.brothersNumber.$dirty && identityForm.brothersNumber.$invalid">
@@ -92,7 +93,7 @@
 			    </div>
 			</div>
 		</div>
-		<div ng-if="needDocuments && !identity.validateOn">
+		<div ng-if="needDocuments && !readOnlyMode">
 			<br>
 			<div class="row">
 				<div class="col-xs-1 col-xs-offset-1">
@@ -118,11 +119,12 @@
 			   	</div>
 			</div>
 		</div>
-		<div class="row" ng-if="identity.validateOn">
+		<div class="row" ng-if="readOnlyMode">
 			<div class="col-xs-8 col-xs-offset-3 col-sm-6 col-sm-offset-5">
 				<ng-include src="'scripts/app/application/identity/identity-light-view.html'"></ng-include>
 			    <div class="form-group">
 			        <label translate="identity.form.passportNumber">PassportNumber</label> : <span>{{::identity.passportNumber}}</span>
+						<tooltip tooltip-text="identity.form.passportNumber.tooltip"></tooltip>
 			    </div>
 			    <div class="form-group">
 			        <label translate="identity.form.maritalStatus">Marital status</label> : <span>{{::'sejourApp.MaritalStatus.' + identity.maritalStatus | translate}}</span>
@@ -130,7 +132,7 @@
 			    <div class="form-group">
 			        <label translate="identity.form.childsNumber">ChildsNumber</label> : <span>{{::identity.childsNumber}}</span>
 			    </div>
-			    <div class="form-group">
+			    <div class="form-group" ng-if="needBrothers">
 			        <label translate="identity.form.brothersNumber">BrothersNumber</label> : <span>{{::identity.brothersNumber}}</span>
 			    </div>
 				<div class="form-group">
@@ -140,8 +142,10 @@
 		</div>
 		<br>
 	    <div class="row row-center">
-       		<button ng-if="identity.validateOn" type="button" class="btn btn-danger" translate="global.button.report" ng-click="report()">Report</button>
-       		<button type="submit" class="btn btn-primary" ng-class="{'btn-right': identity.validateOn}" translate="global.button.continue"
+       		<button ng-if="currentApplicationBackup" type="button" class="btn btn-danger" translate="global.button.cancel" ng-click="cancel()">Cancel</button>
+       		<button ng-if="readOnlyMode && !identity.modeV2" type="button" class="btn btn-danger" translate="global.button.report">Report</button>
+       		<button ng-if="readOnlyMode && identity.modeV2" type="button" class="btn btn-danger" translate="global.button.modify" ng-click="modify()">Modify</button>
+       		<button type="submit" class="btn btn-primary" ng-class="{'btn-right': readOnlyMode || currentApplicationBackup}" translate="global.button.continue"
        				 ng-disabled="identityForm.$invalid || identityForm.$submitted">Continue</button>
         </div>
 	</form>

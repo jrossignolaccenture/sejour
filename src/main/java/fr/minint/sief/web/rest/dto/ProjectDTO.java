@@ -18,6 +18,8 @@ public class ProjectDTO implements Serializable {
 
     private String university;
 
+    private String trainingType;
+
     private String training;
 
     private DateTime trainingStart;
@@ -60,7 +62,15 @@ public class ProjectDTO implements Serializable {
         this.university = university;
     }
 
-    public String getTraining() {
+    public String getTrainingType() {
+		return trainingType;
+	}
+
+	public void setTrainingType(String trainingType) {
+		this.trainingType = trainingType;
+	}
+
+	public String getTraining() {
         return training;
     }
 
@@ -176,6 +186,7 @@ public class ProjectDTO implements Serializable {
         ProjectDTO projectDTO = (ProjectDTO) o;
 
         if ( ! Objects.equals(comingDate, projectDTO.comingDate)) return false;
+        if ( ! Objects.equals(trainingType, projectDTO.trainingType)) return false;
         if ( ! Objects.equals(training, projectDTO.training)) return false;
         if ( ! Objects.equals(trainingStart, projectDTO.trainingStart)) return false;
 
@@ -187,6 +198,7 @@ public class ProjectDTO implements Serializable {
     	final int prime = 31;
     	int result = 1;
     	result = prime * result + Objects.hashCode(comingDate);
+    	result = prime * result + Objects.hashCode(trainingType);
     	result = prime * result + Objects.hashCode(training);
     	result = prime * result + Objects.hashCode(trainingStart);
     	return result;
@@ -197,6 +209,7 @@ public class ProjectDTO implements Serializable {
         return "ProjectDTO{" +
                 "comingDate='" + comingDate + "'" +
                 ", university='" + university + "'" +
+                ", trainingType='" + trainingType + "'" +
                 ", training='" + training + "'" +
                 ", trainingStart='" + trainingStart + "'" +
                 ", trainingLength='" + trainingLength + "'" +

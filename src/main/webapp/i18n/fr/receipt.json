@@ -1,0 +1,15 @@
+{
+	"receipt": {
+		"title": "Réception de titre",
+		"button": "Confirmer la réception",
+		"scan.button": "Scanner"
+	},
+	"applicationList" : {
+		"noApplication": "Aucun titre ne correspond",
+		"firstName": "Prénom",
+		"lastName": "Nom",
+		"id": "Numéro étranger",
+		"nationality": "Nationalité",
+		"applicationType": "Type de demande"
+	}
+}

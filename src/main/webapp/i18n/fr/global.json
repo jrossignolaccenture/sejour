@@ -46,13 +46,16 @@
             "confirmpassword.placeholder": "Confirmation du nouveau mot de passe",
             "email": "Email",
             "email.placeholder": "Votre email",
-            "date.format": "jj/mm/aaaa"
+            "date.format": "jj/mm/aaaa",
+            "haveChanged": "* des modifications ont été effectuées par rapport à la précédente déclaration"
         },
         "button": {
         	"start": "Démarrer",
         	"continue": "Continuer",
         	"back": "Retour",
+        	"cancel": "Annuler",
 	    	"report": "Signaler un changement",
+	    	"modify": "Modifier",
         	"validate": "Valider ma demande",
         	"payment": "Valider le paiement",
         	"end": "Terminer"

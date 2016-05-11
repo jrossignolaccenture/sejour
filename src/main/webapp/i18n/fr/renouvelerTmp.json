@@ -8,26 +8,30 @@
     "procedure": {
         "title": "Demande de renouvellement de carte de séjour temporaire étudiant",
         "page.title": "Demande de renouvellement de carte de séjour temporaire étudiant",
-        "step.title": "5 étapes pour déposer votre demande",
+        "step.title": "5 étapes pour déposer ma demande",
         "identity": {
         	"step.short": "Etat-civil",
-        	"step.long": "Vérifiez votre état-civil et vos informations personnelles"
+        	"step.long": "Je vérifie mes informations personnelles",
+        	"step.long.true": "Je vérifie mes informations personnelles",
+        	"step.long.false": "Je vérifie mes informations personnelles"
         },
         "address": {
         	"step.short": "Coordonnées",
-        	"step.long": "Vérifiez vos coordonnées"
+        	"step.long": "Je vérifie mes coordonnées en France",
+        	"step.long.true": "Je vérifie mes coordonnées en France",
+        	"step.long.false": "Je vérifie mes coordonnées en France"
         },
         "project": {
         	"step.short": "Projet",
-        	"step.long": "Complétez les détails de votre projet"
+        	"step.long": "Je renseigne les détails de mon projet"
         },
         "summary": {
         	"step.short": "Récapitulatif",
-        	"step.long": "Vérifiez les informations de votre demande"
+        	"step.long": "Je vérifie ma demande avant de la valider"
         },
         "payment": {
         	"step.short": "Paiement",
-        	"step.long": "Pré-payez vos taxes de séjour"
+        	"step.long": "Je pré-paie les taxes de séjour"
         },
         "preparationText": "<p>Pour pouvoir compléter votre dépôt de demande, vous devez impérativement être en possession :</p><ul><li>d'un certificat d’inscription ou pré-inscription dans un établissement d'enseignement français,</li><li>de justificatifs de ressources financières suffisantes, soit supérieures ou égales à 615 € mensuels (attestation de bourse, attestation bancaire, fiches de paye ou attestation de prise en charge par un garant),</li><li>en cas de changement d'état-civil, d'un passeport valide et d'un extrait de votre acte de naissance avec filiation ou d'une copie intégrale de votre acte de naissance,</li><li>en cas de changement d'adresse, d'un justificatif de domicile,</li></ul><p>Tous les justificatifs doivent être accompagnés, le cas échéant, de leur traduction en français par un traducteur interprète agréé.</p><p><a href='#'>Trouver un interprète traducteur agréé</a></p>"
     },
@@ -41,7 +45,7 @@
     },
     "payment" : {
 		"form": {
-			"informations": "<p>Vos taxes de séjour s'élèvent à 49,00 euros. Elles ne seront débitées qu'en cas d'issue favorable à votre demande.</p>"
+			"informations": "<p>Les frais de dossier s'élèvent à 30,00 euros. Ils seront débités quelle que soit l'issue de votre demande.</p><p>Les taxes de séjour s'élèvent à 19,00 euros. Elles ne seront débitées qu'en cas d'issue favorable à votre demande.</p>"
 		}
 	},
 	"final" : {

@@ -11,12 +11,8 @@ angular.module('sejourApp')
     	
         $scope.application = currentApplication;
     	
-    	$scope.activateFingerprints = function() {
-    		$scope.fingerprints = true;
-    		$timeout(function(){
-    			$scope.fingerprintsMatched = true;
-    		}, 2000);
-    		
+    	$scope.clearSignature = function(signaturepad) {
+    		signaturepad.clear();
     	}
         
         $scope.issue = function () {

@@ -21,6 +21,11 @@
 	    	"noHistory": "No history",
 	    	
 	    	"validate": "Validate on {{validationDate}} - {{validationAuthor}}"
+		},
+		"modal": {
+			"title": "Residency card validation",
+			"text": "Production of {{studentName}} student residency card has been launched !",
+			"button": "OK"
 		}
 	}
 }

@@ -1,0 +1,19 @@
+{
+	"applicationList": {
+		"title": "Liste des demandes en attente de remise de titre",
+		"noApplication": "Aucun titre",
+		"firstName": "Prénom",
+		"lastName": "Nom",
+		"id": "Numéro étranger",
+		"nationality": "Nationalité",
+		"applicationType": "Type de demande"
+	},
+	"follow": {
+		"title": "Recherche d'usager en attente de remise de titre",
+		"tabs" : {
+			"inProgress": "En cours de production",
+			"receipted": "Réceptionnés",
+			"issued": "Délivrés"
+		}
+	}
+}

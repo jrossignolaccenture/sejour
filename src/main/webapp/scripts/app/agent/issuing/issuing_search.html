@@ -1,0 +1,63 @@
+<div ng-cloak>
+    <div class="row title-main title-underline">
+    	<h4 translate="issuing.search.title"></h4>
+    </div>
+	<br><br>
+	
+	<ul class="nav nav-tabs nav-justified">
+		<li role="presentation" ng-class="{'active': tab === 'fingerprint'}" ng-click="tab = 'fingerprint'" style="cursor: pointer;">
+			<a translate="issuing.search.tabs.fingerprint">Biotmetrics</a>
+		</li>
+		<li role="presentation" ng-class="{'active': tab === 'foreignerNumber'}" ng-click="tab = 'foreignerNumber'" style="cursor: pointer;">
+			<a translate="issuing.search.tabs.foreignerNumber">Foreigner number</a>
+		</li>
+		<li role="presentation" ng-class="{'active': tab === 'foreignerName'}" ng-click="tab = 'foreignerName'" style="cursor: pointer;">
+			<a translate="issuing.search.tabs.foreignerName">Foreigner Name</a>
+		</li>
+	</ul>
+	
+	<br/><br/><br/><br/>
+	
+	<div class="row row-center">
+		<div class="col-xs-12" ng-show="tab === 'fingerprint'">
+			<div ng-show="!fingerprints">
+				<button class="btn btn-primary" translate="issuing.search.fingerprints.button" style="width:311px;" ng-click="searchByFingerprint()">Fingerprints</button>
+			</div>
+			<center><img class="img-responsive thumbnail" ng-class="{'img-valid': fingerprintsMatched, 'img-error': fingerprintsError}" src="assets/images/Fingerprints.gif" ng-if="fingerprints" width="300px" /></center>
+		</div>
+		<div class="col-xs-12" ng-show="tab === 'foreignerNumber'">
+			<label translate="issuing.search.foreignerNumber" style="margin-right: 10px;">ForeignerNumber</label>
+			<input type="text" ng-model="foreignerNumber" />
+			<br/><br/>
+			<button class="btn btn-primary" translate="issuing.search.foreignerNumber.button" 
+					style="width:311px;" ng-click="searchByForeignerNumber(foreignerNumber)">search</button>
+			<br/><br/><br/><br/>
+			<table class="table" ng-if="currentApplication">
+				<thead>
+					<tr>
+						<th style="width:17%;" translate="applicationList.lastName"></th>
+						<th style="width:17%;" translate="applicationList.firstName"></th>
+						<th style="width:24%;" translate="applicationList.id"></th>
+						<th style="width:42%;" translate="applicationList.applicationType"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="applicationListLine" style="text-align: left;" ng-click="goToIssuing()" >
+						<td>{{currentApplication.identity.lastName}}</td>
+						<td>{{currentApplication.identity.firstName}}</td>
+						<td ng-if="currentApplication.identity.foreignerNumber">{{currentApplication.identity.foreignerNumber}}</td>
+						<td ng-if="!currentApplication.identity.foreignerNumber">{{currentApplication.userId}}</td>
+						<td>
+							<span translate="sejourApp.ApplicationType.{{currentApplication.type}}"></span>
+							<span translate="sejourApp.ApplicationNature.{{currentApplication.nature}}"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+    
+<script type="text/javascript">
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+</script>

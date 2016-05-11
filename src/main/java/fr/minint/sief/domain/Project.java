@@ -28,6 +28,9 @@ public class Project implements Serializable {
     @Field("university")
     private String university;
 
+    @Field("training_type")
+    private String trainingType;
+
     @Field("training")
     private String training;
 
@@ -87,7 +90,15 @@ public class Project implements Serializable {
         this.university = university;
     }
 
-    public String getTraining() {
+    public String getTrainingType() {
+		return trainingType;
+	}
+
+	public void setTrainingType(String trainingType) {
+		this.trainingType = trainingType;
+	}
+
+	public String getTraining() {
         return training;
     }
 
@@ -203,6 +214,7 @@ public class Project implements Serializable {
         Project project = (Project) o;
 
         if ( ! Objects.equals(comingDate, project.comingDate)) return false;
+        if ( ! Objects.equals(trainingType, project.trainingType)) return false;
         if ( ! Objects.equals(training, project.training)) return false;
         if ( ! Objects.equals(trainingStart, project.trainingStart)) return false;
         if ( ! Objects.equals(lastNameFrancise, project.lastNameFrancise)) return false;
@@ -216,6 +228,7 @@ public class Project implements Serializable {
     	final int prime = 31;
     	int result = 1;
     	result = prime * result + Objects.hashCode(comingDate);
+    	result = prime * result + Objects.hashCode(trainingType);
     	result = prime * result + Objects.hashCode(training);
     	result = prime * result + Objects.hashCode(trainingStart);
     	result = prime * result + Objects.hashCode(lastNameFrancise);
@@ -228,6 +241,7 @@ public class Project implements Serializable {
         return "Project{" +
                 "comingDate='" + comingDate + "'" +
                 ", university='" + university + "'" +
+                ", trainingType='" + trainingType + "'" +
                 ", training='" + training + "'" +
                 ", trainingStart='" + trainingStart + "'" +
                 ", trainingLength='" + trainingLength + "'" +

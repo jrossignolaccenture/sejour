@@ -12,6 +12,7 @@
             "birthCountry": "Birth Country",
             "nationality": "Nationality",
             "passportNumber": "Passport Number",
+            "passportNumber.tooltip": "Passport has to be valid",
             "residencyCountry": "Residency Country",
             "maritalStatus": "Marital status",
             "childsNumber": "Number of childs",

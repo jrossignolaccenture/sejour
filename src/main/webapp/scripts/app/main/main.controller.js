@@ -4,7 +4,6 @@ angular.module('sejourApp')
     .controller('MainController', function ($rootScope, $scope, $state, Principal, Application) {
     	
         $scope.isAuthenticated = Principal.isAuthenticated;
-        $scope.userLocation = undefined;
         
         $scope.nbPaid = 0;
         $scope.nbScheduled = 0;
@@ -17,6 +16,7 @@ angular.module('sejourApp')
         		$scope.account = account;
         		if(account) {
         			$rootScope.userType = account.type;
+        			$rootScope.profil = account.profil;
         			if(account.type === 'agent'){
         				Application.count().then(function(applicationCount) {
 	        		        $scope.nbPaid = applicationCount.nbPaid;
@@ -38,7 +38,7 @@ angular.module('sejourApp')
         	$rootScope.userType = userType;
         }
         
-        $scope.chooseLocation = function(userLocation) {
-        	$scope.userLocation = userLocation;
+        $scope.chooseProfil = function(profil) {
+        	$rootScope.profil = profil;
         }
     });

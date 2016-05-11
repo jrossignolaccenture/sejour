@@ -2,6 +2,7 @@ package fr.minint.sief.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Random;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -99,13 +100,18 @@ public class Application implements Serializable {
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
-    @Field("issuing_date")
-    private DateTime issuingDate;
+    @Field("decision_date")
+    private DateTime decisionDate;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
-    @Field("decision_date")
-    private DateTime decisionDate;
+    @Field("receipt_date")
+    private DateTime receiptDate;
+
+    @JsonSerialize(using = CustomDateTimeSerializer.class)
+    @JsonDeserialize(using = CustomDateTimeDeserializer.class)
+    @Field("issuing_date")
+    private DateTime issuingDate;
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
@@ -256,6 +262,14 @@ public class Application implements Serializable {
 		this.decisionDate = decisionDate;
 	}
 
+	public DateTime getReceiptDate() {
+		return receiptDate;
+	}
+
+	public void setReceiptDate(DateTime receiptDate) {
+		this.receiptDate = receiptDate;
+	}
+
 	public DateTime getIssuingDate() {
 		return issuingDate;
 	}
@@ -314,6 +328,7 @@ public class Application implements Serializable {
                 ", interviewReport='" + interviewReport + "'" +
                 ", biometricsDate='" + biometricsDate + "'" +
                 ", decisionDate='" + decisionDate + "'" +
+                ", receiptDate='" + receiptDate + "'" +
                 ", issuingDate='" + issuingDate + "'" +
                 ", reconstructionDate='" + reconstructionDate + "'" +
                 '}';
@@ -323,10 +338,20 @@ public class Application implements Serializable {
     	admissibilityDate = date;
     	identity.setAdmissible(true);
     	identity.setFamilyAdmissible(true);
+    	identity.setChanged(false);
+    	if(identity.getForeignerNumber() == null) {
+    		identity.setForeignerNumber("012345" + getRandom());
+    	}
     	address.setAdmissible(true);
+    	address.setChanged(false);
     	if(address.getValidateOn() == null) {
     		address.setValidateOn(date);
     	}
     	project.setAdmissible(true);
     }
+
+	private int getRandom() {
+		Random random = new Random();
+		return random.nextInt(2000) + 1000;
+	}
 }

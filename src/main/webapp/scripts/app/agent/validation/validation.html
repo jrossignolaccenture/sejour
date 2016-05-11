@@ -132,11 +132,34 @@
     			ng-class="{'btn-right': project.valid == null}"
     			translate="validation.form.button.accept"
     			ng-if="project.valid !== false"
-    			ng-disabled="!project.valid" 
+    			ng-disabled="!project.valid"
+    			data-toggle="modal"
+    			data-target="#myModal"
     			ng-click="validate()" >Accept</button>
 	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" translate="validation.modal.title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      	<span translate="validation.modal.text">modal text</span>
+      </div>
+      <div class="modal-footer" style="text-align: center;">
+        <button type="button" class="btn btn-default" data-dismiss="modal" translate="validation.modal.button">OK</button>
+      </div>
+    </div>
+  </div>
 </div>
     
 <script type="text/javascript">
 	$("html, body").animate({ scrollTop: 0 }, "slow");
+	$('#myModal').on('hidden.bs.modal', function (e) {
+		angular.element(this).scope().endValidation();
+	});
 </script>

@@ -1,0 +1,15 @@
+{
+	"receipt": {
+		"title": "Permit receipt",
+		"button": "Confirm receipt",
+		"scan.button": "Scan"
+	},
+	"applicationList" : {
+		"noApplication": "There is no permit",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"id": "Foreign number",
+		"nationality": "Nationality",
+		"applicationType": "Application type"
+	}
+}

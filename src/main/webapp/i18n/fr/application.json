@@ -28,13 +28,13 @@
 			"payment": "Paiement effectué le {{paymentDate}} - {{userName}}",
 			"admissibility.wait": {
 				"sejour_etudiant": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
-				"sejour_tmp_etudiant": "En attente de vérification de la recevabilité",
+				"sejour_tmp_etudiant": "En attente de validation par l'administration",
 				"sejour_salarie": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
 				"naturalisation": "En attente de vérification de la recevabilité par l'administration des étrangers en France"
 			},
 			"admissibility": {
 				"sejour_etudiant": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France",
-				"sejour_tmp_etudiant": "Recevabilité de la demande vérifiée le {{admissibilityDate}}",
+				"sejour_tmp_etudiant": "Demande reçue le {{admissibilityDate}}",
 				"sejour_salarie": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France",
 				"naturalisation": "Recevabilité de la demande vérifiée le {{admissibilityDate}} par l'administration des étrangers en France"
 			},
@@ -54,12 +54,12 @@
 			},
 			"issuing.wait": {
 				"sejour_etudiant": "En attente de remise du titre de séjour étudiant",
-				"sejour_tmp_etudiant": "En attente de remise du titre de séjour étudiant",
+				"sejour_tmp_etudiant": "En attente de remise de la carte de séjour étudiant",
 				"sejour_salarie": "En attente de remise du titre de séjour salarié"
 			},
 			"issuing": {
 				"sejour_etudiant": "Titre de séjour étudiant remis le {{issuingDate}}",
-				"sejour_tmp_etudiant": "Titre de séjour étudiant remis le {{issuingDate}}",
+				"sejour_tmp_etudiant": "Carte de séjour étudiant remis le {{issuingDate}}",
 				"sejour_salarie": "Titre de séjour salarié remis le {{issuingDate}}"
 			}
 		},

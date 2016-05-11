@@ -17,17 +17,17 @@
 	    </div>
     </div>
     <div class="row" ng-switch-when="individual">
-	    <div ng-switch="userLocation">
+	    <div ng-switch="profil">
 	    	<div ng-switch-when="undefined">
 			   	<br><br><br><br><br><br>
 	    		<div class="col-sm-6 col-lg-5 col-lg-offset-1">
-		        	<box-menu class="box-home" boxtitle="main.usager.button.france" boxlogo="key" ng-click="chooseLocation('france')"></box-menu>
+		        	<box-menu class="box-home" boxtitle="main.usager.button.france" boxlogo="key" ng-click="chooseProfil('France')"></box-menu>
 		        </div>
 		        <div class="col-sm-6 col-lg-5">
-			        <box-menu class="box-home" boxtitle="main.usager.button.other" boxlogo="lock" ng-click="chooseLocation('abroad')"></box-menu>
+			        <box-menu class="box-home" boxtitle="main.usager.button.other" boxlogo="lock" ng-click="chooseProfil('abroad')"></box-menu>
 		        </div>
 	    	</div>
-	    	<div ng-switch-when="france">
+	    	<div ng-switch-when="France">
 		    	<div class="col-sm-6 col-md-4">
 		        	<box-menu boxtitle="main.usager.title.france.study" boxlogo="newspaper-o" ui-sref="usager/etudierTmp"></box-menu>
 		        </div>
@@ -41,10 +41,10 @@
 			        <box-menu boxtitle="main.usager.title.france.extend" boxlogo="repeat" ui-sref="usager/renouvelerTmp/etudes"></box-menu>
 		        </div>
 		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.france.sick" boxlogo="heartbeat" disabled="true"></box-menu>
+			        <box-menu boxtitle="main.usager.title.nationality" boxlogo="flag" disabled="true"></box-menu>
 		        </div>
 		        <div class="col-sm-6 col-md-4">
-			        <box-menu boxtitle="main.usager.title.france.child" boxlogo="child" disabled="true"></box-menu>
+			        <box-menu boxtitle="main.usager.title.france.movement" boxlogo="globe" disabled="true"></box-menu>
 		        </div>
 	    	</div>
 	    	<div ng-switch-when="abroad">
@@ -89,6 +89,9 @@
 		        <box-menu class="box-badge" boxtitle="main.agent.title.decision" boxlogo="pencil" boxbadge="{{nbIdentityVerified}}" ui-sref="validation/list"></box-menu>
 	        </div>
 		    <div class="row">
+		        <box-menu class="box-badge" boxtitle="main.agent.title.receipt" boxlogo="newspaper-o" boxbadge="0" ui-sref="receipt"></box-menu>
+	        </div>
+		    <div class="row">
 		        <box-menu class="box-badge" boxtitle="main.agent.title.issuing" boxlogo="newspaper-o" boxbadge="{{nbPermitToIssue}}" ui-sref="issuing/list"></box-menu>
 	        </div>
 		    <div class="row">
@@ -101,6 +104,9 @@
 	        </div>
     		<div class="row">
 		        <box-menu boxtitle="main.agent.title.application" boxlogo="search" disabled="true"></box-menu>
+	        </div>
+		    <div class="row">
+		        <box-menu boxtitle="main.agent.title.follow" boxlogo="newspaper-o" ui-sref="follow"></box-menu>
 	        </div>
         	<div class="row">
 		        <box-menu boxtitle="main.agent.title.rdv.setting" boxlogo="calendar" disabled="true"></box-menu>

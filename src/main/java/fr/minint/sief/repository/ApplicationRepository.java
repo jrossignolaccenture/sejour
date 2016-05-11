@@ -20,7 +20,11 @@ public interface ApplicationRepository extends MongoRepository<Application,Strin
 	
 	List<Application> findByStatutAndNatureAndReconstructionDateIsNull(ApplicationStatus status, ApplicationNature nature);
 	
-	List<Application> findByStatutAndNatureAndIssuingDateIsNull(ApplicationStatus status, ApplicationNature nature);
+	List<Application> findByStatutAndNatureAndDecisionDateIsNotNull(ApplicationStatus status, ApplicationNature nature);
+	
+	List<Application> findByStatutAndNatureAndReceiptDateIsNullOrderByDecisionDateDesc(ApplicationStatus status, ApplicationNature nature);
+	
+	List<Application> findByStatutAndNatureAndReceiptDateIsNotNullAndIssuingDateIsNull(ApplicationStatus status, ApplicationNature nature);
 	
 	Optional<Application> findFirstByStatutInAndEmailOrderByDecisionDateDesc(List<ApplicationStatus> status, String email);
 	
@@ -30,7 +34,7 @@ public interface ApplicationRepository extends MongoRepository<Application,Strin
 	
 	Long countByStatutInAndNatureAndReconstructionDateIsNull(ApplicationStatus status, ApplicationNature nature);
 	
-	Long countByStatutInAndNatureAndIssuingDateIsNull(ApplicationStatus status, ApplicationNature nature);
+	Long countByStatutInAndNatureAndReceiptDateIsNotNullAndIssuingDateIsNull(ApplicationStatus status, ApplicationNature nature);
 	
 	Long countByEmailAndStatutNot(String email, ApplicationStatus status);
 }

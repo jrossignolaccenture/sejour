@@ -213,7 +213,7 @@ public class ApplicationResource {
 		count.setNbScheduled(applicationRepository.countByStatutIn(asList(scheduled)));
 		count.setNbIdentityVerified(applicationRepository.countByStatutIn(asList(identity_verified, favorable_proposal)));
 		count.setNbCivilStateToReconstruct(applicationRepository.countByStatutInAndNatureAndReconstructionDateIsNull(validated, naturalisation));
-		count.setNbPermitToIssue(applicationRepository.countByStatutInAndNatureAndIssuingDateIsNull(validated, ApplicationNature.sejour_tmp_etudiant));
+		count.setNbPermitToIssue(applicationRepository.countByStatutInAndNatureAndReceiptDateIsNotNullAndIssuingDateIsNull(validated, ApplicationNature.sejour_tmp_etudiant));
 		return new ResponseEntity<>(count, HttpStatus.OK);
 	}
 	
@@ -450,15 +450,61 @@ public class ApplicationResource {
 					application.setStatut(validated);
 					applicationRepository.save(application);
 					mailService.sendApplicationValidatedEmail(application, getBaseUrl(request));
+					try {
+						Thread.sleep(400);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 					// Send more emails to have to be send by batch in reality
-					if(application.getNature() == sejour_etudiant || application.getNature() == sejour_tmp_etudiant) {
+					if(application.getNature() == sejour_etudiant) {
 						mailService.sendPermitEmail(application, getBaseUrl(request));
-						if(application.getType() == premiere && application.getNature() == sejour_etudiant) {
+						if(application.getType() == premiere) {
 							mailService.sendArrivalEmail(application, getBaseUrl(request));
 						}
 					} else if(application.getNature() == naturalisation) {
 						mailService.sendCeremonyEmail(application, getBaseUrl(request));
 					}
+                    return new ResponseEntity<>(HttpStatus.OK);
+				})
+				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+	}
+
+	/**
+	 * GET /application/receipt -> Get applications that need to be receipted
+	 * 
+     * @return List of application that need to be receipted
+     */
+	@RequestMapping(value = "/application/receipt", 
+					method = RequestMethod.GET, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<ApplicationDTO> getApplicationToReceipt() {
+		log.debug("REST request to get applications that need to be receipted");
+		return applicationRepository.findByStatutAndNatureAndReceiptDateIsNullOrderByDecisionDateDesc(validated, sejour_tmp_etudiant)
+				.stream()
+				.map(applicationMapper::applicationToApplicationDTO)
+				.collect(Collectors.toCollection(ArrayList::new));
+	}
+
+	/**
+	 * PUT /application/receipt -> Permit receipt
+	 * 
+	 * @param id The list of application id that have permit receipt
+     * @return HttpStatus
+     */
+	@RequestMapping(value = "/application/receipt", 
+					method = RequestMethod.PUT, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<?> permitReceipt(@Valid @RequestBody List<String> id, HttpServletRequest request) {
+		log.debug("REST request to application that have permit receipt : {}", id);
+		return Optional.ofNullable(applicationRepository.findAll(id))
+				.map(applications -> {
+					applications.forEach(application -> {
+						application.setReceiptDate(DateTime.now());
+						applicationRepository.save(application);
+						mailService.sendPermitEmail(application, getBaseUrl(request));
+					});
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
@@ -475,7 +521,7 @@ public class ApplicationResource {
 	@Timed
 	public List<ApplicationDTO> getApplicationToIssued() {
 		log.debug("REST request to get applications that need to be issued");
-		return applicationRepository.findByStatutAndNatureAndIssuingDateIsNull(validated, sejour_tmp_etudiant)
+		return applicationRepository.findByStatutAndNatureAndReceiptDateIsNotNullAndIssuingDateIsNull(validated, sejour_tmp_etudiant)
 				.stream()
 				.map(applicationMapper::applicationToApplicationDTO)
 				.collect(Collectors.toCollection(ArrayList::new));
@@ -500,6 +546,23 @@ public class ApplicationResource {
                     return new ResponseEntity<>(HttpStatus.OK);
 				})
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+	}
+
+	/**
+	 * GET /application/follow -> Get applications that are validated
+	 * 
+     * @return List of application that are validated
+     */
+	@RequestMapping(value = "/application/follow", 
+					method = RequestMethod.GET, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<ApplicationDTO> getValidatedApplications() {
+		log.debug("REST request to get applications that are validated");
+		return applicationRepository.findByStatutAndNatureAndDecisionDateIsNotNull(validated, sejour_tmp_etudiant)
+				.stream()
+				.map(applicationMapper::applicationToApplicationDTO)
+				.collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	/**

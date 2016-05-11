@@ -1,7 +1,12 @@
 {
 	"rdv" : {
 		"form": {
-			"title": "Select an appointment slot",
+			"title": {
+				"sejour_etudiant": "Select an appointment slot",
+				"sejour_tmp_etudiant": "Select an appointment slot",
+				"sejour_salarie": "Select an appointment slot",
+				"naturalisation": "Select an appointment slot"
+			},
 			"hour": {
 				"title": "Available time on {{currentDate}}",
 				"empty": "Select a day"

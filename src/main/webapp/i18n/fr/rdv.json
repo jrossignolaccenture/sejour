@@ -1,7 +1,12 @@
 {
 	"rdv" : {
 		"form": {
-			"title": "Sélectionnez un créneau de rendez-vous",
+			"title": {
+				"sejour_etudiant": "Sélectionnez un créneau de rendez-vous",
+				"sejour_tmp_etudiant": "Je sélectionne un créneau de rendez-vous",
+				"sejour_salarie": "Sélectionnez un créneau de rendez-vous",
+				"naturalisation": "Sélectionnez un créneau de rendez-vous"
+			},
 			"hour": {
 				"title": "Créneaux disponibles le {{currentDate}}",
 				"empty": "Sélectionner un jour"

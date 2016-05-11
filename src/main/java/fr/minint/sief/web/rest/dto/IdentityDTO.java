@@ -64,8 +64,12 @@ public class IdentityDTO implements Serializable {
     private List<DocumentDTO> documents = new ArrayList<>();
     
     private Map<PersonType, List<PersonDTO>> family = new HashMap<>();
+    
+    private boolean changed = false;
 
     private Boolean admissible;
+    
+    private boolean valid = false;
 
     private DateTime validateOn;
     
@@ -209,6 +213,14 @@ public class IdentityDTO implements Serializable {
 		this.family = family;
 	}
 
+	public boolean isChanged() {
+		return changed;
+	}
+
+	public void setChanged(boolean changed) {
+		this.changed = changed;
+	}
+
 	public Boolean isAdmissible() {
 		return admissible;
 	}
@@ -219,6 +231,14 @@ public class IdentityDTO implements Serializable {
 
 	public DateTime getValidateOn() {
 		return validateOn;
+	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
 	}
 
 	public void setValidateOn(DateTime validateOn) {
@@ -261,8 +281,10 @@ public class IdentityDTO implements Serializable {
                 ", activity='" + activity + "'" +
                 ", documents='" + documents + "'" +
                 ", family='" + family + '\'' +
+                ", changed='" + changed + '\'' +
                 ", admissible='" + admissible + '\'' +
                 ", validateOn='" + validateOn + '\'' +
+                ", valid='" + valid + '\'' +
                 ", familyValidateOn='" + familyValidateOn + '\'' +
                 ", familyAdmissible='" + familyAdmissible + '\'' +
                 '}';

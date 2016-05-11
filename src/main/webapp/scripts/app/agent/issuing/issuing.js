@@ -7,13 +7,12 @@ angular.module('sejourApp')
 	            parent: 'agent',
 	            url: '/delivrance',
 	            data: {
-	                roles: ['ROLE_AGENT'],
-	                listType: 'validation'
+	                roles: ['ROLE_AGENT']
 	            },
 	            views: {
 	                'content@': {
-	                    templateUrl: 'scripts/components/application/application_list.html',
-	                    controller: 'ApplicationListController'
+	                    templateUrl: 'scripts/app/agent/issuing/issuing_search.html',
+	                    controller: 'IssuingSearchController'
 	                }
 	            },
 	            resolve: {

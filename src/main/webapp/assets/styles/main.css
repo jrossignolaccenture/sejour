@@ -258,6 +258,12 @@ ul#strengthBar {
     padding: 15px 0 10px 0;
 }
 
+@media (min-width: 1200px) {
+	.box > .icon > .info {
+    	font-size: 16px;
+	}
+}
+
 .box > .icon > .info > p {
     color: #666;
     line-height: 1.5em;
@@ -445,6 +451,16 @@ ul#strengthBar {
 
 .img-disabled {
 	opacity:0.2;
+}
+
+.img-valid {
+	border: 4px solid green;
+	border-radius: 5%;
+}
+
+.img-error {
+	border: 4px solid red;
+	border-radius: 5%;
 }
 
 .form-info {

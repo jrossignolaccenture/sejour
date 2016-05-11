@@ -1,0 +1,19 @@
+{
+	"applicationList": {
+		"title": "Application list for permit issuing",
+		"noApplication": "There is no permit",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"id": "Foreign number",
+		"nationality": "Nationality",
+		"applicationType": "Application type"
+	},
+	"follow": {
+		"title": "Permit follow-up",
+		"tabs" : {
+			"inProgress": "In progress",
+			"receipted": "Receipted",
+			"issued": "Issued"
+		}
+	}
+}

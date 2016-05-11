@@ -45,9 +45,10 @@ angular.module('sejourApp')
             restrict: 'E',
             scope: {
             	ngModel: "=",
-            	disabled: "@"
+            	disabled: "@",
+            	ngDisabled: "="
             },
-            template: '<select class="form-control" ng-options="country.key as country.name for country in countries | orderBy:\'name\'" ng-model="ngModel" ng-disabled="disabled == \'disabled\'"></select>',
+            template: '<select class="form-control" ng-options="country.key as country.name for country in countries | orderBy:\'name\'" ng-model="ngModel" ng-disabled="disabled == \'disabled\' || ngDisabled"></select>',
             controller: ['$scope', 'Country', function($scope, Country) {
             	$scope.countries = [];
 	            Country.get().then(function(countries) {
@@ -87,7 +88,7 @@ angular.module('sejourApp')
             	ngModel: "=",
             	fieldName: "@",
             	fieldId: "@",
-            	readonly: "@"
+            	readonly: "="
             },
             templateUrl: 'scripts/components/form/inputDate.html',
             controller: ['$rootScope', '$scope', function($rootScope, $scope) {
@@ -114,7 +115,7 @@ angular.module('sejourApp')
             restrict: 'E',
             scope: {
             	ngModel: "=",
-            	readonly: "@",
+            	readonly: "=",
             	fieldName: "@",
             	fieldId: "@"
             },

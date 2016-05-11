@@ -46,13 +46,16 @@
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
             "email.placeholder": "Your e-mail",
-            "date.format": "dd/mm/yyyy"
+            "date.format": "dd/mm/yyyy",
+            "haveChanged": "* modifications have been done since the last application"
         },
         "button": {
         	"start": "Start",
         	"continue": "Continue",
         	"back": "Back",
+        	"cancel": "Cancel",
 	    	"report": "Report a change",
+	    	"modify": "Modify",
         	"validate": "Validate my application",
         	"payment": "Confirm payment",
         	"end": "End"

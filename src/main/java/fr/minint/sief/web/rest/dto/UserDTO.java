@@ -30,6 +30,8 @@ public class UserDTO {
 	@NotNull
 	private UserType type;
 	
+	private String profil;
+	
     private IdentityDTO identity = new IdentityDTO();
 	
     private DateTime comingDate;
@@ -44,12 +46,13 @@ public class UserDTO {
 	public UserDTO() {
 	}
 
-	public UserDTO(String id, String email, String password, UserType type, IdentityDTO identity, DateTime comingDate, 
+	public UserDTO(String id, String email, String password, UserType type, String profil, IdentityDTO identity, DateTime comingDate, 
 			AddressDTO address, String langKey, List<String> roles) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.type = type;
+		this.profil = profil;
 		this.identity = identity;
 		this.comingDate = comingDate;
 		this.address = address;
@@ -67,6 +70,10 @@ public class UserDTO {
 
 	public UserType getType() {
 		return type;
+	}
+
+	public String getProfil() {
+		return profil;
 	}
 
 	public String getPassword() {
@@ -100,6 +107,7 @@ public class UserDTO {
 				", email='" + email + '\'' + 
 				", password='" + password + '\'' + 
 				", type='" + type + '\'' + 
+				", profil='" + profil + '\'' + 
                 ", identity='" + identity + '\'' +
                 ", comingDate='" + comingDate + '\'' +
                 ", address='" + address + '\'' +

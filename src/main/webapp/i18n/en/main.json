@@ -24,12 +24,12 @@
 		        "extend": "I want to <strong>extend my stay</strong> in France",
 		        "nationality": "I want to <strong>acquire French nationality</strong>",
 		        "france": {
-		        	"study": "I want to  <strong>ask a first stay</strong> in France",
+		        	"study": "I want to  <strong>ask for a first stay</strong> in France",
 		        	"change": "I want to  <strong>declare a status change</strong>",
-		        	"family": "I want to  <strong>get my family</strong> in France",
+		        	"family": "I want to  <strong>get my family join me</strong> in France",
 		        	"extend": "I want to  <strong>extend my stay</strong> in France",
 		        	"sick": "I want to  <strong>benefit from a patients foreigners</strong> application",
-		        	"child": "I want to  <strong>request a document for my child</strong>"
+		        	"movement": "I want to  <strong>request a movement document</strong>"
 		        }
 	        }
        	},
@@ -51,7 +51,9 @@
 		        "rdv.setting": "Appointments calendar",
 		        "question": "Messages",
 		        "analyse": "Data analysis and control",
-		        "issuing": "Resident permit delivery"
+		        "receipt": "Resident permit reception",
+		        "issuing": "Resident permit delivery",
+		        "follow": "Resident permit follow-up"
 	        }
        	}
     }

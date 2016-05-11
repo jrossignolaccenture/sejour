@@ -155,6 +155,7 @@ public class AccountResourceTest {
             "joe@example.com",      // e-mail
             "password",             // password
             UserType.individual,	// type
+            "France",				// profil
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress
@@ -180,6 +181,7 @@ public class AccountResourceTest {
             "funkymail",       // e-mail <-- invalid
             "password",         // password
             UserType.individual,// type
+            "France",				// profil
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress
@@ -206,6 +208,7 @@ public class AccountResourceTest {
             "john@example.com",     // e-mail
             "password",             // password
             UserType.individual,	// type
+            "France",				// profil
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress
@@ -214,7 +217,7 @@ public class AccountResourceTest {
         );
 
         // Duplicate e-mail, different login
-        UserDTO dup = new UserDTO("222", u.getEmail(), u.getPassword(), u.getType(), null, null, null,
+        UserDTO dup = new UserDTO("222", u.getEmail(), u.getPassword(), u.getType(), null, null, null, null,
             u.getLangKey(), u.getRoles());
 
         // Good user
@@ -243,6 +246,7 @@ public class AccountResourceTest {
             "badguy@example.com",   // e-mail
             "password",             // password
             UserType.individual,	// type
+            "France",				// profil
             null,					// identity
             null,					// comingDate
             null,					// frenchAddress
