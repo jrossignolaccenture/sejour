@@ -36,7 +36,7 @@ angular.module('sejourApp')
     			ids.push(application.id);
     		});
     		Application.receipt(ids).then(function(){
-    			$state.go('home');
+    			$state.go('follow', {tab: 'recus'});
     		});
     	}
     });

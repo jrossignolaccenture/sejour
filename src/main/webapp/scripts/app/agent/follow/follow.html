@@ -5,13 +5,13 @@
 	<br><br>
 	
 	<ul class="nav nav-tabs nav-justified">
-		<li role="presentation" ng-class="{'active': tab === 'inProgress'}" ng-click="changeTab('inProgress')" style="cursor: pointer;">
+		<li role="presentation" ng-class="{'active': tab === 'cours'}" ui-sref="follow({tab: 'cours'})" style="cursor: pointer;">
 			<a translate="follow.tabs.inProgress">in progress</a>
 		</li>
-		<li role="presentation" ng-class="{'active': tab === 'receipted'}" ng-click="changeTab('receipted')" style="cursor: pointer;">
+		<li role="presentation" ng-class="{'active': tab === 'recus'}" ui-sref="follow({tab: 'recus'})" style="cursor: pointer;">
 			<a translate="follow.tabs.receipted">Foreigner number</a>
 		</li>
-		<li role="presentation" ng-class="{'active': tab === 'issued'}" ng-click="changeTab('issued')" style="cursor: pointer;">
+		<li role="presentation" ng-class="{'active': tab === 'delivres'}" ui-sref="follow({tab: 'delivres'})" style="cursor: pointer;">
 			<a translate="follow.tabs.issued">Foreigner Name</a>
 		</li>
 	</ul>

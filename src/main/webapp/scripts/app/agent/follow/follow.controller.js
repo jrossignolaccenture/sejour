@@ -1,33 +1,18 @@
 'use strict';
 
 angular.module('sejourApp')
-    .controller('FollowController', function ($scope, $state, $timeout, Application, applications) {
+    .controller('FollowController', function ($scope, $state, $stateParams, $timeout, Application, applications) {
     	
-    	var inProgressApplications = [],
-    		receiptedApplications = [],
-    		issuedApplications = [];
+    	$scope.tab = $stateParams.tab;
+    	$scope.applications = [];
     	
     	applications.forEach(function(application){
-    		if(application.receiptDate == null){
-    			inProgressApplications.push(application);
-    		} else if(application.receiptDate != null && application.issuingDate == null){
-    			receiptedApplications.push(application);
-    		} else if(application.receiptDate != null && application.issuingDate != null){
-    			issuedApplications.push(application);
+    		if($scope.tab === 'cours' && application.receiptDate == null){
+    			$scope.applications.push(application);
+    		} else if($scope.tab === 'recus' && application.receiptDate != null && application.issuingDate == null){
+    			$scope.applications.push(application);
+    		} else if($scope.tab === 'delivres' && application.receiptDate != null && application.issuingDate != null){
+    			$scope.applications.push(application);
     		}
 		});
-    	
-    	$scope.changeTab = function(newTab){
-    		$scope.tab = newTab;
-    		if(newTab === 'inProgress'){
-    			$scope.applications = inProgressApplications;
-    		} else if(newTab === 'receipted'){
-    			$scope.applications = receiptedApplications;
-    		} else if(newTab === 'issued'){
-    			$scope.applications = issuedApplications;
-    		}
-    	}
-    	
-    	$scope.changeTab('inProgress');
-    	
     });

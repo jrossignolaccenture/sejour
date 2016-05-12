@@ -17,7 +17,7 @@ angular.module('sejourApp')
         
         $scope.issue = function () {
     		Application.issuing(currentApplication.id).then(function(result) {
-            	$state.go('issuing/list')
+            	$state.go('follow', {tab: 'delivres'});
             });
         }
     });

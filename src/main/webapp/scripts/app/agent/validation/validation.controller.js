@@ -30,6 +30,6 @@ angular.module('sejourApp')
         }
         
         $scope.endValidation = function () {
-        	$state.go('validation/list')
+        	$state.go('follow', {tab: 'cours'})
         }
     });

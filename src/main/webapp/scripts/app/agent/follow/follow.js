@@ -5,7 +5,7 @@ angular.module('sejourApp')
         $stateProvider
 	        .state('follow', {
 	            parent: 'agent',
-	            url: '/suivi',
+	            url: '/suivi/{tab}',
 	            data: {
 	                roles: ['ROLE_AGENT']
 	            },
