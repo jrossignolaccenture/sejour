@@ -83,6 +83,7 @@ public class ApplicationService {
 		}
 		if(!lastApplication.isPresent() || ! lastApplication.get().getAddress().equals(currentUser.getAddress())) {
 			application.setAddress(currentUser.getAddress());
+			application.getAddress().setEmail(currentUser.getEmail()); // on force le mail pour être le même que le login
 		}
 		
 		application.setProject(new Project());

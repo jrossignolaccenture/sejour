@@ -3,6 +3,8 @@
 angular.module('sejourApp')
     .controller('MainController', function ($rootScope, $scope, $state, Principal, Application) {
     	
+    	$rootScope.profil = $state.current.data.profil;
+
         $scope.isAuthenticated = Principal.isAuthenticated;
         
         $scope.nbPaid = 0;
@@ -36,6 +38,9 @@ angular.module('sejourApp')
         
         $scope.choose = function(userType) {
         	$rootScope.userType = userType;
+        	if($rootScope.profil === undefined) {
+        		$rootScope.profil = 'France';
+        	}
         }
         
         $scope.chooseProfil = function(profil) {
