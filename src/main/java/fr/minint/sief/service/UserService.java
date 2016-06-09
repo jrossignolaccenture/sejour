@@ -99,6 +99,7 @@ public class UserService {
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);
         newUser.setType(type);
+        newUser.setProfil("France"); // gros hack
         newUser.setLangKey(langKey);
         // new user is not active
         newUser.setActivated(false);
