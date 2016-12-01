@@ -2,6 +2,7 @@
 	"address" : {
 		"form": {
 			"title": "Complete your address",
+			"tooltip": "Please put here your french address",
 			"comingDate": "Arrival date in France",
 			"owner": "Owner",
 			"number": "Street Number",

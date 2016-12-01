@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import fr.minint.sief.domain.Address;
 import fr.minint.sief.domain.Authority;
+import fr.minint.sief.domain.Identity;
 import fr.minint.sief.domain.User;
 import fr.minint.sief.domain.enumeration.UserType;
 import fr.minint.sief.repository.AuthorityRepository;
@@ -112,11 +113,12 @@ public class UserService {
         return newUser;
     }
 
-    public void updateUserInformation(String firstName, String lastName, DateTime comingDate, Address frenchAddress,
+    public void updateUserInformation(String firstName, String lastName, Identity identity, DateTime comingDate, Address frenchAddress,
     		String email, String langKey) {
         userRepository.findOneByEmail(SecurityUtils.getCurrentLogin()).ifPresent(u -> {
             u.setFirstName(firstName);
             u.setLastName(lastName);
+            u.setIdentity(identity);
             u.setComingDate(comingDate);
             u.setFrenchAddress(frenchAddress);
             u.setEmail(email);

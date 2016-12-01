@@ -33,6 +33,18 @@ angular.module('sejourApp')
     	$scope.identity.images.push({src: "assets/fileUpload/passport_kim.soon.jeen@gmail.com.jpg", title: "identity.form.passport"});
     	$scope.identity.images.push({src: "assets/fileUpload/birthAct_kim.soon.jeen@gmail.com.png", title: "identity.form.birthAct"});
     	$scope.identity.currentImg = $scope.identity.images[$scope.identity.currentImgIndex];
+    	$scope.demandeArchived = {};
+    	if($scope.demande.type == 'Premiere') {
+    		$scope.identityValidationDate = $scope.demande.rdvDate;
+    	} else {
+    		Demande.getArchived(currentDemande.email).then(function(result) {
+    			console.log(result);
+            	$scope.demandeArchived = result;
+            	$scope.identityValidationDate = $scope.demandeArchived.rdvDate;
+            	$scope.historyStartDate = $scope.getFormattedDate(moment($scope.demandeArchived.project.trainingStart));
+            	$scope.historyEndDate = $scope.getFormattedDate(moment($scope.demandeArchived.project.trainingStart).add($scope.demandeArchived.project.trainingLength, 'M'));
+            });
+    	}
     	
     	$scope.nextImg = function (element) {
             element.currentImgIndex++;

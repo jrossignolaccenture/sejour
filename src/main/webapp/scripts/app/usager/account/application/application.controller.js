@@ -25,8 +25,28 @@ angular.module('sejourApp')
     			for(var i=0; i<length; i++){
     				if($scope.demandes[i].id == id){
     					$scope.demandes.splice(i, 1);
+    					if($scope.demandes.length>0){
+    						$scope.demandes[0].opened = true;
+    					}
+    					break;
     				}
             	}
     		});
+    	}
+    	
+    	$scope.goToDraft = function(type){
+    		if(type == 'premiere'){
+    			$state.go('etudier/identity');
+    		} else {
+    			$state.go('renouveler/identity');
+    		}
+    	}
+    	
+    	$scope.goToPayment = function(type){
+    		if(type == 'premiere'){
+    			$state.go('etudier/payment');
+    		} else {
+    			$state.go('renouveler/payment');
+    		}
     	}
     });

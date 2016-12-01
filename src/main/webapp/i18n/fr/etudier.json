@@ -1,7 +1,11 @@
 {
     "etudier": {
         "title": "Première demande de séjour étudiant",
+        "title.agent.premiere": "Première demande de séjour étudiant",
+        "title.agent.renouvellement": "Renouvellement de séjour étudiant",
         "page.title": "Première demande de séjour étudiant",
+        "page.title.agent.premiere": "Première demande de séjour étudiant",
+        "page.title.agent.renouvellement": "Renouvellement de séjour étudiant",
         "step.title": "5 étapes pour déposer votre demande",
         "identity": {
         	"step.short": "Etat-civil",

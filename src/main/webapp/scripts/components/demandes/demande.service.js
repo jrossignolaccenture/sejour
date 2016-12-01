@@ -8,6 +8,11 @@ angular.module('sejourApp')
                     return response.data;
                 });
             },
+            initRenewal: function () {
+            	return $http.put('api/demande/initRenewal').then(function (response) {
+                    return response.data;
+                });
+            },
         	getCount: function() {
             	return $http.get('api/demandes/count').then(function (response) {
                     return response.data;
@@ -98,6 +103,11 @@ angular.module('sejourApp')
             	return $http.delete('api/demande/' + objectId).then(function (response) {
                     return response.data;
                 });
-            }
+            },
+            getArchived: function (email) {
+            	return $http.get('api/demande', {params: {email: email, statut: "archive"}}).then(function (response) {
+                    return response.data;
+                });
+            },
         };
     });

@@ -1,0 +1,34 @@
+{
+    "etudier": {
+        "title": "First application for a student stay",
+        "page.title": "First application for a student stay",
+        "step.title": "5 steps for your application",
+        "identity": {
+        	"step.short": "Identity",
+        	"step.long": "Complete your civil status and personal information"
+        },
+        "address": {
+        	"step.short": "Address",
+        	"step.long": "Complete your address"
+        },
+        "project": {
+        	"step.short": "Project",
+        	"step.long": "Complete your project details"
+        },
+        "summary": {
+        	"step.short": "Summary",
+        	"step.long": "Verify your application informations"
+        },
+        "payment": {
+        	"step.short": "Payment",
+        	"step.long": "Pre-pay your residency taxes"
+        },
+        "button": {
+        	"start": "Start",
+        	"continue": "Continue",
+        	"back": "Back",
+        	"payment": "Confirm payment",
+        	"end": "End"
+        }
+    }
+}

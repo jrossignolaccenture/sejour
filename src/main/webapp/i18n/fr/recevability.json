@@ -10,8 +10,8 @@
 			"creationDate": "Date de création"
 		},
 		"form": {
-	    	"title": "{{studentName}} - Première demande de séjour étudiant",
 	    	"identity": "Vérification de l'état-civil et des informations personnelles",
+	    	"address": "Vérification des coordonnées du demandeur",
 	    	"project": "Vérification du projet",
 	    	
 	    	"toVerify": "A vérifier",

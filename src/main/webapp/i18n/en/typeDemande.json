@@ -3,7 +3,8 @@
         "TypeDemande" : {
             "SELECT": "{VALUE, select, premiere{premiere} reexamen{reexamen} other{}}",
             "premiere": "First application",
-            "reexamen": "Reexamen"
+            "reexamen": "Reexamen",
+            "renouvellement": "Renewal"
         }
     }
 }

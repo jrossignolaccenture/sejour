@@ -40,6 +40,7 @@ angular.module('sejourApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     	$translatePartialLoader.addPart('recevability');
                     	$translatePartialLoader.addPart('project');
+                    	$translatePartialLoader.addPart('address');
                     	$translatePartialLoader.addPart('identity');
                     	$translatePartialLoader.addPart('sexType');
                     	$translatePartialLoader.addPart('resourceType');

@@ -19,11 +19,11 @@
 						<span class="glyphicon" ng-class="{'glyphicon-triangle-top': demande.opened, 'glyphicon-triangle-bottom': !demande.opened}"></span>
 						<h5 class="panel-title" 
 							ng-if="!demande.decisionDate"
-							translate="application.list.title.created.{{demande.nature}}"
+							translate="application.list.title.{{demande.type}}.created.{{demande.nature}}"
 							translate-values="{creationDate: '{{getFormattedDate(demande.creationDate)}}'}">Application</h5>
 						<h5 class="panel-title" 
 							ng-if="demande.decisionDate"
-							translate="application.list.title.validated.{{demande.nature}}"
+							translate="application.list.title.{{demande.type}}.validated.{{demande.nature}}"
 							translate-values="{decisionDate: '{{getFormattedDate(demande.decisionDate)}}'}">Application</h5>
 					</div>
 				</div>
@@ -63,8 +63,8 @@
 		<div class="row row-center" style="margin-top: 10px;" ng-show="demande.opened">
 			<div class="col-xs-10 col-xs-offset-2">
 		    	<button class="btn btn-danger" translate="application.button.delete" ng-if="demande.statut == 'draft'" ng-click="remove(demande.id)">Delete</button>
-		    	<button class="btn btn-success" style="margin-left: 20px" translate="application.button.continue" ng-if="demande.statut == 'draft'" ui-sref="etudier/identity">Continue</button>
-		    	<button class="btn btn-success" translate="application.button.payment" ng-if="demande.statut == 'payment'" ui-sref="etudier/payment">RDV</button>
+		    	<button class="btn btn-success" style="margin-left: 20px" translate="application.button.continue" ng-if="demande.statut == 'draft'" ng-click="goToDraft(demande.type)">Continue</button>
+		    	<button class="btn btn-success" translate="application.button.payment" ng-if="demande.statut == 'payment'" ng-click="goToPayment(demande.type)">RDV</button>
 		    	<button class="btn btn-success" translate="application.button.rdv" ng-if="demande.statut == 'rdv'" ui-sref="etudier/rdv">RDV</button>
 			</div>
 		</div>

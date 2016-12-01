@@ -10,12 +10,12 @@
 			"applicationType": "Type de demande"
 		},
 		"form": {
-	    	"title": "{{studentName}} - Première demande de séjour étudiant",
 	    	"identity": "Identité de l'usager",
 	    	"preinscription": "(Pré) inscription confirmée le {{confirmationDate}} - {{confirmationAuthor}}",
 	    	"project": "Projet de séjour",
 	    	"policeControl": "Contrôle policier",
 	    	"history": "Historique SIEF",
+	    	"history.list": "Droit au séjour \"étudiant\" - du {{startDate}} au {{endDate}}",
 	    	"noHistory": "Pas d'historique",
 	    	
 	    	"validate.h": "Validé le {{validationDate}} - {{validationAuthor}}",

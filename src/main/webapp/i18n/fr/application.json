@@ -2,9 +2,13 @@
 	"application" : {
 		"title": "Mes demandes",
 		"list": {
-			"title": {
+			"title.premiere": {
 				"created.sejour_etudiant": "Première demande de séjour étudiant - créée le {{creationDate}}",
 				"validated.sejour_etudiant": "Première demande de séjour étudiant - validée le {{decisionDate}}"
+			},
+			"title.renouvellement": {
+				"created.sejour_etudiant": "Demande de renouvellement de séjour étudiant - créée le {{creationDate}}",
+				"validated.sejour_etudiant": "Demande de renouvellement de séjour étudiant - validée le {{decisionDate}}"
 			},
 			"noApplication": "Vous n'avez pas de demande.",
 			"modified": "Demande modifiée le {{modificationDate}} - {{userName}}",
@@ -13,7 +17,7 @@
 			"recevability.wait": "En attente de vérification de la recevabilité par l'administration des étrangers en France",
 			"recevability": "Recevabilité de la demande vérifiée le {{recevabilityDate}} - Administration des étrangers en France",
 			"rdv.future": "Rendez-vous confirmé le {{rdvDate}} - {{userName}}",
-			"rdv.passed": "Rendez-vous passé le {{rdvDate}} - {{userName}}",
+			"rdv.passed": "Rendez-vous réalisé le {{rdvDate}} - {{userName}}",
 			"decision.wait": "En attente d'instruction et décision par l'administration des étrangers en France",
 			"decision": "Instruction et décision validée le {{decisionDate}} - Administration des étrangers en France"
 		},

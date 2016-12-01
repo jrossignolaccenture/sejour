@@ -2,6 +2,7 @@
 	"address" : {
 		"form": {
 			"title": "Complétez vos coordonnées",
+			"tooltip": "Merci d'indiquer ici votre adresse en France",
 			"comingDate": "Date d'arrivée en France",
 			"owner": "Chez",
 			"number": "Numéro de voie",

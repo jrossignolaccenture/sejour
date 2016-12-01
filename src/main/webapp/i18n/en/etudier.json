@@ -1,7 +1,11 @@
 {
     "etudier": {
         "title": "First application for a student stay",
+        "title.premiere": "First application for a student stay",
+        "title.renouvellement": "Renewal for a student stay",
         "page.title": "First application for a student stay",
+        "page.title.premiere": "First application for a student stay",
+        "page.title.renouvellement": "Renewal for a student stay",
         "step.title": "5 steps for your application",
         "identity": {
         	"step.short": "Identity",

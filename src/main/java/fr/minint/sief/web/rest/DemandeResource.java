@@ -26,6 +26,7 @@ import com.codahale.metrics.annotation.Timed;
 
 import fr.minint.sief.domain.Demande;
 import fr.minint.sief.domain.enumeration.StatutDemande;
+import fr.minint.sief.domain.enumeration.TypeDemande;
 import fr.minint.sief.repository.DemandeRepository;
 import fr.minint.sief.repository.UserRepository;
 import fr.minint.sief.security.SecurityUtils;
@@ -57,7 +58,7 @@ public class DemandeResource {
     private DemandeMapper demandeMapper;
 
     /**
-     * PUT  /demandes -> Updates an existing demande.
+     * PUT  /demande/init -> init a premiere demande.
      */
     @RequestMapping(value = "/demande/init",
         method = RequestMethod.PUT,
@@ -66,6 +67,19 @@ public class DemandeResource {
     public ResponseEntity<Void> init() throws URISyntaxException {
         log.debug("REST request to init Demande : {}");
         demandeService.initWithCampus();
+        return ResponseEntity.ok().body(null);
+    }
+
+    /**
+     * PUT  /demande/initRenewal -> init a renewal demande.
+     */
+    @RequestMapping(value = "/demande/initRenewal",
+        method = RequestMethod.PUT,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Void> initRenewal() throws URISyntaxException {
+        log.debug("REST request to init Demande : {}");
+        demandeService.initWithUserInfo();
         return ResponseEntity.ok().body(null);
     }
     
@@ -237,7 +251,11 @@ public class DemandeResource {
     public ResponseEntity<String> verify(@Valid @RequestBody DemandeDTO demandeDTO) throws URISyntaxException {
         log.debug("REST request to verify current demande");
         Demande demande = demandeMapper.demandeDTOToDemande(demandeDTO);
-        demande.setStatut(StatutDemande.rdv);
+        if(demande.getType() == TypeDemande.premiere) {
+        	demande.setStatut(StatutDemande.rdv);
+        } else {
+        	demande.setStatut(StatutDemande.decision);
+        }
         demande.setRecevabilityDate(DateTime.now());
         demandeRepository.save(demande);
         return new ResponseEntity<String>(HttpStatus.OK);

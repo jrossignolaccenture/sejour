@@ -157,6 +157,7 @@ public class AccountResource {
             .filter(u -> u.getEmail().equals(SecurityUtils.getCurrentLogin()))
             .map(u -> {
                 userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), 
+                		identityMapper.identityDTOToIdentity(userDTO.getIdentity()),
                 		userDTO.getComingDate(), addressMapper.addressDTOToAddress(userDTO.getFrenchAddress()), 
                 		userDTO.getEmail(),
                     userDTO.getLangKey());

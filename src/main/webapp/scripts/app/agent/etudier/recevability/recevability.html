@@ -1,7 +1,7 @@
 <div ng-cloak>
     <div class="row">
     	<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1 title-underscore">
-    		<h4  translate="recevability.form.title" translate-values="{ studentName: '{{studentName}}'}"></h4>
+    		<h4  translate="etudier.title.agent.{{demande.type}}" translate-values="{ studentName: '{{studentName}}'}"></h4>
    		</div>
     </div>
 	<br>
@@ -78,7 +78,7 @@
 				        <input type="text" class="form-control" name="passportNumber" id="field_passportNumber" ng-model="demande.identity.passportNumber" readonly="readonly">
 				    </div>
 				</div>
-				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" ng-if="demande.type == 'premiere'">
 					<div class="panel panel-default">
 						<div class="panel-heading" style="text-align: center">
 							<span class="glyphicon glyphicon-arrow-right hand" ng-show="identity.images.length > 1" ng-click="nextImg(identity)" style="float: right;"></span>
@@ -89,6 +89,77 @@
 							<img src="{{identity.currentImg.src}}" class="img-responsive">
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" ng-show="demande.type == 'renouvellement'">
+		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 col-lg-8 col-lg-offset-1">
+			<div class="collapsable-panel" ng-class="{'opened': addressOpened}" ng-click="addressOpened = !addressOpened">
+				<div class="panel-heading">
+					<span class="glyphicon" ng-class="{'glyphicon-triangle-top': addressOpened, 'glyphicon-triangle-bottom': !addressOpened}"></span>
+					<h5 class="panel-title" translate="recevability.form.address">Address</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 validation-form">
+			<img class="hand" src="assets/images/checkbox_unchecked.png" ng-show="!addressValidated" ng-click="addressValidated = !addressValidated; addressOpened = false;">
+			<img class="hand" src="assets/images/checkbox_checked.png" ng-show="addressValidated" ng-click="addressValidated = !addressValidated">
+			<span translate="recevability.form.toVerify" ng-show="!addressValidated">To validate</span>
+			<span translate="recevability.form.verified" ng-show="addressValidated">validate</span>
+		</div>
+	</div>
+	<div class="row" ng-show="addressOpened">
+		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
+			<div class="row validation-visualization-row" ng-class="{'opened': addressOpened}">
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+					<div class="form-group">
+			            <label translate="address.form.owner" for="field_owner">Owner</label>
+			            <input type="text" class="form-control" name="owner" id="field_owner"
+			                    ng-model="demande.address.owner" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.number" for="field_number">Number</label>
+			            <input type="text" class="form-control" name="number" id="field_number" ng-model="demande.address.number" 
+			            		readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.street" for="field_street">Street</label>
+			            <input type="text" class="form-control" name="street" id="field_street"
+			                    ng-model="demande.address.street" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.complement" for="field_complement">Complement</label>
+			            <input type="text" class="form-control" name="complement" id="field_complement"
+			                    ng-model="demande.address.complement" readonly="readonly">
+			
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.postalCode" for="field_postalCode">PostalCode</label>
+			            <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+			                    ng-model="demande.address.postalCode" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.city" for="field_city">City</label>
+			            <input type="text" class="form-control" name="city" id="field_city"
+			                    ng-model="demande.address.city" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.country" for="field_country">Country</label>
+			            <select class="form-control" name="country" id="field_country"
+						      ng-options="country.key as country.name for country in countries | orderBy:'name'"
+						      ng-model="demande.address.country" disabled></select>
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.phone" for="field_phone">Phone</label>
+			            <input type="text" class="form-control" name="phone" id="field_phone"
+			                    ng-model="demande.address.phone" readonly="readonly">
+			        </div>
+			        <div class="form-group">
+			            <label translate="address.form.email" for="field_email">Email</label>
+			            <input type="text" class="form-control" name="email" id="field_email"
+			                    ng-model="demande.address.email" readonly="readonly">
+			        </div>
 				</div>
 			</div>
 		</div>
@@ -113,7 +184,7 @@
 		<div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-11 col-lg-offset-1">
 			<div class="row validation-visualization-row" ng-class="{'opened': projectOpened}">
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-					<div class="form-group">
+					<div class="form-group" ng-if="demande.type == 'premiere'">
 			            <label translate="project.form.comingDate" for="field_comingDate">ComingDate</label>
 				        <div class="input-group date">
 					        <span class="input-group-addon">
@@ -189,7 +260,7 @@
 	<div class="row row-center">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
 	    	<button class="btn btn-danger" translate="recevability.form.button.decline">Decline</button>
-	    	<button class="btn btn-success" style="margin-left: 20px" ng-disabled="!identityValidated || !projectValidated" translate="recevability.form.button.accept" ng-click="verify()">Accept</button>
+	    	<button class="btn btn-success" style="margin-left: 20px" ng-disabled="!identityValidated || (demande.type == 'renouvellement' && !addressValidated) || !projectValidated" translate="recevability.form.button.accept" ng-click="verify()">Accept</button>
 		</div>
 	</div>
 </div>

@@ -17,6 +17,7 @@ import fr.minint.sief.domain.User;
 import fr.minint.sief.domain.enumeration.NatureDemande;
 import fr.minint.sief.domain.enumeration.SexType;
 import fr.minint.sief.domain.enumeration.StatutDemande;
+import fr.minint.sief.domain.enumeration.TypeDemande;
 import fr.minint.sief.repository.DemandeRepository;
 
 /**
@@ -47,6 +48,35 @@ public class DemandeService {
     	return demandeRepository.findOneByEmailAndStatut(currentUser.getEmail(), statut);
     	
     }
+    
+    public void initWithUserInfo() {
+    	// Récupération info utilisateur connecté
+        User currentUser = userService.getUser();
+        
+        // init demande with user info (pour les clones on verra plus tard hein...)
+		Demande demande = new Demande();
+        demande.setEmail(currentUser.getEmail());
+        demande.setType(TypeDemande.renouvellement);
+    	demande.setNature(NatureDemande.sejour_etudiant);
+        demande.setModificationDate(DateTime.now());
+        demande.setUserId(currentUser.getId());
+        demande.setIdentity(currentUser.getIdentity());
+        demande.setAddress(currentUser.getFrenchAddress());
+		Project project = new Project();
+		project.setComingDate(currentUser.getComingDate());
+		project.setUniversity("Télécom Paris Tech");
+		project.setTraining("Master of Science in Multimedia Information Technologies");
+		demande.setProject(project);
+        
+        // suppression précédente demande en cours
+    	Demande existingDemande = getCurrentDemande(StatutDemande.draft);
+    	if(existingDemande != null){
+    		demandeRepository.delete(existingDemande);
+    	}
+
+        // init nouvelle demande
+        demandeRepository.save(demande);
+    }
 
     public void initWithCampus() {
     	// Récupération info utilisateur connecté
@@ -66,7 +96,6 @@ public class DemandeService {
 
         // init nouvelle demande
         demandeRepository.save(demande);
-        
     }
 
 

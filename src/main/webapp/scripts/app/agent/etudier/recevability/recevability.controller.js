@@ -6,7 +6,14 @@ angular.module('sejourApp')
     	//  !!!!! BEAUCOUP DE CODE A MUTUALISER AVEC VALIDATION.CONTROLLER.JS !!!!!
     	
     	$scope.identityOpened = true;
+    	$scope.addressOpened = true;
     	$scope.projectOpened = true;
+    	if(currentDemande.type == 'renouvellement'){
+        	$scope.identityOpened = false;
+    		$scope.identityValidated = true;
+    		$scope.addressOpened = false;
+    		$scope.addressValidated = true;
+    	}
     	
     	$scope.identity = {
 			images: [], 
